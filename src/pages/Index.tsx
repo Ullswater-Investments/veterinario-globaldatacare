@@ -206,7 +206,7 @@ const Landing = () => {
             <p className="text-lg text-slate-600">Tecnologías que garantizan seguridad y soberanía</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-12">
             {features.map((feature, index) => {
               const Icon = feature.icon;
               return (
@@ -220,6 +220,18 @@ const Landing = () => {
                 </div>
               );
             })}
+          </div>
+
+          <div className="text-center">
+            <Button 
+              size="lg"
+              onClick={() => navigate('/tech')}
+              variant="outline"
+              className="border-blue-600 text-blue-600 hover:bg-blue-50"
+            >
+              Explorar Arquitectura Técnica
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
           </div>
         </div>
       </section>

@@ -27,6 +27,10 @@ import LabPortal from "./pages/portals/LabPortal";
 import PatientPortal from "./pages/portals/PatientPortal";
 import ResearchPortal from "./pages/portals/ResearchPortal";
 import InsurancePortal from "./pages/portals/InsurancePortal";
+import TechIndex from "./pages/tech/TechIndex";
+import Interoperability from "./pages/tech/Interoperability";
+import Sovereignty from "./pages/tech/Sovereignty";
+import Traceability from "./pages/tech/Traceability";
 
 const queryClient = new QueryClient();
 
@@ -50,6 +54,12 @@ const App = () => (
                 <Route path="/portal/patient" element={<PatientPortal />} />
                 <Route path="/portal/research" element={<ResearchPortal />} />
                 <Route path="/portal/insurance" element={<InsurancePortal />} />
+                
+                {/* Public Tech Deep Dive Pages */}
+                <Route path="/tech" element={<TechIndex />} />
+                <Route path="/tech/interoperability" element={<Interoperability />} />
+                <Route path="/tech/sovereignty" element={<Sovereignty />} />
+                <Route path="/tech/traceability" element={<Traceability />} />
                 
                 {/* Protected Routes */}
                 <Route element={<AppLayout />}>
