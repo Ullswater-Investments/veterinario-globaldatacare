@@ -54,7 +54,7 @@ export default function Auth() {
         title: '¡Bienvenido!',
         description: 'Has iniciado sesión correctamente',
       });
-      navigate('/');
+      navigate('/dashboard');
     }
   };
 
@@ -120,7 +120,7 @@ export default function Auth() {
         title: '¡Cuenta creada!',
         description: 'Tu cuenta ha sido creada exitosamente',
       });
-      navigate('/');
+      navigate('/dashboard');
     }
   };
 

@@ -17,8 +17,11 @@ export function AppLayout() {
   useEffect(() => {
     if (!loading && !user) {
       navigate('/auth');
+    } else if (!loading && user && !currentRole) {
+      // Wait for role to load before rendering
+      return;
     }
-  }, [user, loading, navigate]);
+  }, [user, loading, currentRole, navigate]);
 
   if (loading) {
     return (
