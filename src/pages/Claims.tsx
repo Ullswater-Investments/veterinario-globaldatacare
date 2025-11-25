@@ -1,7 +1,21 @@
+import { useRoleProtection } from '@/hooks/useRoleProtection';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { CreditCard } from 'lucide-react';
+import { EmptyState } from '@/components/EmptyState';
+import { CreditCard, Loader2 } from 'lucide-react';
 
 export default function Claims() {
+  const { hasAccess, loading } = useRoleProtection(['insurance_admin']);
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-[400px]">
+        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+      </div>
+    );
+  }
+
+  if (!hasAccess) return null;
+
   return (
     <div className="space-y-6">
       <div>
@@ -12,7 +26,7 @@ export default function Claims() {
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <CreditCard className="h-5 w-5 text-blue-600" />
+            <CreditCard className="h-5 w-5 text-primary" />
             Módulo en Desarrollo
           </CardTitle>
           <CardDescription>
@@ -20,11 +34,11 @@ export default function Claims() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="bg-slate-50 rounded-lg p-8 text-center border-2 border-dashed border-slate-300">
-            <p className="text-slate-600">
-              Próximamente: Lista de claims, detección de anomalías y smart contracts
-            </p>
-          </div>
+          <EmptyState
+            icon={CreditCard}
+            title="Próximamente: Gestión de Claims"
+            description="Detección de anomalías, smart contracts y validación automática"
+          />
         </CardContent>
       </Card>
     </div>

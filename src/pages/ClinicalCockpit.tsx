@@ -3,15 +3,33 @@ import { useQuery } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Stethoscope, AlertTriangle, Loader2 } from 'lucide-react';
+import { Stethoscope, AlertTriangle, Loader2, Users } from 'lucide-react';
 import { PatientSearchBar } from '@/components/clinical/PatientSearchBar';
 import { PatientCard } from '@/components/clinical/PatientCard';
 import { TimelineEvent } from '@/components/clinical/TimelineEvent';
+import { EmptyState } from '@/components/EmptyState';
+import { ErrorBoundary } from '@/components/ErrorBoundary';
+import { useRoleProtection } from '@/hooks/useRoleProtection';
 import { Tables } from '@/integrations/supabase/types';
 
 export default function ClinicalCockpit() {
+  // Proteger ruta: solo doctores pueden acceder
+  const { hasAccess, loading: roleLoading } = useRoleProtection(['doctor']);
+  
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedPatientId, setSelectedPatientId] = useState<string | null>(null);
+
+  if (roleLoading) {
+    return (
+      <div className="flex items-center justify-center min-h-[400px]">
+        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+      </div>
+    );
+  }
+
+  if (!hasAccess) {
+    return null; // El hook ya redirige
+  }
 
   // Búsqueda de pacientes
   const { data: patients, isLoading: searchLoading } = useQuery({
@@ -99,11 +117,11 @@ export default function ClinicalCockpit() {
           )}
 
           {searchQuery && !searchLoading && patients?.length === 0 && (
-            <Alert>
-              <AlertDescription>
-                No se encontraron pacientes con "{searchQuery}"
-              </AlertDescription>
-            </Alert>
+            <EmptyState
+              icon={Users}
+              title="No se encontraron pacientes"
+              description={`No hay resultados para "${searchQuery}"`}
+            />
           )}
         </CardContent>
       </Card>
@@ -133,17 +151,19 @@ export default function ClinicalCockpit() {
                 <Loader2 className="h-8 w-8 animate-spin text-primary" />
               </div>
             ) : encounters && encounters.length > 0 ? (
-              <div className="space-y-4">
-                {encounters.map((encounter) => (
-                  <TimelineEvent key={encounter.id} encounter={encounter} />
-                ))}
-              </div>
+              <ErrorBoundary fallbackMessage="Error visualizando datos médicos">
+                <div className="space-y-4">
+                  {encounters.map((encounter) => (
+                    <TimelineEvent key={encounter.id} encounter={encounter} />
+                  ))}
+                </div>
+              </ErrorBoundary>
             ) : (
-              <Alert>
-                <AlertDescription>
-                  No hay encuentros clínicos registrados para este paciente
-                </AlertDescription>
-              </Alert>
+              <EmptyState
+                icon={Stethoscope}
+                title="Sin registros clínicos"
+                description="No hay encuentros clínicos registrados para este paciente"
+              />
             )}
           </CardContent>
         </Card>
