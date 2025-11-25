@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
@@ -53,31 +53,36 @@ const Landing = () => {
       icon: Stethoscope,
       title: 'Dr. Dent (Clínica)',
       description: 'Gestión clínica, Diagnóstico AI e Interoperabilidad Hospitalaria.',
-      color: 'text-blue-600'
+      color: 'text-blue-600',
+      link: '/portal/doctor'
     },
     {
       icon: Factory,
       title: 'Lab Tech (Industria)',
       description: 'Trazabilidad, Pasaportes Digitales (DPP) y Gestión IoT.',
-      color: 'text-purple-600'
+      color: 'text-purple-600',
+      link: '/portal/lab'
     },
     {
       icon: Shield,
       title: 'Ana Patient (Wallet)',
       description: 'Soberanía de datos, Consentimiento y Visualización 3D.',
-      color: 'text-green-600'
+      color: 'text-green-600',
+      link: '/portal/patient'
     },
     {
       icon: TrendingUp,
       title: 'Prof. Data (Investigación)',
       description: 'Aprendizaje Federado y análisis epidemiológico sin exponer privacidad.',
-      color: 'text-orange-600'
+      color: 'text-orange-600',
+      link: '/portal/research'
     },
     {
       icon: FileCheck,
       title: 'SurePay (Seguros)',
       description: 'Smart Contracts y automatización de reclamaciones.',
-      color: 'text-cyan-600'
+      color: 'text-cyan-600',
+      link: '/portal/insurance'
     }
   ];
 
@@ -174,18 +179,19 @@ const Landing = () => {
             {portals.map((portal, index) => {
               const Icon = portal.icon;
               return (
-                <Card 
-                  key={index}
-                  className="transition-all hover:shadow-lg hover:-translate-y-1 cursor-pointer border-slate-200"
-                >
-                  <CardHeader>
-                    <Icon className={`h-12 w-12 mb-4 ${portal.color}`} />
-                    <CardTitle className="text-xl">{portal.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription className="text-base">{portal.description}</CardDescription>
-                  </CardContent>
-                </Card>
+                <Link to={portal.link} key={index}>
+                  <Card 
+                    className="transition-all hover:shadow-lg hover:-translate-y-1 cursor-pointer border-slate-200 h-full"
+                  >
+                    <CardHeader>
+                      <Icon className={`h-12 w-12 mb-4 ${portal.color}`} />
+                      <CardTitle className="text-xl">{portal.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <CardDescription className="text-base">{portal.description}</CardDescription>
+                    </CardContent>
+                  </Card>
+                </Link>
               );
             })}
           </div>

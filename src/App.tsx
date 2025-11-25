@@ -22,6 +22,11 @@ import Epidemiology from "./pages/Epidemiology";
 import Claims from "./pages/Claims";
 import Wallet from "./pages/Wallet";
 import NotFound from "./pages/NotFound";
+import DoctorPortal from "./pages/portals/DoctorPortal";
+import LabPortal from "./pages/portals/LabPortal";
+import PatientPortal from "./pages/portals/PatientPortal";
+import ResearchPortal from "./pages/portals/ResearchPortal";
+import InsurancePortal from "./pages/portals/InsurancePortal";
 
 const queryClient = new QueryClient();
 
@@ -38,6 +43,13 @@ const App = () => (
                 {/* Public Landing Page */}
                 <Route path="/" element={<Landing />} />
                 <Route path="/auth" element={<Auth />} />
+                
+                {/* Public Portal Pages */}
+                <Route path="/portal/doctor" element={<DoctorPortal />} />
+                <Route path="/portal/lab" element={<LabPortal />} />
+                <Route path="/portal/patient" element={<PatientPortal />} />
+                <Route path="/portal/research" element={<ResearchPortal />} />
+                <Route path="/portal/insurance" element={<InsurancePortal />} />
                 
                 {/* Protected Routes */}
                 <Route element={<AppLayout />}>
