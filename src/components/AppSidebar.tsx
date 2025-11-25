@@ -110,9 +110,13 @@ export function AppSidebar() {
                         <NavLink
                           to={item.url}
                           end
-                          className="hover:bg-muted/50"
+                          className={({ isActive }) =>
+                            isActive
+                              ? "flex items-center gap-2 rounded-md px-2 py-1.5 text-sm bg-blue-50 text-blue-600 border-l-2 border-blue-600"
+                              : "flex items-center gap-2 rounded-md px-2 py-1.5 text-sm hover:bg-muted/50 transition-colors"
+                          }
                         >
-                          <item.icon className="mr-2 h-4 w-4" />
+                          <item.icon className="h-4 w-4" />
                           {!isCollapsed && <span>{item.title}</span>}
                         </NavLink>
                       </SidebarMenuButton>
