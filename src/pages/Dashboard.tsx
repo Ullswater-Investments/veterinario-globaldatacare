@@ -1,6 +1,7 @@
 import { useRole } from '@/contexts/RoleContext';
 import { Link } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 import { Stethoscope, Factory, FlaskConical, CreditCard, Wallet, Activity, Shield, Package, Brain, FileText, Wifi, Beaker } from 'lucide-react';
 
 const roleGreetings = {
@@ -196,6 +197,22 @@ export default function Dashboard() {
             </CardContent>
           </Card>
         </Link>
+      </div>
+
+      {/* Consulting CTA Section */}
+      <div className="mt-12 bg-gradient-to-r from-slate-900 to-blue-900 rounded-xl p-8 text-white">
+        <div className="max-w-3xl">
+          <h2 className="text-2xl font-bold mb-3">¿Listo para implementar OralSpace-X en su red?</h2>
+          <p className="text-slate-300 mb-6">
+            Explore nuestra propuesta técnica completa con arquitectura, metodología de entrega y modelos de colaboración.
+          </p>
+          <Link to="/consulting/technical-proposal">
+            <Button size="lg" className="bg-white text-slate-900 hover:bg-slate-100">
+              <FileText className="h-5 w-5 mr-2" />
+              Ver Technical Whitepaper
+            </Button>
+          </Link>
+        </div>
       </div>
     </div>
   );
