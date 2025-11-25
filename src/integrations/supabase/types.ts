@@ -18,7 +18,7 @@ export type Database = {
         Row: {
           created_at: string
           data_source: string
-          doctor_id: string
+          doctor_id: string | null
           encounter_date: string
           fhir_bundle: Json
           id: string
@@ -28,7 +28,7 @@ export type Database = {
         Insert: {
           created_at?: string
           data_source: string
-          doctor_id: string
+          doctor_id?: string | null
           encounter_date?: string
           fhir_bundle?: Json
           id?: string
@@ -38,7 +38,7 @@ export type Database = {
         Update: {
           created_at?: string
           data_source?: string
-          doctor_id?: string
+          doctor_id?: string | null
           encounter_date?: string
           fhir_bundle?: Json
           id?: string
