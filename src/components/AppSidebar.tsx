@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { useRole } from '@/contexts/RoleContext';
+import { useRole, AppRole } from '@/contexts/RoleContext';
 import {
   Sidebar,
   SidebarContent,
@@ -23,9 +23,17 @@ import {
   Map,
   CreditCard,
   Wallet,
+  LucideIcon,
 } from 'lucide-react';
 
-const navigationConfig = {
+type NavItem = {
+  title: string;
+  url: string;
+  icon: LucideIcon;
+  domain?: string;
+};
+
+const navigationConfig: Record<AppRole, NavItem[]> = {
   doctor: [
     { title: 'Cockpit Clínico', url: '/clinical', icon: Stethoscope },
     { title: 'Asistente AI', url: '/ai-assistant', icon: Bot },
@@ -46,6 +54,18 @@ const navigationConfig = {
   patient: [
     { title: 'Mi Wallet', url: '/wallet', icon: Wallet },
   ],
+  auditor: [
+    { title: 'Cockpit Clínico', url: '/clinical', icon: Stethoscope, domain: 'DOMINIO CLÍNICO' },
+    { title: 'Asistente AI', url: '/ai-assistant', icon: Bot },
+    { title: 'e-Receta', url: '/e-prescription', icon: Pill },
+    { title: 'Teledentistría', url: '/triage', icon: Video },
+    { title: 'Hub de Manufactura', url: '/lab-hub', icon: Factory, domain: 'DOMINIO LABORATORIO' },
+    { title: 'Inventario IoT', url: '/inventory', icon: Package },
+    { title: 'Mercado de Datos', url: '/research', icon: FlaskConical, domain: 'DOMINIO INVESTIGACIÓN' },
+    { title: 'Mapa Epidemiológico', url: '/epidemiology', icon: Map },
+    { title: 'Gestión de Claims', url: '/claims', icon: CreditCard, domain: 'DOMINIO SEGUROS' },
+    { title: 'Mi Wallet', url: '/wallet', icon: Wallet, domain: 'DOMINIO PACIENTE' },
+  ],
 };
 
 const roleLabels = {
@@ -54,6 +74,7 @@ const roleLabels = {
   researcher: 'Investigador',
   insurance_admin: 'Aseguradora',
   patient: 'Paciente',
+  auditor: 'Auditor del Ecosistema',
 };
 
 export function AppSidebar() {
@@ -75,20 +96,30 @@ export function AppSidebar() {
 
           <SidebarGroupContent>
             <SidebarMenu>
-              {items.map((item) => (
-                <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
-                    <NavLink
-                      to={item.url}
-                      end
-                      className="hover:bg-muted/50"
-                    >
-                      <item.icon className="mr-2 h-4 w-4" />
-                      {!isCollapsed && <span>{item.title}</span>}
-                    </NavLink>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
+              {items.map((item, index) => {
+                const showDomainLabel = currentRole === 'auditor' && 'domain' in item;
+                return (
+                  <div key={item.title}>
+                    {showDomainLabel && !isCollapsed && (
+                      <div className="px-2 py-1 text-xs font-semibold text-muted-foreground">
+                        {item.domain}
+                      </div>
+                    )}
+                    <SidebarMenuItem>
+                      <SidebarMenuButton asChild>
+                        <NavLink
+                          to={item.url}
+                          end
+                          className="hover:bg-muted/50"
+                        >
+                          <item.icon className="mr-2 h-4 w-4" />
+                          {!isCollapsed && <span>{item.title}</span>}
+                        </NavLink>
+                      </SidebarMenuButton>
+                    </SidebarMenuItem>
+                  </div>
+                );
+              })}
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>

@@ -28,6 +28,11 @@ const roleGreetings = {
     description: 'Gestiona tu identidad digital y consentimientos',
     icon: Wallet,
   },
+  auditor: {
+    title: 'Panel de Auditoría',
+    description: 'Vista completa del ecosistema con datos sintéticos',
+    icon: Stethoscope,
+  },
 };
 
 export default function Dashboard() {

@@ -124,6 +124,29 @@ export default function Auth() {
     }
   };
 
+  const handleDemoLogin = async () => {
+    setLoading(true);
+    const { error } = await supabase.auth.signInWithPassword({ 
+      email: 'demo@oralspace-x.eu', 
+      password: 'demo123' 
+    });
+
+    if (error) {
+      toast({
+        title: 'Error en acceso demo',
+        description: error.message,
+        variant: 'destructive',
+      });
+      setLoading(false);
+    } else {
+      toast({
+        title: 'Acceso Sandbox',
+        description: 'Entrando en modo auditoría con datos sintéticos',
+      });
+      navigate('/auditor-dashboard');
+    }
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 to-blue-50 p-4">
       <Card className="w-full max-w-md shadow-2xl">
@@ -233,6 +256,27 @@ export default function Auth() {
               </form>
             </TabsContent>
           </Tabs>
+
+          <div className="mt-6 pt-6 border-t">
+            <Button 
+              variant="outline" 
+              className="w-full" 
+              onClick={handleDemoLogin}
+              disabled={loading}
+            >
+              {loading ? (
+                <>
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  Accediendo...
+                </>
+              ) : (
+                'Acceder a Entorno Sandbox (Demo)'
+              )}
+            </Button>
+            <p className="text-xs text-muted-foreground mt-2 text-center">
+              Acceso restringido a datos sintéticos. Entorno aislado para pruebas de interoperabilidad.
+            </p>
+          </div>
         </CardContent>
       </Card>
     </div>

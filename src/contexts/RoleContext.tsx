@@ -2,7 +2,7 @@ import React, { createContext, useContext, useEffect, useState } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from './AuthContext';
 
-export type AppRole = 'doctor' | 'lab_tech' | 'patient' | 'researcher' | 'insurance_admin';
+export type AppRole = 'doctor' | 'lab_tech' | 'patient' | 'researcher' | 'insurance_admin' | 'auditor';
 
 interface RoleContextType {
   currentRole: AppRole | null;
