@@ -1,6 +1,7 @@
 import { useRole } from '@/contexts/RoleContext';
+import { Link } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Stethoscope, Factory, FlaskConical, CreditCard, Wallet } from 'lucide-react';
+import { Stethoscope, Factory, FlaskConical, CreditCard, Wallet, Activity, Shield, Package, Brain, FileText, Wifi } from 'lucide-react';
 
 const roleGreetings = {
   doctor: {
@@ -70,71 +71,113 @@ export default function Dashboard() {
       )}
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-base">Interoperabilidad FHIR</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-sm text-slate-600">
-              Datos clínicos unificados de múltiples fuentes
-            </p>
-          </CardContent>
-        </Card>
+        <Link to="/tech/fhir" className="block transition-transform hover:scale-105">
+          <Card className="h-full hover:border-blue-400 cursor-pointer">
+            <CardHeader>
+              <div className="flex items-center gap-3">
+                <div className="p-2 bg-blue-100 rounded-lg">
+                  <Activity className="h-5 w-5 text-blue-600" />
+                </div>
+                <CardTitle className="text-base">Interoperabilidad FHIR</CardTitle>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-slate-600">
+                Datos clínicos unificados de múltiples fuentes
+              </p>
+            </CardContent>
+          </Card>
+        </Link>
 
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-base">Identidad Descentralizada</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-sm text-slate-600">
-              Wallets con control total del paciente (DID)
-            </p>
-          </CardContent>
-        </Card>
+        <Link to="/tech/identity" className="block transition-transform hover:scale-105">
+          <Card className="h-full hover:border-green-400 cursor-pointer">
+            <CardHeader>
+              <div className="flex items-center gap-3">
+                <div className="p-2 bg-green-100 rounded-lg">
+                  <Shield className="h-5 w-5 text-green-600" />
+                </div>
+                <CardTitle className="text-base">Identidad Descentralizada</CardTitle>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-slate-600">
+                Wallets con control total del paciente (DID)
+              </p>
+            </CardContent>
+          </Card>
+        </Link>
 
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-base">Pasaporte Digital (DPP)</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-sm text-slate-600">
-              Trazabilidad blockchain para productos dentales
-            </p>
-          </CardContent>
-        </Card>
+        <Link to="/tech/dpp" className="block transition-transform hover:scale-105">
+          <Card className="h-full hover:border-amber-400 cursor-pointer">
+            <CardHeader>
+              <div className="flex items-center gap-3">
+                <div className="p-2 bg-amber-100 rounded-lg">
+                  <Package className="h-5 w-5 text-amber-600" />
+                </div>
+                <CardTitle className="text-base">Pasaporte Digital (DPP)</CardTitle>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-slate-600">
+                Trazabilidad blockchain para productos dentales
+              </p>
+            </CardContent>
+          </Card>
+        </Link>
 
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-base">Federated Learning</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-sm text-slate-600">
-              Investigación distribuida sin comprometer privacidad
-            </p>
-          </CardContent>
-        </Card>
+        <Link to="/tech/federated" className="block transition-transform hover:scale-105">
+          <Card className="h-full hover:border-purple-400 cursor-pointer">
+            <CardHeader>
+              <div className="flex items-center gap-3">
+                <div className="p-2 bg-purple-100 rounded-lg">
+                  <Brain className="h-5 w-5 text-purple-600" />
+                </div>
+                <CardTitle className="text-base">Federated Learning</CardTitle>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-slate-600">
+                Investigación distribuida sin comprometer privacidad
+              </p>
+            </CardContent>
+          </Card>
+        </Link>
 
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-base">Smart Contracts</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-sm text-slate-600">
-              Automatización de pagos y detección de fraude
-            </p>
-          </CardContent>
-        </Card>
+        <Link to="/tech/contracts" className="block transition-transform hover:scale-105">
+          <Card className="h-full hover:border-cyan-400 cursor-pointer">
+            <CardHeader>
+              <div className="flex items-center gap-3">
+                <div className="p-2 bg-cyan-100 rounded-lg">
+                  <FileText className="h-5 w-5 text-cyan-600" />
+                </div>
+                <CardTitle className="text-base">Smart Contracts</CardTitle>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-slate-600">
+                Automatización de pagos y detección de fraude
+              </p>
+            </CardContent>
+          </Card>
+        </Link>
 
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-base">IoT Integrado</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-sm text-slate-600">
-              Monitoreo en tiempo real de equipos y stock
-            </p>
-          </CardContent>
-        </Card>
+        <Link to="/tech/iot" className="block transition-transform hover:scale-105">
+          <Card className="h-full hover:border-teal-400 cursor-pointer">
+            <CardHeader>
+              <div className="flex items-center gap-3">
+                <div className="p-2 bg-teal-100 rounded-lg">
+                  <Wifi className="h-5 w-5 text-teal-600" />
+                </div>
+                <CardTitle className="text-base">IoT Integrado</CardTitle>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-slate-600">
+                Monitoreo en tiempo real de equipos y stock
+              </p>
+            </CardContent>
+          </Card>
+        </Link>
       </div>
     </div>
   );

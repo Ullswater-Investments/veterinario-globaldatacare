@@ -31,6 +31,12 @@ import TechIndex from "./pages/tech/TechIndex";
 import Interoperability from "./pages/tech/Interoperability";
 import Sovereignty from "./pages/tech/Sovereignty";
 import Traceability from "./pages/tech/Traceability";
+import FhirPage from "./pages/tech/FhirPage";
+import IdentityPage from "./pages/tech/IdentityPage";
+import DppPage from "./pages/tech/DppPage";
+import FederatedPage from "./pages/tech/FederatedPage";
+import ContractsPage from "./pages/tech/ContractsPage";
+import IotPage from "./pages/tech/IotPage";
 
 const queryClient = new QueryClient();
 
@@ -60,6 +66,12 @@ const App = () => (
                 <Route path="/tech/interoperability" element={<Interoperability />} />
                 <Route path="/tech/sovereignty" element={<Sovereignty />} />
                 <Route path="/tech/traceability" element={<Traceability />} />
+                <Route path="/tech/fhir" element={<FhirPage />} />
+                <Route path="/tech/identity" element={<IdentityPage />} />
+                <Route path="/tech/dpp" element={<DppPage />} />
+                <Route path="/tech/federated" element={<FederatedPage />} />
+                <Route path="/tech/contracts" element={<ContractsPage />} />
+                <Route path="/tech/iot" element={<IotPage />} />
                 
                 {/* Protected Routes */}
                 <Route element={<AppLayout />}>
