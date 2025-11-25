@@ -232,7 +232,7 @@ const BusinessModels = () => {
 
                 <div className="grid md:grid-cols-5 gap-4">
                   {models.map((model) => {
-                    const hasDetailPage = model.id >= 1 && model.id <= 10;
+                    const hasDetailPage = model.id >= 1 && model.id <= 15;
                     const cardContent = (
                       <Card 
                         className={`group transition-all hover:shadow-xl hover:-translate-y-2 cursor-pointer border-2 ${vertical.borderColor} ${vertical.bgColor} h-full`}
