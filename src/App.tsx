@@ -45,6 +45,11 @@ import TeledentistrySaaS from "./pages/business/cases/TeledentistrySaaS";
 import FederatedStorage from "./pages/business/cases/FederatedStorage";
 import DiagnosticAPI from "./pages/business/cases/DiagnosticAPI";
 import IoTInventory from "./pages/business/cases/IoTInventory";
+import DigitalPassports from "./pages/business/cases/DigitalPassports";
+import BrandProtection from "./pages/business/cases/BrandProtection";
+import ThreeDPrintingDRM from "./pages/business/cases/ThreeDPrintingDRM";
+import ESGCertification from "./pages/business/cases/ESGCertification";
+import ContextualAdvertising from "./pages/business/cases/ContextualAdvertising";
 
 const queryClient = new QueryClient();
 
@@ -90,6 +95,11 @@ const App = () => (
                 <Route path="/business/case/3" element={<FederatedStorage />} />
                 <Route path="/business/case/4" element={<DiagnosticAPI />} />
                 <Route path="/business/case/5" element={<IoTInventory />} />
+                <Route path="/business/case/6" element={<DigitalPassports />} />
+                <Route path="/business/case/7" element={<BrandProtection />} />
+                <Route path="/business/case/8" element={<ThreeDPrintingDRM />} />
+                <Route path="/business/case/9" element={<ESGCertification />} />
+                <Route path="/business/case/10" element={<ContextualAdvertising />} />
                 
                 {/* Protected Routes */}
                 <Route element={<AppLayout />}>
