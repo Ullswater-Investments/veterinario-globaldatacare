@@ -245,6 +245,7 @@ const Landing = () => {
             </div>
             <div className="flex gap-6 text-sm">
               <Link to="/consulting/technical-proposal" className="text-slate-400 hover:text-white transition">Whitepaper Técnico & Consultoría</Link>
+              <Link to="/business/models" className="text-slate-400 hover:text-white transition">Documento Casos de Negocio</Link>
               <a href="#" className="text-slate-400 hover:text-white transition">GitHub del Proyecto</a>
               <a href="#" className="text-slate-400 hover:text-white transition">Aviso Legal</a>
             </div>
