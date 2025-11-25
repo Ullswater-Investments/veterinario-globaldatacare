@@ -4,6 +4,7 @@ import { useAuth } from '@/contexts/AuthContext';
 import { useRole } from '@/contexts/RoleContext';
 import { AppHeader } from './AppHeader';
 import { AppSidebar } from './AppSidebar';
+import { Breadcrumbs } from './Breadcrumbs';
 import { SidebarProvider } from '@/components/ui/sidebar';
 import { Loader2, Shield } from 'lucide-react';
 
@@ -37,6 +38,7 @@ export function AppLayout() {
         <AppSidebar />
         <div className="flex-1 flex flex-col">
           <AppHeader />
+          <Breadcrumbs />
           <main className="flex-1 bg-slate-50 p-6 overflow-auto pb-20">
             <Outlet />
           </main>
