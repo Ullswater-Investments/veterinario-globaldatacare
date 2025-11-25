@@ -244,7 +244,7 @@ const Landing = () => {
               © 2025 OralSpace-X. Powered by Eclipse Dataspace Components, HL7 FHIR, SNODENT & Blockchain.
             </div>
             <div className="flex gap-6 text-sm">
-              <a href="#" className="text-slate-400 hover:text-white transition">Documentación Técnica</a>
+              <Link to="/consulting/technical-proposal" className="text-slate-400 hover:text-white transition">Whitepaper Técnico & Consultoría</Link>
               <a href="#" className="text-slate-400 hover:text-white transition">GitHub del Proyecto</a>
               <a href="#" className="text-slate-400 hover:text-white transition">Aviso Legal</a>
             </div>
