@@ -5,8 +5,9 @@ import { Button } from '@/components/ui/button';
 import { 
   Shield, Database, Key, Cloud, CheckCircle, 
   GitBranch, Zap, Lock, ArrowRight, Calendar,
-  Cpu, Layers, Network, Code2, Rocket
+  Cpu, Layers, Network, Code2, Rocket, TrendingUp
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function TechnicalProposal() {
   return (
@@ -377,6 +378,18 @@ export default function TechnicalProposal() {
               <Lock className="h-4 w-4 mr-2" />
               Solicitar Acceso al Repositorio (NDA)
             </Button>
+          </div>
+          
+          <div className="mt-8 pt-8 border-t border-white/20">
+            <Link to="/business/models">
+              <Button size="lg" variant="outline" className="bg-transparent border-green-400 text-green-400 hover:bg-green-400/10">
+                <TrendingUp className="h-4 w-4 mr-2" />
+                Ver Estudio de Viabilidad: 25 Modelos de Negocio
+              </Button>
+            </Link>
+            <p className="text-sm text-slate-400 mt-3">
+              Descubre cómo ORALDATA-X genera valor económico en 5 verticales de mercado
+            </p>
           </div>
         </div>
       </section>

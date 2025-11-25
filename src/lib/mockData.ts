@@ -78,3 +78,50 @@ export const mouthguardTelemetry = {
   ],
   concussionRisk: "Alto"
 };
+
+// Business Models Data
+export const businessModels = {
+  clinical: [
+    { id: 1, name: "Marketplace de Derivación", revenue: 37500, unit: "€/mes", description: "Comisión 3% sobre derivaciones especialistas" },
+    { id: 2, name: "Teledentistería SaaS", revenue: 19800, unit: "€/mes", description: "99€/mes por clínica (200 clínicas)" },
+    { id: 3, name: "Almacenamiento Federado", revenue: 15000, unit: "€/mes", description: "Ahorro en costes de nube" },
+    { id: 4, name: "API Diagnóstico IA", revenue: 25000, unit: "€/mes", description: "0.50€ por análisis (50k/mes)" },
+    { id: 5, name: "Gestión Stock IoT", revenue: 30000, unit: "€/mes", description: "1.5% fee sobre 2M€ en compras" }
+  ],
+  industry: [
+    { id: 6, name: "Pasaportes Digitales DPP", revenue: 20000, unit: "€/mes", description: "2€ por implante certificado" },
+    { id: 7, name: "Anti-Falsificación", revenue: 50000, unit: "€/mes", description: "5k€/mes por marca (10 clientes)" },
+    { id: 8, name: "DRM Impresión 3D", revenue: 25000, unit: "€/mes", description: "5€ por diseño desbloqueado" },
+    { id: 9, name: "Certificación ESG", revenue: 15000, unit: "€/mes", description: "1.200€/año por entidad (150 clientes)" },
+    { id: 10, name: "Publicidad Contextual", revenue: 12000, unit: "€/mes", description: "CPM 50€ en marketplace" }
+  ],
+  data: [
+    { id: 11, name: "Datos Sintéticos Pharma", revenue: 16667, unit: "€/mes", description: "50k€ por dataset (4/año)" },
+    { id: 12, name: "Compute Federado", revenue: 50000, unit: "€/mes", description: "500€/hora (100h/mes)" },
+    { id: 13, name: "Reclutamiento Ensayos", revenue: 75000, unit: "€/mes", description: "1.500€ por paciente (50/mes)" },
+    { id: 14, name: "Informes RWE", revenue: 25000, unit: "€/mes", description: "15k€/año por fabricante (20 clientes)" },
+    { id: 15, name: "Vigilancia Epidemiológica", revenue: 12500, unit: "€/mes", description: "Contrato B2G 150k€/año" }
+  ],
+  insurance: [
+    { id: 16, name: "Smart Claims Processing", revenue: 100000, unit: "€/mes", description: "1€ por claim (100k/mes)" },
+    { id: 17, name: "Scoring Antifraude", revenue: 20000, unit: "€/mes", description: "0.10€ por consulta API" },
+    { id: 18, name: "Financiación BNPL", revenue: 20000, unit: "€/mes", description: "2% sobre 1M€ financiado" },
+    { id: 19, name: "Seguros Paramétricos", revenue: 20000, unit: "€/mes", description: "20€ comisión (1k pólizas/mes)" },
+    { id: 20, name: "Factoring Facturas", revenue: 15000, unit: "€/mes", description: "3% sobre 500k€ adelantados" }
+  ],
+  patient: [
+    { id: 21, name: "Wallet Premium", revenue: 14950, unit: "€/mes", description: "2.99€/mes (5k usuarios)" },
+    { id: 22, name: "Segunda Opinión Internacional", revenue: 6000, unit: "€/mes", description: "20% comisión sobre 150€ (200 casos)" },
+    { id: 23, name: "Turismo Dental", revenue: 50000, unit: "€/mes", description: "50€ por lead cualificado (1k/mes)" },
+    { id: 24, name: "App Coaching Infantil", revenue: 10000, unit: "€/mes", description: "50€/mes B2B2C (200 clínicas)" },
+    { id: 25, name: "Herencia Digital", revenue: 9900, unit: "€/mes", description: "99€ lifetime (100 ventas/mes)" }
+  ]
+};
+
+export const revenueDistribution = [
+  { name: "B2B Clínico", value: 127300, percentage: 24, color: "#3b82f6" },
+  { name: "Industria", value: 122000, percentage: 23, color: "#8b5cf6" },
+  { name: "Economía del Dato", value: 179167, percentage: 34, color: "#f97316" },
+  { name: "InsurTech", value: 175000, percentage: 33, color: "#06b6d4" },
+  { name: "Servicios Paciente", value: 90850, percentage: 17, color: "#10b981" }
+];
