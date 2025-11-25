@@ -9,6 +9,7 @@ import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { AppLayout } from "@/components/AppLayout";
 import Auth from "./pages/Auth";
 import Dashboard from "./pages/Dashboard";
+import AuditorDashboard from "./pages/AuditorDashboard";
 import ClinicalCockpit from "./pages/ClinicalCockpit";
 import AIAssistant from "./pages/AIAssistant";
 import EPrescription from "./pages/EPrescription";
@@ -36,6 +37,7 @@ const App = () => (
                 <Route path="/auth" element={<Auth />} />
                 <Route element={<AppLayout />}>
                   <Route path="/" element={<Dashboard />} />
+                  <Route path="/auditor-dashboard" element={<AuditorDashboard />} />
                   <Route path="/clinical" element={<ClinicalCockpit />} />
                   <Route path="/ai-assistant" element={<AIAssistant />} />
                   <Route path="/e-prescription" element={<EPrescription />} />

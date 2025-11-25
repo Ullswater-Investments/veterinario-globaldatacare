@@ -11,12 +11,13 @@ import {
 } from '@/components/ui/select';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 
-const roleOptions = {
+const roleOptions: Record<AppRole, string> = {
   doctor: 'Dr. Dent (Odontólogo)',
   lab_tech: 'Lab Tech (Técnico)',
   patient: 'Ana Patient (Paciente)',
   researcher: 'Prof. Data (Investigador)',
   insurance_admin: 'SurePay Admin (Aseguradora)',
+  auditor: 'Auditor del Ecosistema (Demo)',
 };
 
 export function AppHeader() {
