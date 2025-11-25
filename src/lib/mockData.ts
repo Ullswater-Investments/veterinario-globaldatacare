@@ -1,6 +1,297 @@
-// Mock Data for OralSpace-X Innovation Labs
+// =====================================================================
+// ORALSPACE-X MASTER DATA FILE - CONSOLIDATED & AUDITED
+// =====================================================================
+// This file serves as the single source of truth for all mock/synthetic
+// data used throughout the application for demos, testing, and development.
+// All data structures maintain referential integrity and proper TypeScript types.
 
-// 1. ESG & Sostenibilidad
+// =====================================================================
+// TYPE DEFINITIONS
+// =====================================================================
+
+export interface Patient {
+  id: string;
+  full_name: string;
+  did: string;
+  wallet_status: {
+    hasConsent: boolean;
+    activePermissions: string[];
+  };
+  created_at: string;
+}
+
+export interface ClinicalEncounter {
+  id: string;
+  patient_id: string;
+  doctor_id: string;
+  encounter_date: string;
+  data_source: string;
+  risk_level: 'low' | 'medium' | 'high';
+  fhir_bundle: Record<string, any>;
+}
+
+export interface LabOrder {
+  id: string;
+  patient_id: string;
+  lab_tech_id: string;
+  status: 'received' | 'design' | 'milling' | 'sent';
+  dpp_payload: {
+    material: string;
+    origin: string;
+    temperature?: string;
+    blockchain_hash?: string;
+  };
+  created_at: string;
+}
+
+export interface SmartClaim {
+  id: string;
+  patient_id: string;
+  treatment_code: string;
+  amount: number;
+  status: 'pending' | 'paid' | 'fraud_detected';
+  evidence_url?: string;
+  created_at: string;
+}
+
+export interface IoTDevice {
+  id: string;
+  name: string;
+  device_type: 'stock' | 'machinery';
+  status: 'active' | 'needs_order' | 'in_cycle';
+  current_value: number;
+  target_value: number;
+  metadata: Record<string, any>;
+}
+
+export interface BusinessModel {
+  id: number;
+  name: string;
+  revenue: number;
+  unit: string;
+  description: string;
+}
+
+export interface RevenueDistribution {
+  name: string;
+  value: number;
+  percentage: number;
+  color: string;
+}
+
+// =====================================================================
+// SECTION 1: CORE CLINICAL DATA
+// =====================================================================
+
+export const patients: Patient[] = [
+  {
+    id: 'p-001',
+    full_name: 'Ana García Martínez',
+    did: 'did:web:oralspace.health:ana-garcia',
+    wallet_status: {
+      hasConsent: true,
+      activePermissions: ['Sanitas Clinic', 'Hospital La Paz']
+    },
+    created_at: '2024-01-15T10:30:00Z'
+  },
+  {
+    id: 'p-002',
+    full_name: 'Carlos López Fernández',
+    did: 'did:web:oralspace.health:carlos-lopez',
+    wallet_status: {
+      hasConsent: false,
+      activePermissions: []
+    },
+    created_at: '2024-02-20T14:15:00Z'
+  },
+  {
+    id: 'p-003',
+    full_name: 'María Rodríguez Silva',
+    did: 'did:web:oralspace.health:maria-rodriguez',
+    wallet_status: {
+      hasConsent: true,
+      activePermissions: ['Clínica Dental Norte']
+    },
+    created_at: '2024-03-10T09:45:00Z'
+  }
+];
+
+export const clinicalEncounters: ClinicalEncounter[] = [
+  {
+    id: 'enc-001',
+    patient_id: 'p-001',
+    doctor_id: 'doc-001',
+    encounter_date: '2024-11-20T10:00:00Z',
+    data_source: 'Hospital La Paz',
+    risk_level: 'high',
+    fhir_bundle: {
+      resourceType: 'Bundle',
+      entry: [
+        {
+          resource: {
+            resourceType: 'Condition',
+            code: { text: 'Endocarditis Bacteriana' },
+            clinicalStatus: { coding: [{ code: 'active' }] }
+          }
+        }
+      ]
+    }
+  },
+  {
+    id: 'enc-002',
+    patient_id: 'p-002',
+    doctor_id: 'doc-001',
+    encounter_date: '2024-11-22T11:30:00Z',
+    data_source: 'Clínica Dental Norte',
+    risk_level: 'low',
+    fhir_bundle: {
+      resourceType: 'Bundle',
+      entry: [
+        {
+          resource: {
+            resourceType: 'Procedure',
+            code: { text: 'Limpieza Dental' }
+          }
+        }
+      ]
+    }
+  },
+  {
+    id: 'enc-003',
+    patient_id: 'p-003',
+    doctor_id: 'doc-002',
+    encounter_date: '2024-11-23T15:00:00Z',
+    data_source: 'Sanitas Clinic',
+    risk_level: 'medium',
+    fhir_bundle: {
+      resourceType: 'Bundle',
+      entry: [
+        {
+          resource: {
+            resourceType: 'Observation',
+            code: { text: 'Caries Profunda' }
+          }
+        }
+      ]
+    }
+  }
+];
+
+export const labOrders: LabOrder[] = [
+  {
+    id: 'lab-001',
+    patient_id: 'p-001',
+    lab_tech_id: 'tech-001',
+    status: 'milling',
+    dpp_payload: {
+      material: 'Zirconio',
+      origin: 'Alemania',
+      temperature: '1450°C',
+      blockchain_hash: '0xabc123def456'
+    },
+    created_at: '2024-11-20T12:00:00Z'
+  },
+  {
+    id: 'lab-002',
+    patient_id: 'p-002',
+    lab_tech_id: 'tech-001',
+    status: 'design',
+    dpp_payload: {
+      material: 'PMMA',
+      origin: 'España'
+    },
+    created_at: '2024-11-22T14:30:00Z'
+  },
+  {
+    id: 'lab-003',
+    patient_id: 'p-003',
+    lab_tech_id: 'tech-002',
+    status: 'sent',
+    dpp_payload: {
+      material: 'Zirconio',
+      origin: 'Suiza',
+      temperature: '1500°C',
+      blockchain_hash: '0xdef789ghi012'
+    },
+    created_at: '2024-11-21T10:00:00Z'
+  }
+];
+
+export const smartClaims: SmartClaim[] = [
+  {
+    id: 'claim-001',
+    patient_id: 'p-001',
+    treatment_code: 'D2392',
+    amount: 150.50,
+    status: 'paid',
+    evidence_url: 'https://storage.oralspace.health/evidence/claim-001.jpg',
+    created_at: '2024-11-20T16:00:00Z'
+  },
+  {
+    id: 'claim-002',
+    patient_id: 'p-002',
+    treatment_code: 'D0120',
+    amount: 85.00,
+    status: 'pending',
+    created_at: '2024-11-22T17:30:00Z'
+  },
+  {
+    id: 'claim-003',
+    patient_id: 'p-003',
+    treatment_code: 'D6010',
+    amount: 1250.00,
+    status: 'fraud_detected',
+    evidence_url: 'https://storage.oralspace.health/evidence/claim-003.jpg',
+    created_at: '2024-11-23T11:00:00Z'
+  }
+];
+
+export const iotDevices: IoTDevice[] = [
+  {
+    id: 'iot-001',
+    name: 'Autoclave B',
+    device_type: 'machinery',
+    status: 'in_cycle',
+    current_value: 121,
+    target_value: 134,
+    metadata: {
+      temperature: '121°C',
+      pressure: '2.1 bar',
+      timeRemaining: '15min'
+    }
+  },
+  {
+    id: 'iot-002',
+    name: 'Stock Implantes Straumann',
+    device_type: 'stock',
+    status: 'needs_order',
+    current_value: 8,
+    target_value: 50,
+    metadata: {
+      supplier: 'Straumann',
+      reorderLevel: 10,
+      lastOrder: '2024-11-01'
+    }
+  },
+  {
+    id: 'iot-003',
+    name: 'Refrigerador Anestésicos',
+    device_type: 'machinery',
+    status: 'active',
+    current_value: 4,
+    target_value: 4,
+    metadata: {
+      temperature: '4°C',
+      humidity: '45%'
+    }
+  }
+];
+
+// =====================================================================
+// SECTION 2: INNOVATION LABS DATA
+// =====================================================================
+
+// 2.1 ESG & Sostenibilidad
 export const esgMetrics = {
   energyConsumption: { value: 450, unit: "kWh", benchmark: "20% above avg" },
   carbonFootprint: { daily: "12kg CO2", status: "Warning" },
@@ -19,7 +310,7 @@ export const esgMetrics = {
   ]
 };
 
-// 2. Microbioma (Bio)
+// 2.2 Microbioma (Bio-Genomics)
 export const microbiomeData = {
   patientId: "p-001",
   analysisDate: "2023-11-25",
@@ -35,7 +326,7 @@ export const microbiomeData = {
   }
 };
 
-// 3. Forense (DVI)
+// 2.3 Forense (DVI - Disaster Victim Identification)
 export const forensicMatch = {
   searchQuery: "Implant Straumann #LOTE-X",
   status: "Match Found",
@@ -46,7 +337,7 @@ export const forensicMatch = {
   matchConfidence: 98.5
 };
 
-// 4. InsurTech (Habits)
+// 2.4 InsurTech (Pay-as-you-Brush Telemetry)
 export const brushingTelemetry = [
   { day: "Lun", score: 92, duration: "2:10" },
   { day: "Mar", score: 88, duration: "1:55" },
@@ -65,7 +356,7 @@ export const bnplScoring = {
   monthlyPremium: { current: 45, optimized: 38 }
 };
 
-// 5. Sports IoT
+// 2.5 Sports IoT (Mouthguard Telemetry)
 export const mouthguardTelemetry = {
   athlete: "Jugador #10",
   lastImpact: "55G",
@@ -79,8 +370,17 @@ export const mouthguardTelemetry = {
   concussionRisk: "Alto"
 };
 
-// Business Models Data
-export const businessModels = {
+// =====================================================================
+// SECTION 3: BUSINESS MODELS DATA (25 Revenue Streams)
+// =====================================================================
+
+export const businessModels: {
+  clinical: BusinessModel[];
+  industry: BusinessModel[];
+  data: BusinessModel[];
+  insurance: BusinessModel[];
+  patient: BusinessModel[];
+} = {
   clinical: [
     { id: 1, name: "Marketplace de Derivación", revenue: 37500, unit: "€/mes", description: "Comisión 3% sobre derivaciones especialistas" },
     { id: 2, name: "Teledentistería SaaS", revenue: 19800, unit: "€/mes", description: "99€/mes por clínica (200 clínicas)" },
@@ -118,10 +418,50 @@ export const businessModels = {
   ]
 };
 
-export const revenueDistribution = [
+export const revenueDistribution: RevenueDistribution[] = [
   { name: "B2B Clínico", value: 127300, percentage: 24, color: "#3b82f6" },
   { name: "Industria", value: 122000, percentage: 23, color: "#8b5cf6" },
   { name: "Economía del Dato", value: 179167, percentage: 34, color: "#f97316" },
   { name: "InsurTech", value: 175000, percentage: 33, color: "#06b6d4" },
   { name: "Servicios Paciente", value: 90850, percentage: 17, color: "#10b981" }
 ];
+
+// =====================================================================
+// INTEGRITY CHECKS (Development Only)
+// =====================================================================
+
+// Verify all patient IDs referenced in other entities exist
+const patientIds = new Set(patients.map(p => p.id));
+
+const checkReferentialIntegrity = () => {
+  const errors: string[] = [];
+
+  clinicalEncounters.forEach(enc => {
+    if (!patientIds.has(enc.patient_id)) {
+      errors.push(`ClinicalEncounter ${enc.id} references non-existent patient ${enc.patient_id}`);
+    }
+  });
+
+  labOrders.forEach(order => {
+    if (!patientIds.has(order.patient_id)) {
+      errors.push(`LabOrder ${order.id} references non-existent patient ${order.patient_id}`);
+    }
+  });
+
+  smartClaims.forEach(claim => {
+    if (!patientIds.has(claim.patient_id)) {
+      errors.push(`SmartClaim ${claim.id} references non-existent patient ${claim.patient_id}`);
+    }
+  });
+
+  if (errors.length > 0) {
+    console.warn('❌ REFERENTIAL INTEGRITY ERRORS:', errors);
+  } else {
+    console.log('✅ All referential integrity checks passed');
+  }
+};
+
+// Run integrity check in development
+if (import.meta.env.DEV) {
+  checkReferentialIntegrity();
+}
