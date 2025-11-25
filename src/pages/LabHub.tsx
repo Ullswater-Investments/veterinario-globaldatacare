@@ -1,7 +1,21 @@
+import { useRoleProtection } from '@/hooks/useRoleProtection';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Factory } from 'lucide-react';
+import { EmptyState } from '@/components/EmptyState';
+import { Factory, Loader2 } from 'lucide-react';
 
 export default function LabHub() {
+  const { hasAccess, loading } = useRoleProtection(['lab_tech']);
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-[400px]">
+        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+      </div>
+    );
+  }
+
+  if (!hasAccess) return null;
+
   return (
     <div className="space-y-6">
       <div>
@@ -12,7 +26,7 @@ export default function LabHub() {
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <Factory className="h-5 w-5 text-blue-600" />
+            <Factory className="h-5 w-5 text-primary" />
             Módulo en Desarrollo
           </CardTitle>
           <CardDescription>
@@ -20,11 +34,11 @@ export default function LabHub() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="bg-slate-50 rounded-lg p-8 text-center border-2 border-dashed border-slate-300">
-            <p className="text-slate-600">
-              Próximamente: Kanban de producción y visualización de DPP con trazabilidad blockchain
-            </p>
-          </div>
+          <EmptyState
+            icon={Factory}
+            title="Próximamente: Kanban de Producción"
+            description="Visualización de DPP con trazabilidad blockchain y estados de manufactura"
+          />
         </CardContent>
       </Card>
     </div>

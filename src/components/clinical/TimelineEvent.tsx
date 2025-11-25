@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Building2, Stethoscope, AlertTriangle, Clock } from 'lucide-react';
 import { Tables } from '@/integrations/supabase/types';
+import { formatDateTime } from '@/lib/format';
 
 interface TimelineEventProps {
   encounter: Tables<'clinical_encounters'>;
@@ -43,7 +44,7 @@ export function TimelineEvent({ encounter }: TimelineEventProps) {
         </div>
         <div className="flex items-center gap-2 text-xs text-muted-foreground">
           <Clock className="h-3 w-3" />
-          <span>{new Date(encounter.encounter_date).toLocaleString('es-ES')}</span>
+          <span>{formatDateTime(encounter.encounter_date)}</span>
         </div>
       </CardHeader>
       <CardContent className="space-y-2">
