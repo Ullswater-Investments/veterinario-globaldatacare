@@ -574,6 +574,96 @@ export const stockAutomations: StockAutomation[] = [
   { id: "ORD-554", item: "Puntas Ultrasonidos", supplier: "NSK Europe", quantity: 8, value: 240, fee: 3.6, trigger: "Monthly Reorder" },
 ];
 
+// --- DATOS PARA CASOS DE NEGOCIO (VERTICAL 2: INDUSTRIA) ---
+
+// Caso 6: Pasaportes Digitales (DPP)
+export interface DppIssuance {
+  id: string;
+  product: string;
+  batch: string;
+  timestamp: string;
+  hash: string;
+  fee: number;
+}
+
+export const dppIssuanceLog: DppIssuance[] = [
+  { id: "DPP-8821", product: "Implante Titanio Grade 4", batch: "LOT-99X", timestamp: "10:05:22", hash: "0x7f...a1", fee: 2.00 },
+  { id: "DPP-8822", product: "Pilar Zirconia", batch: "LOT-88Y", timestamp: "10:05:45", hash: "0x8b...c2", fee: 2.00 },
+  { id: "DPP-8823", product: "Corona Monolítica", batch: "LOT-77Z", timestamp: "10:06:10", hash: "0x9c...d3", fee: 2.00 },
+  { id: "DPP-8824", product: "Implante Titanio Grade 4", batch: "LOT-99X", timestamp: "10:06:35", hash: "0x1d...e4", fee: 2.00 },
+  { id: "DPP-8825", product: "Tornillo Protésico", batch: "LOT-66W", timestamp: "10:07:00", hash: "0x2e...f5", fee: 2.00 },
+  { id: "DPP-8826", product: "Pilar Zirconia", batch: "LOT-88Y", timestamp: "10:07:25", hash: "0x3f...g6", fee: 2.00 },
+];
+
+// Caso 7: Anti-Falsificación (Brand Protection)
+export interface SecurityAlert {
+  id: string;
+  location: string;
+  product: string;
+  status: 'FAKE DETECTED' | 'Authentic' | 'Grey Market';
+  risk: 'Critical' | 'Safe' | 'Medium';
+  timestamp: string;
+}
+
+export const securityAlerts: SecurityAlert[] = [
+  { id: "SEC-001", location: "Shanghai, CN", product: "Straumann BLX", status: "FAKE DETECTED", risk: "Critical", timestamp: "Hace 2 min" },
+  { id: "SEC-002", location: "Madrid, ES", product: "Nobel Active", status: "Authentic", risk: "Safe", timestamp: "Hace 5 min" },
+  { id: "SEC-003", location: "Sao Paulo, BR", product: "Straumann BLX", status: "Grey Market", risk: "Medium", timestamp: "Hace 12 min" },
+  { id: "SEC-004", location: "Dubai, AE", product: "Dentsply Astra", status: "Authentic", risk: "Safe", timestamp: "Hace 18 min" },
+  { id: "SEC-005", location: "Mumbai, IN", product: "Nobel Biocare", status: "FAKE DETECTED", risk: "Critical", timestamp: "Hace 25 min" },
+];
+
+// Caso 8: DRM Impresión 3D
+export interface DrmUnlock {
+  designId: string;
+  clinic: string;
+  printer: string;
+  status: 'Unlocked' | 'Blocked (No License)';
+  fee: number;
+}
+
+export const drmUnlockLog: DrmUnlock[] = [
+  { designId: "STL-5501", clinic: "Clínica Dental Norte", printer: "Formlabs 3B", status: "Unlocked", fee: 5.00 },
+  { designId: "STL-5502", clinic: "Lab Pro Madrid", printer: "SprintRay Pro", status: "Unlocked", fee: 5.00 },
+  { designId: "STL-5503", clinic: "Dr. Smile", printer: "Unknown Device", status: "Blocked (No License)", fee: 0.00 },
+  { designId: "STL-5504", clinic: "Dental Plus", printer: "Formlabs 3B", status: "Unlocked", fee: 5.00 },
+  { designId: "STL-5505", clinic: "Centro Odontológico", printer: "Asiga Max", status: "Unlocked", fee: 5.00 },
+];
+
+// Caso 9: Certificación ESG
+export interface EsgCertification {
+  entity: string;
+  score: number;
+  co2Reduction: string;
+  badge: 'Platinum' | 'Gold' | 'Silver' | 'Bronze';
+  renewalDate: string;
+}
+
+export const esgCertifications: EsgCertification[] = [
+  { entity: "Laboratorio Central", score: 94, co2Reduction: "-15%", badge: "Platinum", renewalDate: "2025-10" },
+  { entity: "Clínica Vital", score: 82, co2Reduction: "-5%", badge: "Gold", renewalDate: "2025-06" },
+  { entity: "Implantes Tech", score: 88, co2Reduction: "-10%", badge: "Gold", renewalDate: "2025-12" },
+  { entity: "Lab Digital Pro", score: 76, co2Reduction: "-3%", badge: "Silver", renewalDate: "2025-08" },
+  { entity: "Dental Manufacturing", score: 91, co2Reduction: "-12%", badge: "Platinum", renewalDate: "2025-11" },
+];
+
+// Caso 10: Publicidad Contextual
+export interface AdCampaign {
+  campaign: string;
+  impressions: number;
+  clicks: number;
+  ctr: string;
+  spend: number;
+  cpm: number;
+}
+
+export const adCampaigns: AdCampaign[] = [
+  { campaign: "Lanzamiento Zirconia X", impressions: 15400, clicks: 320, ctr: "2.1%", spend: 770, cpm: 50 },
+  { campaign: "Promo Escáner Intraoral", impressions: 8200, clicks: 150, ctr: "1.8%", spend: 410, cpm: 50 },
+  { campaign: "Implantes Premium", impressions: 12000, clicks: 280, ctr: "2.3%", spend: 600, cpm: 50 },
+  { campaign: "Fresadora CAD/CAM", impressions: 6500, clicks: 110, ctr: "1.7%", spend: 325, cpm: 50 },
+];
+
 // Run integrity check in development
 if (import.meta.env.DEV) {
   checkReferentialIntegrity();
