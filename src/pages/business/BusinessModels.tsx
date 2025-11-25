@@ -231,31 +231,50 @@ const BusinessModels = () => {
                 </div>
 
                 <div className="grid md:grid-cols-5 gap-4">
-                  {models.map((model) => (
-                    <Card 
-                      key={model.id}
-                      className={`group transition-all hover:shadow-xl hover:-translate-y-2 cursor-pointer border-2 ${vertical.borderColor} ${vertical.bgColor}`}
-                    >
-                      <CardHeader className="pb-3">
-                        <Badge variant="outline" className="w-fit mb-2">
-                          #{model.id}
-                        </Badge>
-                        <CardTitle className="text-base leading-tight">
-                          {model.name}
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <div className="space-y-3">
-                          <div className={`text-2xl font-bold ${vertical.color} group-hover:scale-110 transition-transform`}>
-                            {Math.round(model.revenue * scaleFactor / 1000)}k€
+                  {models.map((model) => {
+                    const hasDetailPage = model.id >= 1 && model.id <= 5;
+                    const cardContent = (
+                      <Card 
+                        className={`group transition-all hover:shadow-xl hover:-translate-y-2 cursor-pointer border-2 ${vertical.borderColor} ${vertical.bgColor} h-full`}
+                      >
+                        <CardHeader className="pb-3">
+                          <div className="flex items-center justify-between mb-2">
+                            <Badge variant="outline">
+                              #{model.id}
+                            </Badge>
+                            {hasDetailPage && (
+                              <Badge variant="secondary" className="text-xs">
+                                Ver Demo
+                              </Badge>
+                            )}
                           </div>
-                          <div className="text-xs text-slate-600 leading-relaxed min-h-[3rem]">
-                            {model.description}
+                          <CardTitle className="text-base leading-tight">
+                            {model.name}
+                          </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                          <div className="space-y-3">
+                            <div className={`text-2xl font-bold ${vertical.color} group-hover:scale-110 transition-transform`}>
+                              {Math.round(model.revenue * scaleFactor / 1000)}k€
+                            </div>
+                            <div className="text-xs text-slate-600 leading-relaxed min-h-[3rem]">
+                              {model.description}
+                            </div>
                           </div>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  ))}
+                        </CardContent>
+                      </Card>
+                    );
+                    
+                    return hasDetailPage ? (
+                      <Link key={model.id} to={`/business/case/${model.id}`}>
+                        {cardContent}
+                      </Link>
+                    ) : (
+                      <div key={model.id}>
+                        {cardContent}
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             );
