@@ -746,6 +746,93 @@ export const epidemicMapData: EpidemicData[] = [
   { region: "Galicia", condition: "Erosión Dental", level: "Medium", trend: "+3%" },
 ];
 
+// --- DATOS PARA CASOS DE NEGOCIO (VERTICAL 4: FINTECH) ---
+
+// Caso 16: Smart Claims Processing
+export interface ClaimQueue {
+  id: string;
+  treatment: string;
+  amount: number;
+  evidence: string;
+  status: string;
+  time: string;
+  fee: number;
+}
+
+export const claimsQueue: ClaimQueue[] = [
+  { id: "CLM-9091", treatment: "Endodoncia", amount: 250, evidence: "X-Ray + CDT Code", status: "Auto-Approved", time: "0.8s", fee: 1.00 },
+  { id: "CLM-9092", treatment: "Implante Unitario", amount: 1200, evidence: "DPP Token", status: "Auto-Approved", time: "1.2s", fee: 1.00 },
+  { id: "CLM-9093", treatment: "Ortodoncia Fase 1", amount: 800, evidence: "Missing Photo", status: "Rejected (Rule #4)", time: "0.5s", fee: 0.00 },
+  { id: "CLM-9094", treatment: "Limpieza", amount: 60, evidence: "Verified", status: "Auto-Approved", time: "0.3s", fee: 1.00 },
+  { id: "CLM-9095", treatment: "Corona Zirconia", amount: 450, evidence: "X-Ray + CDT Code", status: "Auto-Approved", time: "0.9s", fee: 1.00 },
+];
+
+// Caso 17: Scoring Antifraude
+export interface FraudAlert {
+  clinic: string;
+  riskScore: number;
+  flag: string;
+  details: string;
+}
+
+export const fraudAlerts: FraudAlert[] = [
+  { clinic: "Clínica Dental Este", riskScore: 98, flag: "Upselling Anomaly", details: "300% más obturaciones que la media regional." },
+  { clinic: "Dr. Smith Practice", riskScore: 85, flag: "Phantom Patient", details: "Reclamación para paciente fallecido según registro civil." },
+  { clinic: "Centro Salud Oeste", riskScore: 12, flag: "Low Risk", details: "Patrón normal." },
+  { clinic: "Dental Plus Madrid", riskScore: 72, flag: "Volume Spike", details: "Incremento del 400% en tratamientos complejos último mes." },
+];
+
+// Caso 18: Financiación BNPL
+export interface CreditProposal {
+  patient: string;
+  treatment: string;
+  amount: number;
+  risk: string;
+  offer: string;
+  commission: number;
+}
+
+export const creditProposals: CreditProposal[] = [
+  { patient: "Carlos M.", treatment: "Invisalign", amount: 3500, risk: "Low (A+)", offer: "12x 291€ (0% TAE)", commission: 70.00 },
+  { patient: "Lucía R.", treatment: "Rehabilitación Oral", amount: 12000, risk: "Medium (B)", offer: "24x 550€ (5% TAE)", commission: 240.00 },
+  { patient: "Pedro S.", treatment: "Implantes Múltiples", amount: 8000, risk: "Low (A)", offer: "18x 444€ (2% TAE)", commission: 160.00 },
+];
+
+// Caso 19: Seguros Paramétricos
+export interface ParametricPolicy {
+  policyId: string;
+  user: string;
+  brushingScore: number;
+  monthlyPremium: number;
+  discountApplied: string;
+  trigger: string;
+}
+
+export const parametricPolicies: ParametricPolicy[] = [
+  { policyId: "POL-IoT-001", user: "Ana García", brushingScore: 94, monthlyPremium: 25.00, discountApplied: "-15%", trigger: "Score > 90" },
+  { policyId: "POL-IoT-002", user: "Luis Pérez", brushingScore: 65, monthlyPremium: 35.00, discountApplied: "0%", trigger: "Score < 70" },
+  { policyId: "POL-IoT-003", user: "María López", brushingScore: 88, monthlyPremium: 27.00, discountApplied: "-10%", trigger: "Score > 85" },
+  { policyId: "POL-IoT-004", user: "Jorge Ruiz", brushingScore: 52, monthlyPremium: 40.00, discountApplied: "+10%", trigger: "Score < 60" },
+];
+
+// Caso 20: Factoring Facturas
+export interface FactoringInvoice {
+  id: string;
+  payer: string;
+  amount: number;
+  dueIn: string;
+  advanceOffer: number;
+  fee: number;
+}
+
+export const factoringInvoices: FactoringInvoice[] = [
+  { id: "INV-2024-001", payer: "Sanitas", amount: 15000, dueIn: "60 days", advanceOffer: 14550, fee: 450 },
+  { id: "INV-2024-002", payer: "DKV Seguros", amount: 4200, dueIn: "45 days", advanceOffer: 4074, fee: 126 },
+  { id: "INV-2024-003", payer: "Mapfre", amount: 8500, dueIn: "30 days", advanceOffer: 8245, fee: 255 },
+  { id: "INV-2024-004", payer: "Adeslas", amount: 6800, dueIn: "90 days", advanceOffer: 6596, fee: 204 },
+  { id: "INV-2024-005", payer: "Asisa", amount: 3200, dueIn: "45 days", advanceOffer: 3104, fee: 96 },
+];
+
 // Run integrity check in development
 if (import.meta.env.DEV) {
   checkReferentialIntegrity();
