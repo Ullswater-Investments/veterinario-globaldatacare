@@ -126,15 +126,56 @@ export default function Auth() {
 
   const handleDemoLogin = async () => {
     setLoading(true);
-    const { error } = await supabase.auth.signInWithPassword({ 
+    
+    // Intentar login primero
+    const { error: loginError } = await supabase.auth.signInWithPassword({ 
       email: 'demo@oralspace-x.eu', 
       password: 'demo123' 
     });
 
-    if (error) {
+    // Si el usuario no existe, crearlo automáticamente
+    if (loginError?.message.includes('Invalid login credentials')) {
+      const redirectUrl = `${window.location.origin}/auditor-dashboard`;
+      
+      const { error: signupError } = await supabase.auth.signUp({
+        email: 'demo@oralspace-x.eu',
+        password: 'demo123',
+        options: {
+          emailRedirectTo: redirectUrl,
+          data: {
+            full_name: 'Auditor Global (Sandbox)',
+          },
+        },
+      });
+
+      if (signupError) {
+        toast({
+          title: 'Error creando usuario demo',
+          description: signupError.message,
+          variant: 'destructive',
+        });
+        setLoading(false);
+        return;
+      }
+
+      // Asignar rol de auditor mediante inserción directa
+      const { data: sessionData } = await supabase.auth.getSession();
+      if (sessionData.session?.user) {
+        await supabase.from('user_roles').insert({
+          user_id: sessionData.session.user.id,
+          role: 'auditor'
+        });
+      }
+
+      toast({
+        title: 'Usuario Demo Creado',
+        description: 'Accediendo al entorno Sandbox...',
+      });
+      navigate('/auditor-dashboard');
+    } else if (loginError) {
       toast({
         title: 'Error en acceso demo',
-        description: error.message,
+        description: loginError.message,
         variant: 'destructive',
       });
       setLoading(false);
