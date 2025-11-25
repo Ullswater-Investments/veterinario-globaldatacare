@@ -39,6 +39,7 @@ import ContractsPage from "./pages/tech/ContractsPage";
 import IotPage from "./pages/tech/IotPage";
 import InnovationLabs from "./pages/tech/InnovationLabs";
 import TechnicalProposal from "./pages/consulting/TechnicalProposal";
+import BusinessModels from "./pages/business/BusinessModels";
 
 const queryClient = new QueryClient();
 
@@ -78,6 +79,7 @@ const App = () => (
                 
                 {/* Consulting Section - Public Access */}
                 <Route path="/consulting/technical-proposal" element={<TechnicalProposal />} />
+                <Route path="/business/models" element={<BusinessModels />} />
                 
                 {/* Protected Routes */}
                 <Route element={<AppLayout />}>
