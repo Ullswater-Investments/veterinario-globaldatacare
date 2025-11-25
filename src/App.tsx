@@ -7,6 +7,7 @@ import { AuthProvider } from "@/contexts/AuthContext";
 import { RoleProvider } from "@/contexts/RoleContext";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { AppLayout } from "@/components/AppLayout";
+import Landing from "./pages/Index";
 import Auth from "./pages/Auth";
 import Dashboard from "./pages/Dashboard";
 import AuditorDashboard from "./pages/AuditorDashboard";
@@ -34,9 +35,13 @@ const App = () => (
           <AuthProvider>
             <RoleProvider>
               <Routes>
+                {/* Public Landing Page */}
+                <Route path="/" element={<Landing />} />
                 <Route path="/auth" element={<Auth />} />
+                
+                {/* Protected Routes */}
                 <Route element={<AppLayout />}>
-                  <Route path="/" element={<Dashboard />} />
+                  <Route path="/dashboard" element={<Dashboard />} />
                   <Route path="/auditor-dashboard" element={<AuditorDashboard />} />
                   <Route path="/clinical" element={<ClinicalCockpit />} />
                   <Route path="/ai-assistant" element={<AIAssistant />} />
