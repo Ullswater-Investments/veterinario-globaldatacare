@@ -55,6 +55,11 @@ import FederatedCompute from "./pages/business/cases/FederatedCompute";
 import ClinicalTrials from "./pages/business/cases/ClinicalTrials";
 import RealWorldEvidence from "./pages/business/cases/RealWorldEvidence";
 import EpidemicSurveillance from "./pages/business/cases/EpidemicSurveillance";
+import SmartClaims from "./pages/business/cases/SmartClaims";
+import FraudScoring from "./pages/business/cases/FraudScoring";
+import BNPLFinancing from "./pages/business/cases/BNPLFinancing";
+import ParametricInsurance from "./pages/business/cases/ParametricInsurance";
+import InvoiceFactoring from "./pages/business/cases/InvoiceFactoring";
 
 const queryClient = new QueryClient();
 
@@ -110,6 +115,11 @@ const App = () => (
                 <Route path="/business/case/13" element={<ClinicalTrials />} />
                 <Route path="/business/case/14" element={<RealWorldEvidence />} />
                 <Route path="/business/case/15" element={<EpidemicSurveillance />} />
+                <Route path="/business/case/16" element={<SmartClaims />} />
+                <Route path="/business/case/17" element={<FraudScoring />} />
+                <Route path="/business/case/18" element={<BNPLFinancing />} />
+                <Route path="/business/case/19" element={<ParametricInsurance />} />
+                <Route path="/business/case/20" element={<InvoiceFactoring />} />
                 
                 {/* Protected Routes */}
                 <Route element={<AppLayout />}>
