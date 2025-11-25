@@ -1,7 +1,7 @@
 import { useRole } from '@/contexts/RoleContext';
 import { Link } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Stethoscope, Factory, FlaskConical, CreditCard, Wallet, Activity, Shield, Package, Brain, FileText, Wifi } from 'lucide-react';
+import { Stethoscope, Factory, FlaskConical, CreditCard, Wallet, Activity, Shield, Package, Brain, FileText, Wifi, Beaker } from 'lucide-react';
 
 const roleGreetings = {
   doctor: {
@@ -174,6 +174,24 @@ export default function Dashboard() {
             <CardContent>
               <p className="text-sm text-slate-600">
                 Monitoreo en tiempo real de equipos y stock
+              </p>
+            </CardContent>
+          </Card>
+        </Link>
+
+        <Link to="/tech/labs" className="block transition-transform hover:scale-105">
+          <Card className="h-full hover:border-purple-400 cursor-pointer">
+            <CardHeader>
+              <div className="flex items-center gap-3">
+                <div className="p-2 bg-purple-100 rounded-lg">
+                  <Beaker className="h-5 w-5 text-purple-600" />
+                </div>
+                <CardTitle className="text-base">OralSpace-X Labs (Beta)</CardTitle>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-slate-600">
+                Casos de uso experimentales del futuro de la plataforma
               </p>
             </CardContent>
           </Card>
