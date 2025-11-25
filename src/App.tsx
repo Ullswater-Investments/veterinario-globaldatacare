@@ -40,6 +40,11 @@ import IotPage from "./pages/tech/IotPage";
 import InnovationLabs from "./pages/tech/InnovationLabs";
 import TechnicalProposal from "./pages/consulting/TechnicalProposal";
 import BusinessModels from "./pages/business/BusinessModels";
+import ReferralMarketplace from "./pages/business/cases/ReferralMarketplace";
+import TeledentistrySaaS from "./pages/business/cases/TeledentistrySaaS";
+import FederatedStorage from "./pages/business/cases/FederatedStorage";
+import DiagnosticAPI from "./pages/business/cases/DiagnosticAPI";
+import IoTInventory from "./pages/business/cases/IoTInventory";
 
 const queryClient = new QueryClient();
 
@@ -80,6 +85,11 @@ const App = () => (
                 {/* Consulting Section - Public Access */}
                 <Route path="/consulting/technical-proposal" element={<TechnicalProposal />} />
                 <Route path="/business/models" element={<BusinessModels />} />
+                <Route path="/business/case/1" element={<ReferralMarketplace />} />
+                <Route path="/business/case/2" element={<TeledentistrySaaS />} />
+                <Route path="/business/case/3" element={<FederatedStorage />} />
+                <Route path="/business/case/4" element={<DiagnosticAPI />} />
+                <Route path="/business/case/5" element={<IoTInventory />} />
                 
                 {/* Protected Routes */}
                 <Route element={<AppLayout />}>

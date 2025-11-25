@@ -461,6 +461,119 @@ const checkReferentialIntegrity = () => {
   }
 };
 
+// --- DATOS PARA CASOS DE NEGOCIO (VERTICAL 1: CLÍNICA) ---
+
+// Caso 1: Marketplace de Derivación
+export interface ReferralTransaction {
+  id: string;
+  from: string;
+  to: string;
+  patient: string;
+  treatment: string;
+  value: number;
+  commission: number;
+  status: 'Completed' | 'In Progress' | 'Pending';
+}
+
+export const referralTransactions: ReferralTransaction[] = [
+  { id: "REF-001", from: "Clínica Dental Norte", to: "Dr. Maxilofacial Sur", patient: "Ana García", treatment: "Cirugía Ortognática", value: 3500, commission: 105, status: "Completed" },
+  { id: "REF-002", from: "Centro Salud Oeste", to: "Ortodoncia Avanzada", patient: "Luis Pérez", treatment: "Invisalign Full", value: 4200, commission: 126, status: "In Progress" },
+  { id: "REF-003", from: "Dra. López General", to: "PerioExpert", patient: "Marta Ruiz", treatment: "Injerto Encía", value: 800, commission: 24, status: "Pending" },
+  { id: "REF-004", from: "Clínica Dental Centro", to: "Implantología Avanzada", patient: "Carlos Martín", treatment: "Implante Dental", value: 1800, commission: 54, status: "Completed" },
+  { id: "REF-005", from: "Dental Plus Madrid", to: "Endodoncia Especializada", patient: "Laura Sánchez", treatment: "Endodoncia Molar", value: 600, commission: 18, status: "Completed" },
+];
+
+// Caso 2: Teledentistería SaaS
+export interface TeledentistryMetrics {
+  totalClinics: number;
+  activeSessionsNow: number;
+  mrr: number;
+  churnRate: number;
+  recentCalls: {
+    id: string;
+    clinic: string;
+    duration: string;
+    rating: number;
+    type: string;
+  }[];
+}
+
+export const teledentistryMetrics: TeledentistryMetrics = {
+  totalClinics: 215,
+  activeSessionsNow: 42,
+  mrr: 21285,
+  churnRate: 1.2,
+  recentCalls: [
+    { id: "CALL-99", clinic: "VitalDent Madrid", duration: "12:30", rating: 5, type: "Triage" },
+    { id: "CALL-98", clinic: "Sanitas BCN", duration: "08:15", rating: 4, type: "Post-Op" },
+    { id: "CALL-97", clinic: "Clínica Dental Norte", duration: "15:45", rating: 5, type: "Consulta" },
+    { id: "CALL-96", clinic: "Dental Plus Valencia", duration: "09:20", rating: 4, type: "Seguimiento" },
+  ]
+};
+
+// Caso 3: Almacenamiento Federado
+export interface StorageComparison {
+  totalStoredTB: number;
+  awsCost: number;
+  oralSpaceCost: number;
+  savings: number;
+  nodeDistribution: {
+    region: string;
+    usage: string;
+    status: 'Online' | 'Syncing' | 'Offline';
+  }[];
+}
+
+export const storageComparison: StorageComparison = {
+  totalStoredTB: 540,
+  awsCost: 12420,
+  oralSpaceCost: 5400,
+  savings: 7020,
+  nodeDistribution: [
+    { region: "Madrid Node", usage: "45%", status: "Online" },
+    { region: "Paris Node", usage: "78%", status: "Online" },
+    { region: "Berlin Node", usage: "30%", status: "Syncing" },
+    { region: "Lisboa Node", usage: "62%", status: "Online" },
+  ]
+};
+
+// Caso 4: API Diagnóstico IA
+export interface ApiUsageLog {
+  timestamp: string;
+  endpoint: string;
+  latency: string;
+  status: number;
+  cost: number;
+}
+
+export const apiUsageLog: ApiUsageLog[] = [
+  { timestamp: "10:00:01", endpoint: "/analyze/caries", latency: "120ms", status: 200, cost: 0.50 },
+  { timestamp: "10:00:05", endpoint: "/analyze/perio", latency: "350ms", status: 200, cost: 0.75 },
+  { timestamp: "10:00:12", endpoint: "/analyze/ortho", latency: "900ms", status: 200, cost: 1.20 },
+  { timestamp: "10:00:15", endpoint: "/analyze/caries", latency: "110ms", status: 200, cost: 0.50 },
+  { timestamp: "10:00:18", endpoint: "/analyze/endodoncia", latency: "280ms", status: 200, cost: 0.65 },
+  { timestamp: "10:00:22", endpoint: "/analyze/caries", latency: "95ms", status: 200, cost: 0.50 },
+];
+
+// Caso 5: Gestión Stock IoT
+export interface StockAutomation {
+  id: string;
+  item: string;
+  supplier: string;
+  quantity: number;
+  value: number;
+  fee: number;
+  trigger: string;
+}
+
+export const stockAutomations: StockAutomation[] = [
+  { id: "ORD-550", item: "Implante Straumann BLX", supplier: "Straumann Group", quantity: 10, value: 2500, fee: 37.5, trigger: "Low Stock Sensor" },
+  { id: "ORD-551", item: "Guantes Nitrilo L", supplier: "Henry Schein", quantity: 50, value: 500, fee: 7.5, trigger: "Weekly Refill" },
+  { id: "ORD-552", item: "Composite A2", supplier: "3M ESPE", quantity: 5, value: 300, fee: 4.5, trigger: "AI Prediction" },
+  { id: "ORD-553", item: "Anestesia Articaína", supplier: "Inibsa Dental", quantity: 20, value: 180, fee: 2.7, trigger: "Low Stock Sensor" },
+  { id: "ORD-554", item: "Puntas Ultrasonidos", supplier: "NSK Europe", quantity: 8, value: 240, fee: 3.6, trigger: "Monthly Reorder" },
+];
+
 // Run integrity check in development
 if (import.meta.env.DEV) {
   checkReferentialIntegrity();
