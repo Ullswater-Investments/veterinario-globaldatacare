@@ -664,6 +664,88 @@ export const adCampaigns: AdCampaign[] = [
   { campaign: "Fresadora CAD/CAM", impressions: 6500, clicks: 110, ctr: "1.7%", spend: 325, cpm: 50 },
 ];
 
+// --- DATOS PARA CASOS DE NEGOCIO (VERTICAL 3: DATOS) ---
+
+// Caso 11: Datos Sintéticos Pharma
+export interface SyntheticDataset {
+  id: string;
+  name: string;
+  size: string;
+  price: number;
+  status: 'Ready' | 'Generating' | 'Sold';
+  format: string;
+  buyer?: string;
+  progress?: number;
+}
+
+export const syntheticDatasets: SyntheticDataset[] = [
+  { id: "DS-2024-A", name: "Cohorte Perio-Cardio", size: "10k Pacientes", price: 50000, status: "Ready", format: "FHIR JSON" },
+  { id: "DS-2024-B", name: "Implantes Fallidos EU", size: "5k Pacientes", price: 50000, status: "Generating", format: "CSV/Parquet", progress: 85 },
+  { id: "DS-2024-C", name: "Caries Infantil Pre-escolar", size: "20k Pacientes", price: 50000, status: "Sold", format: "FHIR JSON", buyer: "PharmaCorp" },
+  { id: "DS-2024-D", name: "Ortodoncia Adultos", size: "15k Pacientes", price: 50000, status: "Ready", format: "Parquet" },
+];
+
+// Caso 12: Compute Federado
+export interface ComputeNode {
+  nodeId: string;
+  status: 'Computing' | 'Idle' | 'Offline';
+  task: string;
+  cpu: string;
+  earnings: number;
+}
+
+export const computeNodes: ComputeNode[] = [
+  { nodeId: "Node-Paris-01", status: "Computing", task: "Train Model v2.1", cpu: "85%", earnings: 120.50 },
+  { nodeId: "Node-Berlin-09", status: "Computing", task: "Train Model v2.1", cpu: "92%", earnings: 145.00 },
+  { nodeId: "Node-Madrid-03", status: "Idle", task: "Waiting...", cpu: "5%", earnings: 0.00 },
+  { nodeId: "Node-Lisboa-05", status: "Computing", task: "Train Model v2.1", cpu: "78%", earnings: 98.75 },
+  { nodeId: "Node-Roma-12", status: "Offline", task: "Disconnected", cpu: "0%", earnings: 0.00 },
+];
+
+// Caso 13: Reclutamiento Ensayos
+export interface RecruitmentStage {
+  stage: string;
+  count: number;
+  value?: number;
+}
+
+export const recruitmentFunnel: RecruitmentStage[] = [
+  { stage: "Total Base Pacientes", count: 150000 },
+  { stage: "Criterio: Mujer >50 años", count: 45000 },
+  { stage: "Criterio: Implante Zirconia", count: 3200 },
+  { stage: "Criterio: Periimplantitis Activa", count: 150 },
+  { stage: "Consentimiento Recibido", count: 50, value: 75000 },
+];
+
+// Caso 14: Informes RWE (Real World Evidence)
+export interface RWEComparison {
+  material: string;
+  survivalRate: number;
+  complications: number;
+}
+
+export const rweComparison: RWEComparison[] = [
+  { material: "Marca A (Premium)", survivalRate: 98.5, complications: 1.2 },
+  { material: "Marca B (Standard)", survivalRate: 94.2, complications: 4.5 },
+  { material: "Marca C (Low Cost)", survivalRate: 89.1, complications: 9.8 },
+];
+
+// Caso 15: Vigilancia Epidemiológica
+export interface EpidemicData {
+  region: string;
+  condition: string;
+  level: 'High' | 'Medium' | 'Low';
+  trend: string;
+}
+
+export const epidemicMapData: EpidemicData[] = [
+  { region: "Andalucía", condition: "Caries Infantil", level: "High", trend: "+5%" },
+  { region: "Cataluña", condition: "Fluorosis", level: "Low", trend: "-2%" },
+  { region: "Madrid", condition: "Bruxismo", level: "Medium", trend: "+12%" },
+  { region: "Valencia", condition: "Enfermedad Periodontal", level: "High", trend: "+8%" },
+  { region: "Galicia", condition: "Erosión Dental", level: "Medium", trend: "+3%" },
+];
+
 // Run integrity check in development
 if (import.meta.env.DEV) {
   checkReferentialIntegrity();

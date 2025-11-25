@@ -50,6 +50,11 @@ import BrandProtection from "./pages/business/cases/BrandProtection";
 import ThreeDPrintingDRM from "./pages/business/cases/ThreeDPrintingDRM";
 import ESGCertification from "./pages/business/cases/ESGCertification";
 import ContextualAdvertising from "./pages/business/cases/ContextualAdvertising";
+import SyntheticData from "./pages/business/cases/SyntheticData";
+import FederatedCompute from "./pages/business/cases/FederatedCompute";
+import ClinicalTrials from "./pages/business/cases/ClinicalTrials";
+import RealWorldEvidence from "./pages/business/cases/RealWorldEvidence";
+import EpidemicSurveillance from "./pages/business/cases/EpidemicSurveillance";
 
 const queryClient = new QueryClient();
 
@@ -100,6 +105,11 @@ const App = () => (
                 <Route path="/business/case/8" element={<ThreeDPrintingDRM />} />
                 <Route path="/business/case/9" element={<ESGCertification />} />
                 <Route path="/business/case/10" element={<ContextualAdvertising />} />
+                <Route path="/business/case/11" element={<SyntheticData />} />
+                <Route path="/business/case/12" element={<FederatedCompute />} />
+                <Route path="/business/case/13" element={<ClinicalTrials />} />
+                <Route path="/business/case/14" element={<RealWorldEvidence />} />
+                <Route path="/business/case/15" element={<EpidemicSurveillance />} />
                 
                 {/* Protected Routes */}
                 <Route element={<AppLayout />}>
