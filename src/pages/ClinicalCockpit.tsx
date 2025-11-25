@@ -1,7 +1,57 @@
+import { useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import { supabase } from '@/integrations/supabase/client';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Stethoscope } from 'lucide-react';
+import { Alert, AlertDescription } from '@/components/ui/alert';
+import { Stethoscope, AlertTriangle, Loader2 } from 'lucide-react';
+import { PatientSearchBar } from '@/components/clinical/PatientSearchBar';
+import { PatientCard } from '@/components/clinical/PatientCard';
+import { TimelineEvent } from '@/components/clinical/TimelineEvent';
+import { Tables } from '@/integrations/supabase/types';
 
 export default function ClinicalCockpit() {
+  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedPatientId, setSelectedPatientId] = useState<string | null>(null);
+
+  // Búsqueda de pacientes
+  const { data: patients, isLoading: searchLoading } = useQuery({
+    queryKey: ['patients', searchQuery],
+    queryFn: async () => {
+      if (!searchQuery) return [];
+      
+      const { data, error } = await supabase
+        .from('patients')
+        .select('*')
+        .or(`full_name.ilike.%${searchQuery}%,did.ilike.%${searchQuery}%`)
+        .limit(10);
+
+      if (error) throw error;
+      return data as Tables<'patients'>[];
+    },
+    enabled: searchQuery.length > 0,
+  });
+
+  // Timeline del paciente seleccionado
+  const { data: encounters, isLoading: timelineLoading } = useQuery({
+    queryKey: ['encounters', selectedPatientId],
+    queryFn: async () => {
+      if (!selectedPatientId) return [];
+
+      const { data, error } = await supabase
+        .from('clinical_encounters')
+        .select('*')
+        .eq('patient_id', selectedPatientId)
+        .order('encounter_date', { ascending: false });
+
+      if (error) throw error;
+      return data as Tables<'clinical_encounters'>[];
+    },
+    enabled: !!selectedPatientId,
+  });
+
+  const selectedPatient = patients?.find(p => p.id === selectedPatientId);
+  const hasHighRiskEncounters = encounters?.some(e => e.risk_level === 'high');
+
   return (
     <div className="space-y-6">
       <div>
@@ -9,24 +59,95 @@ export default function ClinicalCockpit() {
         <p className="text-slate-500 mt-1">Buscador federado de datos de pacientes</p>
       </div>
 
+      {/* Buscador */}
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <Stethoscope className="h-5 w-5 text-blue-600" />
-            Módulo en Desarrollo
+            <Stethoscope className="h-5 w-5 text-primary" />
+            Búsqueda Federada de Pacientes
           </CardTitle>
           <CardDescription>
-            Este módulo contendrá el buscador federado con timeline unificado
+            Busca pacientes por nombre o identificador descentralizado (DID)
           </CardDescription>
         </CardHeader>
-        <CardContent>
-          <div className="bg-slate-50 rounded-lg p-8 text-center border-2 border-dashed border-slate-300">
-            <p className="text-slate-600">
-              Próximamente: Timeline de eventos clínicos, semáforo de consentimiento y alertas de riesgo
-            </p>
-          </div>
+        <CardContent className="space-y-4">
+          <PatientSearchBar onSearch={setSearchQuery} loading={searchLoading} />
+
+          {searchLoading && (
+            <div className="flex items-center justify-center py-8">
+              <Loader2 className="h-8 w-8 animate-spin text-primary" />
+            </div>
+          )}
+
+          {patients && patients.length > 0 && (
+            <div className="space-y-2">
+              <p className="text-sm text-muted-foreground">
+                {patients.length} paciente{patients.length > 1 ? 's' : ''} encontrado{patients.length > 1 ? 's' : ''}
+              </p>
+              <div className="grid gap-3">
+                {patients.map((patient) => (
+                  <button
+                    key={patient.id}
+                    onClick={() => setSelectedPatientId(patient.id)}
+                    className="text-left hover:opacity-80 transition-opacity"
+                  >
+                    <PatientCard patient={patient} />
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {searchQuery && !searchLoading && patients?.length === 0 && (
+            <Alert>
+              <AlertDescription>
+                No se encontraron pacientes con "{searchQuery}"
+              </AlertDescription>
+            </Alert>
+          )}
         </CardContent>
       </Card>
+
+      {/* Timeline Unificado */}
+      {selectedPatient && (
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center justify-between">
+              <span>Timeline Clínico - {selectedPatient.full_name}</span>
+              {hasHighRiskEncounters && (
+                <Alert className="w-auto py-2 px-4" variant="destructive">
+                  <AlertTriangle className="h-4 w-4" />
+                  <AlertDescription className="ml-2">
+                    Paciente con factores de riesgo
+                  </AlertDescription>
+                </Alert>
+              )}
+            </CardTitle>
+            <CardDescription>
+              Historia clínica unificada de fuentes federadas (Hospital + Clínica Dental)
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            {timelineLoading ? (
+              <div className="flex items-center justify-center py-8">
+                <Loader2 className="h-8 w-8 animate-spin text-primary" />
+              </div>
+            ) : encounters && encounters.length > 0 ? (
+              <div className="space-y-4">
+                {encounters.map((encounter) => (
+                  <TimelineEvent key={encounter.id} encounter={encounter} />
+                ))}
+              </div>
+            ) : (
+              <Alert>
+                <AlertDescription>
+                  No hay encuentros clínicos registrados para este paciente
+                </AlertDescription>
+              </Alert>
+            )}
+          </CardContent>
+        </Card>
+      )}
     </div>
   );
 }
