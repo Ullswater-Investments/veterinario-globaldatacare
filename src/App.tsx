@@ -60,6 +60,7 @@ import FraudScoring from "./pages/business/cases/FraudScoring";
 import BNPLFinancing from "./pages/business/cases/BNPLFinancing";
 import ParametricInsurance from "./pages/business/cases/ParametricInsurance";
 import InvoiceFactoring from "./pages/business/cases/InvoiceFactoring";
+import StrategicPresentation from "./pages/StrategicPresentation";
 
 const queryClient = new QueryClient();
 
@@ -120,6 +121,9 @@ const App = () => (
                 <Route path="/business/case/18" element={<BNPLFinancing />} />
                 <Route path="/business/case/19" element={<ParametricInsurance />} />
                 <Route path="/business/case/20" element={<InvoiceFactoring />} />
+                
+                {/* Strategic Presentation */}
+                <Route path="/presentation" element={<StrategicPresentation />} />
                 
                 {/* Protected Routes */}
                 <Route element={<AppLayout />}>
