@@ -315,6 +315,436 @@ const SlideApp3 = () => (
   </div>
 );
 
+// Caso de Negocio 1: Smart Claims Processing
+const SlideBiz1 = () => (
+  <div className="h-full flex flex-col justify-center gap-6 px-16">
+    <motion.h2
+      initial={{ x: -50, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      className="text-4xl font-bold text-white mb-2"
+    >
+      Caso de Negocio #1: Smart Claims
+    </motion.h2>
+    <motion.p
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 0.3 }}
+      className="text-xl text-emerald-400 mb-2"
+    >
+      Procesamiento Automático de Reclamaciones Dentales
+    </motion.p>
+    <div className="grid grid-cols-2 gap-8">
+      <motion.div
+        initial={{ x: -30, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ delay: 0.5 }}
+        className="space-y-4"
+      >
+        <div className="bg-red-900/50 border border-red-500 p-5 rounded-xl">
+          <div className="text-xl font-bold text-red-300 mb-2">❌ Problema Actual</div>
+          <div className="text-slate-300 text-sm space-y-1">
+            <div>• Pago en 30-45 días</div>
+            <div>• Revisión manual 100%</div>
+            <div>• Fraude 8-12% sector</div>
+            <div>• Costes administrativos altos</div>
+          </div>
+        </div>
+        <div className="bg-emerald-900/50 border border-emerald-500 p-5 rounded-xl">
+          <div className="text-xl font-bold text-emerald-300 mb-2">✅ Solución ORALspace-X</div>
+          <div className="text-slate-300 text-sm space-y-1">
+            <div>• Smart Contract valida en 0.8s</div>
+            <div>• Verificación automática CDT + RX</div>
+            <div>• Detección fraude por IA</div>
+            <div>• Pago instantáneo blockchain</div>
+          </div>
+        </div>
+      </motion.div>
+      <motion.div
+        initial={{ x: 30, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ delay: 0.7 }}
+        className="space-y-4"
+      >
+        <div className="bg-gradient-to-br from-blue-900 to-blue-700 p-6 rounded-xl text-center">
+          <div className="text-5xl mb-3">⚡</div>
+          <div className="text-3xl font-bold text-white mb-2">30 días → 1 día</div>
+          <div className="text-blue-200 text-sm">Reducción tiempo pago</div>
+        </div>
+        <div className="bg-gradient-to-br from-purple-900 to-purple-700 p-6 rounded-xl text-center">
+          <div className="text-5xl mb-3">💰</div>
+          <div className="text-3xl font-bold text-white mb-2">0.8% - 1.2%</div>
+          <div className="text-purple-200 text-sm">Comisión por transacción</div>
+        </div>
+        <div className="bg-slate-800 p-4 rounded-lg">
+          <div className="text-green-400 font-semibold text-sm mb-1">Proyección Anual (1000 nodos)</div>
+          <div className="text-2xl font-bold text-white">420.000€</div>
+        </div>
+      </motion.div>
+    </div>
+  </div>
+);
+
+// Caso de Negocio 2: Marketplace Referral
+const SlideBiz2 = () => (
+  <div className="h-full flex flex-col justify-center gap-6 px-16">
+    <motion.h2
+      initial={{ x: -50, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      className="text-4xl font-bold text-white mb-2"
+    >
+      Caso de Negocio #2: Referral Marketplace
+    </motion.h2>
+    <motion.p
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 0.3 }}
+      className="text-xl text-blue-400 mb-2"
+    >
+      Red de Derivaciones entre Clínicas Especializadas
+    </motion.p>
+    <div className="grid grid-cols-5 gap-4 mb-6">
+      {[
+        { emoji: "🦷", name: "Odontología" },
+        { emoji: "🔬", name: "Periodoncia" },
+        { emoji: "👶", name: "Ortodoncia" },
+        { emoji: "💉", name: "Implantes" },
+        { emoji: "😬", name: "Endodoncia" }
+      ].map((specialty, idx) => (
+        <motion.div
+          key={specialty.name}
+          initial={{ y: 30, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.5 + idx * 0.1 }}
+          className="bg-slate-800 p-4 rounded-lg text-center border border-blue-500"
+        >
+          <div className="text-4xl mb-2">{specialty.emoji}</div>
+          <div className="text-white text-xs font-semibold">{specialty.name}</div>
+        </motion.div>
+      ))}
+    </div>
+    <div className="grid grid-cols-3 gap-6">
+      <motion.div
+        initial={{ scale: 0.9, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ delay: 1 }}
+        className="bg-gradient-to-br from-green-900 to-green-700 p-6 rounded-xl text-center"
+      >
+        <div className="text-4xl mb-3">🌐</div>
+        <div className="text-2xl font-bold text-white mb-2">3% Take-Rate</div>
+        <div className="text-green-200 text-sm">Por cada referencia exitosa</div>
+      </motion.div>
+      <motion.div
+        initial={{ scale: 0.9, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ delay: 1.2 }}
+        className="bg-gradient-to-br from-blue-900 to-blue-700 p-6 rounded-xl text-center"
+      >
+        <div className="text-4xl mb-3">📊</div>
+        <div className="text-2xl font-bold text-white mb-2">1.500€</div>
+        <div className="text-blue-200 text-sm">Valor medio tratamiento</div>
+      </motion.div>
+      <motion.div
+        initial={{ scale: 0.9, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ delay: 1.4 }}
+        className="bg-gradient-to-br from-purple-900 to-purple-700 p-6 rounded-xl text-center"
+      >
+        <div className="text-4xl mb-3">💶</div>
+        <div className="text-2xl font-bold text-white mb-2">45€</div>
+        <div className="text-purple-200 text-sm">Comisión por referencia</div>
+      </motion.div>
+    </div>
+    <motion.div
+      initial={{ y: 20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ delay: 1.6 }}
+      className="bg-slate-800 p-5 rounded-lg text-center mt-2"
+    >
+      <div className="text-slate-400 text-sm mb-1">Proyección con 800 clínicas × 2 derivaciones/mes</div>
+      <div className="text-3xl font-bold text-green-400">480.000€ / año</div>
+    </motion.div>
+  </div>
+);
+
+// Caso de Negocio 3: Digital Product Passport
+const SlideBiz3 = () => (
+  <div className="h-full flex flex-col justify-center gap-6 px-16">
+    <motion.h2
+      initial={{ x: -50, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      className="text-4xl font-bold text-white mb-2"
+    >
+      Caso de Negocio #3: Digital Product Passport
+    </motion.h2>
+    <motion.p
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 0.3 }}
+      className="text-xl text-purple-400 mb-2"
+    >
+      Certificación Blockchain para Productos Sanitarios (MDR 2017/745)
+    </motion.p>
+    <div className="grid grid-cols-2 gap-8">
+      <motion.div
+        initial={{ x: -30, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ delay: 0.5 }}
+        className="space-y-4"
+      >
+        <div className="bg-slate-800 border-l-4 border-purple-500 p-5 rounded-lg">
+          <div className="flex items-center gap-3 mb-3">
+            <div className="text-3xl">🏭</div>
+            <div className="text-lg font-bold text-white">Cadena de Trazabilidad</div>
+          </div>
+          <div className="space-y-2 text-sm text-slate-300">
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+              <div>Origen materia prima (Zirconio Japón)</div>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+              <div>Temperatura sinterización (1450°C)</div>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+              <div>Lote ISO 13485 certificado</div>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+              <div>Hash blockchain inmutable</div>
+            </div>
+          </div>
+        </div>
+        <div className="bg-gradient-to-br from-red-900 to-red-700 p-5 rounded-xl">
+          <div className="text-white font-semibold mb-2">⚠️ Cumplimiento Normativo</div>
+          <div className="text-red-200 text-sm">
+            MDR exige trazabilidad completa. Auditoría AEMPS reducida de <span className="font-bold text-white">6 meses a 1 día</span>
+          </div>
+        </div>
+      </motion.div>
+      <motion.div
+        initial={{ x: 30, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ delay: 0.7 }}
+        className="space-y-4"
+      >
+        <div className="bg-gradient-to-br from-emerald-900 to-emerald-700 p-6 rounded-xl text-center">
+          <div className="text-5xl mb-3">📜</div>
+          <div className="text-2xl font-bold text-white mb-2">5€ / Producto</div>
+          <div className="text-emerald-200 text-sm">Emisión DPP certificado</div>
+        </div>
+        <div className="bg-slate-800 p-5 rounded-lg">
+          <div className="text-slate-400 text-xs mb-2">Mercado potencial</div>
+          <div className="text-white font-semibold mb-3">100 laboratorios × 200 productos/mes</div>
+          <div className="bg-purple-600 p-4 rounded-lg text-center">
+            <div className="text-2xl font-bold text-white">100.000€ / mes</div>
+          </div>
+        </div>
+        <div className="bg-yellow-900/50 border border-yellow-500 p-4 rounded-lg">
+          <div className="flex items-center gap-2 mb-1">
+            <div className="text-2xl">🛡️</div>
+            <div className="text-yellow-400 font-semibold text-sm">Anti-Falsificación</div>
+          </div>
+          <div className="text-yellow-200 text-xs">
+            Protección contra implantes piratas de China
+          </div>
+        </div>
+      </motion.div>
+    </div>
+  </div>
+);
+
+// Caso de Negocio 4: Federated Learning
+const SlideBiz4 = () => (
+  <div className="h-full flex flex-col justify-center gap-6 px-16">
+    <motion.h2
+      initial={{ x: -50, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      className="text-4xl font-bold text-white mb-2"
+    >
+      Caso de Negocio #4: Federated Learning
+    </motion.h2>
+    <motion.p
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 0.3 }}
+      className="text-xl text-cyan-400 mb-2"
+    >
+      Entrenamiento de IA Distribuida sin Exponer Datos
+    </motion.p>
+    <div className="grid grid-cols-2 gap-8">
+      <motion.div
+        initial={{ x: -30, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ delay: 0.5 }}
+        className="space-y-4"
+      >
+        <div className="bg-slate-800 p-5 rounded-xl border border-cyan-500">
+          <div className="text-2xl font-bold text-cyan-400 mb-3">🧠 Cómo Funciona</div>
+          <div className="space-y-3 text-sm text-slate-300">
+            <div className="flex items-start gap-3">
+              <div className="text-xl">1️⃣</div>
+              <div>Cada clínica entrena modelo localmente con sus datos</div>
+            </div>
+            <div className="flex items-start gap-3">
+              <div className="text-xl">2️⃣</div>
+              <div>Solo envía pesos estadísticos (no imágenes)</div>
+            </div>
+            <div className="flex items-start gap-3">
+              <div className="text-xl">3️⃣</div>
+              <div>ORALspace-X agrega aprendizajes en modelo global</div>
+            </div>
+            <div className="flex items-start gap-3">
+              <div className="text-xl">4️⃣</div>
+              <div>Todos mejoran sin compartir datos sensibles</div>
+            </div>
+          </div>
+        </div>
+        <div className="bg-green-900/50 border border-green-500 p-4 rounded-lg">
+          <div className="flex items-center gap-2 mb-2">
+            <div className="text-2xl">🔒</div>
+            <div className="text-green-400 font-semibold">GDPR Safe</div>
+          </div>
+          <div className="text-green-200 text-xs">
+            k-anonymity + Differential Privacy aplicados
+          </div>
+        </div>
+      </motion.div>
+      <motion.div
+        initial={{ x: 30, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ delay: 0.7 }}
+        className="space-y-4"
+      >
+        <div className="bg-gradient-to-br from-blue-900 to-blue-700 p-6 rounded-xl text-center">
+          <div className="text-4xl mb-3">💾</div>
+          <div className="text-2xl font-bold text-white mb-2">50.000 RX</div>
+          <div className="text-blue-200 text-sm mb-3">Radiografías periapicales</div>
+          <div className="text-3xl font-bold text-blue-300">15.000€</div>
+          <div className="text-blue-200 text-xs mt-1">Precio dataset sintético</div>
+        </div>
+        <div className="bg-gradient-to-br from-purple-900 to-purple-700 p-6 rounded-xl text-center">
+          <div className="text-4xl mb-3">⚙️</div>
+          <div className="text-xl font-bold text-white mb-2">Compute-as-Service</div>
+          <div className="text-purple-200 text-sm mb-2">Alquiler horas GPU</div>
+          <div className="text-2xl font-bold text-purple-300">200€/h</div>
+        </div>
+        <div className="bg-slate-800 p-4 rounded-lg text-center">
+          <div className="text-slate-400 text-xs mb-1">Revenue anual potencial</div>
+          <div className="text-3xl font-bold text-cyan-400">180.000€</div>
+        </div>
+      </motion.div>
+    </div>
+  </div>
+);
+
+// Caso de Negocio 5: AI Diagnostics API
+const SlideBiz5 = () => (
+  <div className="h-full flex flex-col justify-center gap-6 px-16">
+    <motion.h2
+      initial={{ x: -50, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      className="text-4xl font-bold text-white mb-2"
+    >
+      Caso de Negocio #5: AI Diagnostics API
+    </motion.h2>
+    <motion.p
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 0.3 }}
+      className="text-xl text-orange-400 mb-2"
+    >
+      API de Diagnóstico Radiológico Asistido por IA
+    </motion.p>
+    <div className="grid grid-cols-2 gap-8">
+      <motion.div
+        initial={{ x: -30, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ delay: 0.5 }}
+        className="space-y-4"
+      >
+        <div className="bg-slate-800 p-5 rounded-xl border border-orange-500">
+          <div className="text-xl font-bold text-orange-400 mb-3">🎯 Detecciones Automáticas</div>
+          <div className="space-y-2">
+            {[
+              { name: "Caries", confidence: 94 },
+              { name: "Fracturas", confidence: 89 },
+              { name: "Abscesos", confidence: 92 },
+              { name: "Pérdida Ósea", confidence: 87 },
+              { name: "Quistes", confidence: 85 }
+            ].map((detection, idx) => (
+              <motion.div
+                key={detection.name}
+                initial={{ x: -20, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ delay: 0.7 + idx * 0.1 }}
+                className="bg-slate-900 p-3 rounded-lg"
+              >
+                <div className="flex justify-between items-center mb-1">
+                  <div className="text-white text-sm font-semibold">{detection.name}</div>
+                  <div className="text-orange-400 text-sm">{detection.confidence}%</div>
+                </div>
+                <div className="w-full bg-slate-700 h-2 rounded-full overflow-hidden">
+                  <motion.div
+                    initial={{ width: 0 }}
+                    animate={{ width: `${detection.confidence}%` }}
+                    transition={{ delay: 0.9 + idx * 0.1, duration: 0.5 }}
+                    className="bg-gradient-to-r from-orange-500 to-orange-300 h-full"
+                  />
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </motion.div>
+      <motion.div
+        initial={{ x: 30, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ delay: 0.7 }}
+        className="space-y-4"
+      >
+        <div className="bg-gradient-to-br from-blue-900 to-blue-700 p-6 rounded-xl text-center">
+          <div className="text-4xl mb-3">💻</div>
+          <div className="text-xl font-bold text-white mb-2">Modelo API</div>
+          <div className="text-2xl font-bold text-blue-300 mb-1">0.50€</div>
+          <div className="text-blue-200 text-sm">Por radiografía procesada</div>
+        </div>
+        <div className="bg-slate-800 p-5 rounded-lg">
+          <div className="text-slate-400 text-xs mb-3">Ejemplo de uso mensual</div>
+          <div className="space-y-2 text-sm">
+            <div className="flex justify-between text-slate-300">
+              <span>800 clínicas × 100 RX/mes</span>
+              <span className="font-bold text-white">80.000 RX</span>
+            </div>
+            <div className="flex justify-between text-slate-300">
+              <span>Precio unitario</span>
+              <span className="font-bold text-white">0.50€</span>
+            </div>
+            <div className="border-t border-slate-700 pt-2 mt-2"></div>
+            <div className="flex justify-between">
+              <span className="text-green-400 font-semibold">Revenue mensual</span>
+              <span className="text-2xl font-bold text-green-400">40.000€</span>
+            </div>
+          </div>
+        </div>
+        <div className="bg-green-900/50 border border-green-500 p-4 rounded-lg">
+          <div className="flex items-center gap-2 mb-1">
+            <div className="text-2xl">⚡</div>
+            <div className="text-green-400 font-semibold text-sm">Respuesta {"<"} 2 segundos</div>
+          </div>
+          <div className="text-green-200 text-xs">
+            Procesamiento en tiempo real durante consulta
+          </div>
+        </div>
+        <div className="bg-slate-800 p-4 rounded-lg text-center">
+          <div className="text-slate-400 text-xs mb-1">Proyección anual</div>
+          <div className="text-3xl font-bold text-orange-400">480.000€</div>
+        </div>
+      </motion.div>
+    </div>
+  </div>
+);
+
 // Tour de la Aplicación - Slide 4: Smart Claims & Federated Learning
 const SlideApp4 = () => (
   <div className="h-full flex flex-col justify-center gap-6 px-16">
@@ -837,6 +1267,11 @@ const slides = [
   <SlideApp2 />,
   <SlideApp3 />,
   <SlideApp4 />,
+  <SlideBiz1 />,
+  <SlideBiz2 />,
+  <SlideBiz3 />,
+  <SlideBiz4 />,
+  <SlideBiz5 />,
   <Slide3 />,
   <Slide4 />,
   <Slide5 />,
