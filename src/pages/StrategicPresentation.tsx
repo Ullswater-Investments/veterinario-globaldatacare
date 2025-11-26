@@ -34,12 +34,12 @@ const nodeData = [
 ];
 
 const Slide1 = () => (
-  <div className="flex flex-col items-center justify-center h-full gap-8">
+  <div className="flex flex-col items-center justify-center h-full gap-6">
     <motion.div
       initial={{ scale: 0.8, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       transition={{ duration: 0.8 }}
-      className="text-6xl font-bold text-center text-white leading-tight"
+      className="text-5xl font-bold text-center text-white leading-tight"
     >
       INFORME ESTRATÉGICO EXPANDIDO
     </motion.div>
@@ -47,7 +47,7 @@ const Slide1 = () => (
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 0.4, duration: 0.6 }}
-      className="text-3xl text-blue-400 text-center"
+      className="text-2xl text-blue-400 text-center"
     >
       ECOSISTEMA DE DATOS FEDERADOS ORALspace-X
     </motion.div>
@@ -55,13 +55,11 @@ const Slide1 = () => (
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.8, duration: 0.6 }}
-      className="mt-8 space-y-3 text-slate-400 text-xl text-center"
+      className="mt-6 space-y-2 text-slate-400 text-lg text-center"
     >
-      <div className="text-red-400 font-semibold">CONFIDENCIAL</div>
-      <div>FECHA: 26 Noviembre 2025</div>
-      <div className="mt-6">
-        <div className="text-green-400">Para: Dirección General, Accuro Technology</div>
-        <div className="text-sm">(Sr. Iván Becerro)</div>
+      <div className="text-red-400 font-semibold">CONFIDENCIAL | 26 Nov 2025</div>
+      <div className="mt-4">
+        <div className="text-green-400">Para: Dirección General, Accuro Technology (Sr. Iván Becerro)</div>
       </div>
       <div>
         <div className="text-blue-400">De: Dirección, Ullswater Investments</div>
@@ -71,11 +69,11 @@ const Slide1 = () => (
 );
 
 const Slide2 = () => (
-  <div className="h-full flex flex-col justify-center gap-8 px-16">
+  <div className="h-full flex flex-col justify-center gap-6 px-16">
     <motion.h2
       initial={{ x: -50, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
-      className="text-5xl font-bold text-white mb-4"
+      className="text-4xl font-bold text-white mb-2"
     >
       1. Definición del Activo Tecnológico
     </motion.h2>
@@ -83,40 +81,40 @@ const Slide2 = () => (
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 0.3 }}
-      className="text-2xl text-slate-300 leading-relaxed"
+      className="text-xl text-slate-300 leading-relaxed"
     >
-      ORALspace-X no es un PMS ni un ERP. Es una <span className="text-blue-400 font-semibold">Infraestructura de Datos Soberana (IDS)</span> basada en Gaia-X y EHDS. Actúa como la 'columna vertebral invisible' que conecta sistemas heterogéneos, permitiendo el flujo seguro, auditado y monetizable de datos.
+      ORALspace-X es una <span className="text-blue-400 font-semibold">Infraestructura de Datos Soberana (IDS)</span> basada en Gaia-X y EHDS. Conecta sistemas heterogéneos permitiendo flujo seguro, auditado y monetizable de datos.
     </motion.p>
     <motion.div
       initial={{ scale: 0.9, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       transition={{ delay: 0.6 }}
-      className="flex justify-around items-center mt-8"
+      className="flex justify-around items-center mt-6"
     >
       <div className="text-center">
-        <div className="w-32 h-32 bg-blue-600 rounded-full flex items-center justify-center text-4xl mb-4">🏥</div>
-        <div className="text-xl text-white">Clínica</div>
+        <div className="w-24 h-24 bg-blue-600 rounded-full flex items-center justify-center text-3xl mb-3">🏥</div>
+        <div className="text-lg text-white">Clínica</div>
       </div>
-      <div className="text-6xl text-green-400">⟷</div>
+      <div className="text-5xl text-green-400">⟷</div>
       <div className="text-center">
-        <div className="w-32 h-32 bg-purple-600 rounded-full flex items-center justify-center text-4xl mb-4">🏭</div>
-        <div className="text-xl text-white">Laboratorio</div>
+        <div className="w-24 h-24 bg-purple-600 rounded-full flex items-center justify-center text-3xl mb-3">🏭</div>
+        <div className="text-lg text-white">Laboratorio</div>
       </div>
-      <div className="text-6xl text-green-400">⟷</div>
+      <div className="text-5xl text-green-400">⟷</div>
       <div className="text-center">
-        <div className="w-32 h-32 bg-emerald-600 rounded-full flex items-center justify-center text-4xl mb-4">🛡️</div>
-        <div className="text-xl text-white">Aseguradora</div>
+        <div className="w-24 h-24 bg-emerald-600 rounded-full flex items-center justify-center text-3xl mb-3">🛡️</div>
+        <div className="text-lg text-white">Aseguradora</div>
       </div>
     </motion.div>
   </div>
 );
 
 const Slide3 = () => (
-  <div className="h-full flex flex-col justify-center gap-8 px-16">
+  <div className="h-full flex flex-col justify-center gap-6 px-16">
     <motion.h2
       initial={{ x: -50, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
-      className="text-5xl font-bold text-white mb-4"
+      className="text-4xl font-bold text-white mb-2"
     >
       2. Proyección de Escala (Objetivo 1000)
     </motion.h2>
@@ -124,15 +122,15 @@ const Slide3 = () => (
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 0.3 }}
-      className="text-2xl text-slate-300"
+      className="text-xl text-slate-300"
     >
-      Modelo de negocio basado en <span className="text-green-400 font-bold">1.000 nodos activos</span> en 36 meses. Impacto: <span className="text-blue-400 font-bold">1.2M ciudadanos</span>.
+      <span className="text-green-400 font-bold">1.000 nodos activos</span> en 36 meses | Impacto: <span className="text-blue-400 font-bold">1.2M ciudadanos</span>
     </motion.p>
     <motion.div
       initial={{ y: 30, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ delay: 0.5 }}
-      className="grid grid-cols-2 gap-6 mt-8"
+      className="grid grid-cols-2 gap-4 mt-6"
     >
       {nodeData.map((node, idx) => (
         <motion.div
@@ -140,10 +138,10 @@ const Slide3 = () => (
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 0.7 + idx * 0.1 }}
-          className="bg-slate-800 p-6 rounded-lg border border-slate-700"
+          className="bg-slate-800 p-4 rounded-lg border border-slate-700"
         >
-          <div className="text-slate-400 text-xl mb-2">{node.type}</div>
-          <div className="text-4xl font-bold text-white">{node.count}</div>
+          <div className="text-slate-400 text-lg mb-1">{node.type}</div>
+          <div className="text-3xl font-bold text-white">{node.count}</div>
         </motion.div>
       ))}
     </motion.div>
@@ -151,11 +149,11 @@ const Slide3 = () => (
 );
 
 const Slide4 = () => (
-  <div className="h-full flex flex-col justify-center gap-8 px-16">
+  <div className="h-full flex flex-col justify-center gap-6 px-16">
     <motion.h2
       initial={{ x: -50, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
-      className="text-5xl font-bold text-white mb-4"
+      className="text-4xl font-bold text-white mb-2"
     >
       3. Financiación del Lanzamiento
     </motion.h2>
@@ -163,51 +161,51 @@ const Slide4 = () => (
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 0.3 }}
-      className="text-2xl text-slate-300"
+      className="text-xl text-slate-300"
     >
-      Apalancamiento en subvenciones públicas (Kit Digital / Red.es). Minimización de exposición de capital propio.
+      Apalancamiento en subvenciones públicas (Kit Digital / Red.es)
     </motion.p>
-    <div className="grid grid-cols-2 gap-8 mt-8">
+    <div className="grid grid-cols-2 gap-6 mt-6">
       <motion.div
         initial={{ x: -30, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ delay: 0.5 }}
-        className="bg-gradient-to-br from-blue-900 to-blue-700 p-8 rounded-xl"
+        className="bg-gradient-to-br from-blue-900 to-blue-700 p-6 rounded-xl"
       >
-        <div className="text-2xl font-bold text-white mb-4">Grupo A (5 Clínicas)</div>
-        <div className="text-xl text-blue-200 mb-2">Solicitud: 30k€</div>
-        <div className="text-xl text-blue-200">Adelanto: 5k€ c/u</div>
+        <div className="text-xl font-bold text-white mb-3">Grupo A (5 Clínicas)</div>
+        <div className="text-lg text-blue-200 mb-1">Solicitud: 30k€</div>
+        <div className="text-lg text-blue-200">Adelanto: 5k€ c/u</div>
       </motion.div>
       <motion.div
         initial={{ x: 30, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ delay: 0.7 }}
-        className="bg-gradient-to-br from-purple-900 to-purple-700 p-8 rounded-xl"
+        className="bg-gradient-to-br from-purple-900 to-purple-700 p-6 rounded-xl"
       >
-        <div className="text-2xl font-bold text-white mb-4">Grupo B (10 Clínicas)</div>
-        <div className="text-xl text-purple-200 mb-2">Solicitud: 15k€</div>
-        <div className="text-xl text-purple-200">Adelanto: 2.5k€ c/u</div>
+        <div className="text-xl font-bold text-white mb-3">Grupo B (10 Clínicas)</div>
+        <div className="text-lg text-purple-200 mb-1">Solicitud: 15k€</div>
+        <div className="text-lg text-purple-200">Adelanto: 2.5k€ c/u</div>
       </motion.div>
     </div>
     <motion.div
       initial={{ scale: 0.9, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       transition={{ delay: 1 }}
-      className="bg-green-900 p-8 rounded-xl text-center mt-4"
+      className="bg-green-900 p-6 rounded-xl text-center mt-3"
     >
-      <div className="text-3xl font-bold text-white">
-        Caja Inicial: <span className="text-green-300">50.000€</span> | Facturación Final: <span className="text-green-300">150.000€</span>
+      <div className="text-2xl font-bold text-white">
+        Caja Inicial: <span className="text-green-300">50.000€</span> | Facturación: <span className="text-green-300">150.000€</span>
       </div>
     </motion.div>
   </div>
 );
 
 const Slide5 = () => (
-  <div className="h-full flex flex-col justify-center gap-8 px-16">
+  <div className="h-full flex flex-col justify-center gap-6 px-16">
     <motion.h2
       initial={{ x: -50, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
-      className="text-5xl font-bold text-white mb-4"
+      className="text-4xl font-bold text-white mb-2"
     >
       4. Modelo de Negocio y Propiedad
     </motion.h2>
@@ -215,11 +213,11 @@ const Slide5 = () => (
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 0.3 }}
-      className="text-2xl text-slate-300"
+      className="text-xl text-slate-300"
     >
-      Propuesta de SPV para garantizar soberanía y control.
+      SPV para garantizar soberanía y control
     </motion.p>
-    <div className="grid grid-cols-2 gap-12 mt-8">
+    <div className="grid grid-cols-2 gap-10 mt-6">
       <motion.div
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
@@ -264,11 +262,11 @@ const Slide5 = () => (
 );
 
 const Slide6 = () => (
-  <div className="h-full flex flex-col justify-center gap-8 px-16">
+  <div className="h-full flex flex-col justify-center gap-6 px-16">
     <motion.h2
       initial={{ x: -50, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
-      className="text-5xl font-bold text-white mb-4"
+      className="text-4xl font-bold text-white mb-2"
     >
       Ingresos Recurrentes para Ullswater & Accuro
     </motion.h2>
@@ -276,54 +274,54 @@ const Slide6 = () => (
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 0.3 }}
-      className="text-2xl text-slate-300"
+      className="text-xl text-slate-300"
     >
-      Nuestra rentabilidad va más allá del equity:
+      Rentabilidad más allá del equity:
     </motion.p>
-    <div className="grid grid-cols-3 gap-8 mt-8">
+    <div className="grid grid-cols-3 gap-6 mt-6">
       <motion.div
         initial={{ y: 30, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.5 }}
-        className="bg-gradient-to-br from-green-900 to-green-700 p-8 rounded-xl text-center"
+        className="bg-gradient-to-br from-green-900 to-green-700 p-6 rounded-xl text-center"
       >
-        <div className="text-6xl mb-4">💰</div>
-        <div className="text-2xl font-bold text-white mb-2">Royalties</div>
-        <div className="text-3xl text-green-300 font-bold">19%</div>
-        <div className="text-xl text-green-200 mt-2">Beneficios Netos</div>
+        <div className="text-5xl mb-3">💰</div>
+        <div className="text-xl font-bold text-white mb-2">Royalties</div>
+        <div className="text-2xl text-green-300 font-bold">19%</div>
+        <div className="text-lg text-green-200 mt-1">Beneficios Netos</div>
       </motion.div>
       <motion.div
         initial={{ y: 30, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.7 }}
-        className="bg-gradient-to-br from-blue-900 to-blue-700 p-8 rounded-xl text-center"
+        className="bg-gradient-to-br from-blue-900 to-blue-700 p-6 rounded-xl text-center"
       >
-        <div className="text-6xl mb-4">🖥️</div>
-        <div className="text-2xl font-bold text-white mb-2">Mantenimiento</div>
-        <div className="text-3xl text-blue-300 font-bold">50.000€/mes</div>
-        <div className="text-xl text-blue-200 mt-2">50€/nodo × 1000</div>
+        <div className="text-5xl mb-3">🖥️</div>
+        <div className="text-xl font-bold text-white mb-2">Mantenimiento</div>
+        <div className="text-2xl text-blue-300 font-bold">50.000€/mes</div>
+        <div className="text-lg text-blue-200 mt-1">50€/nodo × 1000</div>
       </motion.div>
       <motion.div
         initial={{ y: 30, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.9 }}
-        className="bg-gradient-to-br from-purple-900 to-purple-700 p-8 rounded-xl text-center"
+        className="bg-gradient-to-br from-purple-900 to-purple-700 p-6 rounded-xl text-center"
       >
-        <div className="text-6xl mb-4">⚙️</div>
-        <div className="text-2xl font-bold text-white mb-2">Fee de Éxito</div>
-        <div className="text-3xl text-purple-300 font-bold">Variable</div>
-        <div className="text-xl text-purple-200 mt-2">Nuevos Módulos</div>
+        <div className="text-5xl mb-3">⚙️</div>
+        <div className="text-xl font-bold text-white mb-2">Fee de Éxito</div>
+        <div className="text-2xl text-purple-300 font-bold">Variable</div>
+        <div className="text-lg text-purple-200 mt-1">Nuevos Módulos</div>
       </motion.div>
     </div>
   </div>
 );
 
 const Slide7 = () => (
-  <div className="h-full flex flex-col justify-center gap-8 px-16">
+  <div className="h-full flex flex-col justify-center gap-6 px-16">
     <motion.h2
       initial={{ x: -50, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
-      className="text-5xl font-bold text-white mb-4"
+      className="text-4xl font-bold text-white mb-2"
     >
       5. Rentabilidad del Ecosistema
     </motion.h2>
@@ -331,11 +329,11 @@ const Slide7 = () => (
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 0.3 }}
-      className="text-2xl text-slate-300 mb-4"
+      className="text-xl text-slate-300 mb-3"
     >
       Estimación Año 3 con 1.000 Nodos
     </motion.p>
-    <div className="grid grid-cols-2 gap-8">
+    <div className="grid grid-cols-2 gap-6">
       <motion.div
         initial={{ x: -30, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
@@ -362,15 +360,15 @@ const Slide7 = () => (
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.9 + idx * 0.1 }}
-            className="bg-slate-800 p-4 rounded-lg flex justify-between items-center"
+            className="bg-slate-800 p-3 rounded-lg flex justify-between items-center"
           >
-            <div className="text-xl text-slate-300">{item.name}</div>
-            <div className="text-2xl font-bold text-green-400">{item.value.toLocaleString()}€</div>
+            <div className="text-lg text-slate-300">{item.name}</div>
+            <div className="text-xl font-bold text-green-400">{item.value.toLocaleString()}€</div>
           </motion.div>
         ))}
-        <div className="bg-green-900 p-6 rounded-lg text-center mt-6">
-          <div className="text-2xl text-green-200">TOTAL MENSUAL</div>
-          <div className="text-5xl font-bold text-green-300 mt-2">120.000€</div>
+        <div className="bg-green-900 p-5 rounded-lg text-center mt-4">
+          <div className="text-xl text-green-200">TOTAL MENSUAL</div>
+          <div className="text-4xl font-bold text-green-300 mt-2">120.000€</div>
         </div>
       </motion.div>
     </div>
@@ -378,61 +376,61 @@ const Slide7 = () => (
 );
 
 const Slide8 = () => (
-  <div className="h-full flex flex-col justify-center gap-8 px-16">
+  <div className="h-full flex flex-col justify-center gap-6 px-16">
     <motion.h2
       initial={{ x: -50, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
-      className="text-5xl font-bold text-white mb-4"
+      className="text-4xl font-bold text-white mb-2"
     >
-      Distribución del Flujo de Caja Mensual
+      Distribución del Flujo de Caja
     </motion.h2>
     <motion.p
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 0.3 }}
-      className="text-2xl text-slate-300"
+      className="text-xl text-slate-300"
     >
-      De los 120.000€ mensuales generados:
+      De los 120.000€ mensuales:
     </motion.p>
     <motion.div
       initial={{ scale: 0.9, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       transition={{ delay: 0.5 }}
-      className="flex flex-col gap-6 mt-8"
+      className="flex flex-col gap-4 mt-6"
     >
-      <div className="bg-blue-900 p-8 rounded-xl flex justify-between items-center">
-        <div className="text-3xl text-white">Ingreso Total</div>
-        <div className="text-5xl font-bold text-blue-300">120.000€</div>
+      <div className="bg-blue-900 p-6 rounded-xl flex justify-between items-center">
+        <div className="text-2xl text-white">Ingreso Total</div>
+        <div className="text-4xl font-bold text-blue-300">120.000€</div>
       </div>
-      <div className="flex items-center justify-center text-4xl text-slate-500">↓</div>
-      <div className="bg-red-900 p-8 rounded-xl flex justify-between items-center">
-        <div className="text-3xl text-white">Costes Operativos (Pagados a Nosotros)</div>
-        <div className="text-5xl font-bold text-red-300">-50.000€</div>
+      <div className="flex items-center justify-center text-3xl text-slate-500">↓</div>
+      <div className="bg-red-900 p-6 rounded-xl flex justify-between items-center">
+        <div className="text-2xl text-white">Costes (Pagados Nosotros)</div>
+        <div className="text-4xl font-bold text-red-300">-50.000€</div>
       </div>
-      <div className="flex items-center justify-center text-4xl text-slate-500">↓</div>
-      <div className="bg-green-900 p-8 rounded-xl flex justify-between items-center">
-        <div className="text-3xl text-white">Beneficio Neto</div>
-        <div className="text-5xl font-bold text-green-300">70.000€</div>
+      <div className="flex items-center justify-center text-3xl text-slate-500">↓</div>
+      <div className="bg-green-900 p-6 rounded-xl flex justify-between items-center">
+        <div className="text-2xl text-white">Beneficio Neto</div>
+        <div className="text-4xl font-bold text-green-300">70.000€</div>
       </div>
-      <div className="flex items-center justify-center text-4xl text-slate-500">↓</div>
-      <div className="bg-purple-900 p-8 rounded-xl flex justify-between items-center">
-        <div className="text-3xl text-white">Dividendo 19% (Pagados a Nosotros)</div>
-        <div className="text-5xl font-bold text-purple-300">13.300€</div>
+      <div className="flex items-center justify-center text-3xl text-slate-500">↓</div>
+      <div className="bg-purple-900 p-6 rounded-xl flex justify-between items-center">
+        <div className="text-2xl text-white">Dividendo 19% (Nosotros)</div>
+        <div className="text-4xl font-bold text-purple-300">13.300€</div>
       </div>
-      <div className="bg-gradient-to-r from-yellow-900 to-yellow-700 p-10 rounded-xl text-center mt-4">
-        <div className="text-3xl text-yellow-200 mb-2">TOTAL SOCIOS TECNOLÓGICOS</div>
-        <div className="text-6xl font-bold text-yellow-300">63.300€ / mes</div>
+      <div className="bg-gradient-to-r from-yellow-900 to-yellow-700 p-8 rounded-xl text-center mt-3">
+        <div className="text-2xl text-yellow-200 mb-2">TOTAL SOCIOS TECNOLÓGICOS</div>
+        <div className="text-5xl font-bold text-yellow-300">63.300€ / mes</div>
       </div>
     </motion.div>
   </div>
 );
 
 const Slide9 = () => (
-  <div className="h-full flex flex-col justify-center gap-8 px-16">
+  <div className="h-full flex flex-col justify-center gap-6 px-16">
     <motion.h2
       initial={{ x: -50, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
-      className="text-5xl font-bold text-white mb-6"
+      className="text-4xl font-bold text-white mb-4"
     >
       6. Roadmap de Ejecución
     </motion.h2>
@@ -443,45 +441,45 @@ const Slide9 = () => (
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 0.3 }}
-          className="bg-slate-800 p-6 rounded-xl border-4 border-blue-500"
+          className="bg-slate-800 p-5 rounded-xl border-4 border-blue-500"
         >
-          <div className="text-4xl mb-4 text-center">📋</div>
-          <div className="text-xl font-bold text-white text-center mb-2">Fase 0</div>
-          <div className="text-blue-400 text-center font-semibold mb-2">Mes 1</div>
-          <div className="text-slate-300 text-center">Firma Acuerdo & Cobro Adelantos (50k)</div>
+          <div className="text-3xl mb-3 text-center">📋</div>
+          <div className="text-lg font-bold text-white text-center mb-1">Fase 0</div>
+          <div className="text-blue-400 text-center font-semibold mb-1 text-sm">Mes 1</div>
+          <div className="text-slate-300 text-center text-sm">Firma & Cobro (50k)</div>
         </motion.div>
         <motion.div
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 0.5 }}
-          className="bg-slate-800 p-6 rounded-xl border-4 border-purple-500"
+          className="bg-slate-800 p-5 rounded-xl border-4 border-purple-500"
         >
-          <div className="text-4xl mb-4 text-center">⚙️</div>
-          <div className="text-xl font-bold text-white text-center mb-2">Fase 1</div>
-          <div className="text-purple-400 text-center font-semibold mb-2">Mes 2-6</div>
-          <div className="text-slate-300 text-center">Desarrollo Core & Identidad Digital</div>
+          <div className="text-3xl mb-3 text-center">⚙️</div>
+          <div className="text-lg font-bold text-white text-center mb-1">Fase 1</div>
+          <div className="text-purple-400 text-center font-semibold mb-1 text-sm">Mes 2-6</div>
+          <div className="text-slate-300 text-center text-sm">Desarrollo Core</div>
         </motion.div>
         <motion.div
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 0.7 }}
-          className="bg-slate-800 p-6 rounded-xl border-4 border-green-500"
+          className="bg-slate-800 p-5 rounded-xl border-4 border-green-500"
         >
-          <div className="text-4xl mb-4 text-center">🧪</div>
-          <div className="text-xl font-bold text-white text-center mb-2">Fase 2</div>
-          <div className="text-green-400 text-center font-semibold mb-2">Mes 7-9</div>
-          <div className="text-slate-300 text-center">Piloto "Grupo de los 15"</div>
+          <div className="text-3xl mb-3 text-center">🧪</div>
+          <div className="text-lg font-bold text-white text-center mb-1">Fase 2</div>
+          <div className="text-green-400 text-center font-semibold mb-1 text-sm">Mes 7-9</div>
+          <div className="text-slate-300 text-center text-sm">Piloto 15 Clínicas</div>
         </motion.div>
         <motion.div
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 0.9 }}
-          className="bg-slate-800 p-6 rounded-xl border-4 border-yellow-500"
+          className="bg-slate-800 p-5 rounded-xl border-4 border-yellow-500"
         >
-          <div className="text-4xl mb-4 text-center">🚀</div>
-          <div className="text-xl font-bold text-white text-center mb-2">Fase 3</div>
-          <div className="text-yellow-400 text-center font-semibold mb-2">Mes 10+</div>
-          <div className="text-slate-300 text-center">Apertura Mercado & Monetización</div>
+          <div className="text-3xl mb-3 text-center">🚀</div>
+          <div className="text-lg font-bold text-white text-center mb-1">Fase 3</div>
+          <div className="text-yellow-400 text-center font-semibold mb-1 text-sm">Mes 10+</div>
+          <div className="text-slate-300 text-center text-sm">Lanzamiento</div>
         </motion.div>
       </div>
     </div>
@@ -489,49 +487,49 @@ const Slide9 = () => (
 );
 
 const Slide10 = () => (
-  <div className="h-full flex flex-col justify-center gap-8 px-16">
+  <div className="h-full flex flex-col justify-center gap-6 px-16">
     <motion.h2
       initial={{ x: -50, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
-      className="text-5xl font-bold text-white mb-6"
+      className="text-4xl font-bold text-white mb-4"
     >
-      7. Conclusiones para Iván Becerro
+      7. Conclusiones
     </motion.h2>
-    <div className="space-y-8">
+    <div className="space-y-6">
       <motion.div
         initial={{ x: -30, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ delay: 0.3 }}
-        className="bg-slate-800 p-8 rounded-xl flex items-start gap-6"
+        className="bg-slate-800 p-6 rounded-xl flex items-start gap-5"
       >
-        <div className="text-5xl text-green-400">✓</div>
+        <div className="text-4xl text-green-400">✓</div>
         <div>
-          <div className="text-2xl font-bold text-white mb-2">Riesgo Controlado</div>
-          <div className="text-xl text-slate-300">Desarrollo pagado con flujo de caja de clientes</div>
+          <div className="text-xl font-bold text-white mb-1">Riesgo Controlado</div>
+          <div className="text-lg text-slate-300">Desarrollo pagado con flujo de caja de clientes</div>
         </div>
       </motion.div>
       <motion.div
         initial={{ x: -30, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ delay: 0.5 }}
-        className="bg-slate-800 p-8 rounded-xl flex items-start gap-6"
+        className="bg-slate-800 p-6 rounded-xl flex items-start gap-5"
       >
-        <div className="text-5xl text-blue-400">✓</div>
+        <div className="text-4xl text-blue-400">✓</div>
         <div>
-          <div className="text-2xl font-bold text-white mb-2">Posición Estratégica</div>
-          <div className="text-xl text-slate-300">La Asociación vende por nosotros al tener el 51%</div>
+          <div className="text-xl font-bold text-white mb-1">Posición Estratégica</div>
+          <div className="text-lg text-slate-300">Asociación vende por nosotros (51% control)</div>
         </div>
       </motion.div>
       <motion.div
         initial={{ x: -30, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ delay: 0.7 }}
-        className="bg-slate-800 p-8 rounded-xl flex items-start gap-6"
+        className="bg-slate-800 p-6 rounded-xl flex items-start gap-5"
       >
-        <div className="text-5xl text-purple-400">✓</div>
+        <div className="text-4xl text-purple-400">✓</div>
         <div>
-          <div className="text-2xl font-bold text-white mb-2">Escalabilidad</div>
-          <div className="text-xl text-slate-300">Modelo replicable a Oftalmología o Veterinaria bajo marca Global Data Care</div>
+          <div className="text-xl font-bold text-white mb-1">Escalabilidad</div>
+          <div className="text-lg text-slate-300">Replicable a otros verticales (Global Data Care)</div>
         </div>
       </motion.div>
     </div>
@@ -539,10 +537,10 @@ const Slide10 = () => (
       initial={{ scale: 0.9, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       transition={{ delay: 1 }}
-      className="mt-12 text-center"
+      className="mt-10 text-center"
     >
-      <div className="text-3xl text-slate-400 mb-4">Firmado:</div>
-      <div className="text-4xl font-bold text-blue-400">Ullswater Investments</div>
+      <div className="text-2xl text-slate-400 mb-3">Firmado:</div>
+      <div className="text-3xl font-bold text-blue-400">Ullswater Investments</div>
     </motion.div>
   </div>
 );
