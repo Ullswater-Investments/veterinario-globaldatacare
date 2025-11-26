@@ -109,6 +109,291 @@ const Slide2 = () => (
   </div>
 );
 
+// Tour de la Aplicación - Slide 1: Clinical Cockpit
+const SlideApp1 = () => (
+  <div className="h-full flex flex-col justify-center gap-6 px-16">
+    <motion.h2
+      initial={{ x: -50, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      className="text-4xl font-bold text-white mb-2"
+    >
+      Tour ORALspace-X: Clinical Cockpit
+    </motion.h2>
+    <motion.p
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 0.3 }}
+      className="text-xl text-slate-300 mb-4"
+    >
+      Portal del Dentista - Vista Unificada del Paciente
+    </motion.p>
+    <div className="grid grid-cols-2 gap-6">
+      <motion.div
+        initial={{ scale: 0.95, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ delay: 0.5 }}
+        className="bg-gradient-to-br from-slate-800 to-slate-900 p-6 rounded-xl border border-blue-500"
+      >
+        <div className="text-5xl mb-4 text-center">🔍</div>
+        <div className="text-xl font-bold text-blue-400 mb-3">Búsqueda Federada</div>
+        <div className="text-slate-300 text-sm leading-relaxed">
+          Buscar pacientes por nombre o DID en múltiples fuentes (Hospital, Clínica Dental, Seguros) con consentimiento verificado en blockchain.
+        </div>
+      </motion.div>
+      <motion.div
+        initial={{ scale: 0.95, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ delay: 0.7 }}
+        className="bg-gradient-to-br from-slate-800 to-slate-900 p-6 rounded-xl border border-green-500"
+      >
+        <div className="text-5xl mb-4 text-center">📋</div>
+        <div className="text-xl font-bold text-green-400 mb-3">Timeline Unificado</div>
+        <div className="text-slate-300 text-sm leading-relaxed">
+          Historial clínico completo con eventos del Hospital (rojo) y Clínica Dental (azul). Datos en formato FHIR R4 para interoperabilidad.
+        </div>
+      </motion.div>
+      <motion.div
+        initial={{ scale: 0.95, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ delay: 0.9 }}
+        className="bg-gradient-to-br from-slate-800 to-slate-900 p-6 rounded-xl border border-red-500"
+      >
+        <div className="text-5xl mb-4 text-center">⚠️</div>
+        <div className="text-xl font-bold text-red-400 mb-3">Alertas Críticas</div>
+        <div className="text-slate-300 text-sm leading-relaxed">
+          Banner rojo automático al detectar condiciones de riesgo (Endocarditis, Válvulas cardíacas) que requieren antibiótico profiláctico.
+        </div>
+      </motion.div>
+      <motion.div
+        initial={{ scale: 0.95, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ delay: 1.1 }}
+        className="bg-gradient-to-br from-slate-800 to-slate-900 p-6 rounded-xl border border-purple-500"
+      >
+        <div className="text-5xl mb-4 text-center">🤖</div>
+        <div className="text-xl font-bold text-purple-400 mb-3">Asistente IA</div>
+        <div className="text-slate-300 text-sm leading-relaxed">
+          Diagnóstico automático de radiografías con niveles de confianza. Detecta caries, fracturas, abscesos. Validado por el profesional.
+        </div>
+      </motion.div>
+    </div>
+  </div>
+);
+
+// Tour de la Aplicación - Slide 2: Health Wallet
+const SlideApp2 = () => (
+  <div className="h-full flex flex-col justify-center gap-6 px-16">
+    <motion.h2
+      initial={{ x: -50, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      className="text-4xl font-bold text-white mb-2"
+    >
+      Tour ORALspace-X: Health Wallet
+    </motion.h2>
+    <motion.p
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 0.3 }}
+      className="text-xl text-slate-300 mb-4"
+    >
+      Portal del Paciente - Control Total de Datos Personales
+    </motion.p>
+    <div className="grid grid-cols-2 gap-6">
+      <motion.div
+        initial={{ x: -30, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ delay: 0.5 }}
+        className="bg-gradient-to-br from-blue-900 to-blue-700 p-8 rounded-xl text-center"
+      >
+        <div className="text-6xl mb-4">🏦</div>
+        <div className="text-2xl font-bold text-white mb-3">Banco de Mis Datos</div>
+        <div className="text-blue-200 text-lg leading-relaxed">
+          Identidad Digital Descentralizada (DID). QR code verificable. Portabilidad total entre clínicas.
+        </div>
+      </motion.div>
+      <motion.div
+        initial={{ x: 30, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ delay: 0.7 }}
+        className="space-y-4"
+      >
+        <div className="bg-slate-800 p-5 rounded-lg border border-green-500">
+          <div className="flex items-center gap-3 mb-2">
+            <div className="text-3xl">✅</div>
+            <div className="text-lg font-bold text-green-400">Gestión de Consentimientos</div>
+          </div>
+          <div className="text-slate-300 text-sm">
+            Toggle switches para revocar acceso instantáneamente. Ver quién accedió a mis datos y cuándo.
+          </div>
+        </div>
+        <div className="bg-slate-800 p-5 rounded-lg border border-purple-500">
+          <div className="flex items-center gap-3 mb-2">
+            <div className="text-3xl">📁</div>
+            <div className="text-lg font-bold text-purple-400">Mis Tratamientos</div>
+          </div>
+          <div className="text-slate-300 text-sm">
+            Lista visual de implantes, radiografías 3D, prescripciones. Descargable en cualquier momento.
+          </div>
+        </div>
+        <div className="bg-slate-800 p-5 rounded-lg border border-yellow-500">
+          <div className="flex items-center gap-3 mb-2">
+            <div className="text-3xl">🦷</div>
+            <div className="text-lg font-bold text-yellow-400">Visor 3D</div>
+          </div>
+          <div className="text-slate-300 text-sm">
+            Botón flotante para visualizar escaneo intraoral en 3D. Modelo interactivo de mi boca.
+          </div>
+        </div>
+      </motion.div>
+    </div>
+  </div>
+);
+
+// Tour de la Aplicación - Slide 3: Manufacturing Hub
+const SlideApp3 = () => (
+  <div className="h-full flex flex-col justify-center gap-6 px-16">
+    <motion.h2
+      initial={{ x: -50, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      className="text-4xl font-bold text-white mb-2"
+    >
+      Tour ORALspace-X: Manufacturing Hub
+    </motion.h2>
+    <motion.p
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 0.3 }}
+      className="text-xl text-slate-300 mb-4"
+    >
+      Portal del Laboratorio - Trazabilidad Blockchain
+    </motion.p>
+    <div className="grid grid-cols-4 gap-4 mb-6">
+      {["Solicitudes", "CAD Design", "Milling/Print", "Enviado"].map((stage, idx) => (
+        <motion.div
+          key={stage}
+          initial={{ y: 30, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.5 + idx * 0.2 }}
+          className="bg-slate-800 p-4 rounded-lg border border-blue-500 text-center"
+        >
+          <div className="text-2xl mb-2">
+            {idx === 0 && "📥"}
+            {idx === 1 && "🖥️"}
+            {idx === 2 && "⚙️"}
+            {idx === 3 && "📦"}
+          </div>
+          <div className="text-white font-semibold text-sm">{stage}</div>
+        </motion.div>
+      ))}
+    </div>
+    <div className="grid grid-cols-2 gap-6">
+      <motion.div
+        initial={{ scale: 0.95, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ delay: 1.3 }}
+        className="bg-gradient-to-br from-purple-900 to-purple-700 p-6 rounded-xl"
+      >
+        <div className="text-4xl mb-3 text-center">📜</div>
+        <div className="text-xl font-bold text-white mb-3 text-center">Digital Product Passport (DPP)</div>
+        <div className="text-purple-200 text-sm leading-relaxed">
+          Cada prótesis/implante lleva pasaporte digital con: origen del circonio, temperatura de sinterización, lote ISO, hash blockchain inmutable.
+        </div>
+      </motion.div>
+      <motion.div
+        initial={{ scale: 0.95, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ delay: 1.5 }}
+        className="bg-gradient-to-br from-emerald-900 to-emerald-700 p-6 rounded-xl"
+      >
+        <div className="text-4xl mb-3 text-center">🔗</div>
+        <div className="text-xl font-bold text-white mb-3 text-center">Compliance MDR</div>
+        <div className="text-emerald-200 text-sm leading-relaxed">
+          Reglamento 2017/745 de Productos Sanitarios UE. Auditoría instantánea por AEMPS. Reducción de 6 meses a 1 día en certificación.
+        </div>
+      </motion.div>
+    </div>
+  </div>
+);
+
+// Tour de la Aplicación - Slide 4: Smart Claims & Federated Learning
+const SlideApp4 = () => (
+  <div className="h-full flex flex-col justify-center gap-6 px-16">
+    <motion.h2
+      initial={{ x: -50, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      className="text-4xl font-bold text-white mb-2"
+    >
+      Tour ORALspace-X: Seguros & Investigación
+    </motion.h2>
+    <div className="grid grid-cols-2 gap-6">
+      <motion.div
+        initial={{ x: -30, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ delay: 0.5 }}
+        className="space-y-4"
+      >
+        <div className="text-2xl font-bold text-green-400 mb-2">💰 Smart Claims Manager</div>
+        <div className="bg-slate-800 p-5 rounded-lg border border-green-500">
+          <div className="text-white font-semibold mb-2">Validación Automática</div>
+          <div className="text-slate-300 text-sm mb-3">
+            Smart Contract verifica: código CDT válido, radiografía post-op presente, póliza activa.
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="flex-1 bg-green-600 h-2 rounded"></div>
+            <div className="text-green-400 text-xs font-bold">0.8s</div>
+          </div>
+        </div>
+        <div className="bg-gradient-to-r from-emerald-900 to-emerald-700 p-5 rounded-lg text-center">
+          <div className="text-emerald-200 text-sm mb-1">Reducción tiempo pago</div>
+          <div className="text-3xl font-bold text-white">30 días → 1 día</div>
+        </div>
+        <div className="bg-red-900 p-4 rounded-lg">
+          <div className="flex items-center gap-2 mb-1">
+            <div className="text-2xl">🚨</div>
+            <div className="text-red-400 font-semibold">Detección de Fraude</div>
+          </div>
+          <div className="text-red-200 text-xs">
+            IA detecta upselling 300%, pacientes fantasma en padrón civil
+          </div>
+        </div>
+      </motion.div>
+      <motion.div
+        initial={{ x: 30, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ delay: 0.7 }}
+        className="space-y-4"
+      >
+        <div className="text-2xl font-bold text-purple-400 mb-2">🧬 Federated Learning</div>
+        <div className="bg-slate-800 p-5 rounded-lg border border-purple-500">
+          <div className="text-white font-semibold mb-2">Inteligencia Colectiva</div>
+          <div className="text-slate-300 text-sm mb-3">
+            200 nodos entrenan IA de diagnóstico sin compartir imágenes. Solo pesos estadísticos.
+          </div>
+          <div className="grid grid-cols-3 gap-2">
+            {[1,2,3,4,5,6].map((n) => (
+              <div key={n} className="w-full h-8 bg-purple-600 rounded animate-pulse" style={{ animationDelay: `${n * 0.1}s` }}></div>
+            ))}
+          </div>
+        </div>
+        <div className="bg-gradient-to-r from-blue-900 to-blue-700 p-5 rounded-lg">
+          <div className="text-blue-200 text-sm mb-2">Dataset Disponible</div>
+          <div className="text-2xl font-bold text-white mb-1">50.000 Radiografías Periapicales</div>
+          <div className="text-blue-300 text-xs">Distribuido en 200 nodos | k-anonymity</div>
+        </div>
+        <div className="bg-slate-800 p-4 rounded-lg border border-yellow-500">
+          <div className="flex items-center gap-2 mb-1">
+            <div className="text-2xl">🗺️</div>
+            <div className="text-yellow-400 font-semibold">Mapa Epidemiológico</div>
+          </div>
+          <div className="text-slate-300 text-xs">
+            Zonas rojas = alta incidencia caries. Filtros: edad, fluoración agua
+          </div>
+        </div>
+      </motion.div>
+    </div>
+  </div>
+);
+
 const Slide3 = () => (
   <div className="h-full flex flex-col justify-center gap-6 px-16">
     <motion.h2
@@ -548,6 +833,10 @@ const Slide10 = () => (
 const slides = [
   <Slide1 />,
   <Slide2 />,
+  <SlideApp1 />,
+  <SlideApp2 />,
+  <SlideApp3 />,
+  <SlideApp4 />,
   <Slide3 />,
   <Slide4 />,
   <Slide5 />,
