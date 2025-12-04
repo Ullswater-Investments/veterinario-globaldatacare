@@ -244,24 +244,6 @@ const ClinicsPage = () => {
         </div>
       </section>
 
-      {/* FOOTER CTA */}
-      <footer className="bg-slate-900 py-20 text-center">
-        <h2 className="mb-6 text-3xl font-bold text-white">
-          ¿Listo para evolucionar tu clínica?
-        </h2>
-        <p className="mb-8 mx-auto max-w-xl text-slate-400">
-          Únete al modelo federado: mantén tu independencia mientras multiplicas
-          tus capacidades tecnológicas, clínicas y comerciales.
-        </p>
-        <div className="flex justify-center gap-4">
-          <Button className="bg-white text-slate-900 hover:bg-slate-100">
-            Solicitar Demo
-          </Button>
-          <Button variant="outline" className="border-slate-700 text-white hover:bg-slate-800">
-            Ver Catálogo de Servicios
-          </Button>
-        </div>
-      </footer>
     </main>;
 };
 export default ClinicsPage;
