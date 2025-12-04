@@ -2,7 +2,7 @@ import { Sparkles } from 'lucide-react';
 
 export const FinalCTA = () => {
   return (
-    <section className="relative py-24 overflow-hidden bg-slate-900">
+    <section className="relative py-16 overflow-hidden bg-slate-900">
       {/* Fondo atmosférico tipo aurora */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/20 rounded-full blur-[100px] animate-pulse" />

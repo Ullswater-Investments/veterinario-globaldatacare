@@ -202,14 +202,14 @@ const Landing = () => {
       <InteroperabilitySection />
 
       {/* Trust Architecture Section */}
-      <section className="py-20 bg-slate-50">
+      <section className="py-14 bg-slate-50">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
+          <div className="text-center mb-8">
             <h2 className="text-4xl font-bold mb-4">Arquitectura de Confianza</h2>
             <p className="text-lg text-slate-600">Tecnologías que garantizan seguridad y soberanía</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-12">
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-10">
             {features.map((feature, index) => {
               const Icon = feature.icon;
               return (
