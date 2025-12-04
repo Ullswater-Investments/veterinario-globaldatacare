@@ -51,17 +51,18 @@ const PatientPortal = () => {
             <Shield className="h-10 w-10 text-green-600" />
           </div>
           <h1 className="text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-green-600 to-emerald-500">
-            Mi Salud, Mis Datos
+            Tu Pasaporte de Salud Global
           </h1>
           <p className="text-xl text-slate-600 mb-8">
-            Tú decides quién ve tu historial. Revoca el acceso cuando quieras
+            Tus datos son tu activo más valioso. Llévalos contigo, compártelos al instante 
+            y evita repetir radiografías innecesarias.
           </p>
           <Button 
             size="lg" 
             onClick={() => navigate('/wallet')}
             className="bg-green-600 hover:bg-green-700 text-lg px-8 py-6 h-auto"
           >
-            Entrar a mi Wallet
+            Abrir mi Billetera de Salud
           </Button>
         </div>
       </section>
@@ -70,8 +71,8 @@ const PatientPortal = () => {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">Soberanía de Datos</h2>
-            <p className="text-lg text-slate-600">Controla quién tiene acceso a tu información médica</p>
+            <h2 className="text-4xl font-bold mb-4">Gestor de Conexiones de Confianza</h2>
+            <p className="text-lg text-slate-600">Concede o retira permisos en tiempo real. Tú eres el dueño único de la llave.</p>
           </div>
 
           <div className="max-w-3xl mx-auto">
@@ -79,7 +80,7 @@ const PatientPortal = () => {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Eye className="h-5 w-5 text-green-600" />
-                  Accesos Activos a tu Historial
+                  Entidades Autorizadas
                 </CardTitle>
                 <CardDescription>
                   Activa o desactiva el acceso con un solo clic. Los cambios son inmediatos.
@@ -128,8 +129,7 @@ const PatientPortal = () => {
 
                 <div className="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
                   <p className="text-sm text-blue-900">
-                    <strong>💡 Nota:</strong> Al revocar el acceso, la entidad ya no podrá consultar tu historial. 
-                    Puedes reactivarlo en cualquier momento.
+                    Al desactivar, la entidad pierde acceso instantáneamente. Tu privacidad es innegociable.
                   </p>
                 </div>
               </CardContent>
@@ -142,8 +142,8 @@ const PatientPortal = () => {
       <section className="py-16 bg-gradient-to-b from-slate-50 to-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">Tu Gemelo Digital</h2>
-            <p className="text-lg text-slate-600">Visualiza y comparte tu escaneo intraoral en segundos</p>
+            <h2 className="text-4xl font-bold mb-4">Explora tu Salud en 3D</h2>
+            <p className="text-lg text-slate-600">Entiende mejor tu diagnóstico y lleva una réplica exacta de tu boca en el bolsillo.</p>
           </div>
 
           <div className="max-w-4xl mx-auto">
@@ -153,10 +153,9 @@ const PatientPortal = () => {
                   <div className="inline-flex items-center justify-center w-32 h-32 rounded-full bg-cyan-100 mb-6">
                     <Box className="h-16 w-16 text-cyan-600" />
                   </div>
-                  <h3 className="text-2xl font-bold mb-4">Escaneo 3D de tu Boca</h3>
+                  <h3 className="text-2xl font-bold mb-4">Tu Boca: Gemelo Digital Interactivo</h3>
                   <p className="text-slate-600 mb-6 max-w-2xl mx-auto">
-                    Lleva tu boca en tu bolsillo. Comparte tu escaneo con cualquier dentista del mundo 
-                    en segundos, sin perder el control de tus datos.
+                    Entiende mejor tu diagnóstico y lleva una réplica exacta de tu boca en el bolsillo.
                   </p>
                   
                   <div className="grid md:grid-cols-3 gap-4 mt-8">

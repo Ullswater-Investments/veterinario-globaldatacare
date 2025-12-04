@@ -58,17 +58,18 @@ const ResearchPortal = () => {
             <TrendingUp className="h-10 w-10 text-orange-400" />
           </div>
           <h1 className="text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-pink-400">
-            Investigación Federada
+            Red de Inteligencia Colectiva
           </h1>
           <p className="text-xl text-slate-300 mb-8">
-            Entrena modelos de IA en 500 clínicas sin que los datos salgan de ellas
+            Acelera descubrimientos clínicos accediendo a datos globales 
+            sin que la información sensible salga nunca de la clínica.
           </p>
           <Button 
             size="lg" 
             onClick={() => navigate('/research')}
             className="bg-orange-600 hover:bg-orange-700 text-lg px-8 py-6 h-auto"
           >
-            Crear Proyecto
+            Iniciar Estudio Colaborativo
           </Button>
         </div>
       </section>
@@ -77,8 +78,8 @@ const ResearchPortal = () => {
       <section className="py-16 bg-slate-800/50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">Mapa Epidemiológico</h2>
-            <p className="text-lg text-slate-300">Visualización de prevalencia de enfermedades en tiempo real</p>
+            <h2 className="text-4xl font-bold mb-4">Monitor de Impacto en Salud Pública</h2>
+            <p className="text-lg text-slate-300">Vigilancia epidemiológica en tiempo real respetando la privacidad (K-Anonymity).</p>
           </div>
 
           <div className="max-w-5xl mx-auto">
@@ -86,7 +87,7 @@ const ResearchPortal = () => {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-white">
                   <Map className="h-6 w-6 text-orange-400" />
-                  Análisis Geoespacial de Salud Dental
+                  Distribución Global de Patologías
                 </CardTitle>
                 <CardDescription className="text-slate-400">
                   Datos agregados y anonimizados con k-anonymity (k=5)
@@ -142,8 +143,8 @@ const ResearchPortal = () => {
       <section className="py-16 bg-slate-900/50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">Marketplace de Algoritmos</h2>
-            <p className="text-lg text-slate-300">Despliega modelos de IA en la red federada</p>
+            <h2 className="text-4xl font-bold mb-4">Catálogo de Innovación Abierta</h2>
+            <p className="text-lg text-slate-300">Despliega algoritmos de vanguardia en miles de nodos clínicos simultáneamente.</p>
           </div>
 
           <div className="max-w-5xl mx-auto">
