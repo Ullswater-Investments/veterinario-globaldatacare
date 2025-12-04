@@ -63,7 +63,8 @@ import ParametricInsurance from "./pages/business/cases/ParametricInsurance";
 import InvoiceFactoring from "./pages/business/cases/InvoiceFactoring";
 import StrategicPresentation from "./pages/StrategicPresentation";
 import ClinicsPage from "./pages/solutions/ClinicsPage";
-
+import ProductPassportPage from "./pages/solutions/ProductPassportPage";
+ 
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -130,8 +131,7 @@ const App = () => (
 
                  {/* Solutions Pages */}
                  <Route path="/solutions/clinics" element={<ClinicsPage />} />
-                 
-                 {/* Protected Routes */}
+                 <Route path="/solutions/product-passport" element={<ProductPassportPage />} />
                  <Route element={<AppLayout />}>
                    <Route path="/dashboard" element={<Dashboard />} />
                   <Route path="/auditor-dashboard" element={<AuditorDashboard />} />
