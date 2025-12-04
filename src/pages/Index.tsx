@@ -55,7 +55,7 @@ const Landing = () => {
     title: 'PASAPORTE de PRODUCTO (Industria)',
     description: 'Trazabilidad, Pasaportes Digitales (DPP) y Recomendaciones del fabricante.',
     color: 'text-purple-600',
-    link: '/portal/lab'
+    link: '/solutions/product-passport'
   }, {
     icon: Shield,
     title: 'PACIENTE (Wallet)',
