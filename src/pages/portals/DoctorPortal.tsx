@@ -44,18 +44,18 @@ const DoctorPortal = () => {
   const features = [
     {
       icon: FileSearch,
-      title: 'Búsqueda por DID',
-      description: 'Localiza pacientes federados en toda la red europea'
+      title: 'Directorio Europeo de Pacientes',
+      description: 'Acceso global a historiales federados por DID.'
     },
     {
       icon: Pill,
-      title: 'e-Receta Europea',
-      description: 'Prescripciones validadas con ISO IDMP'
+      title: 'Prescripción Universal Segura',
+      description: 'Validez legal instantánea en cualquier farmacia adherida.'
     },
     {
       icon: Video,
-      title: 'Teledentistería',
-      description: 'Consultas remotas con triage AI'
+      title: 'Triage Remoto Asistido',
+      description: 'Filtra urgencias automáticamente antes de la consulta presencial.'
     }
   ];
 
@@ -80,17 +80,18 @@ const DoctorPortal = () => {
             <Stethoscope className="h-10 w-10 text-blue-600" />
           </div>
           <h1 className="text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-cyan-500">
-            Espacio Clínico Federado
+            Panel de Control Clínico Unificado
           </h1>
           <p className="text-xl text-slate-600 mb-8">
-            Conecta tu PMS con hospitales y especialistas en tiempo real
+            Diagnóstico, historial hospitalario y alertas de riesgo en una sola vista.
+            Toma decisiones médicas con el contexto completo del paciente.
           </p>
           <Button 
             size="lg" 
             onClick={() => navigate('/clinical')}
             className="bg-blue-600 hover:bg-blue-700 text-lg px-8 py-6 h-auto"
           >
-            Iniciar Consulta
+            Iniciar Consulta Inteligente
           </Button>
         </div>
       </section>
@@ -99,8 +100,8 @@ const DoctorPortal = () => {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">Interoperabilidad en Acción</h2>
-            <p className="text-lg text-slate-600">Datos médicos y dentales unificados en una sola vista</p>
+            <h2 className="text-4xl font-bold mb-4">Trayectoria de Salud del Paciente</h2>
+            <p className="text-lg text-slate-600">Visión 360° integrando datos de cardiólogos, hospitales y laboratorios en tiempo real.</p>
           </div>
 
           <div className="max-w-4xl mx-auto">
@@ -108,7 +109,7 @@ const DoctorPortal = () => {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Activity className="h-5 w-5 text-blue-600" />
-                  Timeline Federado - Últimos Encuentros Clínicos
+                  Historial Clínico Integrado
                 </CardTitle>
                 <CardDescription>Visualiza el historial completo del paciente</CardDescription>
               </CardHeader>
@@ -161,7 +162,7 @@ const DoctorPortal = () => {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Brain className="h-5 w-5 text-purple-600" />
-                  Asistente AI - Análisis Radiográfico
+                  Copiloto de Diagnóstico AI
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -171,9 +172,9 @@ const DoctorPortal = () => {
                       <Brain className="h-8 w-8 text-purple-600" />
                     </div>
                     <div className="flex-1">
-                      <h4 className="font-semibold text-lg mb-2">Detección Automática Completada</h4>
+                      <h4 className="font-semibold text-lg mb-2">Segunda opinión automática generada.</h4>
                       <p className="text-slate-600 mb-3">
-                        <strong className="text-purple-600">3 Caries detectadas</strong> en sectores posteriores
+                        <strong className="text-purple-600">Prioridad Alta: 3 Lesiones detectadas</strong>
                       </p>
                       <Badge variant="secondary" className="bg-purple-100 text-purple-700">
                         Confianza: 98%

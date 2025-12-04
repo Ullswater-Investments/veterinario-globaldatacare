@@ -76,17 +76,18 @@ const LabPortal = () => {
             <Factory className="h-10 w-10 text-purple-600" />
           </div>
           <h1 className="text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-500">
-            Hub de Manufactura Inteligente
+            Centro de Excelencia Certificada
           </h1>
           <p className="text-xl text-slate-600 mb-8">
-            Trazabilidad MDR completa desde el diseño hasta el envío
+            Transforma el cumplimiento MDR en tu ventaja competitiva. 
+            Trazabilidad automática y Pasaportes Digitales en cada envío.
           </p>
           <Button 
             size="lg" 
             onClick={() => navigate('/lab-hub')}
             className="bg-purple-600 hover:bg-purple-700 text-lg px-8 py-6 h-auto"
           >
-            Ver Pedidos
+            Gestionar Producción
           </Button>
         </div>
       </section>
@@ -95,8 +96,8 @@ const LabPortal = () => {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">Producción en Tiempo Real</h2>
-            <p className="text-lg text-slate-600">Seguimiento completo del flujo de manufactura</p>
+            <h2 className="text-4xl font-bold mb-4">Flujo de Certificación Digital</h2>
+            <p className="text-lg text-slate-600">Cada paso del proceso añade valor y garantías al Pasaporte del Producto (DPP).</p>
           </div>
 
           <div className="max-w-6xl mx-auto">
@@ -120,7 +121,7 @@ const LabPortal = () => {
                             <QrCode className="h-4 w-4 text-purple-600" />
                           </div>
                           <Badge className="bg-purple-100 text-purple-700 border-purple-300 text-xs">
-                            DPP Ready
+                            Calidad Certificada
                           </Badge>
                         </CardContent>
                       </Card>
@@ -147,7 +148,7 @@ const LabPortal = () => {
                             <QrCode className="h-4 w-4 text-purple-600" />
                           </div>
                           <Badge className="bg-purple-100 text-purple-700 border-purple-300 text-xs">
-                            DPP Ready
+                            Calidad Certificada
                           </Badge>
                         </CardContent>
                       </Card>
@@ -174,7 +175,7 @@ const LabPortal = () => {
                             <QrCode className="h-4 w-4 text-purple-600" />
                           </div>
                           <Badge className="bg-purple-100 text-purple-700 border-purple-300 text-xs">
-                            DPP Ready
+                            Calidad Certificada
                           </Badge>
                         </CardContent>
                       </Card>
@@ -190,8 +191,8 @@ const LabPortal = () => {
       <section className="py-16 bg-slate-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">IoT y Trazabilidad</h2>
-            <p className="text-lg text-slate-600">Monitorización en tiempo real de equipos de producción</p>
+            <h2 className="text-4xl font-bold mb-4">Auditoría de Proceso en Tiempo Real</h2>
+            <p className="text-lg text-slate-600">Tus máquinas documentan la calidad por ti. Datos inmutables directo al DPP.</p>
           </div>
 
           <div className="max-w-4xl mx-auto">
@@ -199,7 +200,7 @@ const LabPortal = () => {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Thermometer className="h-6 w-6 text-orange-600" />
-                  Monitor de Horno de Sinterización
+                  Validación Automática de Sinterizado
                 </CardTitle>
                 <CardDescription>Datos escritos automáticamente en el Pasaporte Digital (DPP)</CardDescription>
               </CardHeader>
@@ -236,6 +237,8 @@ const LabPortal = () => {
                     <p className="text-sm text-slate-600">Lotes/Mes</p>
                   </div>
                 </div>
+
+                <p className="mt-4 text-slate-600">Escribiendo parámetros en Blockchain...</p>
               </CardContent>
             </Card>
           </div>
