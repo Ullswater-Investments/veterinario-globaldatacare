@@ -132,38 +132,6 @@ const Landing = () => {
             <p className="text-xl text-slate-600 mb-12 max-w-3xl mx-auto">
               Conectando Clínicas, Laboratorios, Pacientes y Aseguradoras bajo estándares Gaia-X, FHIR y Soberanía Digital.
             </p>
-
-            {/* Live Metrics */}
-            <div className="grid md:grid-cols-3 gap-6 mb-12 max-w-3xl mx-auto">
-              <Card className="border-blue-200 bg-white/80 backdrop-blur">
-                <CardContent className="pt-6">
-                  <div className="text-3xl font-bold text-blue-600 mb-2">{stats.patients}+</div>
-                  <div className="text-sm text-slate-600 flex items-center justify-center gap-2">
-                    <Users className="h-4 w-4" />
-                    Pacientes Federados
-                  </div>
-                </CardContent>
-              </Card>
-              <Card className="border-purple-200 bg-white/80 backdrop-blur">
-                <CardContent className="pt-6">
-                  <div className="text-3xl font-bold text-purple-600 mb-2">{stats.labOrders}+</div>
-                  <div className="text-sm text-slate-600 flex items-center justify-center gap-2">
-                    <Factory className="h-4 w-4" />
-                    Pasaportes Digitales
-                  </div>
-                </CardContent>
-              </Card>
-              <Card className="border-cyan-200 bg-white/80 backdrop-blur">
-                <CardContent className="pt-6">
-                  <div className="text-3xl font-bold text-cyan-600 mb-2">{stats.encounters}+</div>
-                  <div className="text-sm text-slate-600 flex items-center justify-center gap-2">
-                    <Network className="h-4 w-4" />
-                    Intercambios FHIR
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-
           </div>
         </div>
       </section>
