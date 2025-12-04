@@ -53,7 +53,7 @@ const Landing = () => {
   }, {
     icon: Factory,
     title: 'PASAPORTE de PRODUCTO (Industria)',
-    description: 'Trazabilidad, Pasaportes Digitales (DPP) y Gestión IoT.',
+    description: 'Trazabilidad, Pasaportes Digitales (DPP) y Recomendaciones del fabricante.',
     color: 'text-purple-600',
     link: '/portal/lab'
   }, {
