@@ -16,6 +16,8 @@ import {
   Lock,
   Users
 } from 'lucide-react';
+import { InteroperabilitySection } from '@/components/home/InteroperabilitySection';
+import { FinalCTA } from '@/components/home/FinalCTA';
 
 const Landing = () => {
   const navigate = useNavigate();
@@ -198,6 +200,8 @@ const Landing = () => {
         </div>
       </section>
 
+      <InteroperabilitySection />
+
       {/* Trust Architecture Section */}
       <section className="py-20 bg-slate-50">
         <div className="container mx-auto px-4">
@@ -235,6 +239,8 @@ const Landing = () => {
           </div>
         </div>
       </section>
+
+      <FinalCTA />
 
       {/* Footer */}
       <footer className="py-12 bg-slate-900 text-white">
