@@ -140,7 +140,7 @@ const Landing = () => {
       <section className="pt-0 pb-14 bg-white">
         <div className="container mx-auto px-4 text-center">
           <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-sm font-medium mb-6">
-            Únete a la red europea de +500 nodos activos
+            Únete a la red europea de Datos de Salud Dental
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-0 tracking-tight leading-tight">
             El Futuro de la Odontología <br />
