@@ -38,7 +38,7 @@ export const InteroperabilitySection = () => {
   ];
 
   return (
-    <section className="relative py-24 bg-slate-950 overflow-hidden">
+    <section className="relative py-16 bg-slate-950 overflow-hidden">
       {/* Glows de fondo */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute -top-32 -left-16 h-80 w-80 rounded-full bg-blue-600/30 blur-3xl" />
