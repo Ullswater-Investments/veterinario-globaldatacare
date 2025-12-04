@@ -67,7 +67,7 @@ const Landing = () => {
     },
     {
       icon: Shield,
-      title: 'Ana Patient (Wallet)',
+      title: 'PACIENTE (Wallet)',
       description: 'Soberanía de datos, Consentimiento y Visualización 3D.',
       color: 'text-green-600',
       link: '/portal/patient'
