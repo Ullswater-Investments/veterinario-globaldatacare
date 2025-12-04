@@ -181,7 +181,7 @@ const ClinicsPage = () => {
                   
                   <li className="flex items-center gap-2">
                     <span className="h-1.5 w-1.5 rounded-full bg-cyan-500" />
-                    Reposición de stock predictiva desde tus datos reales.
+                    Reposición de stock predictiva desde tus datos operacionales reales.
                   </li>
                 </ul>
               </div>
