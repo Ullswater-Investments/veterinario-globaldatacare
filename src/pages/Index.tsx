@@ -105,7 +105,7 @@ const Landing = () => {
         
         <div className="container mx-auto px-4 pt-20 pb-20">
           <div className="text-center max-w-5xl mx-auto">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-cyan-500">El primer Espacio de Datos Federado de Salud Bucal de Europa</h1>
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-cyan-500">El primer Espacio de Datos Federado de Salud Bucal en Europa</h1>
             <p className="text-xl text-slate-600 mb-12 max-w-3xl mx-auto">
               Conectando Clínicas, Laboratorios, Pacientes y Aseguradoras bajo estándares Gaia-X, FHIR y Soberanía Digital.
             </p>
