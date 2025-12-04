@@ -4,45 +4,39 @@ import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { 
-  Stethoscope, 
-  Factory, 
-  Shield, 
-  TrendingUp, 
-  Package,
-  BarChart3,
-  ArrowRight,
-  Network,
-  Database,
-  Lock,
-  Users
-} from 'lucide-react';
+import { Stethoscope, Factory, Shield, TrendingUp, Package, BarChart3, ArrowRight, Network, Database, Lock, Users } from 'lucide-react';
 import { InteroperabilitySection } from '@/components/home/InteroperabilitySection';
 import { FinalCTA } from '@/components/home/FinalCTA';
-
 const Landing = () => {
   const navigate = useNavigate();
-  const { user } = useAuth();
-  const [stats, setStats] = useState({ patients: 0, encounters: 0, labOrders: 0 });
-
+  const {
+    user
+  } = useAuth();
+  const [stats, setStats] = useState({
+    patients: 0,
+    encounters: 0,
+    labOrders: 0
+  });
   useEffect(() => {
     const fetchStats = async () => {
-      const [patientsRes, encountersRes, labOrdersRes] = await Promise.all([
-        supabase.from('patients').select('*', { count: 'exact', head: true }),
-        supabase.from('clinical_encounters').select('*', { count: 'exact', head: true }),
-        supabase.from('lab_orders').select('*', { count: 'exact', head: true })
-      ]);
-
+      const [patientsRes, encountersRes, labOrdersRes] = await Promise.all([supabase.from('patients').select('*', {
+        count: 'exact',
+        head: true
+      }), supabase.from('clinical_encounters').select('*', {
+        count: 'exact',
+        head: true
+      }), supabase.from('lab_orders').select('*', {
+        count: 'exact',
+        head: true
+      })]);
       setStats({
         patients: patientsRes.count || 0,
         encounters: encountersRes.count || 0,
         labOrders: labOrdersRes.count || 0
       });
     };
-
     fetchStats();
   }, []);
-
   const handleCTA = () => {
     if (user) {
       navigate('/dashboard');
@@ -50,75 +44,60 @@ const Landing = () => {
       navigate('/auth');
     }
   };
-
-  const portals = [
-    {
-      icon: Stethoscope,
-      title: 'CLINICAS',
-      description: 'Gestión clínica, Diagnóstico AI e Interoperabilidad Hospitalaria.',
-      color: 'text-blue-600',
-      link: '/portal/doctor'
-    },
-    {
-      icon: Factory,
-      title: 'Lab Tech (Industria)',
-      description: 'Trazabilidad, Pasaportes Digitales (DPP) y Gestión IoT.',
-      color: 'text-purple-600',
-      link: '/portal/lab'
-    },
-    {
-      icon: Shield,
-      title: 'PACIENTE (Wallet)',
-      description: 'Soberanía de datos, Consentimiento y Visualización 3D.',
-      color: 'text-green-600',
-      link: '/portal/patient'
-    },
-    {
-      icon: TrendingUp,
-      title: 'Prof. Data (Investigación)',
-      description: 'Aprendizaje Federado y análisis epidemiológico sin exponer privacidad.',
-      color: 'text-orange-600',
-      link: '/portal/research'
-    },
-    {
-      icon: Package,
-      title: 'Central de Compras (Clínicas)',
-      description: 'Planificación y seguimiento de compras de material médico-dental conectado a sistemas clínicos y proveedores homologados.',
-      color: 'text-cyan-600',
-      link: '/portal/procurement'
-    },
-    {
-      icon: BarChart3,
-      title: 'KPI Clínicas',
-      description: 'Indicadores clave para valorar los esfuerzos de las clínicas hacia la excelencia médica y de servicio.',
-      color: 'text-blue-600',
-      link: '/dashboard'
-    }
-  ];
-
-  const features = [
-    {
-      icon: Network,
-      title: 'Interoperabilidad',
-      subtitle: 'HL7 FHIR',
-      description: 'Hablamos el idioma universal de la salud.'
-    },
-    {
-      icon: Lock,
-      title: 'Soberanía',
-      subtitle: 'IDS / Gaia-X',
-      description: 'Tus datos nunca salen de tu nodo sin contrato.'
-    },
-    {
-      icon: Database,
-      title: 'Trazabilidad',
-      subtitle: 'Blockchain',
-      description: 'Seguridad inmutable para implantes y prótesis.'
-    }
-  ];
-
-  return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-slate-50">
+  const portals = [{
+    icon: Stethoscope,
+    title: 'CLINICAS',
+    description: 'Gestión clínica, Diagnóstico AI e Interoperabilidad Hospitalaria.',
+    color: 'text-blue-600',
+    link: '/portal/doctor'
+  }, {
+    icon: Factory,
+    title: 'Lab Tech (Industria)',
+    description: 'Trazabilidad, Pasaportes Digitales (DPP) y Gestión IoT.',
+    color: 'text-purple-600',
+    link: '/portal/lab'
+  }, {
+    icon: Shield,
+    title: 'PACIENTE (Wallet)',
+    description: 'Soberanía de datos, Consentimiento y Visualización 3D.',
+    color: 'text-green-600',
+    link: '/portal/patient'
+  }, {
+    icon: TrendingUp,
+    title: 'Prof. Data (Investigación)',
+    description: 'Aprendizaje Federado y análisis epidemiológico sin exponer privacidad.',
+    color: 'text-orange-600',
+    link: '/portal/research'
+  }, {
+    icon: Package,
+    title: 'Central de Compras (Clínicas)',
+    description: 'Planificación y seguimiento de compras de material médico-dental conectado a sistemas clínicos y proveedores homologados.',
+    color: 'text-cyan-600',
+    link: '/portal/procurement'
+  }, {
+    icon: BarChart3,
+    title: 'KPI Clínicas',
+    description: 'Indicadores clave para valorar los esfuerzos de las clínicas hacia la excelencia médica y de servicio.',
+    color: 'text-blue-600',
+    link: '/dashboard'
+  }];
+  const features = [{
+    icon: Network,
+    title: 'Interoperabilidad',
+    subtitle: 'HL7 FHIR',
+    description: 'Hablamos el idioma universal de la salud.'
+  }, {
+    icon: Lock,
+    title: 'Soberanía',
+    subtitle: 'IDS / Gaia-X',
+    description: 'Tus datos nunca salen de tu nodo sin contrato.'
+  }, {
+    icon: Database,
+    title: 'Trazabilidad',
+    subtitle: 'Blockchain',
+    description: 'Seguridad inmutable para implantes y prótesis.'
+  }];
+  return <div className="min-h-screen bg-gradient-to-b from-white to-slate-50">
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         {/* Grid pattern background */}
@@ -126,9 +105,7 @@ const Landing = () => {
         
         <div className="container mx-auto px-4 pt-20 pb-20">
           <div className="text-center max-w-5xl mx-auto">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-cyan-500">
-              ACCURO TECHNOLOGY: El Espacio de Datos Federado para Salud Dental en Europa
-            </h1>
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-cyan-500">El primer Espacio de Datos Federados de Salud Bucal de Europa</h1>
             <p className="text-xl text-slate-600 mb-12 max-w-3xl mx-auto">
               Conectando Clínicas, Laboratorios, Pacientes y Aseguradoras bajo estándares Gaia-X, FHIR y Soberanía Digital.
             </p>
@@ -161,12 +138,9 @@ const Landing = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {portals.map((portal, index) => {
-              const Icon = portal.icon;
-              return (
-                <Link to={portal.link} key={index}>
-                  <Card 
-                    className="transition-all hover:shadow-lg hover:-translate-y-1 cursor-pointer border-slate-200 h-full"
-                  >
+            const Icon = portal.icon;
+            return <Link to={portal.link} key={index}>
+                  <Card className="transition-all hover:shadow-lg hover:-translate-y-1 cursor-pointer border-slate-200 h-full">
                     <CardHeader>
                       <Icon className={`h-12 w-12 mb-4 ${portal.color}`} />
                       <CardTitle className="text-xl">{portal.title}</CardTitle>
@@ -175,9 +149,8 @@ const Landing = () => {
                       <CardDescription className="text-base">{portal.description}</CardDescription>
                     </CardContent>
                   </Card>
-                </Link>
-              );
-            })}
+                </Link>;
+          })}
           </div>
         </div>
       </section>
@@ -194,27 +167,20 @@ const Landing = () => {
 
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-10">
             {features.map((feature, index) => {
-              const Icon = feature.icon;
-              return (
-                <div key={index} className="text-center">
+            const Icon = feature.icon;
+            return <div key={index} className="text-center">
                   <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 mb-4">
                     <Icon className="h-8 w-8 text-blue-600" />
                   </div>
                   <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
                   <p className="text-sm font-medium text-blue-600 mb-2">{feature.subtitle}</p>
                   <p className="text-slate-600">{feature.description}</p>
-                </div>
-              );
-            })}
+                </div>;
+          })}
           </div>
 
           <div className="text-center">
-            <Button 
-              size="lg"
-              onClick={() => navigate('/tech')}
-              variant="outline"
-              className="border-blue-600 text-blue-600 hover:bg-blue-50"
-            >
+            <Button size="lg" onClick={() => navigate('/tech')} variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50">
               Explorar Arquitectura Técnica
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
@@ -239,8 +205,6 @@ const Landing = () => {
           </div>
         </div>
       </footer>
-    </div>
-  );
+    </div>;
 };
-
 export default Landing;
