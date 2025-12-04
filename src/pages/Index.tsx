@@ -116,9 +116,7 @@ const Landing = () => {
       {/* Mid CTA Section moved from FinalCTA */}
       <section className="-mt-2 pt-0 pb-14 bg-white">
         <div className="container mx-auto px-4 text-center">
-          <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-sm font-medium mb-6">
-            Únete a la red europea de Datos de Salud Dental
-          </div>
+          <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-sm font-medium mb-6">Únete a la primera red europea de Datos de Salud Bucal</div>
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-0 tracking-tight leading-tight">
             El Futuro de la Odontología <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-emerald-500">
