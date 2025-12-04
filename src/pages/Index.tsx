@@ -49,7 +49,7 @@ const Landing = () => {
     title: 'CLINICAS',
     description: 'Gestión clínica, Diagnóstico AI e Interoperabilidad Hospitalaria.',
     color: 'text-blue-600',
-    link: '/portal/doctor'
+    link: '/solutions/clinics'
   }, {
     icon: Factory,
     title: 'Lab Tech (Industria)',
