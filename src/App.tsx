@@ -62,6 +62,7 @@ import BNPLFinancing from "./pages/business/cases/BNPLFinancing";
 import ParametricInsurance from "./pages/business/cases/ParametricInsurance";
 import InvoiceFactoring from "./pages/business/cases/InvoiceFactoring";
 import StrategicPresentation from "./pages/StrategicPresentation";
+import ClinicsPage from "./pages/solutions/ClinicsPage";
 
 const queryClient = new QueryClient();
 
@@ -125,11 +126,14 @@ const App = () => (
                 <Route path="/business/case/20" element={<InvoiceFactoring />} />
                 
                 {/* Strategic Presentation */}
-                <Route path="/presentation" element={<StrategicPresentation />} />
-                
-                {/* Protected Routes */}
-                <Route element={<AppLayout />}>
-                  <Route path="/dashboard" element={<Dashboard />} />
+                 <Route path="/presentation" element={<StrategicPresentation />} />
+
+                 {/* Solutions Pages */}
+                 <Route path="/solutions/clinics" element={<ClinicsPage />} />
+                 
+                 {/* Protected Routes */}
+                 <Route element={<AppLayout />}>
+                   <Route path="/dashboard" element={<Dashboard />} />
                   <Route path="/auditor-dashboard" element={<AuditorDashboard />} />
                   <Route path="/clinical" element={<ClinicalCockpit />} />
                   <Route path="/ai-assistant" element={<AIAssistant />} />
