@@ -153,7 +153,7 @@ const Landing = () => {
         </div>
       </section>
 
-      <InteroperabilitySection />
+      
 
       {/* Trust Architecture Section */}
       <section className="py-14 bg-slate-50">
