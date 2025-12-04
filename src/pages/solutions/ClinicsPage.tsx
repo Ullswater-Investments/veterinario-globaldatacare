@@ -1,39 +1,20 @@
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import {
-  Cloud,
-  ArrowRight,
-  Database,
-  Server,
-  Activity,
-  Users,
-  ShoppingCart,
-  BrainCircuit,
-  ShieldCheck,
-} from "lucide-react";
-
+import { Cloud, ArrowRight, Database, Server, Activity, Users, ShoppingCart, BrainCircuit, ShieldCheck } from "lucide-react";
 const ClinicsPage = () => {
   useEffect(() => {
     // SEO: título, descripción y canonical específicos de la página
     document.title = "Servicios Federados para Clínicas | ACCURO TECHNOLOGY";
-
-    const descriptionContent =
-      "Conecta tu clínica dental a un cloud federado donde ERP, IA y compras se consumen como servicios, manteniendo tu independencia.";
-
-    let metaDescription = document.querySelector(
-      'meta[name="description"]',
-    ) as HTMLMetaElement | null;
+    const descriptionContent = "Conecta tu clínica dental a un cloud federado donde ERP, IA y compras se consumen como servicios, manteniendo tu independencia.";
+    let metaDescription = document.querySelector('meta[name="description"]') as HTMLMetaElement | null;
     if (!metaDescription) {
       metaDescription = document.createElement("meta");
       metaDescription.name = "description";
       document.head.appendChild(metaDescription);
     }
     metaDescription.content = descriptionContent;
-
     const canonicalUrl = `${window.location.origin}/solutions/clinics`;
-    let canonicalLink = document.querySelector(
-      'link[rel="canonical"]',
-    ) as HTMLLinkElement | null;
+    let canonicalLink = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
     if (!canonicalLink) {
       canonicalLink = document.createElement("link");
       canonicalLink.rel = "canonical";
@@ -41,9 +22,7 @@ const ClinicsPage = () => {
     }
     canonicalLink.href = canonicalUrl;
   }, []);
-
-  return (
-    <main className="min-h-screen bg-background font-sans">
+  return <main className="min-h-screen bg-background font-sans">
       {/* HERO SECTION: EL CLOUD FEDERADO */}
       <header className="relative overflow-hidden bg-slate-900 py-24 text-white">
         {/* Fondos decorativos */}
@@ -69,10 +48,7 @@ const ClinicsPage = () => {
               de Compras se consumen bajo demanda, manteniendo tu independencia
               total.
             </p>
-            <Button
-              size="lg"
-              className="mx-auto flex items-center gap-2 rounded-xl bg-primary px-8 py-4 text-primary-foreground shadow-lg shadow-blue-900/50 hover:bg-primary/90"
-            >
+            <Button size="lg" className="mx-auto flex items-center gap-2 rounded-xl bg-primary px-8 py-4 text-primary-foreground shadow-lg shadow-blue-900/50 hover:bg-primary/90">
               Conectar mi Clínica al Cloud
               <ArrowRight className="h-5 w-5" />
             </Button>
@@ -202,8 +178,7 @@ const ClinicsPage = () => {
                   pedidos y facturación siempre a nombre de tu clínica.
                 </p>
                 <ul className="space-y-2 text-sm text-slate-700">
-                  <li className="flex items-center gap-2">
-                    <span className="h-1.5 w-1.5 rounded-full bg-cyan-500" />
+                  <li className="flex items-center gap-2">Acceso a precios de volumen sin perder tu identidad.<span className="h-1.5 w-1.5 rounded-full bg-cyan-500" />
                     Acceso a precios de volumen sin perder tu marca propia.
                   </li>
                   <li className="flex items-center gap-2">
@@ -284,16 +259,11 @@ const ClinicsPage = () => {
           <Button className="bg-white text-slate-900 hover:bg-slate-100">
             Solicitar Demo
           </Button>
-          <Button
-            variant="outline"
-            className="border-slate-700 text-white hover:bg-slate-800"
-          >
+          <Button variant="outline" className="border-slate-700 text-white hover:bg-slate-800">
             Ver Catálogo de Servicios
           </Button>
         </div>
       </footer>
-    </main>
-  );
+    </main>;
 };
-
 export default ClinicsPage;
