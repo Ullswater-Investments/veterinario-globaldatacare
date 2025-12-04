@@ -10,6 +10,7 @@ import {
   Shield, 
   TrendingUp, 
   Package,
+  BarChart3,
   ArrowRight,
   Network,
   Database,
@@ -85,6 +86,13 @@ const Landing = () => {
       description: 'Planificación y seguimiento de compras de material médico-dental conectado a sistemas clínicos y proveedores homologados.',
       color: 'text-cyan-600',
       link: '/portal/procurement'
+    },
+    {
+      icon: BarChart3,
+      title: 'KPI Clínicas',
+      description: 'Indicadores clave para valorar los esfuerzos de las clínicas hacia la excelencia médica y de servicio.',
+      color: 'text-blue-600',
+      link: '/dashboard'
     }
   ];
 
