@@ -42,12 +42,7 @@ const ClinicsPage = () => {
                 Red Federada
               </span>
             </h1>
-            <p className="mb-10 text-xl leading-relaxed text-slate-300">
-              Tu clínica deja de depender de software aislado. Se conecta a un hub
-              de servicios donde el ERP, la Inteligencia Artificial y la Central
-              de Compras se consumen bajo demanda, manteniendo tu independencia
-              total.
-            </p>
+            <p className="mb-10 text-xl leading-relaxed text-slate-300">Tu clínica deja de depender de software aislado. Se conecta a un hub de servicios donde el ERP, la Inteligencia Artificial y la Central de Compras se consumen bajo demanda, manteniendo tu independencia.</p>
             <Button size="lg" className="mx-auto flex items-center gap-2 rounded-xl bg-primary px-8 py-4 text-primary-foreground shadow-lg shadow-blue-900/50 hover:bg-primary/90">
               Conectar mi Clínica al Cloud
               <ArrowRight className="h-5 w-5" />
