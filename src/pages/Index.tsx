@@ -124,7 +124,7 @@ const Landing = () => {
         {/* Grid pattern background */}
         <div className="absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] -z-10" />
         
-        <div className="container mx-auto px-4 pt-20 pb-32">
+        <div className="container mx-auto px-4 pt-20 pb-20">
           <div className="text-center max-w-5xl mx-auto">
             <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-cyan-500">
               ACCURO TECHNOLOGY: El Espacio de Datos Federado para Salud Dental en Europa
@@ -169,7 +169,7 @@ const Landing = () => {
       </section>
 
       {/* Mid CTA Section moved from FinalCTA */}
-      <section className="py-14 bg-white">
+      <section className="pt-0 pb-14 bg-white">
         <div className="container mx-auto px-4 text-center">
           <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-sm font-medium mb-6">
             Únete a la red europea de +500 nodos activos
