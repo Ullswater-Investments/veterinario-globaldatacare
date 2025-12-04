@@ -198,7 +198,7 @@ const ClinicsPage = () => {
                 </h3>
                 <p className="mb-4 leading-relaxed text-slate-500">
                   Un sistema de abastecimiento que conecta tu stock con
-                  proveedores homologados. Negotiación colectiva automática,
+                  proveedores homologados. Negociación colectiva automática,
                   pedidos y facturación siempre a nombre de tu clínica.
                 </p>
                 <ul className="space-y-2 text-sm text-slate-700">
