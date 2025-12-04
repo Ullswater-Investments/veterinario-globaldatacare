@@ -52,7 +52,7 @@ const Landing = () => {
     link: '/solutions/clinics'
   }, {
     icon: Factory,
-    title: 'Lab Tech (Industria)',
+    title: 'PASAPORTE de PRODUCTO (Industria)',
     description: 'Trazabilidad, Pasaportes Digitales (DPP) y Gestión IoT.',
     color: 'text-purple-600',
     link: '/portal/lab'
