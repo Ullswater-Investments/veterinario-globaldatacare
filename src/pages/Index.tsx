@@ -53,7 +53,7 @@ const Landing = () => {
   const portals = [
     {
       icon: Stethoscope,
-      title: 'Dr. Dent (Clínica)',
+      title: 'CLINICAS',
       description: 'Gestión clínica, Diagnóstico AI e Interoperabilidad Hospitalaria.',
       color: 'text-blue-600',
       link: '/portal/doctor'
