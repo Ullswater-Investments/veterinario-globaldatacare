@@ -132,7 +132,7 @@ const Landing = () => {
       <section className="py-14 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-8">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Un Ecosistema, Cinco Perspectivas</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Un Ecosistema, Seis Perspectivas</h2>
             <p className="text-lg text-slate-600">Cada actor tiene su propio portal especializado</p>
           </div>
 
