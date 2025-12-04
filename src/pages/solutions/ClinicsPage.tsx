@@ -178,9 +178,7 @@ const ClinicsPage = () => {
                   pedidos y facturación siempre a nombre de tu clínica.
                 </p>
                 <ul className="space-y-2 text-sm text-slate-700">
-                  <li className="flex items-center gap-2">Acceso a precios de volumen sin perder tu identidad.<span className="h-1.5 w-1.5 rounded-full bg-cyan-500" />
-                    Acceso a precios de volumen sin perder tu marca propia.
-                  </li>
+                  
                   <li className="flex items-center gap-2">
                     <span className="h-1.5 w-1.5 rounded-full bg-cyan-500" />
                     Reposición de stock predictiva desde tus datos reales.
