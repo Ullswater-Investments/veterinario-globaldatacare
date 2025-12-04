@@ -247,7 +247,7 @@ const Landing = () => {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="text-sm text-slate-400">
-              © 2025 OralSpace-X. Powered by Eclipse Dataspace Components, HL7 FHIR, SNODENT & Blockchain.
+              ACCURO TECHNOLOGY
             </div>
             <div className="flex gap-6 text-sm">
               <Link to="/consulting/technical-proposal" className="text-slate-400 hover:text-white transition">Whitepaper Técnico & Consultoría</Link>
