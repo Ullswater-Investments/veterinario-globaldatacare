@@ -9,7 +9,7 @@ import {
   Factory, 
   Shield, 
   TrendingUp, 
-  FileCheck,
+  Package,
   ArrowRight,
   Network,
   Database,
@@ -78,11 +78,11 @@ const Landing = () => {
       link: '/portal/research'
     },
     {
-      icon: FileCheck,
-      title: 'SurePay (Seguros)',
-      description: 'Smart Contracts y automatización de reclamaciones.',
+      icon: Package,
+      title: 'Central de Compras (Clínicas)',
+      description: 'Planificación y seguimiento de compras de material médico-dental conectado a sistemas clínicos y proveedores homologados.',
       color: 'text-cyan-600',
-      link: '/portal/insurance'
+      link: '/portal/procurement'
     }
   ];
 
