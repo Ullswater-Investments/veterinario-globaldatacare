@@ -386,6 +386,9 @@ export default function Wallet() {
           </div>
         )}
       </div>
+
+      <GlobalFooter />
     </main>
   );
 }
+
