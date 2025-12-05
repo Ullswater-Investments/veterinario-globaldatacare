@@ -206,10 +206,10 @@ const BusinessProposalModal: React.FC = () => {
   const slide = slides[currentSlide];
 
   return (
-    <div className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-md flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 md:p-8">
       {/* Contenedor formato móvil 9:16 */}
       <div
-        className={`relative w-full max-w-sm aspect-[9/16] rounded-3xl shadow-2xl overflow-hidden flex flex-col transition-colors duration-500 ${slide.bg}`}
+        className={`relative w-full max-w-[22rem] sm:max-w-sm md:max-w-md aspect-[9/16] rounded-3xl md:rounded-[32px] shadow-2xl overflow-hidden flex flex-col transition-colors duration-500 ring-1 ring-white/10 ${slide.bg}`}
       >
         {/* Barra de progreso superior */}
         <div className="absolute top-0 left-0 w-full flex gap-1 p-2 z-20">
@@ -235,29 +235,29 @@ const BusinessProposalModal: React.FC = () => {
 
         {/* Contenido del slide */}
         <div
-          className={`flex-1 flex flex-col items-center justify-center p-8 text-center animate-in fade-in slide-in-from-right-4 duration-300 ${
+          className={`flex-1 flex flex-col items-center justify-center px-6 py-8 sm:px-8 sm:py-10 md:px-10 text-center animate-in fade-in slide-in-from-right-4 duration-300 ${
             slide.textColor ?? "text-white"
           }`}
         >
-          <div className="mb-8 p-4 bg-white/10 rounded-full backdrop-blur-sm">
+          <div className="mb-6 sm:mb-8 p-4 sm:p-5 bg-white/10 rounded-full backdrop-blur-sm shadow-lg shadow-black/30">
             {slide.icon}
           </div>
 
-          <h2 className="text-3xl font-bold mb-2 leading-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-2 sm:mb-3 leading-tight">
             {slide.title}
           </h2>
-          <p className="text-lg font-medium opacity-80 mb-6 uppercase tracking-wider">
+          <p className="text-xs sm:text-sm md:text-base font-semibold opacity-80 mb-5 sm:mb-6 uppercase tracking-[0.25em]">
             {slide.subtitle}
           </p>
 
-          <div className="text-lg leading-relaxed whitespace-pre-line opacity-90">
+          <div className="text-sm sm:text-base md:text-lg leading-relaxed whitespace-pre-line opacity-90 max-w-xs sm:max-w-sm">
             {slide.content}
           </div>
 
           {slide.isLast && (
             <button
               type="button"
-              className="mt-8 bg-blue-600 hover:bg-blue-500 text-white px-8 py-3 rounded-full font-bold shadow-lg shadow-blue-500/30 animate-bounce"
+              className="mt-8 bg-blue-600 hover:bg-blue-500 text-white px-8 py-3 rounded-full font-bold shadow-lg shadow-blue-500/30 animate-bounce hover-scale transition-transform"
             >
               Solicitar Adhesión
             </button>
@@ -265,12 +265,12 @@ const BusinessProposalModal: React.FC = () => {
         </div>
 
         {/* Controles de navegación */}
-        <div className="absolute bottom-0 left-0 w-full p-6 flex justify-between items-center z-20">
+        <div className="absolute bottom-0 left-0 w-full px-5 sm:px-6 md:px-7 py-5 flex justify-between items-center z-20">
           <button
             type="button"
             onClick={prevSlide}
             disabled={currentSlide === 0}
-            className={`p-3 rounded-full bg-white/10 backdrop-blur-md hover:bg-white/20 text-white transition-all ${
+            className={`p-3 rounded-full bg-white/10 backdrop-blur-md hover:bg-white/20 text-white transition-all hover-scale ${
               currentSlide === 0 ? "opacity-0 pointer-events-none" : "opacity-100"
             }`}
             aria-label="Slide anterior"
@@ -286,7 +286,7 @@ const BusinessProposalModal: React.FC = () => {
             type="button"
             onClick={nextSlide}
             disabled={currentSlide === slides.length - 1}
-            className={`p-3 rounded-full bg-white/10 backdrop-blur-md hover:bg-white/20 text-white transition-all ${
+            className={`p-3 rounded-full bg-white/10 backdrop-blur-md hover:bg-white/20 text-white transition-all hover-scale ${
               currentSlide === slides.length - 1
                 ? "opacity-0 pointer-events-none"
                 : "opacity-100"
