@@ -79,7 +79,7 @@ const Landing = () => {
     title: 'KPI Clínicas',
     description: 'Indicadores clave para valorar los esfuerzos de las clínicas hacia la excelencia médica y de servicio.',
     color: 'text-blue-600',
-    link: '/dashboard'
+    link: '/portal/kpi'
   }];
   const features = [{
     icon: Network,
