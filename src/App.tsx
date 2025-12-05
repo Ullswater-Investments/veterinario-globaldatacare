@@ -85,10 +85,14 @@ const App = () => (
               <FloatingChat />
               <Routes>
 
+                {/* Public Landing & Auth */}
+                <Route path="/" element={<Landing />} />
+                <Route path="/auth" element={<Auth />} />
+
                 {/* Public Portal Pages */}
                 <Route path="/portal/doctor" element={<DoctorPortal />} />
                 <Route path="/portal/lab" element={<LabPortal />} />
-                <Route path="/portal/patient" element={<PatientPortal />} />
+                <Route path="/portal/patient" element={<Wallet />} />
                 <Route path="/portal/research" element={<ResearchDataMarketplace />} />
                 <Route path="/portal/insurance" element={<InsurancePortal />} />
                 <Route path="/portal/procurement" element={<ProcurementPortal />} />
