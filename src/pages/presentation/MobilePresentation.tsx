@@ -347,17 +347,14 @@ const MobilePresentation: React.FC = () => {
             <CarouselItem className="h-full flex items-center">
               <Slide
                 page={11}
-                title="Fase 3: Burocracia y Fondos"
+                title="Fase 3: Fondos Europeos"
                 icon={<FileCheck2 className="h-5 w-5" />}
-                subtitle="Periodo Q3 2025"
+                subtitle="Periodo Q3 2026"
               >
-                <ul className="space-y-2 list-disc list-inside">
-                  <li>
-                    Accuro gestiona la justificación técnica y económica ante Red.es.
-                  </li>
-                  <li>Liberación de los fondos de la subvención concedida.</li>
-                  <li>Auditoría de integración exitosa en cada clínica.</li>
-                </ul>
+                <p>
+                  Q3 2026 · Ingreso de Fondos Europeos de RED.ES para continuar con el
+                  desarrollo del proyecto tecnológico.
+                </p>
               </Slide>
             </CarouselItem>
 
