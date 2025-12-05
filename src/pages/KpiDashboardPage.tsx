@@ -14,6 +14,7 @@ import {
   CheckCircle2,
   Smartphone,
 } from "lucide-react";
+import { NavigationControls } from "@/components/ui/NavigationControls";
 
 const KpiDashboardPage: React.FC = () => {
   const [activeView, setActiveView] = useState<"service" | "medical">(
@@ -69,6 +70,10 @@ const KpiDashboardPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-white font-sans">
+      <div className="container mx-auto px-6 pt-4">
+        <NavigationControls />
+      </div>
+
       {/* --- HERO SECTION: INTELIGENCIA OPERATIVA --- */}
       <section className="relative py-24 bg-slate-900 overflow-hidden text-white">
         <div className="absolute top-0 left-0 w-full h-full bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10" />

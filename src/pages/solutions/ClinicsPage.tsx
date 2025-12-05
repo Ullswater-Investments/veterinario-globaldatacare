@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import { NavigationControls } from "@/components/ui/NavigationControls";
 import { Cloud, ArrowRight, Database, Server, Activity, Users, ShoppingCart, BrainCircuit, ShieldCheck } from "lucide-react";
 const ClinicsPage = () => {
   useEffect(() => {
@@ -23,6 +24,9 @@ const ClinicsPage = () => {
     canonicalLink.href = canonicalUrl;
   }, []);
   return <main className="min-h-screen bg-background font-sans">
+      <div className="container mx-auto px-6 pt-6">
+        <NavigationControls />
+      </div>
       {/* HERO SECTION: EL CLOUD FEDERADO */}
       <header className="relative overflow-hidden bg-slate-900 py-24 text-white">
         {/* Fondos decorativos */}

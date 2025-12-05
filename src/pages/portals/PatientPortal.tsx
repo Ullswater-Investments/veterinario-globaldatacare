@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { NavigationControls } from "@/components/ui/NavigationControls";
 import {
   Calendar,
   Clock,
@@ -62,6 +63,10 @@ const PatientPortal = () => {
 
   return (
     <div className="min-h-screen bg-slate-50 font-sans pb-24 md:pb-0">
+      <div className="container mx-auto px-4 pt-4">
+        <NavigationControls />
+      </div>
+
       {/* HEADER TIPO APP */}
       <header className="bg-emerald-600 text-white p-6 rounded-b-3xl shadow-lg relative overflow-hidden">
         <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl" />

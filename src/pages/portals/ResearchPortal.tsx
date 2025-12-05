@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import { NavigationControls } from "@/components/ui/NavigationControls";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
@@ -8,7 +9,6 @@ import {
   Map,
   Brain,
   Shield,
-  ArrowLeft,
   Network,
   Database
 } from 'lucide-react';
@@ -39,16 +39,8 @@ const ResearchPortal = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-900 to-slate-800 text-white">
-      {/* Back Button */}
       <div className="container mx-auto px-4 pt-6">
-        <Button 
-          variant="ghost" 
-          onClick={() => navigate('/')}
-          className="mb-4 text-white hover:bg-slate-700"
-        >
-          <ArrowLeft className="mr-2 h-4 w-4" />
-          Volver al Inicio
-        </Button>
+        <NavigationControls />
       </div>
 
       {/* Hero Header */}
