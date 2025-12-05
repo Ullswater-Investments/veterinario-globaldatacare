@@ -39,7 +39,7 @@ const invoices = [
 ];
 
 export default function Wallet() {
-  const { hasAccess, loading } = useRoleProtection(["patient"]);
+  const { hasAccess, loading } = useRoleProtection(["patient", "auditor"]);
   const [activeTab, setActiveTab] = useState<TabId>("dashboard");
 
   // SEO básico para la página de Wallet
