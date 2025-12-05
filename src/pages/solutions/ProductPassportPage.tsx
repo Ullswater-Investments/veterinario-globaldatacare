@@ -118,8 +118,8 @@ const ProductPassportPage = () => {
                 <div className="relative group">
                   <div className="w-48 h-48 bg-slate-100 rounded-xl border-2 border-slate-200 flex items-center justify-center shadow-inner">
                     <img
-                      src="https://images.unsplash.com/photo-1583947215259-38e31be8751f?auto=format&fit=crop&q=80&w=300"
-                      alt="Digital Product Passport packaging de implante dental"
+                      src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&q=80&w=300"
+                      alt="Código de barras del Pasaporte Digital de Producto dental"
                       className="w-32 h-32 object-contain mix-blend-multiply opacity-80"
                     />
                   </div>
