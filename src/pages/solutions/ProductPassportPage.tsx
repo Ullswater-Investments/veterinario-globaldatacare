@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { NavigationControls } from "@/components/ui/NavigationControls";
+import { GlobalFooter } from "@/components/ui/GlobalFooter";
 import {
   QrCode,
   ShieldCheck,

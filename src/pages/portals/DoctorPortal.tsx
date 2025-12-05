@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { NavigationControls } from "@/components/ui/NavigationControls";
+import { GlobalFooter } from "@/components/ui/GlobalFooter";
 import { 
   Stethoscope, 
   AlertTriangle, 
@@ -211,6 +212,8 @@ const DoctorPortal = () => {
           </div>
         </div>
       </section>
+
+      <GlobalFooter />
     </div>
   );
 };

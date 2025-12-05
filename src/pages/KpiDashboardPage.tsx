@@ -15,6 +15,7 @@ import {
   Smartphone,
 } from "lucide-react";
 import { NavigationControls } from "@/components/ui/NavigationControls";
+import { GlobalFooter } from "@/components/ui/GlobalFooter";
 
 const KpiDashboardPage: React.FC = () => {
   const [activeView, setActiveView] = useState<"service" | "medical">(
@@ -359,6 +360,8 @@ const KpiDashboardPage: React.FC = () => {
           </div>
         </div>
       </section>
+
+      <GlobalFooter />
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { NavigationControls } from "@/components/ui/NavigationControls";
+import { GlobalFooter } from "@/components/ui/GlobalFooter";
 import { Cloud, ArrowRight, Database, Server, Activity, Users, ShoppingCart, BrainCircuit, ShieldCheck } from "lucide-react";
 const ClinicsPage = () => {
   useEffect(() => {
@@ -243,6 +244,7 @@ const ClinicsPage = () => {
         </div>
       </section>
 
+      <GlobalFooter />
     </main>;
-};
-export default ClinicsPage;
+  };
+  export default ClinicsPage;

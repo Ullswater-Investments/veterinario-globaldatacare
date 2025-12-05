@@ -11,6 +11,7 @@ import {
   Zap,
 } from "lucide-react";
 import { NavigationControls } from "@/components/ui/NavigationControls";
+import { GlobalFooter } from "@/components/ui/GlobalFooter";
 
 const SupplyChainPage: React.FC = () => {
   useEffect(() => {
@@ -376,7 +377,9 @@ const SupplyChainPage: React.FC = () => {
             ))}
           </div>
         </div>
-      </section>
+       </section>
+
+      <GlobalFooter />
     </div>
   );
 };
