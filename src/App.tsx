@@ -18,6 +18,7 @@ import Triage from "./pages/Triage";
 import LabHub from "./pages/LabHub";
 import Inventory from "./pages/Inventory";
 import Research from "./pages/Research";
+import ResearchDataMarketplace from "./pages/ResearchDataMarketplace";
 import Epidemiology from "./pages/Epidemiology";
 import Claims from "./pages/Claims";
 import Wallet from "./pages/Wallet";
@@ -134,17 +135,18 @@ const App = () => (
                  <Route path="/solutions/product-passport" element={<ProductPassportPage />} />
                  <Route element={<AppLayout />}>
                    <Route path="/dashboard" element={<Dashboard />} />
-                  <Route path="/auditor-dashboard" element={<AuditorDashboard />} />
-                  <Route path="/clinical" element={<ClinicalCockpit />} />
-                  <Route path="/ai-assistant" element={<AIAssistant />} />
-                  <Route path="/e-prescription" element={<EPrescription />} />
-                  <Route path="/triage" element={<Triage />} />
-                  <Route path="/lab-hub" element={<LabHub />} />
-                  <Route path="/inventory" element={<Inventory />} />
-                  <Route path="/research" element={<Research />} />
-                  <Route path="/epidemiology" element={<Epidemiology />} />
-                  <Route path="/claims" element={<Claims />} />
-                  <Route path="/wallet" element={<Wallet />} />
+                   <Route path="/auditor-dashboard" element={<AuditorDashboard />} />
+                   <Route path="/clinical" element={<ClinicalCockpit />} />
+                   <Route path="/ai-assistant" element={<AIAssistant />} />
+                   <Route path="/e-prescription" element={<EPrescription />} />
+                   <Route path="/triage" element={<Triage />} />
+                   <Route path="/lab-hub" element={<LabHub />} />
+                   <Route path="/inventory" element={<Inventory />} />
+                   <Route path="/research" element={<Research />} />
+                   <Route path="/research/marketplace" element={<ResearchDataMarketplace />} />
+                   <Route path="/epidemiology" element={<Epidemiology />} />
+                   <Route path="/claims" element={<Claims />} />
+                   <Route path="/wallet" element={<Wallet />} />
                 </Route>
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
