@@ -69,6 +69,7 @@ import ProductPassportPage from "./pages/solutions/ProductPassportPage";
 import FloatingChat from "@/components/ui/FloatingChat";
 import BusinessProposalModal from "@/components/business/BusinessProposalModal";
 import ProjectAssistant from "@/components/ProjectAssistant";
+import MobilePresentation from "./pages/presentation/MobilePresentation";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -110,8 +111,8 @@ const App = () => (
                 <Route path="/tech/dpp" element={<DppPage />} />
                 <Route path="/tech/federated" element={<FederatedPage />} />
                 <Route path="/tech/contracts" element={<ContractsPage />} />
-              <Route path="/tech/iot" element={<IotPage />} />
-              <Route path="/tech/labs" element={<InnovationLabs />} />
+                <Route path="/tech/iot" element={<IotPage />} />
+                <Route path="/tech/labs" element={<InnovationLabs />} />
                 
                 {/* Consulting Section - Public Access */}
                 <Route path="/consulting/technical-proposal" element={<TechnicalProposal />} />
@@ -140,6 +141,9 @@ const App = () => (
                 {/* Solutions Pages */}
                 <Route path="/solutions/clinics" element={<ClinicsPage />} />
                 <Route path="/solutions/product-passport" element={<ProductPassportPage />} />
+
+                {/* Mobile vertical presentation for decision-makers */}
+                <Route path="/presentation/mobile" element={<MobilePresentation />} />
                  <Route element={<AppLayout />}>
                    <Route path="/dashboard" element={<Dashboard />} />
                    <Route path="/auditor-dashboard" element={<AuditorDashboard />} />
