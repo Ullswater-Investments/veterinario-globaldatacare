@@ -130,9 +130,9 @@ const slides: Slide[] = [
     bg: "bg-purple-900",
     icon: <CheckCircle2 className="w-12 h-12 text-purple-400" />,
     title: "FASE 3: Fondos",
-    subtitle: "Q3 2025",
+    subtitle: "Q3 2026",
     content:
-      "Justificación técnica y económica ante Red.es. Liberación de los fondos de la subvención.",
+      "Ingreso de Fondos Europeos de RED.ES para continuar con el desarrollo del proyecto tecnológico.",
   },
   {
     id: 13,
