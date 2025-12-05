@@ -61,7 +61,7 @@ const Landing = () => {
     title: 'PACIENTE (Wallet)',
     description: 'Soberanía de datos, Consentimiento y Visualización 3D.',
     color: 'text-green-600',
-    link: '/portal/patient'
+    link: '/wallet'
   }, {
     icon: TrendingUp,
     title: 'Prof. Data (Investigación)',
