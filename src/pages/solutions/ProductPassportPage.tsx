@@ -14,6 +14,7 @@ import {
   History,
   Download,
 } from "lucide-react";
+import barcodeImage from "@/assets/codigo_de_barras.jpg";
 
 const ProductPassportPage = () => {
   const [activeTab, setActiveTab] = useState<"manufacturer" | "clinic" | "patient">(
@@ -123,7 +124,7 @@ const ProductPassportPage = () => {
                 <div className="relative group">
                   <div className="w-48 h-48 bg-slate-100 rounded-xl border-2 border-slate-200 flex items-center justify-center shadow-inner">
                     <img
-                      src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&q=80&w=300"
+                      src={barcodeImage}
                       alt="Código de barras del Pasaporte Digital de Producto dental"
                       className="w-32 h-32 object-contain mix-blend-multiply opacity-80"
                     />
