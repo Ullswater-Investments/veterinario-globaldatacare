@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { NavigationControls } from "@/components/ui/NavigationControls";
 import {
   QrCode,
   ShieldCheck,
@@ -74,6 +75,9 @@ const ProductPassportPage = () => {
 
   return (
     <main className="min-h-screen bg-slate-50 font-sans">
+      <div className="container mx-auto px-6 pt-6">
+        <NavigationControls />
+      </div>
       {/* --- HERO SECTION --- */}
       <header className="relative py-20 bg-slate-900 overflow-hidden text-white">
         <div className="absolute inset-0 opacity-20">

@@ -11,6 +11,7 @@ import {
   FileJson,
   CheckCircle2,
 } from "lucide-react";
+import { NavigationControls } from "@/components/ui/NavigationControls";
 
 // --- DATOS MOCK (Simulación) ---
 
@@ -146,6 +147,9 @@ const ResearchDataMarketplace: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-slate-50 font-sans">
+      <div className="container mx-auto px-6 pt-6">
+        <NavigationControls />
+      </div>
       {/* --- HERO SECTION: ECOSISTEMA DE DATOS --- */}
       <section className="bg-slate-900 text-white pt-20 pb-24 relative overflow-hidden">
         {/* Decoración de fondo */}

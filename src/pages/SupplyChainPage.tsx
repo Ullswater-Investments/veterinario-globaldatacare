@@ -10,6 +10,7 @@ import {
   ArrowRight,
   Zap,
 } from "lucide-react";
+import { NavigationControls } from "@/components/ui/NavigationControls";
 
 const SupplyChainPage: React.FC = () => {
   useEffect(() => {
@@ -61,6 +62,10 @@ const SupplyChainPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-white font-sans">
+      <div className="container mx-auto px-6 pt-4">
+        <NavigationControls />
+      </div>
+
       {/* --- HERO SECTION: CEREBRO LOGÍSTICO --- */}
       <section className="relative py-20 bg-slate-900 overflow-hidden text-white">
         <div className="absolute top-0 right-0 w-2/3 h-full bg-cyan-600/10 rounded-l-full blur-3xl" />
