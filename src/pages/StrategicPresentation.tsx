@@ -542,19 +542,21 @@ export const StrategicPresentation: React.FC = () => {
             type="button"
             onClick={prevSlide}
             disabled={currentSlide === 0}
-            className="p-3 md:p-4 rounded-full bg-black/20 hover:bg-black/40 text-white backdrop-blur-md transition-all disabled:opacity-0 disabled:pointer-events-none"
+            className="flex items-center gap-2 px-3 md:px-4 py-2 md:py-3 rounded-full bg-black/20 hover:bg-black/40 text-white text-xs md:text-sm backdrop-blur-md transition-all disabled:opacity-0 disabled:pointer-events-none"
             aria-label="Diapositiva anterior"
           >
-            <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
+            <ChevronLeft className="w-4 h-4 md:w-5 md:h-5" />
+            <span className="hidden sm:inline">Anterior</span>
           </button>
           <button
             type="button"
             onClick={nextSlide}
             disabled={currentSlide === totalSlides - 1}
-            className="p-3 md:p-4 rounded-full bg-black/20 hover:bg-black/40 text-white backdrop-blur-md transition-all disabled:opacity-0 disabled:pointer-events-none"
+            className="flex items-center gap-2 px-3 md:px-4 py-2 md:py-3 rounded-full bg-black/20 hover:bg-black/40 text-white text-xs md:text-sm backdrop-blur-md transition-all disabled:opacity-0 disabled:pointer-events-none"
             aria-label="Siguiente diapositiva"
           >
-            <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
+            <span className="hidden sm:inline">Siguiente</span>
+            <ChevronRight className="w-4 h-4 md:w-5 md:h-5" />
           </button>
         </div>
 
