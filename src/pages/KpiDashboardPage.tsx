@@ -341,7 +341,7 @@ const KpiDashboardPage: React.FC = () => {
           <h2 className="text-3xl font-bold mb-6">Benchmarking Federado</h2>
           <p className="text-indigo-200 mb-8 max-w-2xl mx-auto">
             ¿Cómo saber si tu tiempo de espera es bueno? El sistema compara tus
-            KPIs (de forma anónima) con el promedio de la red de 500 clínicas
+            KPIs (de forma anónima) con el promedio de la red de 50 clínicas
             para que sepas dónde situarte.
           </p>
           <div className="flex justify-center gap-4 text-sm font-mono text-indigo-300">
