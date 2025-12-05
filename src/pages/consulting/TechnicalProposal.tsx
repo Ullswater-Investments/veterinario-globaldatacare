@@ -541,9 +541,9 @@ export default function TechnicalProposal() {
                 Ver Estudio de Viabilidad: 25 Modelos de Negocio
               </Button>
             </Link>
-            <p className="text-sm text-slate-400 mt-3">
-              Descubre cómo ORALDATA-X genera valor económico en 5 verticales de mercado
-            </p>
+          <p className="text-sm text-slate-400 mt-3">
+            Descubre cómo GLOBAL DATA CARE genera valor económico en 6 verticales de mercado
+          </p>
           </div>
         </div>
       </section>
