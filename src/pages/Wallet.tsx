@@ -7,14 +7,12 @@ import {
   Clock,
   CreditCard,
   FileText,
-  MessageCircle,
   Pill,
   ShieldCheck,
   User,
   Activity,
   AlertCircle,
   ChevronRight,
-  Bot,
   Loader2,
 } from "lucide-react";
 
@@ -43,7 +41,6 @@ const invoices = [
 export default function Wallet() {
   const { hasAccess, loading } = useRoleProtection(["patient"]);
   const [activeTab, setActiveTab] = useState<TabId>("dashboard");
-  const [isChatOpen, setIsChatOpen] = useState(false);
 
   // SEO básico para la página de Wallet
   useEffect(() => {
@@ -386,59 +383,6 @@ export default function Wallet() {
                 </p>
               </div>
             </section>
-          </div>
-        )}
-      </div>
-
-      {/* CHATBOT FLOTANTE */}
-      <div className="fixed bottom-6 right-6 z-50">
-        {!isChatOpen && (
-          <button
-            type="button"
-            onClick={() => setIsChatOpen(true)}
-            className="w-16 h-16 bg-emerald-600 hover:bg-emerald-500 text-white rounded-full shadow-lg shadow-emerald-600/40 flex items-center justify-center transition-transform hover:scale-110"
-            aria-label="Abrir asistente clínico"
-          >
-            <MessageCircle className="w-8 h-8" aria-hidden="true" />
-            <span className="absolute top-0 right-0 w-4 h-4 bg-red-500 rounded-full border-2 border-white" />
-          </button>
-        )}
-
-        {isChatOpen && (
-          <div className="bg-white w-80 md:w-96 rounded-2xl shadow-2xl border border-slate-200 overflow-hidden animate-in zoom-in-95 duration-200 slide-in-from-bottom-10">
-            <div className="bg-emerald-600 p-4 text-white flex justify-between items-center">
-              <div className="flex items-center gap-2">
-                <Bot className="w-5 h-5" aria-hidden="true" />
-                <span className="font-bold">Asistente clínica</span>
-              </div>
-              <button
-                type="button"
-                onClick={() => setIsChatOpen(false)}
-                className="hover:bg-white/20 p-1 rounded"
-                aria-label="Cerrar asistente clínico"
-              >
-                ✕
-              </button>
-            </div>
-            <div className="h-80 bg-slate-50 p-4 overflow-y-auto space-y-3">
-              <div className="bg-white p-3 rounded-tr-xl rounded-b-xl shadow-sm text-sm text-slate-700 max-w-[85%]">
-                ¡Hola Ana! Veo que tienes una cita el 14 de octubre. ¿Necesitas ayuda con tu medicación o quieres
-                adelantar la visita?
-              </div>
-              <div className="bg-emerald-100 p-3 rounded-tl-xl rounded-b-xl shadow-sm text-sm text-emerald-900 max-w-[85%] ml-auto">
-                ¿Puedo pagar la factura pendiente desde aquí?
-              </div>
-              <div className="bg-white p-3 rounded-tr-xl rounded-b-xl shadow-sm text-sm text-slate-700 max-w-[85%]">
-                Sí, claro. Ve a la pestaña "Gestión" y pulsa en "Pagar ahora". Es seguro e instantáneo.
-              </div>
-            </div>
-            <div className="p-3 border-t bg-white">
-              <input
-                type="text"
-                placeholder="Escribe tu consulta..."
-                className="w-full bg-slate-100 rounded-full px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
-              />
-            </div>
           </div>
         )}
       </div>
