@@ -22,7 +22,8 @@ import Research from "./pages/Research";
 import ResearchDataMarketplace from "./pages/ResearchDataMarketplace";
 import Epidemiology from "./pages/Epidemiology";
 import Claims from "./pages/Claims";
-import PatientWalletPage from "./pages/Wallet";
+import PatientWalletPage from "./pages/PatientWalletPage";
+import Wallet from "./pages/Wallet";
 import NotFound from "./pages/NotFound";
 import DoctorPortal from "./pages/portals/DoctorPortal";
 import LabPortal from "./pages/portals/LabPortal";
@@ -162,7 +163,7 @@ const App = () => (
                    <Route path="/research/marketplace" element={<ResearchDataMarketplace />} />
                    <Route path="/epidemiology" element={<Epidemiology />} />
                    <Route path="/claims" element={<Claims />} />
-                   <Route path="/wallet" element={<PatientWalletPage />} />
+                   <Route path="/wallet" element={<Wallet />} />
                 </Route>
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
