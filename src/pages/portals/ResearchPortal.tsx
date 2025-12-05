@@ -66,7 +66,7 @@ const ResearchPortal = () => {
           </p>
           <Button 
             size="lg" 
-            onClick={() => navigate('/research')}
+            onClick={() => navigate('/research/marketplace')}
             className="bg-orange-600 hover:bg-orange-700 text-lg px-8 py-6 h-auto"
           >
             Iniciar Estudio Colaborativo
