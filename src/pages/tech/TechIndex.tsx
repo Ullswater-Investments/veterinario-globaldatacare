@@ -127,14 +127,6 @@ const TechIndex = () => {
             <p className="text-lg text-slate-300 mb-8">
               Accede al modo demo completo y explora todas las funcionalidades del ecosistema
             </p>
-            <Button 
-              size="lg"
-              onClick={() => navigate('/auth')}
-              className="bg-blue-600 hover:bg-blue-700 text-lg px-8 py-6 h-auto"
-            >
-              Acceder al Ecosistema
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
           </div>
         </div>
       </section>
