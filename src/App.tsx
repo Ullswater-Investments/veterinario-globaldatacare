@@ -22,12 +22,10 @@ import Research from "./pages/Research";
 import ResearchDataMarketplace from "./pages/ResearchDataMarketplace";
 import Epidemiology from "./pages/Epidemiology";
 import Claims from "./pages/Claims";
-import Wallet from "./pages/Wallet";
+import PatientWalletPage from "./pages/Wallet";
 import NotFound from "./pages/NotFound";
 import DoctorPortal from "./pages/portals/DoctorPortal";
 import LabPortal from "./pages/portals/LabPortal";
-import PatientPortal from "./pages/portals/PatientPortal";
-import ResearchPortal from "./pages/portals/ResearchPortal";
 import InsurancePortal from "./pages/portals/InsurancePortal";
 import ProcurementPortal from "./pages/portals/ProcurementPortal";
 import SupplyChainPage from "./pages/SupplyChainPage";
@@ -92,7 +90,7 @@ const App = () => (
                 {/* Public Portal Pages */}
                 <Route path="/portal/doctor" element={<DoctorPortal />} />
                 <Route path="/portal/lab" element={<LabPortal />} />
-                <Route path="/portal/patient" element={<Wallet />} />
+                <Route path="/portal/patient" element={<PatientWalletPage />} />
                 <Route path="/portal/research" element={<ResearchDataMarketplace />} />
                 <Route path="/portal/insurance" element={<InsurancePortal />} />
                 <Route path="/portal/procurement" element={<ProcurementPortal />} />
@@ -155,7 +153,7 @@ const App = () => (
                    <Route path="/research/marketplace" element={<ResearchDataMarketplace />} />
                    <Route path="/epidemiology" element={<Epidemiology />} />
                    <Route path="/claims" element={<Claims />} />
-                   <Route path="/wallet" element={<Wallet />} />
+                   <Route path="/wallet" element={<PatientWalletPage />} />
                 </Route>
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
