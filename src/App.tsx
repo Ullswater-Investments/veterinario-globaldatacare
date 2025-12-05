@@ -68,6 +68,7 @@ import ClinicsPage from "./pages/solutions/ClinicsPage";
 import ProductPassportPage from "./pages/solutions/ProductPassportPage";
 import FloatingChat from "@/components/ui/FloatingChat";
 import BusinessProposalModal from "@/components/business/BusinessProposalModal";
+import ProjectAssistant from "@/components/ProjectAssistant";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -82,6 +83,7 @@ const App = () => (
             <RoleProvider>
               <FloatingChat />
               <BusinessProposalModal />
+              <ProjectAssistant />
               <Routes>
 
                 {/* Public Landing & Auth */}
