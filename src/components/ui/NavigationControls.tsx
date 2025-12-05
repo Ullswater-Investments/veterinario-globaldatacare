@@ -10,12 +10,13 @@ export const NavigationControls: FC = () => {
   return (
     <nav
       aria-label="Controles de navegación"
-      className="flex items-center gap-2 mb-4"
+      className="relative z-40 mb-4 flex items-center gap-2"
     >
       <Button
         type="button"
         variant="ghost"
         size="sm"
+        className="cursor-pointer"
         onClick={() => navigate(-1)}
       >
         <ArrowLeft className="w-4 h-4" />
@@ -25,6 +26,7 @@ export const NavigationControls: FC = () => {
         type="button"
         variant="ghost"
         size="sm"
+        className="cursor-pointer"
         onClick={() => navigate("/")}
       >
         <Home className="w-4 h-4" />
