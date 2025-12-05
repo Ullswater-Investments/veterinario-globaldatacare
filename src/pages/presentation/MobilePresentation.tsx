@@ -484,6 +484,9 @@ const MobilePresentation: React.FC = () => {
           <CarouselPrevious className="-top-10 left-1/2 -translate-x-1/2" />
           <CarouselNext className="bottom-16 left-1/2 -translate-x-1/2" />
         </Carousel>
+        <p className="mt-3 text-[11px] text-muted-foreground text-center">
+          Desliza o usa las flechas para avanzar. Pulsa la X para salir.
+        </p>
       </div>
     </main>
   );
