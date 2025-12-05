@@ -7,6 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Stethoscope, Factory, Shield, TrendingUp, Package, BarChart3, ArrowRight, Network, Database, Lock, Users } from 'lucide-react';
 import { InteroperabilitySection } from '@/components/home/InteroperabilitySection';
 import { FinalCTA } from '@/components/home/FinalCTA';
+import { GlobalFooter } from "@/components/ui/GlobalFooter";
 const Landing = () => {
   const navigate = useNavigate();
   const {
@@ -190,19 +191,29 @@ const Landing = () => {
       <footer className="py-12 bg-slate-900 text-white">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="text-sm text-slate-400">
-              ACCURO TECHNOLOGY
-            </div>
+            <div className="text-sm text-slate-400">ACCURO TECHNOLOGY</div>
             <div className="flex gap-6 text-sm">
-              <Link to="/consulting/technical-proposal" className="text-slate-400 hover:text-white transition">Whitepaper Técnico & Consultoría</Link>
-              <Link to="/business/models" className="text-slate-400 hover:text-white transition">Documento Casos de Negocio</Link>
-              <Link to="/presentation" className="text-slate-400 hover:text-white transition">Propuesta de Negocio</Link>
-              <a href="#" className="text-slate-400 hover:text-white transition">GitHub del Proyecto</a>
-              <a href="#" className="text-slate-400 hover:text-white transition">Aviso Legal</a>
+              <Link to="/consulting/technical-proposal" className="text-slate-400 hover:text-white transition">
+                Whitepaper Técnico &amp; Consultoría
+              </Link>
+              <Link to="/business/models" className="text-slate-400 hover:text-white transition">
+                Documento Casos de Negocio
+              </Link>
+              <Link to="/presentation" className="text-slate-400 hover:text-white transition">
+                Propuesta de Negocio
+              </Link>
+              <a href="#" className="text-slate-400 hover:text-white transition">
+                GitHub del Proyecto
+              </a>
+              <a href="#" className="text-slate-400 hover:text-white transition">
+                Aviso Legal
+              </a>
             </div>
           </div>
         </div>
       </footer>
+
+      <GlobalFooter />
     </div>;
-};
-export default Landing;
+  };
+  export default Landing;

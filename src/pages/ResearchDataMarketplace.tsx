@@ -12,6 +12,7 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import { NavigationControls } from "@/components/ui/NavigationControls";
+import { GlobalFooter } from "@/components/ui/GlobalFooter";
 
 // --- DATOS MOCK (Simulación) ---
 
@@ -442,6 +443,8 @@ const ResearchDataMarketplace: React.FC = () => {
           </div>
         </div>
       )}
+
+      <GlobalFooter />
     </div>
   );
 };

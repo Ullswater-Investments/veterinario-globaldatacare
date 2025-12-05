@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { NavigationControls } from "@/components/ui/NavigationControls";
+import { GlobalFooter } from "@/components/ui/GlobalFooter";
 import { 
   Factory, 
   Package, 
@@ -235,7 +236,9 @@ const LabPortal = () => {
             </Card>
           </div>
         </div>
-      </section>
+       </section>
+
+      <GlobalFooter />
     </div>
   );
 };
