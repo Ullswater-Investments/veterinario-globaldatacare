@@ -108,7 +108,99 @@ export default function TechnicalProposal() {
         </div>
       </div>
 
+      {/* 1. Executive Summary · Kit Espacio de Datos */}
+      <section id="summary" className="mb-16">
+        <h2 className="text-3xl font-bold text-slate-900 mb-6 flex items-center gap-3">
+          <div className="h-10 w-10 rounded-lg bg-blue-100 flex items-center justify-center">
+            <Calendar className="h-5 w-5 text-blue-600" />
+          </div>
+          Resumen Ejecutivo: Kit Espacio de Datos
+        </h2>
+
+        {/* KPIs Clave */}
+        <div className="grid md:grid-cols-3 gap-4 mb-8">
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-base flex items-center gap-2">
+                <Badge className="text-[11px]">Opción A · Integración</Badge>
+              </CardTitle>
+              <CardDescription className="text-xs">
+                Para la mayoría de clínicas del grupo
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-1 text-sm text-slate-700">
+                <li><strong>Inversión inicial:</strong> 2.000 €</li>
+                <li><strong>Subvención solicitada:</strong> 15.000 €</li>
+                <li><strong>Retorno directo:</strong> x7,5 en servicios digitales</li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-base flex items-center gap-2">
+                <Badge className="text-[11px]">Opción B · Casos de Uso</Badge>
+              </CardTitle>
+              <CardDescription className="text-xs">
+                Limitado a 5 empresas tractoras
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-1 text-sm text-slate-700">
+                <li><strong>Inversión inicial:</strong> 5.000 €</li>
+                <li><strong>Subvención solicitada:</strong> 30.000 €</li>
+                <li><strong>Ventaja:</strong> prioridad en roadmap de IA y modelos de negocio del dato</li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          <Card className="border-emerald-200 bg-emerald-50/60">
+            <CardHeader>
+              <CardTitle className="text-base flex items-center gap-2">
+                <Rocket className="h-4 w-4 text-emerald-600" />
+                Horizonte 2025
+              </CardTitle>
+              <CardDescription className="text-xs">
+                De piloto a red federada productiva
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-1 text-sm text-slate-700">
+                <li><strong>Fase 1:</strong> Captación y adhesión (hasta 15 ene 2025)</li>
+                <li><strong>Fase 2:</strong> Desarrollo & Integración (Q1–Q2 2025)</li>
+                <li><strong>Fase 3:</strong> Justificación & Cobro (Q3 2025)</li>
+                <li><strong>Fase 4:</strong> IA a escala y explotación del dato</li>
+              </ul>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Pacto Win-Win */}
+        <Card className="border-slate-200 bg-slate-50/80">
+          <CardHeader>
+            <CardTitle className="text-base flex items-center gap-2">
+              <CheckCircle className="h-4 w-4 text-emerald-600" />
+              Filosofía Win-Win Accuro Technology
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-slate-700 mb-3">
+              ACCURO TECHNOLOGY actúa como <strong>Agente Digitalizador Habilitador</strong>: no vende un SaaS cerrado,
+              sino un <strong>núcleo de datos composable</strong> que cada red dental puede forkar o integrar como base
+              de su propia infraestructura soberana.
+            </p>
+            <p className="text-sm text-slate-700">
+              Todo euro ingresado en concepto de implementación y fees de éxito se reinvierte en el desarrollo de la
+              <strong> plataforma común Global Data Care</strong>. Cuantas más clínicas se adhieran, más potente será la
+              inteligencia artificial y los servicios compartidos que la red recibe de vuelta.
+            </p>
+          </CardContent>
+        </Card>
+      </section>
+
       {/* 2. Mapa Funcional Global Data Care */}
+
       <section id="functional-map" className="mb-16">
         <h2 className="text-3xl font-bold text-slate-900 mb-6 flex items-center gap-3">
           <div className="h-10 w-10 rounded-lg bg-emerald-100 flex items-center justify-center">
