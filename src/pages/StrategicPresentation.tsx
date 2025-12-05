@@ -2,9 +2,19 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, Play, Pause } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { 
-  PieChart, Pie, Cell, ResponsiveContainer, 
-  BarChart, Bar, XAxis, YAxis, Tooltip, Legend 
+import { NavigationControls } from "@/components/ui/NavigationControls";
+import { GlobalFooter } from "@/components/ui/GlobalFooter";
+import {
+  PieChart,
+  Pie,
+  Cell,
+  ResponsiveContainer,
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  Tooltip,
+  Legend,
 } from "recharts";
 
 const COLORS = ["#3b82f6", "#10b981", "#8b5cf6", "#f59e0b", "#ef4444", "#06b6d4"];
@@ -1288,7 +1298,7 @@ export default function StrategicPresentation() {
 
   useEffect(() => {
     if (!isAutoPlay) return;
-    
+
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 10000);
@@ -1300,75 +1310,84 @@ export default function StrategicPresentation() {
   const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
 
   return (
-    <div className="min-h-screen bg-black flex items-center justify-center p-8">
-      <div className="relative w-full max-w-[1800px]" style={{ aspectRatio: '2/1' }}>
-        {/* Main Presentation Container */}
-        <div className="w-full h-full bg-slate-950 rounded-lg shadow-2xl overflow-hidden">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentSlide}
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -50 }}
-              transition={{ duration: 0.5 }}
-              className="w-full h-full"
-            >
-              {slides[currentSlide]}
-            </motion.div>
-          </AnimatePresence>
-        </div>
-
-        {/* Controls */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex items-center gap-4 bg-black/50 backdrop-blur-sm px-6 py-3 rounded-full">
-          <Button
-            onClick={prevSlide}
-            variant="ghost"
-            size="icon"
-            className="text-white hover:bg-white/20"
-          >
-            <ChevronLeft className="w-6 h-6" />
-          </Button>
-          
-          <div className="flex gap-2">
-            {slides.map((_, idx) => (
-              <button
-                key={idx}
-                onClick={() => setCurrentSlide(idx)}
-                className={`w-3 h-3 rounded-full transition-all ${
-                  idx === currentSlide ? 'bg-blue-400 w-8' : 'bg-slate-600'
-                }`}
-              />
-            ))}
+    <div className="min-h-screen bg-black flex flex-col">
+      <div className="flex-1 flex flex-col items-center justify-center p-8">
+        <div className="w-full max-w-[1800px]">
+          <div className="mb-4">
+            <NavigationControls />
           </div>
+          <div className="relative" style={{ aspectRatio: "2/1" }}>
+            {/* Main Presentation Container */}
+            <div className="w-full h-full bg-slate-950 rounded-lg shadow-2xl overflow-hidden">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentSlide}
+                  initial={{ opacity: 0, x: 50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -50 }}
+                  transition={{ duration: 0.5 }}
+                  className="w-full h-full"
+                >
+                  {slides[currentSlide]}
+                </motion.div>
+              </AnimatePresence>
+            </div>
 
-          <Button
-            onClick={nextSlide}
-            variant="ghost"
-            size="icon"
-            className="text-white hover:bg-white/20"
-          >
-            <ChevronRight className="w-6 h-6" />
-          </Button>
+            {/* Controls */}
+            <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex items-center gap-4 bg-black/50 backdrop-blur-sm px-6 py-3 rounded-full">
+              <Button
+                onClick={prevSlide}
+                variant="ghost"
+                size="icon"
+                className="text-white hover:bg-white/20"
+              >
+                <ChevronLeft className="w-6 h-6" />
+              </Button>
 
-          <div className="w-px h-8 bg-slate-600 mx-2" />
+              <div className="flex gap-2">
+                {slides.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setCurrentSlide(idx)}
+                    className={`w-3 h-3 rounded-full transition-all ${
+                      idx === currentSlide ? "bg-blue-400 w-8" : "bg-slate-600"
+                    }`}
+                  />
+                ))}
+              </div>
 
-          <Button
-            onClick={() => setIsAutoPlay(!isAutoPlay)}
-            variant="ghost"
-            size="icon"
-            className="text-white hover:bg-white/20"
-          >
-            {isAutoPlay ? <Pause className="w-6 h-6" /> : <Play className="w-6 h-6" />}
-          </Button>
-        </div>
+              <Button
+                onClick={nextSlide}
+                variant="ghost"
+                size="icon"
+                className="text-white hover:bg-white/20"
+              >
+                <ChevronRight className="w-6 h-6" />
+              </Button>
 
-        {/* Slide Counter */}
-        <div className="absolute top-8 right-8 bg-black/50 backdrop-blur-sm px-4 py-2 rounded-full">
-          <span className="text-white text-lg font-semibold">
-            {currentSlide + 1} / {slides.length}
-          </span>
+              <div className="w-px h-8 bg-slate-600 mx-2" />
+
+              <Button
+                onClick={() => setIsAutoPlay(!isAutoPlay)}
+                variant="ghost"
+                size="icon"
+                className="text-white hover:bg-white/20"
+              >
+                {isAutoPlay ? <Pause className="w-6 h-6" /> : <Play className="w-6 h-6" />}
+              </Button>
+            </div>
+
+            {/* Slide Counter */}
+            <div className="absolute top-8 right-8 bg-black/50 backdrop-blur-sm px-4 py-2 rounded-full">
+              <span className="text-white text-lg font-semibold">
+                {currentSlide + 1} / {slides.length}
+              </span>
+            </div>
+          </div>
         </div>
       </div>
+
+      <GlobalFooter />
     </div>
   );
 }

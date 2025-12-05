@@ -388,8 +388,11 @@ const ProductPassportPage = () => {
           </div>
         </div>
       </section>
+
+      <GlobalFooter />
     </main>
   );
 };
+
 
 export default ProductPassportPage;
