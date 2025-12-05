@@ -63,7 +63,7 @@ import FraudScoring from "./pages/business/cases/FraudScoring";
 import BNPLFinancing from "./pages/business/cases/BNPLFinancing";
 import ParametricInsurance from "./pages/business/cases/ParametricInsurance";
 import InvoiceFactoring from "./pages/business/cases/InvoiceFactoring";
-import StrategicPresentation from "./pages/StrategicPresentation";
+
 import ClinicsPage from "./pages/solutions/ClinicsPage";
 import ProductPassportPage from "./pages/solutions/ProductPassportPage";
 import FloatingChat from "@/components/ui/FloatingChat";
@@ -134,12 +134,9 @@ const App = () => (
                 <Route path="/business/case/19" element={<ParametricInsurance />} />
                 <Route path="/business/case/20" element={<InvoiceFactoring />} />
                 
-                {/* Strategic Presentation */}
-                 <Route path="/presentation" element={<StrategicPresentation />} />
-
-                 {/* Solutions Pages */}
-                 <Route path="/solutions/clinics" element={<ClinicsPage />} />
-                 <Route path="/solutions/product-passport" element={<ProductPassportPage />} />
+                {/* Solutions Pages */}
+                <Route path="/solutions/clinics" element={<ClinicsPage />} />
+                <Route path="/solutions/product-passport" element={<ProductPassportPage />} />
                  <Route element={<AppLayout />}>
                    <Route path="/dashboard" element={<Dashboard />} />
                    <Route path="/auditor-dashboard" element={<AuditorDashboard />} />

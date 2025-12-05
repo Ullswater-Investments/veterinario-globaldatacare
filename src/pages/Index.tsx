@@ -199,9 +199,6 @@ const Landing = () => {
               <Link to="/business/models" className="text-slate-400 hover:text-white transition">
                 Documento Casos de Negocio
               </Link>
-              <Link to="/presentation" className="text-slate-400 hover:text-white transition">
-                Propuesta de Negocio
-              </Link>
               <a href="#" className="text-slate-400 hover:text-white transition">
                 GitHub del Proyecto
               </a>
