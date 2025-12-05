@@ -47,13 +47,23 @@ const ProcurementPortal = () => {
               con proveedores homologados y garantizamos trazabilidad y ahorro
               a nivel de grupo.
             </p>
-            <Button
-              size="lg"
-              onClick={() => navigate('/inventory')}
-              className="bg-emerald-600 hover:bg-emerald-700 text-lg px-8 py-6 h-auto"
-            >
-              Ver Módulo de Inventario IoT
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button
+                size="lg"
+                onClick={() => navigate('/inventory')}
+                className="bg-emerald-600 hover:bg-emerald-700 text-lg px-8 py-6 h-auto"
+              >
+                Ver Módulo de Inventario IoT
+              </Button>
+              <Button
+                variant="outline"
+                size="lg"
+                onClick={() => navigate('/portal/supply')}
+                className="border-emerald-600 text-emerald-700 hover:bg-emerald-50 text-lg px-8 py-6 h-auto"
+              >
+                Ver Central Predictiva
+              </Button>
+            </div>
           </div>
         </section>
 
