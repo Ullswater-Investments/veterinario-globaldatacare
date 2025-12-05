@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight, Play, Pause } from "lucide-react";
+import { ChevronLeft, ChevronRight, Play, Pause, CheckCircle2, CalendarClock, Rocket, FileText, Building2, ExternalLink, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { NavigationControls } from "@/components/ui/NavigationControls";
 import { GlobalFooter } from "@/components/ui/GlobalFooter";
@@ -1270,6 +1270,188 @@ const Slide10 = () => (
   </div>
 );
 
+export const BusinessProposalSlide = () => {
+  return (
+    <div className="bg-slate-50 p-8 md:p-12 rounded-3xl shadow-sm border border-slate-200 h-full overflow-y-auto">
+      {/* --- CABECERA: LA OPORTUNIDAD --- */}
+      <div className="mb-12 text-center">
+        <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-bold mb-4">
+          <Building2 className="w-4 h-4" />
+          <span>ACCURO TECHNOLOGY: Agente Digitalizador Autorizado</span>
+        </div>
+        <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+          Propuesta Kit Espacio de Datos
+        </h2>
+        <p className="text-lg text-slate-600 max-w-3xl mx-auto">
+          Transformamos la subvención de Red.es en tecnología real para tu clínica.
+          Todo el presupuesto recaudado se invierte directamente en el desarrollo de la plataforma
+          <span className="font-bold text-blue-600"> Global Data Care</span>.
+        </p>
+        <a
+          href="https://www.acelerapyme.gob.es/kit-espacios-de-datos"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 mt-4 text-sm text-blue-600 hover:underline font-medium"
+        >
+          Ver bases oficiales en Acelera Pyme <ExternalLink className="w-3 h-3" />
+        </a>
+      </div>
+
+      {/* --- MODELO ECONÓMICO (TABLAS) --- */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+        {/* OPCIÓN A: INTEGRACIÓN BÁSICA */}
+        <div className="bg-white p-8 rounded-2xl shadow-lg border border-slate-100 relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-full h-2 bg-slate-300" />
+          <h3 className="text-xl font-bold text-slate-900 mb-2">Opción A: Adhesión</h3>
+          <p className="text-sm text-slate-500 mb-6">Para la mayoría de las clínicas del grupo.</p>
+
+          <div className="flex items-baseline gap-1 mb-6">
+            <span className="text-4xl font-bold text-slate-800">2.000€</span>
+            <span className="text-slate-500">Inversión inicial</span>
+          </div>
+
+          <ul className="space-y-3 mb-8">
+            <li className="flex items-start gap-2 text-sm text-slate-600">
+              <CheckCircle2 className="w-4 h-4 text-green-500 mt-0.5" />
+              <span>
+                Solicitud Ayuda: <strong>15.000€</strong>
+              </span>
+            </li>
+            <li className="flex items-start gap-2 text-sm text-slate-600">
+              <CheckCircle2 className="w-4 h-4 text-green-500 mt-0.5" />
+              <span>Integración técnica en Espacio de Datos.</span>
+            </li>
+            <li className="flex items-start gap-2 text-sm text-slate-600">
+              <CheckCircle2 className="w-4 h-4 text-green-500 mt-0.5" />
+              <span>Justificación técnica y económica incluida.</span>
+            </li>
+          </ul>
+          <div className="p-3 bg-slate-50 rounded-lg text-xs text-center text-slate-500">
+            + Fee de éxito al recibir la subvención
+          </div>
+        </div>
+
+        {/* OPCIÓN B: MODELO DE NEGOCIO (PILOTOS) */}
+        <div className="bg-white p-8 rounded-2xl shadow-xl border border-blue-200 relative overflow-hidden transform md:-translate-y-4">
+          <div className="absolute top-0 right-0 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
+            RECOMENDADO (Limitado a 5)
+          </div>
+          <div className="absolute top-0 left-0 w-full h-2 bg-blue-600" />
+          <h3 className="text-xl font-bold text-slate-900 mb-2">Opción B: Casos de Uso</h3>
+          <p className="text-sm text-slate-500 mb-6">Para las 5 empresas líderes del consorcio.</p>
+
+          <div className="flex items-baseline gap-1 mb-6">
+            <span className="text-4xl font-bold text-blue-600">5.000€</span>
+            <span className="text-slate-500">Inversión inicial</span>
+          </div>
+
+          <ul className="space-y-3 mb-8">
+            <li className="flex items-start gap-2 text-sm text-slate-600">
+              <CheckCircle2 className="w-4 h-4 text-blue-500 mt-0.5" />
+              <span>
+                Solicitud Ayuda: <strong>30.000€</strong>
+              </span>
+            </li>
+            <li className="flex items-start gap-2 text-sm text-slate-600">
+              <CheckCircle2 className="w-4 h-4 text-blue-500 mt-0.5" />
+              <span>
+                <strong>Modelo de Negocio</strong> alrededor del dato.
+              </span>
+            </li>
+            <li className="flex items-start gap-2 text-sm text-slate-600">
+              <CheckCircle2 className="w-4 h-4 text-blue-500 mt-0.5" />
+              <span>Prioridad en definición de alcance IA.</span>
+            </li>
+          </ul>
+          <div className="p-3 bg-blue-50 rounded-lg text-xs text-center text-blue-600 font-medium">
+            + Fee de éxito al recibir la subvención
+          </div>
+        </div>
+      </div>
+
+      {/* --- CRONOGRAMA DE 4 FASES --- */}
+      <h3 className="text-xl font-bold text-slate-900 mb-8 text-center">Hoja de Ruta del Proyecto</h3>
+      <div className="relative">
+        {/* Línea conectora */}
+        <div className="absolute left-[15px] md:left-1/2 top-0 bottom-0 w-0.5 bg-slate-200 -translate-x-1/2" />
+
+        {/* FASE 1 */}
+        <div className="relative flex flex-col md:flex-row items-center mb-12">
+          <div className="md:w-1/2 md:pr-12 md:text-right pl-12 md:pl-0">
+            <h4 className="font-bold text-orange-600">Fase 1: Captación Urgente</h4>
+            <p className="text-sm text-slate-500 font-bold mb-1">Antes del 15 de Enero</p>
+            <p className="text-sm text-slate-600">
+              Comunicación a clínicas. Cuantas más empresas se unan, mayor será el alcance
+              de la plataforma final (Economía de Escala). Firma de acuerdos.
+            </p>
+          </div>
+          <div className="absolute left-0 md:left-1/2 w-8 h-8 bg-orange-100 text-orange-600 rounded-full border-4 border-white flex items-center justify-center -translate-x-0 md:-translate-x-1/2 z-10 shadow-sm">
+            <Users className="w-4 h-4" />
+          </div>
+          <div className="hidden md:block md:w-1/2" />
+        </div>
+
+        {/* FASE 2 */}
+        <div className="relative flex flex-col md:flex-row items-center mb-12">
+          <div className="hidden md:block md:w-1/2" />
+          <div className="absolute left-0 md:left-1/2 w-8 h-8 bg-blue-100 text-blue-600 rounded-full border-4 border-white flex items-center justify-center -translate-x-0 md:-translate-x-1/2 z-10 shadow-sm">
+            <FileText className="w-4 h-4" />
+          </div>
+          <div className="md:w-1/2 md:pl-12 pl-12">
+            <h4 className="font-bold text-slate-800">Fase 2: Desarrollo &amp; Adhesión</h4>
+            <p className="text-sm text-slate-500 font-bold mb-1">Q1 - Q2 2025</p>
+            <p className="text-sm text-slate-600">
+              Desarrollo del Producto Mínimo Viable (MVP). Integración técnica de las clínicas
+              en el Espacio de Datos y diseño de los casos de uso (para el grupo de los 5).
+            </p>
+          </div>
+        </div>
+
+        {/* FASE 3 */}
+        <div className="relative flex flex-col md:flex-row items-center mb-12">
+          <div className="md:w-1/2 md:pr-12 md:text-right pl-12 md:pl-0">
+            <h4 className="font-bold text-slate-800">Fase 3: Justificación</h4>
+            <p className="text-sm text-slate-500 font-bold mb-1">Q3 2025</p>
+            <p className="text-sm text-slate-600">
+              Gestión burocrática completa. Presentación de justificación técnica y económica
+              a Red.es para liberar los fondos de la subvención.
+            </p>
+          </div>
+          <div className="absolute left-0 md:left-1/2 w-8 h-8 bg-purple-100 text-purple-600 rounded-full border-4 border-white flex items-center justify-center -translate-x-0 md:-translate-x-1/2 z-10 shadow-sm">
+            <CheckCircle2 className="w-4 h-4" />
+          </div>
+          <div className="hidden md:block md:w-1/2" />
+        </div>
+
+        {/* FASE 4 */}
+        <div className="relative flex flex-col md:flex-row items-center">
+          <div className="hidden md:block md:w-1/2" />
+          <div className="absolute left-0 md:left-1/2 w-8 h-8 bg-emerald-100 text-emerald-600 rounded-full border-4 border-white flex items-center justify-center -translate-x-0 md:-translate-x-1/2 z-10 shadow-sm">
+            <Rocket className="w-4 h-4" />
+          </div>
+          <div className="md:w-1/2 md:pl-12 pl-12">
+            <h4 className="font-bold text-emerald-700">Fase 4: Escala &amp; IA</h4>
+            <p className="text-sm text-slate-500 font-bold mb-1">Futuro (Ambición)</p>
+            <p className="text-sm text-slate-600">
+              Ejecución del presupuesto total conseguido. Transformación profunda con IA
+              y despliegue final de la plataforma Global Data Care.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-16 text-center">
+        <div className="inline-block p-4 bg-yellow-50 border border-yellow-200 rounded-xl max-w-2xl">
+          <p className="text-yellow-800 font-medium flex items-center justify-center gap-2">
+            <CalendarClock className="w-5 h-5" />
+            Fecha Límite para unirse: 15 de Enero
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const slides = [
   <Slide1 />,
   <Slide2 />,
@@ -1290,6 +1472,7 @@ const slides = [
   <Slide8 />,
   <Slide9 />,
   <Slide10 />,
+  <BusinessProposalSlide />,
 ];
 
 export default function StrategicPresentation() {
