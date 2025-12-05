@@ -96,10 +96,10 @@ export default function TechnicalProposal() {
       {/* Hero */}
       <div className="mb-12 pb-8 border-b border-slate-200">
         <h1 className="text-4xl font-bold text-slate-900 mb-4">
-          OralSpace-X: Technical Architecture & Consulting Services
+          ACCURO TECHNOLOGY · Global Data Care Technical Whitepaper
         </h1>
         <p className="text-xl text-slate-600">
-          Building Composable Data Ecosystems for Healthcare Innovation
+          Arquitectura técnica del Espacio de Datos Federado para salud bucodental en Europa
         </p>
         <div className="flex gap-3 mt-6">
           <Badge variant="secondary" className="text-sm">GDPR Compliant</Badge>
@@ -119,10 +119,11 @@ export default function TechnicalProposal() {
 
         <div className="prose prose-slate mb-8">
           <p className="text-lg text-slate-700 leading-relaxed">
-            OralSpace-X no es un SaaS cerrado. Es una <strong>Arquitectura de Datos Composable</strong> que 
-            transforma clínicas dentales aisladas en ecosistemas interoperables. Ofrecemos a grandes redes 
-            dentales la posibilidad de <code>fork</code> o integrar nuestro núcleo para construir su propia 
-            infraestructura soberana, reduciendo el Time-to-Market de <strong>24 a 6 meses</strong>.
+            ACCURO TECHNOLOGY no es un SaaS cerrado. La plataforma <strong>Global Data Care</strong> es una
+            <strong> Arquitectura de Datos Composable</strong> que transforma clínicas dentales aisladas en
+            ecosistemas interoperables. Ofrecemos a grandes redes dentales la posibilidad de <code>fork</code>
+            o integrar este núcleo para construir su propia infraestructura soberana, reduciendo el Time-to-Market
+            de <strong>24 a 6 meses</strong>.
           </p>
         </div>
 
@@ -158,7 +159,7 @@ export default function TechnicalProposal() {
             <CardContent>
               <div className="text-center py-4">
                 <Network className="h-16 w-16 text-green-600 mx-auto mb-3" />
-                <p className="text-sm font-medium text-slate-900">OralSpace-X Hub</p>
+                <p className="text-sm font-medium text-slate-900">Nodo Global Data Care</p>
                 <p className="text-xs text-slate-600 mt-2">Federated • API-First • FHIR Native</p>
               </div>
               <div className="grid grid-cols-2 gap-2 mt-4">
@@ -175,8 +176,9 @@ export default function TechnicalProposal() {
 
         <div className="bg-slate-50 border border-slate-200 rounded-lg p-6">
           <p className="text-sm text-slate-700 italic">
-            <strong>Positioning Statement:</strong> OralSpace-X actúa como un <strong>acelerador tecnológico</strong>. 
-            No reemplazamos sistemas existentes; los conectamos bajo un estándar europeo de datos de salud.
+            <strong>Positioning Statement:</strong> ACCURO TECHNOLOGY, a través de <strong>Global Data Care</strong>, actúa
+            como un <strong>acelerador tecnológico</strong>. No reemplazamos sistemas existentes; los conectamos bajo un
+            estándar europeo de datos de salud.
           </p>
         </div>
       </section>
@@ -549,7 +551,7 @@ export default function TechnicalProposal() {
       {/* Footer Note */}
       <div className="mt-16 pt-8 border-t border-slate-200 text-center text-sm text-slate-600">
         <p>
-          <strong>OralSpace-X Technical Whitepaper</strong> v1.0 • Last Updated: November 2024
+          <strong>ACCURO TECHNOLOGY · Global Data Care Technical Whitepaper</strong> v1.0 • Last Updated: November 2024
         </p>
         <p className="mt-2">
           For technical inquiries: <a href="mailto:tech@oralspace-x.eu" className="text-blue-600 hover:underline">tech@oralspace-x.eu</a>
