@@ -66,7 +66,6 @@ import InvoiceFactoring from "./pages/business/cases/InvoiceFactoring";
 
 import ClinicsPage from "./pages/solutions/ClinicsPage";
 import ProductPassportPage from "./pages/solutions/ProductPassportPage";
-import FloatingChat from "@/components/ui/FloatingChat";
 import BusinessProposalModal from "@/components/business/BusinessProposalModal";
 import ProjectAssistant from "@/components/ProjectAssistant";
 import MobilePresentation from "./pages/presentation/MobilePresentation";
@@ -82,7 +81,6 @@ const App = () => (
           <ScrollToTop />
           <AuthProvider>
             <RoleProvider>
-              <FloatingChat />
               <BusinessProposalModal />
               <ProjectAssistant />
               <Routes>
