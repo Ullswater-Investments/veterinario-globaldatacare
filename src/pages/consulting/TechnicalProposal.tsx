@@ -551,10 +551,10 @@ export default function TechnicalProposal() {
       {/* Footer Note */}
       <div className="mt-16 pt-8 border-t border-slate-200 text-center text-sm text-slate-600">
         <p>
-          <strong>ACCURO TECHNOLOGY · Global Data Care Technical Whitepaper</strong> v1.0 • Last Updated: November 2024
+          <strong>ACCURO TECHNOLOGY · Global Data Care Technical Whitepaper</strong> v1.0 • Last Updated: Diciembre 2025
         </p>
         <p className="mt-2">
-          For technical inquiries: <a href="mailto:tech@oralspace-x.eu" className="text-blue-600 hover:underline">tech@oralspace-x.eu</a>
+          For technical inquiries: <a href="mailto:ivan.becerro@accuro.es" className="text-blue-600 hover:underline">ivan.becerro@accuro.es</a>
         </p>
       </div>
     </DocsLayout>
