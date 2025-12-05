@@ -69,6 +69,8 @@ import ProductPassportPage from "./pages/solutions/ProductPassportPage";
 import BusinessProposalModal from "@/components/business/BusinessProposalModal";
 import ProjectAssistant from "@/components/ProjectAssistant";
 import MobilePresentation from "./pages/presentation/MobilePresentation";
+import StrategicPresentation from "./pages/StrategicPresentation";
+import LegalNotice from "./pages/LegalNotice";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -140,8 +142,13 @@ const App = () => (
                 <Route path="/solutions/clinics" element={<ClinicsPage />} />
                 <Route path="/solutions/product-passport" element={<ProductPassportPage />} />
 
-                {/* Mobile vertical presentation for decision-makers */}
+                {/* Presentations */}
                 <Route path="/presentation/mobile" element={<MobilePresentation />} />
+                <Route path="/presentation/strategic" element={<StrategicPresentation />} />
+
+                {/* Standalone utility pages */}
+                <Route path="/legal" element={<LegalNotice />} />
+
                  <Route element={<AppLayout />}>
                    <Route path="/dashboard" element={<Dashboard />} />
                    <Route path="/auditor-dashboard" element={<AuditorDashboard />} />
