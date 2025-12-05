@@ -10,6 +10,87 @@ import {
 import { Link } from 'react-router-dom';
 
 export default function TechnicalProposal() {
+  const functionalModules = [
+    {
+      id: "clinics",
+      title: "CLÍNICAS · Soluciones Cloud Federadas",
+      route: "/solutions/clinics",
+      concept: "El \"Hub de Servicios\" para la red de clínicas.",
+      icon: Cloud,
+      bullets: [
+        "Conector universal con el PMS local sin migrar datos (modelo zero-trust).",
+        "Catálogo de Servicios como Servicio (SaaS) – algoritmos de diagnóstico, almacenamiento y facturación por uso.",
+        "Gestión híbrida ERP + CRM coordinada sobre un mismo espacio de datos.",
+        "La clínica mantiene la propiedad del dato y gana capacidad de gran corporación."
+      ]
+    },
+    {
+      id: "dpp",
+      title: "PASAPORTE DE PRODUCTO · Industria",
+      route: "/solutions/product-passport",
+      concept: "La \"Anatomía de la Verdad\" para cada implante o prótesis.",
+      icon: Shield,
+      bullets: [
+        "Gemelo digital del dispositivo con lote, fabricante, materiales y parámetros críticos.",
+        "Cumplimiento automático MDR: certificados, ISO y marcado CE accesibles en un clic.",
+        "Alertas sanitarias federadas: localiza a todas las clínicas y pacientes afectados por un lote.",
+        "Convierte la trazabilidad regulatoria en argumento de confianza de cara al paciente."
+      ]
+    },
+    {
+      id: "wallet",
+      title: "PACIENTE · Wallet / Super-App",
+      route: "/portal/patient",
+      concept: "Gestión 360° de la vida dental: pasado, presente y futuro.",
+      icon: Key,
+      bullets: [
+        "Historial clínico y financiero con facturas pagables desde la app.",
+        "Panel de tratamiento activo con medicación, alertas de toma y chatbot de dudas rápidas.",
+        "Agenda y catálogo de tratamientos (marketplace) para reservar servicios y comparar opciones.",
+        "Visor 3D de la boca y panel de soberanía de datos con interruptores de acceso por entidad."
+      ]
+    },
+    {
+      id: "research",
+      title: "PROF. DATA · Investigación",
+      route: "/portal/research",
+      concept: "El \"Nasdaq de los Datos Clínicos\" para IA y estudios multicéntricos.",
+      icon: Database,
+      bullets: [
+        "Marketplace donde los doctores monetizan datasets clínicos anonimizados.",
+        "Vista previa con datos sintéticos que reproducen la estructura estadística sin exponer pacientes.",
+        "Catálogo de algoritmos listos para licenciar (por ejemplo, detectores de caries pediátrica).",
+        "Convierte el dato clínico en un activo financiero gobernado por reglas de uso claras."
+      ]
+    },
+    {
+      id: "supply",
+      title: "CENTRAL DE COMPRAS · Clínicas",
+      route: "/portal/supply",
+      concept: "Abastecimiento predictivo y compras federadas.",
+      icon: Zap,
+      bullets: [
+        "Lectura automática de la agenda para estimar consumo de materiales (ej. número de implantes).",
+        "Comparación con stock actual y generación de pedidos automáticos cuando se detectan déficits.",
+        "Agrupación de la demanda con cientos de clínicas para negociar precios de mayorista.",
+        "Dashboard de ahorro continuo que cuantifica el impacto económico de la compra federada."
+      ]
+    },
+    {
+      id: "kpi",
+      title: "KPI CLÍNICAS · Inteligencia Operativa",
+      route: "/portal/kpi",
+      concept: "Cockpit que une rentabilidad, experiencia de paciente y excelencia médica.",
+      icon: TrendingUp,
+      bullets: [
+        "Fusión de voz del paciente, sensores de operación y resultados clínicos en un mismo panel.",
+        "Alertas predictivas de IA (ej. detectar picos de espera y proponer refuerzos de personal).",
+        "Benchmarking anónimo frente al conjunto de la red federada.",
+        "Ayuda a pasar de gestión por intuición a decisiones basadas en datos accionables."
+      ]
+    }
+  ];
+
   return (
     <DocsLayout>
       {/* Hero */}
@@ -100,7 +181,78 @@ export default function TechnicalProposal() {
         </div>
       </section>
 
-      {/* 2. Tech Stack */}
+      {/* 2. Mapa Funcional Global Data Care */}
+      <section id="functional-map" className="mb-16">
+        <h2 className="text-3xl font-bold text-slate-900 mb-6 flex items-center gap-3">
+          <div className="h-10 w-10 rounded-lg bg-emerald-100 flex items-center justify-center">
+            <Network className="h-5 w-5 text-emerald-600" />
+          </div>
+          Global Data Care: Mapa Funcional de la Plataforma
+        </h2>
+
+        <p className="text-slate-700 mb-8 max-w-3xl">
+          Todas las tarjetas del ecosistema ACCURO TECHNOLOGY representan ahora aplicaciones especializadas
+          conectadas por un mismo <strong>Espacio de Datos Federado</strong>. Cada módulo resuelve un problema
+          complejo para un actor distinto, pero comparte estándares, gobierno del dato y trazabilidad extremo a extremo.
+        </p>
+
+        <div className="grid md:grid-cols-2 gap-6 mb-10">
+          {functionalModules.map((mod) => {
+            const Icon = mod.icon;
+            return (
+              <Card key={mod.id} className="h-full">
+                <CardHeader>
+                  <div className="flex items-start gap-3">
+                    <div className="h-10 w-10 rounded-lg bg-slate-50 flex items-center justify-center shrink-0">
+                      <Icon className="h-5 w-5 text-blue-600" />
+                    </div>
+                    <div className="flex-1">
+                      <CardTitle className="text-base mb-1">{mod.title}</CardTitle>
+                      <CardDescription className="text-xs mb-2">{mod.concept}</CardDescription>
+                      <Badge variant="outline" className="text-[10px] font-mono">
+                        {mod.route}
+                      </Badge>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <ul className="list-disc list-inside space-y-1 text-sm text-slate-700">
+                    {mod.bullets.map((bullet: string) => (
+                      <li key={bullet}>{bullet}</li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            );
+          })}
+        </div>
+
+        <Card className="border-emerald-200 bg-emerald-50/60">
+          <CardHeader>
+            <CardTitle className="text-base flex items-center gap-2">
+              <GitBranch className="h-4 w-4 text-emerald-600" />
+              Resumen Arquitectónico Circular
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-slate-700 mb-2">
+              El valor aparece cuando las piezas se encadenan en un mismo recorrido operativo:
+            </p>
+            <ul className="list-disc list-inside space-y-1 text-sm text-slate-700">
+              <li>Lo que compra la <strong>Central de Compras</strong> se registra en el <strong>Pasaporte de Producto</strong>.</li>
+              <li>Ese producto trazable se implanta en la <strong>Clínica</strong> y queda visible en la <strong>Wallet del Paciente</strong>.</li>
+              <li>Los resultados clínicos anónimos alimentan a <strong>Prof. Data</strong> para entrenar nueva IA.</li>
+              <li>Los KPIs agregados de todas las clínicas vuelven al cockpit de <strong>KPI Clínicas</strong> para mejorar la operación.</li>
+            </ul>
+            <p className="text-sm text-slate-700 mt-3">
+              Esta es la esencia de <strong>Global Data Care</strong>: un bucle continuo donde cada evento clínico, logístico
+              o financiero genera inteligencia accionable sin perder la soberanía de los datos locales.
+            </p>
+          </CardContent>
+        </Card>
+      </section>
+
+      {/* 3. Tech Stack */}
       <section id="tech-stack" className="mb-16">
         <h2 className="text-3xl font-bold text-slate-900 mb-6 flex items-center gap-3">
           <div className="h-10 w-10 rounded-lg bg-purple-100 flex items-center justify-center">
@@ -185,7 +337,7 @@ export default function TechnicalProposal() {
         </Card>
       </section>
 
-      {/* 3. Methodology */}
+      {/* 4. Methodology */}
       <section id="methodology" className="mb-16">
         <h2 className="text-3xl font-bold text-slate-900 mb-6 flex items-center gap-3">
           <div className="h-10 w-10 rounded-lg bg-indigo-100 flex items-center justify-center">
@@ -253,7 +405,7 @@ export default function TechnicalProposal() {
         </div>
       </section>
 
-      {/* 4. Innovation Roadmap */}
+      {/* 5. Innovation Roadmap */}
       <section id="roadmap" className="mb-16">
         <h2 className="text-3xl font-bold text-slate-900 mb-6 flex items-center gap-3">
           <div className="h-10 w-10 rounded-lg bg-pink-100 flex items-center justify-center">
@@ -320,7 +472,7 @@ export default function TechnicalProposal() {
         </div>
       </section>
 
-      {/* 5. Engagement Models */}
+      {/* 6. Engagement Models */}
       <section id="engagement" className="mb-16">
         <h2 className="text-3xl font-bold text-slate-900 mb-6 flex items-center gap-3">
           <div className="h-10 w-10 rounded-lg bg-teal-100 flex items-center justify-center">
