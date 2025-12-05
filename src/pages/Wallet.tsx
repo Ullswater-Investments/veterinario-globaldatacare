@@ -17,7 +17,7 @@ import {
 } from "lucide-react";
 
 // Tipos de pestañas
- type TabId = "dashboard" | "health" | "finance" | "privacy";
+ type TabId = "dashboard" | "finance" | "privacy";
 
 // Datos simulados (Mock Data)
 const upcomingAppointment = {
@@ -76,12 +76,11 @@ export default function Wallet() {
   if (!hasAccess) return null;
 
   return (
-    <main className="relative min-h-[640px] pb-24 md:pb-0">
-      <div className="container mx-auto px-4 pt-4">
-        <NavigationControls />
-      </div>
-      {/* HEADER TIPO APP */}
-      <header className="bg-emerald-600 text-white p-6 rounded-3xl shadow-lg relative overflow-hidden mb-6">
+    <main className="min-h-screen bg-slate-50 font-sans flex flex-col">
+      <NavigationControls />
+
+      {/* --- HEADER TIPO APP --- */}
+      <header className="bg-emerald-600 text-white p-6 rounded-b-3xl shadow-lg relative overflow-hidden shrink-0 mx-4 mt-4">
         <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl" />
         <div className="relative z-10 flex justify-between items-center">
           <div>
@@ -93,22 +92,22 @@ export default function Wallet() {
           </div>
         </div>
 
-        {/* Navegación superior (tabs) */}
-        <nav className="flex justify-between mt-8 bg-black/20 p-1 rounded-xl backdrop-blur-md" aria-label="Secciones de la wallet">
+        {/* TABS NAVEGACIÓN */}
+        <nav
+          className="flex justify-between mt-8 bg-black/20 p-1 rounded-xl backdrop-blur-md"
+          aria-label="Secciones de la wallet"
+        >
           {[
-            { id: "dashboard", label: "Inicio", icon: <Activity className="w-4 h-4" aria-hidden="true" /> },
-            { id: "health", label: "Mi Salud", icon: <User className="w-4 h-4" aria-hidden="true" /> },
-            { id: "finance", label: "Gestión", icon: <CreditCard className="w-4 h-4" aria-hidden="true" /> },
-            { id: "privacy", label: "Privacidad", icon: <ShieldCheck className="w-4 h-4" aria-hidden="true" /> },
+            { id: "dashboard" as TabId, label: "Inicio", icon: <Activity className="w-4 h-4" aria-hidden="true" /> },
+            { id: "finance" as TabId, label: "Gestión", icon: <CreditCard className="w-4 h-4" aria-hidden="true" /> },
+            { id: "privacy" as TabId, label: "Privacidad", icon: <ShieldCheck className="w-4 h-4" aria-hidden="true" /> },
           ].map((tab) => (
             <button
               key={tab.id}
               type="button"
-              onClick={() => setActiveTab(tab.id as TabId)}
-              className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all ${
-                activeTab === tab.id
-                  ? "bg-white text-emerald-700 shadow-sm"
-                  : "text-emerald-100 hover:bg-white/10"
+              onClick={() => setActiveTab(tab.id)}
+              className={`flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+                activeTab === tab.id ? "bg-white text-emerald-700 shadow-sm" : "text-emerald-100 hover:bg-white/10"
               }`}
             >
               {tab.icon}
@@ -118,7 +117,7 @@ export default function Wallet() {
         </nav>
       </header>
 
-      <div className="container mx-auto px-0 md:px-4 max-w-5xl">
+      <div className="container mx-auto px-4 py-6 max-w-5xl flex-1">
         {/* ================= PESTAÑA INICIO (DASHBOARD) ================= */}
         {activeTab === "dashboard" && (
           <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
@@ -233,24 +232,6 @@ export default function Wallet() {
                   </span>
                 </div>
               </div>
-            </section>
-          </div>
-        )}
-
-        {/* ================= PESTAÑA MI SALUD ================= */}
-        {activeTab === "health" && (
-          <div className="space-y-6 animate-in fade-in slide-in-from-right-4 duration-500">
-            <section className="bg-white rounded-2xl shadow-sm border border-slate-100 p-6">
-              <h2 className="text-xl font-bold mb-2 text-slate-800">Resumen clínico</h2>
-              <p className="text-slate-600 text-sm mb-4">
-                Próximamente podrás ver aquí tu historial consolidado de intervenciones, implantes y recomendaciones
-                personalizadas del equipo médico.
-              </p>
-              <ul className="space-y-2 text-sm text-slate-600">
-                <li>• Última revisión implante: 10 Sep 2024</li>
-                <li>• Próximo control de higiene: 14 Oct 2024</li>
-                <li>• Recordatorio: descargar informe para tu seguro médico.</li>
-              </ul>
             </section>
           </div>
         )}
