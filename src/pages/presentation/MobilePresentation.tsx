@@ -17,8 +17,11 @@ import {
   ShoppingCart,
   ListChecks,
   Users,
-  Mail
+  Mail,
+  X,
 } from "lucide-react";
+
+import { useNavigate } from "react-router-dom";
 
 import {
   Carousel,
@@ -82,17 +85,27 @@ const Slide: React.FC<SlideProps> = ({
 };
 
 const MobilePresentation: React.FC = () => {
+  const navigate = useNavigate();
+
   useEffect(() => {
     document.title = "GLOBAL DATA CARE - Presentación móvil";
   }, []);
 
   return (
-    <main className="flex min-h-screen items-center justify-center bg-background px-4 py-6">
+    <main className="relative flex min-h-screen items-center justify-center bg-background px-4 py-6">
+      <button
+        type="button"
+        onClick={() => navigate(-1)}
+        className="absolute right-4 top-6 z-50 flex h-10 w-10 items-center justify-center rounded-full bg-black/40 text-background shadow-lg backdrop-blur-sm"
+        aria-label="Cerrar presentación"
+      >
+        <X className="h-5 w-5" />
+      </button>
       <div className="w-full max-w-sm">
         <Carousel
-          orientation="vertical"
-          className="relative h-[90vh] max-h-[720px]"
-        >
+           orientation="vertical"
+           className="relative h-[90vh] max-h-[720px]"
+         >
           <CarouselContent className="h-full">
             {/* PÁGINA 1: Portada */}
             <CarouselItem className="h-full flex items-center">
@@ -449,12 +462,27 @@ const MobilePresentation: React.FC = () => {
                   <Mail className="h-4 w-4" />
                   <span>ivan.becerro@accuro.es</span>
                 </div>
+                <div className="mt-6 flex flex-col items-stretch gap-2">
+                  <button
+                    type="button"
+                    className="inline-flex items-center justify-center rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-sm hover:bg-primary/90"
+                  >
+                    Solicitar Adhesión
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => navigate(-1)}
+                    className="text-xs font-medium text-muted-foreground underline underline-offset-4"
+                  >
+                    Cerrar Presentación
+                  </button>
+                </div>
               </Slide>
             </CarouselItem>
           </CarouselContent>
 
           <CarouselPrevious className="-top-10 left-1/2 -translate-x-1/2" />
-          <CarouselNext className="-bottom-10 left-1/2 -translate-x-1/2" />
+          <CarouselNext className="bottom-16 left-1/2 -translate-x-1/2" />
         </Carousel>
       </div>
     </main>
