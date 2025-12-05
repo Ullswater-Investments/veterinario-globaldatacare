@@ -1,12 +1,13 @@
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import { NavigationControls } from '@/components/ui/NavigationControls';
+import { GlobalFooter } from '@/components/ui/GlobalFooter';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { 
+import {
   Package,
   Network,
   Factory,
   Users,
-  ArrowLeft,
   Database,
 } from 'lucide-react';
 
@@ -15,16 +16,9 @@ const ProcurementPortal = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-slate-50">
-      {/* Back Button */}
+      {/* Navigation Controls */}
       <div className="container mx-auto px-4 pt-6">
-        <Button
-          variant="ghost"
-          onClick={() => navigate('/')}
-          className="mb-4"
-        >
-          <ArrowLeft className="mr-2 h-4 w-4" />
-          Volver al Inicio
-        </Button>
+        <NavigationControls />
       </div>
 
       <main>
@@ -202,6 +196,7 @@ const ProcurementPortal = () => {
           </div>
         </section>
       </main>
+      <GlobalFooter />
     </div>
   );
 };
