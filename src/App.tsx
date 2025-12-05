@@ -30,6 +30,7 @@ import ResearchPortal from "./pages/portals/ResearchPortal";
 import InsurancePortal from "./pages/portals/InsurancePortal";
 import ProcurementPortal from "./pages/portals/ProcurementPortal";
 import SupplyChainPage from "./pages/SupplyChainPage";
+import KpiDashboardPage from "./pages/KpiDashboardPage";
 import TechIndex from "./pages/tech/TechIndex";
 import Interoperability from "./pages/tech/Interoperability";
 import Sovereignty from "./pages/tech/Sovereignty";
@@ -91,6 +92,7 @@ const App = () => (
                 <Route path="/portal/insurance" element={<InsurancePortal />} />
                 <Route path="/portal/procurement" element={<ProcurementPortal />} />
                 <Route path="/portal/supply" element={<SupplyChainPage />} />
+                <Route path="/portal/kpi" element={<KpiDashboardPage />} />
                 
                 {/* Public Tech Deep Dive Pages */}
                 <Route path="/tech" element={<TechIndex />} />
