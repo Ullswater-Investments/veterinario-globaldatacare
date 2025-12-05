@@ -121,7 +121,7 @@ const slides: Slide[] = [
     bg: "bg-blue-800",
     icon: <Building2 className="w-12 h-12 text-blue-300" />,
     title: "FASE 2: Construcción",
-    subtitle: "Q1 - Q2 2025",
+    subtitle: "Q1 2026",
     content:
       "Desarrollo del MVP e instalación de conectores en clínicas. Despliegue de los pilotos de casos de uso.",
   },
