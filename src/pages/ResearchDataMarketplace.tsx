@@ -114,7 +114,7 @@ const ResearchDataMarketplace: React.FC = () => {
     }
     metaDescription.content = descriptionContent;
 
-    const canonicalUrl = `${window.location.origin}/research/marketplace`;
+    const canonicalUrl = `${window.location.origin}/portal/research`;
     let canonicalLink = document.querySelector(
       'link[rel="canonical"]',
     ) as HTMLLinkElement | null;
