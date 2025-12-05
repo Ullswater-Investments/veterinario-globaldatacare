@@ -199,9 +199,9 @@ const Landing = () => {
               <Link to="/business/models" className="text-slate-400 hover:text-white transition">
                 Documento Casos de Negocio
               </Link>
-              <a href="#" className="text-slate-400 hover:text-white transition">
+              <Link to="/legal" className="text-slate-400 hover:text-white transition">
                 Aviso Legal
-              </a>
+              </Link>
             </div>
           </div>
         </div>
