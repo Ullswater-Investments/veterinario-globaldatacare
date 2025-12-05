@@ -68,6 +68,7 @@ import InvoiceFactoring from "./pages/business/cases/InvoiceFactoring";
 import StrategicPresentation from "./pages/StrategicPresentation";
 import ClinicsPage from "./pages/solutions/ClinicsPage";
 import ProductPassportPage from "./pages/solutions/ProductPassportPage";
+import FloatingChat from "@/components/ui/FloatingChat";
  
 const queryClient = new QueryClient();
 
@@ -81,11 +82,9 @@ const App = () => (
           <ScrollToTop />
           <AuthProvider>
             <RoleProvider>
+              <FloatingChat />
               <Routes>
-                {/* Public Landing Page */}
-                <Route path="/" element={<Landing />} />
-                <Route path="/auth" element={<Auth />} />
-                
+
                 {/* Public Portal Pages */}
                 <Route path="/portal/doctor" element={<DoctorPortal />} />
                 <Route path="/portal/lab" element={<LabPortal />} />
