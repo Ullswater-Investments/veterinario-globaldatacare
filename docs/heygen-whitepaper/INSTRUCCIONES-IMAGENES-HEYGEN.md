@@ -95,7 +95,7 @@ Las siguientes imágenes están disponibles en `docs/heygen-whitepaper/screensho
 ---
 
 ### Escena 07: CIERRE - Call to Action
-**Imagen sugerida**: Logo de ACCURO con información de contacto
+**Imagen**: `UI_06_CTA_Cierre.png`
 
 **Texto del Avatar**:
 > "ACCURO TECHNOLOGY. El primer espacio de datos federado de odontología en Europa. Contáctenos para unirse a la red del futuro de la salud dental."
@@ -130,9 +130,14 @@ Las siguientes imágenes están disponibles en `docs/heygen-whitepaper/screensho
 
 ## 📋 Checklist de Producción
 
-- [ ] Subir las 5 imágenes UI a HeyGen
-- [ ] Crear imagen de INTRO (logo ACCURO sobre fondo oscuro)
-- [ ] Crear imagen de CIERRE (logo + contacto)
+- [x] ~~Generar imagen INTRO~~ → `UI_00_HERO_Intro.png` ✅
+- [x] ~~Generar imagen CLINIC~~ → `UI_01_CLINIC_Dashboard.png` ✅
+- [x] ~~Generar imagen PATIENT~~ → `UI_02_PATIENT_Wallet.png` ✅
+- [x] ~~Generar imagen TRACE~~ → `UI_03_TRACE_ProductPassport.png` ✅
+- [x] ~~Generar imagen MARKET~~ → `UI_04_MARKET_ResearchData.png` ✅
+- [x] ~~Generar imagen KPI~~ → `UI_05_KPI_Cockpit.png` ✅
+- [x] ~~Generar imagen CTA~~ → `UI_06_CTA_Cierre.png` ✅
+- [ ] Subir las 7 imágenes a HeyGen
 - [ ] Configurar avatar con voz española
 - [ ] Grabar escena por escena
 - [ ] Añadir transiciones entre escenas
