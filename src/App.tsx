@@ -72,6 +72,7 @@ import ProjectAssistant from "@/components/ProjectAssistant";
 import MobilePresentation from "./pages/presentation/MobilePresentation";
 import StrategicPresentation from "./pages/StrategicPresentation";
 import LegalNotice from "./pages/LegalNotice";
+import TechnicalWhitepaperVideo from "./pages/video/TechnicalWhitepaperVideo";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -145,6 +146,10 @@ const App = () => (
 
                 {/* Presentations */}
                 <Route path="/presentation/mobile" element={<MobilePresentation />} />
+                <Route path="/presentation/strategic" element={<StrategicPresentation />} />
+                
+                {/* Video Production (Hidden - Direct URL only) */}
+                <Route path="/video/whitepaper" element={<TechnicalWhitepaperVideo />} />
                 <Route path="/presentation/strategic" element={<StrategicPresentation />} />
 
                 {/* Standalone utility pages */}
