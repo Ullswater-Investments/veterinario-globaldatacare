@@ -669,8 +669,13 @@ const KPICockpit = () => {
 
 // MAIN COMPONENT
 const ConceptShowcase: React.FC = () => {
-  const [currentUI, setCurrentUI] = useState(0);
-  const [screenshotMode, setScreenshotMode] = useState(false);
+  // Support URL params for screenshot automation: ?ui=0&screenshot=true
+  const urlParams = new URLSearchParams(window.location.search);
+  const initialUI = parseInt(urlParams.get('ui') || '0', 10);
+  const initialScreenshot = urlParams.get('screenshot') === 'true';
+  
+  const [currentUI, setCurrentUI] = useState(initialUI);
+  const [screenshotMode, setScreenshotMode] = useState(initialScreenshot);
 
   const uis = [
     { id: 'CLINIC', title: '01. Clínica', subtitle: 'Dashboard Operativo', component: ClinicDashboard },
