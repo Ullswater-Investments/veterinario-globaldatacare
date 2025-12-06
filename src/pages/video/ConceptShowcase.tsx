@@ -245,11 +245,6 @@ const PatientWalletMobile = () => {
                   <span className="text-xs">Visor 3D</span>
                 </Button>
               </div>
-                <Button className="h-20 flex-col gap-2 bg-emerald-600 hover:bg-emerald-700">
-                  <Tooth className="w-5 h-5" />
-                  <span className="text-xs">Visor 3D</span>
-                </Button>
-              </div>
 
               {/* 3D Preview Placeholder */}
               <Card className="border-0 bg-gradient-to-br from-slate-100 to-slate-200 overflow-hidden">
