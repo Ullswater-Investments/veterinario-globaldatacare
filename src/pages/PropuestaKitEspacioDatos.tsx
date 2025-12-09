@@ -6,6 +6,7 @@ import {
   CheckCircle2, ArrowDown, Share2
 } from "lucide-react";
 import servidoresAisladosImg from "@/assets/servidores-aislados.png";
+import redFederadaImg from "@/assets/red-federada-activa.png";
 
 const PropuestaKitEspacioDatos: React.FC = () => {
   const [visionTab, setVisionTab] = useState<"today" | "tomorrow">("tomorrow");
@@ -184,10 +185,12 @@ const PropuestaKitEspacioDatos: React.FC = () => {
                   </div>
                 </div>
               </div>
-              <div className="bg-gradient-to-br from-emerald-50 to-blue-50 rounded-2xl h-64 flex items-center justify-center border border-emerald-100">
-                <span className="text-emerald-600 font-mono flex items-center gap-2">
-                  <Share2 /> Red Federada Activa
-                </span>
+              <div className="bg-gradient-to-br from-emerald-50 to-blue-50 rounded-2xl overflow-hidden flex items-center justify-center border border-emerald-100">
+                <img 
+                  src={redFederadaImg} 
+                  alt="Red federada activa con servidores conectados de forma segura" 
+                  className="w-full h-auto object-contain"
+                />
               </div>
             </div>
           )}
