@@ -88,7 +88,7 @@ const PropuestaKitEspacioDatos: React.FC = () => {
               <a href="#vision" className="hover:text-blue-600 transition">Visión</a>
               <a href="#funcionalidades" className="hover:text-blue-600 transition">Módulos</a>
               <a href="#arquitectura" className="hover:text-blue-600 transition">Arquitectura</a>
-              <a href="#roadmap" className="hover:text-blue-600 transition">Roadmap</a>
+              <a href="#kit-datos" className="hover:text-blue-600 transition text-emerald-600 font-bold">Ayudas Kit</a>
               <a href="#inversion" className="hover:text-blue-600 transition">Inversión</a>
             </div>
             <a href="#contacto" className="bg-slate-900 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-slate-800 transition">
@@ -430,8 +430,109 @@ const PropuestaKitEspacioDatos: React.FC = () => {
         </div>
       </section>
 
+      {/* SECCIÓN EXPLICATIVA: KIT ESPACIO DE DATOS */}
+      <section id="kit-datos" className="py-24 bg-white relative overflow-hidden">
+        {/* Decoración de fondo */}
+        <div className="absolute top-0 right-0 -mt-20 -mr-20 w-96 h-96 bg-blue-50 rounded-full blur-3xl opacity-50"></div>
+        <div className="absolute bottom-0 left-0 -mb-20 -ml-20 w-96 h-96 bg-emerald-50 rounded-full blur-3xl opacity-50"></div>
+
+        <div className="max-w-7xl mx-auto px-4 relative z-10">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-yellow-100 text-yellow-800 text-xs font-bold mb-4 border border-yellow-200">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-yellow-500"></span>
+              </span>
+              Convocatoria Abierta 2025
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900">¿Qué es el Kit Espacio de Datos?</h2>
+            <p className="text-lg text-slate-600 mt-4 max-w-3xl mx-auto">
+              Es un programa del Gobierno de España (financiado por fondos Next Generation EU) diseñado específicamente para fomentar la <strong>soberanía del dato</strong> y la creación de espacios compartidos.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
+            {/* Card 1: El Objetivo */}
+            <div className="bg-slate-50 p-8 rounded-2xl border border-slate-200 hover:border-blue-300 transition-colors">
+              <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center mb-6 text-2xl">🇪🇺</div>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">El Objetivo Europeo</h3>
+              <p className="text-slate-600 text-sm leading-relaxed">
+                Europa quiere dejar de depender de nubes extranjeras. Paga a las empresas para que instalen infraestructuras propias (como nuestros conectores EDC) que permitan compartir datos de forma segura.
+              </p>
+            </div>
+
+            {/* Card 2: La Cobertura */}
+            <div className="bg-gradient-to-br from-blue-600 to-blue-700 p-8 rounded-2xl text-white shadow-xl transform md:-translate-y-4">
+              <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-6">
+                <Coins className="text-white w-6 h-6" />
+              </div>
+              <h3 className="text-xl font-bold mb-3">Subvención a Fondo Perdido</h3>
+              <p className="text-blue-100 text-sm leading-relaxed mb-4">
+                No es un crédito. Es una ayuda directa que cubre el <strong>85-90%</strong> de los costes de implantación tecnológica y consultoría.
+              </p>
+              <div className="inline-block bg-white/20 px-3 py-1 rounded text-xs font-bold">
+                Hasta 30.000€ por clínica
+              </div>
+            </div>
+
+            {/* Card 3: El Papel de ACCURO */}
+            <div className="bg-slate-50 p-8 rounded-2xl border border-slate-200 hover:border-blue-300 transition-colors">
+              <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center mb-6 text-2xl">🛡️</div>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">Escudo Burocrático</h3>
+              <p className="text-slate-600 text-sm leading-relaxed">
+                ACCURO actúa como Agente Digitalizador. Nosotros redactamos la memoria técnica, presentamos la solicitud y justificamos la ayuda.
+              </p>
+              <p className="text-slate-900 font-bold text-sm mt-4 border-t border-slate-200 pt-2">
+                Su esfuerzo administrativo: Cero.
+              </p>
+            </div>
+          </div>
+
+          {/* Timeline del Proceso */}
+          <div className="bg-white rounded-2xl border border-slate-200 p-8 md:p-12 shadow-sm">
+            <h3 className="text-xl font-bold text-slate-900 mb-8 text-center">Hoja de Ruta de la Financiación</h3>
+            
+            <div className="relative">
+              {/* Línea conectora */}
+              <div className="absolute top-1/2 left-0 w-full h-1 bg-slate-100 -translate-y-1/2 hidden md:block"></div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+                {/* Paso 1 */}
+                <div className="relative z-10 flex flex-col items-center text-center">
+                  <div className="w-10 h-10 bg-slate-900 text-white rounded-full flex items-center justify-center font-bold mb-4 shadow-lg ring-4 ring-white">1</div>
+                  <h4 className="font-bold text-slate-900">Adhesión</h4>
+                  <p className="text-xs text-slate-500 mt-2">Firma del acuerdo y pago de la cuota de entrada (Adelanto).</p>
+                </div>
+
+                {/* Paso 2 */}
+                <div className="relative z-10 flex flex-col items-center text-center">
+                  <div className="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold mb-4 shadow-lg ring-4 ring-white">2</div>
+                  <h4 className="font-bold text-slate-900">Solicitud</h4>
+                  <p className="text-xs text-slate-500 mt-2">ACCURO presenta la memoria técnica al Ministerio.</p>
+                </div>
+
+                {/* Paso 3 */}
+                <div className="relative z-10 flex flex-col items-center text-center">
+                  <div className="w-10 h-10 bg-emerald-500 text-white rounded-full flex items-center justify-center font-bold mb-4 shadow-lg ring-4 ring-white">3</div>
+                  <h4 className="font-bold text-slate-900">Concesión</h4>
+                  <p className="text-xs text-slate-500 mt-2">Aprobación de los fondos (aprox. 3-6 meses).</p>
+                </div>
+
+                {/* Paso 4 */}
+                <div className="relative z-10 flex flex-col items-center text-center">
+                  <div className="w-10 h-10 bg-white border-2 border-slate-900 text-slate-900 rounded-full flex items-center justify-center font-bold mb-4 shadow-lg ring-4 ring-white">4</div>
+                  <h4 className="font-bold text-slate-900">Justificación</h4>
+                  <p className="text-xs text-slate-500 mt-2">Nosotros auditamos el proyecto ante la UE. Usted disfruta la tecnología.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
       {/* PRECIOS / FINANCIACIÓN */}
-      <section id="inversion" className="py-24 bg-white">
+      <section id="inversion" className="py-24 bg-slate-50">
         <div className="max-w-5xl mx-auto px-4">
           <div className="text-center mb-12">
             <span className="text-emerald-600 font-bold tracking-wide uppercase text-sm">Kit Espacio de Datos</span>
