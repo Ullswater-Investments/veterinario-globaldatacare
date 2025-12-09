@@ -541,7 +541,7 @@ const PropuestaKitEspacioDatos: React.FC = () => {
               </div>
               <h3 className="text-xl font-bold mb-3">Subvención a Fondo Perdido</h3>
               <p className="text-blue-100 text-sm leading-relaxed mb-4">
-                No es un crédito. Es una ayuda directa que cubre el <strong>85-90%</strong> de los costes de implantación tecnológica y consultoría.
+                No es un crédito. Es una ayuda directa que cubre el <strong>100%</strong> de los costes de implantación tecnológica y consultoría.
               </p>
               <div className="inline-block bg-white/20 px-3 py-1 rounded text-xs font-bold">
                 Hasta 30.000€ por clínica
