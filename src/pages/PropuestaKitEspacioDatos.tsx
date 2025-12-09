@@ -677,7 +677,24 @@ const PropuestaKitEspacioDatos: React.FC = () => {
                       La solución definitiva para clínicas que buscan liderar sin carga operativa.
                     </p>
                   </div>
-
+                  
+                  {/* Resumen de Precio Compacto */}
+                  <div className="flex items-center justify-between bg-gradient-to-r from-slate-50 to-emerald-50 rounded-xl p-4 mb-6 border border-slate-100">
+                    <div className="flex items-center gap-3">
+                      <div className="bg-emerald-100 p-2 rounded-lg">
+                        <Coins className="w-5 h-5 text-emerald-600" />
+                      </div>
+                      <div>
+                        <span className="text-xs text-slate-500 block">Su aportación única</span>
+                        <span className="text-2xl font-bold text-slate-900">5.000 €</span>
+                        <span className="text-xs text-slate-400 ml-1">+ IVA</span>
+                      </div>
+                    </div>
+                    <div className="text-right">
+                      <span className="text-xs text-emerald-600 font-medium block">Subvención incluida</span>
+                      <span className="text-lg font-bold text-emerald-600">+30.000 €</span>
+                    </div>
+                  </div>
 
                   {/* BLOQUE 1: GESTIÓN ADMINISTRATIVA (El Servicio) */}
                   <div className="mb-6">
