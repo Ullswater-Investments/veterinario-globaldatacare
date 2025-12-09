@@ -684,27 +684,31 @@ const PropuestaKitEspacioDatos: React.FC = () => {
 
                   {/* BLOQUE 2: FUNCIONALIDAD TÉCNICA (El Producto) */}
                   <div className="mb-8">
-                    <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">2. Suite Tecnológica Completa</h4>
+                    <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">2. Suite Tecnológica Completa (6 Módulos)</h4>
                     <ul className="space-y-2">
                       <li className="flex items-center gap-2 text-sm text-slate-600">
                         <div className="w-1.5 h-1.5 rounded-full bg-blue-500"></div>
-                        <span><strong>Infraestructura:</strong> Conector Soberano (EDC) + Servidor FHIR.</span>
+                        <span><strong>Clínica:</strong> Dashboard 360º, conexión PMS, Servidor FHIR federado.</span>
                       </li>
                       <li className="flex items-center gap-2 text-sm text-slate-600">
-                        <div className="w-1.5 h-1.5 rounded-full bg-blue-500"></div>
-                        <span><strong>Clínica:</strong> Dashboard 360º y Conexión con PMS.</span>
+                        <div className="w-1.5 h-1.5 rounded-full bg-emerald-500"></div>
+                        <span><strong>Paciente:</strong> Super-App Wallet con historial, citas y visor 3D.</span>
                       </li>
                       <li className="flex items-center gap-2 text-sm text-slate-600">
-                        <div className="w-1.5 h-1.5 rounded-full bg-blue-500"></div>
-                        <span><strong>Paciente:</strong> App Wallet (iOS/Android) con visor 3D.</span>
+                        <div className="w-1.5 h-1.5 rounded-full bg-purple-500"></div>
+                        <span><strong>Industria:</strong> Pasaporte Digital de Producto (DPP) con trazabilidad MDR.</span>
                       </li>
                       <li className="flex items-center gap-2 text-sm text-slate-600">
-                        <div className="w-1.5 h-1.5 rounded-full bg-blue-500"></div>
-                        <span><strong>I+D:</strong> Módulo de IA Federada y Marketplace de Datos.</span>
+                        <div className="w-1.5 h-1.5 rounded-full bg-amber-500"></div>
+                        <span><strong>I+D:</strong> IA Federada y Marketplace de Datos Anonimizados.</span>
                       </li>
                       <li className="flex items-center gap-2 text-sm text-slate-600">
-                        <div className="w-1.5 h-1.5 rounded-full bg-blue-500"></div>
-                        <span><strong>Legal:</strong> Trazabilidad Blockchain (MDR Compliance).</span>
+                        <div className="w-1.5 h-1.5 rounded-full bg-indigo-500"></div>
+                        <span><strong>Compras:</strong> Central federada con pedidos predictivos y descuentos de red.</span>
+                      </li>
+                      <li className="flex items-center gap-2 text-sm text-slate-600">
+                        <div className="w-1.5 h-1.5 rounded-full bg-orange-500"></div>
+                        <span><strong>KPIs:</strong> Cockpit de inteligencia operativa con benchmarking BQDC.</span>
                       </li>
                     </ul>
                   </div>
