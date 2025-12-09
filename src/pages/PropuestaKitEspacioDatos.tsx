@@ -1,11 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { 
-  ShieldCheck, Globe, Coins, FileX, Lock, Network, TrendingUp, 
-  Server, Languages, BrainCircuit, Shield, Smartphone, Zap, 
-  CheckCircle2, ArrowDown, Share2, LayoutDashboard, ScanBarcode, 
-  Database, Activity, Cuboid
-} from "lucide-react";
+import { ShieldCheck, Globe, Coins, FileX, Lock, Network, TrendingUp, Server, Languages, BrainCircuit, Shield, Smartphone, Zap, CheckCircle2, ArrowDown, Share2, LayoutDashboard, ScanBarcode, Database, Activity, Cuboid } from "lucide-react";
 import servidoresAisladosImg from "@/assets/servidores-aislados.png";
 import redFederadaImg from "@/assets/red-federada-activa.png";
 
@@ -21,14 +16,19 @@ interface TransformationBlockProps {
   beforeVisual: React.ReactNode;
   afterVisual: React.ReactNode;
 }
-
 const TransformationBlock: React.FC<TransformationBlockProps> = ({
-  title, subtitle, description, beforeIcon, afterIcon, beforeLabel, afterLabel, beforeVisual, afterVisual
+  title,
+  subtitle,
+  description,
+  beforeIcon,
+  afterIcon,
+  beforeLabel,
+  afterLabel,
+  beforeVisual,
+  afterVisual
 }) => {
   const [view, setView] = useState<"before" | "after">("after");
-
-  return (
-    <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
+  return <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
       {/* Texto Explicativo */}
       <div className="order-2 md:order-1">
         <div className="inline-flex items-center gap-2 mb-2">
@@ -46,16 +46,10 @@ const TransformationBlock: React.FC<TransformationBlockProps> = ({
         
         {/* Toggle Switch */}
         <div className="inline-flex bg-slate-200 p-1 rounded-lg">
-          <button 
-            onClick={() => setView("before")}
-            className={`px-4 py-2 rounded-md text-sm font-bold transition-all ${view === "before" ? "bg-white text-slate-700 shadow" : "text-slate-500 hover:text-slate-700"}`}
-          >
+          <button onClick={() => setView("before")} className={`px-4 py-2 rounded-md text-sm font-bold transition-all ${view === "before" ? "bg-white text-slate-700 shadow" : "text-slate-500 hover:text-slate-700"}`}>
             ANTES
           </button>
-          <button 
-            onClick={() => setView("after")}
-            className={`px-4 py-2 rounded-md text-sm font-bold transition-all ${view === "after" ? "bg-blue-600 text-white shadow" : "text-slate-500 hover:text-slate-700"}`}
-          >
+          <button onClick={() => setView("after")} className={`px-4 py-2 rounded-md text-sm font-bold transition-all ${view === "after" ? "bg-blue-600 text-white shadow" : "text-slate-500 hover:text-slate-700"}`}>
             DESPUÉS
           </button>
         </div>
@@ -63,15 +57,9 @@ const TransformationBlock: React.FC<TransformationBlockProps> = ({
 
       {/* Visualización Gráfica */}
       <div className="order-1 md:order-2 h-80 w-full relative group">
-        <div className={`relative w-full h-full transition-all duration-500 transform border rounded-2xl overflow-hidden ${
-          view === "before" 
-            ? "bg-slate-100 border-slate-300 border-dashed" 
-            : "bg-gradient-to-br from-white to-blue-50 border-blue-200 shadow-xl shadow-blue-100"
-        }`}>
+        <div className={`relative w-full h-full transition-all duration-500 transform border rounded-2xl overflow-hidden ${view === "before" ? "bg-slate-100 border-slate-300 border-dashed" : "bg-gradient-to-br from-white to-blue-50 border-blue-200 shadow-xl shadow-blue-100"}`}>
           {/* Label Badge */}
-          <div className={`absolute top-4 left-4 z-20 px-3 py-1 rounded-full text-xs font-bold ${
-            view === "before" ? "bg-slate-200 text-slate-500" : "bg-emerald-100 text-emerald-700"
-          }`}>
+          <div className={`absolute top-4 left-4 z-20 px-3 py-1 rounded-full text-xs font-bold ${view === "before" ? "bg-slate-200 text-slate-500" : "bg-emerald-100 text-emerald-700"}`}>
             {view === "before" ? beforeLabel.toUpperCase() : afterLabel.toUpperCase()}
           </div>
 
@@ -81,16 +69,12 @@ const TransformationBlock: React.FC<TransformationBlockProps> = ({
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 const PropuestaKitEspacioDatos: React.FC = () => {
   const [visionTab, setVisionTab] = useState<"today" | "tomorrow">("tomorrow");
   const [plan, setPlan] = useState<"integral" | "essential">("integral");
-
-  return (
-    <div className="min-h-screen bg-slate-50 text-slate-800 antialiased">
+  return <div className="min-h-screen bg-slate-50 text-slate-800 antialiased">
       {/* NAV */}
       <nav className="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -107,10 +91,7 @@ const PropuestaKitEspacioDatos: React.FC = () => {
               <a href="#roadmap" className="hover:text-blue-600 transition">Roadmap</a>
               <a href="#inversion" className="hover:text-blue-600 transition">Inversión</a>
             </div>
-            <a 
-              href="#contacto" 
-              className="bg-slate-900 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-slate-800 transition"
-            >
+            <a href="#contacto" className="bg-slate-900 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-slate-800 transition">
               Reservar Plaza
             </a>
           </div>
@@ -118,13 +99,11 @@ const PropuestaKitEspacioDatos: React.FC = () => {
       </nav>
 
       {/* HERO SECTION */}
-      <header className="min-h-screen flex items-center justify-center pt-16 relative overflow-hidden bg-slate-900"
-        style={{
-          backgroundImage: `radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
+      <header className="min-h-screen flex items-center justify-center pt-16 relative overflow-hidden bg-slate-900" style={{
+      backgroundImage: `radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
                            radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%), 
                            radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%)`
-        }}
-      >
+    }}>
         <div className="max-w-5xl mx-auto px-4 text-center relative z-10">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-900/30 border border-blue-500/30 text-blue-300 text-sm mb-8">
             <span className="flex h-2 w-2 relative">
@@ -135,7 +114,7 @@ const PropuestaKitEspacioDatos: React.FC = () => {
           </div>
           
           <h1 className="text-5xl md:text-7xl font-bold text-white tracking-tight mb-6 leading-tight">
-            Transformando la Excelencia Clínica en <br/>
+            Transformando la Excelencia Clínica en <br />
             <span className="bg-gradient-to-r from-blue-500 to-emerald-500 bg-clip-text text-transparent">
               Inteligencia de Datos
             </span>
@@ -147,16 +126,10 @@ const PropuestaKitEspacioDatos: React.FC = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row justify-center gap-4 mb-16">
-            <a 
-              href="#funcionalidades" 
-              className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold transition shadow-lg shadow-blue-500/25 flex items-center justify-center gap-2"
-            >
+            <a href="#funcionalidades" className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold transition shadow-lg shadow-blue-500/25 flex items-center justify-center gap-2">
               Explorar Ecosistema <ArrowDown className="w-4 h-4" />
             </a>
-            <a 
-              href="#inversion" 
-              className="px-8 py-4 bg-slate-800 hover:bg-slate-700 text-white rounded-xl font-semibold transition border border-slate-700"
-            >
+            <a href="#inversion" className="px-8 py-4 bg-slate-800 hover:bg-slate-700 text-white rounded-xl font-semibold transition border border-slate-700">
               Ver Modelo de Financiación
             </a>
           </div>
@@ -185,31 +158,16 @@ const PropuestaKitEspacioDatos: React.FC = () => {
           </div>
 
           <div className="bg-slate-50 rounded-2xl p-2 max-w-sm mx-auto flex mb-12">
-            <button 
-              onClick={() => setVisionTab("today")} 
-              className={`flex-1 py-2 px-4 rounded-xl font-medium transition-all ${
-                visionTab === "today" 
-                  ? "bg-white shadow-sm text-blue-600" 
-                  : "text-slate-500"
-              }`}
-            >
+            <button onClick={() => setVisionTab("today")} className={`flex-1 py-2 px-4 rounded-xl font-medium transition-all ${visionTab === "today" ? "bg-white shadow-sm text-blue-600" : "text-slate-500"}`}>
               HOY (El Silo)
             </button>
-            <button 
-              onClick={() => setVisionTab("tomorrow")} 
-              className={`flex-1 py-2 px-4 rounded-xl font-medium transition-all ${
-                visionTab === "tomorrow" 
-                  ? "bg-white shadow-sm text-emerald-600" 
-                  : "text-slate-500"
-              }`}
-            >
+            <button onClick={() => setVisionTab("tomorrow")} className={`flex-1 py-2 px-4 rounded-xl font-medium transition-all ${visionTab === "tomorrow" ? "bg-white shadow-sm text-emerald-600" : "text-slate-500"}`}>
               MAÑANA (La Red)
             </button>
           </div>
 
           {/* Content Today */}
-          {visionTab === "today" && (
-            <div className="grid md:grid-cols-2 gap-12 items-center animate-fade-in">
+          {visionTab === "today" && <div className="grid md:grid-cols-2 gap-12 items-center animate-fade-in">
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
                   <div className="bg-red-100 p-3 rounded-lg">
@@ -231,18 +189,12 @@ const PropuestaKitEspacioDatos: React.FC = () => {
                 </div>
               </div>
               <div className="bg-slate-100 rounded-2xl overflow-hidden flex items-center justify-center border border-slate-200">
-                <img 
-                  src={servidoresAisladosImg} 
-                  alt="Servidores aislados representando datos fragmentados" 
-                  className="w-full h-auto object-contain"
-                />
+                <img src={servidoresAisladosImg} alt="Servidores aislados representando datos fragmentados" className="w-full h-auto object-contain" />
               </div>
-            </div>
-          )}
+            </div>}
 
           {/* Content Tomorrow */}
-          {visionTab === "tomorrow" && (
-            <div className="grid md:grid-cols-2 gap-12 items-center animate-fade-in">
+          {visionTab === "tomorrow" && <div className="grid md:grid-cols-2 gap-12 items-center animate-fade-in">
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
                   <div className="bg-emerald-100 p-3 rounded-lg">
@@ -264,14 +216,9 @@ const PropuestaKitEspacioDatos: React.FC = () => {
                 </div>
               </div>
               <div className="bg-gradient-to-br from-emerald-50 to-blue-50 rounded-2xl overflow-hidden flex items-center justify-center border border-emerald-100">
-                <img 
-                  src={redFederadaImg} 
-                  alt="Red federada activa con servidores conectados de forma segura" 
-                  className="w-full h-auto object-contain"
-                />
+                <img src={redFederadaImg} alt="Red federada activa con servidores conectados de forma segura" className="w-full h-auto object-contain" />
               </div>
-            </div>
-          )}
+            </div>}
         </div>
       </section>
 
@@ -289,36 +236,24 @@ const PropuestaKitEspacioDatos: React.FC = () => {
           <div className="space-y-24">
             
             {/* TRANSFORMACIÓN 1: CLÍNICA */}
-            <TransformationBlock 
-              title="1. Gestión Clínica"
-              subtitle="De Silos Aislados a Nodo Conectado"
-              description="Actualmente, su PMS (Gestión), sus equipos de Rayos X y su contabilidad hablan idiomas distintos. Con ACCURO, unificamos todo bajo un estándar universal."
-              beforeIcon={<Server className="w-6 h-6 text-slate-400" />}
-              afterIcon={<LayoutDashboard className="w-6 h-6 text-blue-600" />}
-              beforeLabel="Sistemas Desconectados"
-              afterLabel="Hub Inteligente (EDC)"
-              beforeVisual={
-                <div className="relative w-full h-full flex items-center justify-center">
+            <TransformationBlock title="1. Gestión Clínica" subtitle="De Silos Aislados a Nodo Conectado" description="Actualmente, su PMS (Gestión), sus equipos de Rayos X y su contabilidad hablan idiomas distintos. Con ACCURO, unificamos todo bajo un estándar universal." beforeIcon={<Server className="w-6 h-6 text-slate-400" />} afterIcon={<LayoutDashboard className="w-6 h-6 text-blue-600" />} beforeLabel="Sistemas Desconectados" afterLabel="Hub Inteligente (EDC)" beforeVisual={<div className="relative w-full h-full flex items-center justify-center">
                   <div className="flex gap-6">
                     <div className="flex flex-col items-center p-3 border-2 border-dashed border-slate-300 rounded-lg bg-slate-50">
-                      <FileX className="text-slate-400 w-8 h-8 mb-2"/>
+                      <FileX className="text-slate-400 w-8 h-8 mb-2" />
                       <span className="text-xs text-slate-500 font-mono">PMS</span>
                     </div>
                     <div className="flex flex-col items-center justify-center">
-                      <FileX className="text-red-400 w-8 h-8"/>
+                      <FileX className="text-red-400 w-8 h-8" />
                     </div>
                     <div className="flex flex-col items-center p-3 border-2 border-dashed border-slate-300 rounded-lg bg-slate-50">
-                      <FileX className="text-slate-400 w-8 h-8 mb-2"/>
+                      <FileX className="text-slate-400 w-8 h-8 mb-2" />
                       <span className="text-xs text-slate-500 font-mono">ERP</span>
                     </div>
                   </div>
-                </div>
-              }
-              afterVisual={
-                <div className="relative w-full h-full flex items-center justify-center">
+                </div>} afterVisual={<div className="relative w-full h-full flex items-center justify-center">
                   {/* Central Node */}
                   <div className="z-10 bg-blue-600 p-4 rounded-full shadow-lg shadow-blue-500/50 animate-pulse">
-                    <Network className="text-white w-10 h-10"/>
+                    <Network className="text-white w-10 h-10" />
                   </div>
                   {/* Satellites */}
                   <div className="absolute top-1/2 left-4 -translate-y-1/2 bg-white p-2 rounded-lg shadow text-xs font-bold text-slate-600 border border-blue-100">PMS</div>
@@ -328,33 +263,19 @@ const PropuestaKitEspacioDatos: React.FC = () => {
                   {/* Connecting Lines */}
                   <div className="absolute w-3/4 h-[2px] bg-gradient-to-r from-blue-200 via-blue-400 to-blue-200 top-1/2 left-1/2 -translate-x-1/2 -z-0"></div>
                   <div className="absolute h-3/4 w-[2px] bg-gradient-to-b from-blue-200 via-blue-400 to-blue-200 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-0"></div>
-                </div>
-              }
-            />
+                </div>} />
 
             {/* TRANSFORMACIÓN 2: PACIENTE */}
-            <TransformationBlock 
-              title="2. Experiencia del Paciente"
-              subtitle="De Papel y Teléfono a Identidad Soberana"
-              description="Elimine la burocracia en recepción. Entregue al paciente una App (Wallet) donde lleva sus radiografías, sus citas y sus facturas. Fidelización premium."
-              beforeIcon={<FileX className="w-6 h-6 text-slate-400" />}
-              afterIcon={<Smartphone className="w-6 h-6 text-emerald-600" />}
-              beforeLabel="Gestión Analógica"
-              afterLabel="Wallet Digital"
-              beforeVisual={
-                <div className="flex flex-col items-center justify-center h-full gap-3">
+            <TransformationBlock title="2. Experiencia del Paciente" subtitle="De Papel y Teléfono a Identidad Soberana" description="Elimine la burocracia en recepción. Entregue al paciente una App (Wallet) donde lleva sus radiografías, sus citas y sus facturas. Fidelización premium." beforeIcon={<FileX className="w-6 h-6 text-slate-400" />} afterIcon={<Smartphone className="w-6 h-6 text-emerald-600" />} beforeLabel="Gestión Analógica" afterLabel="Wallet Digital" beforeVisual={<div className="flex flex-col items-center justify-center h-full gap-3">
                   <div className="bg-slate-100 p-3 w-28 h-36 border border-slate-300 relative rounded">
                     <div className="w-full h-2 bg-slate-300 mb-2 rounded"></div>
                     <div className="w-2/3 h-2 bg-slate-300 mb-2 rounded"></div>
                     <div className="w-full h-2 bg-slate-300 mb-2 rounded"></div>
                     <div className="w-1/2 h-2 bg-slate-300 rounded"></div>
-                    <div className="absolute -right-2 -bottom-2 bg-red-100 text-red-600 p-1.5 rounded-full border border-red-200"><FileX className="w-4 h-4"/></div>
+                    <div className="absolute -right-2 -bottom-2 bg-red-100 text-red-600 p-1.5 rounded-full border border-red-200"><FileX className="w-4 h-4" /></div>
                   </div>
                   <span className="text-xs text-slate-400 font-medium">Pérdida de Documentos</span>
-                </div>
-              }
-              afterVisual={
-                <div className="flex items-center justify-center h-full">
+                </div>} afterVisual={<div className="flex items-center justify-center h-full">
                   <div className="bg-slate-900 border-4 border-slate-700 rounded-2xl w-28 h-48 flex flex-col items-center justify-center relative shadow-2xl overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-b from-emerald-500/20 to-blue-500/20"></div>
                     <Cuboid className="text-emerald-400 w-14 h-14 relative z-10" />
@@ -366,21 +287,10 @@ const PropuestaKitEspacioDatos: React.FC = () => {
                     </div>
                     <div className="absolute top-3 text-[8px] text-emerald-400 font-bold">WALLET</div>
                   </div>
-                </div>
-              }
-            />
+                </div>} />
 
             {/* TRANSFORMACIÓN 3: INDUSTRIA */}
-            <TransformationBlock 
-              title="3. Trazabilidad de Implantes"
-              subtitle="De Caja Negra a Pasaporte Digital"
-              description="¿De dónde viene este implante? Con nuestra tecnología Blockchain, generamos un 'Pasaporte Digital de Producto' (DPP) automático para cumplimiento MDR."
-              beforeIcon={<ScanBarcode className="w-6 h-6 text-slate-400" />}
-              afterIcon={<ShieldCheck className="w-6 h-6 text-purple-600" />}
-              beforeLabel="Origen Incierto"
-              afterLabel="Certificado Blockchain"
-              beforeVisual={
-                <div className="flex items-center justify-center h-full gap-6">
+            <TransformationBlock title="3. Trazabilidad de Implantes" subtitle="De Caja Negra a Pasaporte Digital" description="¿De dónde viene este implante? Con nuestra tecnología Blockchain, generamos un 'Pasaporte Digital de Producto' (DPP) automático para cumplimiento MDR." beforeIcon={<ScanBarcode className="w-6 h-6 text-slate-400" />} afterIcon={<ShieldCheck className="w-6 h-6 text-purple-600" />} beforeLabel="Origen Incierto" afterLabel="Certificado Blockchain" beforeVisual={<div className="flex items-center justify-center h-full gap-6">
                   <div className="w-20 h-20 bg-slate-200 border-2 border-dashed border-slate-400 rounded-lg flex items-center justify-center text-slate-400 text-3xl font-bold">?</div>
                   <ArrowDown className="text-slate-300 -rotate-90 w-6 h-6" />
                   <div className="text-sm text-slate-500 text-center font-medium">
@@ -388,41 +298,24 @@ const PropuestaKitEspacioDatos: React.FC = () => {
                     <div className="text-red-400">¿Caducidad?</div>
                     <div className="text-red-400">¿Origen?</div>
                   </div>
-                </div>
-              }
-              afterVisual={
-                <div className="flex flex-col items-center justify-center h-full w-full gap-4">
+                </div>} afterVisual={<div className="flex flex-col items-center justify-center h-full w-full gap-4">
                   <div className="flex items-center gap-3 w-full justify-center">
-                    <div className="w-10 h-10 bg-white border border-purple-200 rounded-lg flex items-center justify-center shadow"><ScanBarcode className="w-5 h-5 text-purple-600"/></div>
+                    <div className="w-10 h-10 bg-white border border-purple-200 rounded-lg flex items-center justify-center shadow"><ScanBarcode className="w-5 h-5 text-purple-600" /></div>
                     <div className="h-[3px] w-10 bg-gradient-to-r from-purple-300 to-purple-500 rounded"></div>
-                    <div className="w-10 h-10 bg-white border border-purple-200 rounded-lg flex items-center justify-center shadow"><Server className="w-5 h-5 text-purple-600"/></div>
+                    <div className="w-10 h-10 bg-white border border-purple-200 rounded-lg flex items-center justify-center shadow"><Server className="w-5 h-5 text-purple-600" /></div>
                     <div className="h-[3px] w-10 bg-gradient-to-r from-purple-500 to-purple-300 rounded"></div>
-                    <div className="w-10 h-10 bg-purple-600 rounded-lg flex items-center justify-center shadow-lg shadow-purple-500/50"><CheckCircle2 className="w-6 h-6 text-white"/></div>
+                    <div className="w-10 h-10 bg-purple-600 rounded-lg flex items-center justify-center shadow-lg shadow-purple-500/50"><CheckCircle2 className="w-6 h-6 text-white" /></div>
                   </div>
                   <span className="text-sm font-bold text-purple-700 bg-purple-50 px-4 py-2 rounded-full border border-purple-200">MDR Compliant</span>
-                </div>
-              }
-            />
+                </div>} />
 
             {/* TRANSFORMACIÓN 4: DATOS */}
-            <TransformationBlock 
-              title="4. Investigación y Datos"
-              subtitle="De Coste de Almacenaje a Fuente de Ingresos"
-              description="Deje de acumular datos muertos. Participe en el Marketplace de Investigación federada y monetice datasets anonimizados para entrenamiento de IA."
-              beforeIcon={<Database className="w-6 h-6 text-slate-400" />}
-              afterIcon={<BrainCircuit className="w-6 h-6 text-orange-600" />}
-              beforeLabel="Dato Muerto"
-              afterLabel="Activo Monetizable"
-              beforeVisual={
-                <div className="flex items-center justify-center h-full">
+            <TransformationBlock title="4. Investigación y Datos" subtitle="De Coste de Almacenaje a Fuente de Ingresos" description="Deje de acumular datos muertos. Participe en el Marketplace de Investigación federada y monetice datasets anonimizados para entrenamiento de IA." beforeIcon={<Database className="w-6 h-6 text-slate-400" />} afterIcon={<BrainCircuit className="w-6 h-6 text-orange-600" />} beforeLabel="Dato Muerto" afterLabel="Activo Monetizable" beforeVisual={<div className="flex items-center justify-center h-full">
                   <div className="relative">
                     <Database className="w-24 h-24 text-slate-300" />
                     <Lock className="w-10 h-10 text-red-400 absolute bottom-0 right-0 bg-white rounded-full p-1.5 border-2 border-red-100 shadow" />
                   </div>
-                </div>
-              }
-              afterVisual={
-                <div className="flex items-center justify-center h-full relative">
+                </div>} afterVisual={<div className="flex items-center justify-center h-full relative">
                   <Database className="w-20 h-20 text-orange-300" />
                   <div className="absolute top-2 right-16 animate-bounce">
                     <Coins className="w-8 h-8 text-yellow-500 drop-shadow-lg" />
@@ -433,9 +326,7 @@ const PropuestaKitEspacioDatos: React.FC = () => {
                   <div className="absolute -bottom-2 bg-white px-3 py-1.5 rounded-lg border border-orange-200 text-xs font-bold text-orange-600 shadow-lg">
                     IA Training Revenue
                   </div>
-                </div>
-              }
-            />
+                </div>} />
 
           </div>
         </div>
@@ -551,25 +442,11 @@ const PropuestaKitEspacioDatos: React.FC = () => {
           {/* Toggle Switch */}
           <div className="flex justify-center mb-12">
             <div className="bg-slate-100 p-1 rounded-xl inline-flex relative">
-              <div 
-                className={`absolute w-1/2 h-[calc(100%-8px)] top-1 bg-white rounded-lg shadow-sm transition-all duration-300 ${
-                  plan === "integral" ? "left-1" : "left-[calc(50%)]"
-                }`}
-              />
-              <button 
-                onClick={() => setPlan("integral")} 
-                className={`relative z-10 px-6 py-3 rounded-lg text-sm font-bold transition-colors ${
-                  plan === "integral" ? "text-slate-900" : "text-slate-500"
-                }`}
-              >
+              <div className={`absolute w-1/2 h-[calc(100%-8px)] top-1 bg-white rounded-lg shadow-sm transition-all duration-300 ${plan === "integral" ? "left-1" : "left-[calc(50%)]"}`} />
+              <button onClick={() => setPlan("integral")} className={`relative z-10 px-6 py-3 rounded-lg text-sm font-bold transition-colors ${plan === "integral" ? "text-slate-900" : "text-slate-500"}`}>
                 Transformación Integral
               </button>
-              <button 
-                onClick={() => setPlan("essential")} 
-                className={`relative z-10 px-6 py-3 rounded-lg text-sm font-bold transition-colors ${
-                  plan === "essential" ? "text-slate-900" : "text-slate-500"
-                }`}
-              >
+              <button onClick={() => setPlan("essential")} className={`relative z-10 px-6 py-3 rounded-lg text-sm font-bold transition-colors ${plan === "essential" ? "text-slate-900" : "text-slate-500"}`}>
                 Digitalización Esencial
               </button>
             </div>
@@ -580,12 +457,11 @@ const PropuestaKitEspacioDatos: React.FC = () => {
             <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-emerald-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200" />
             
             {/* PLAN INTEGRAL */}
-            {plan === "integral" && (
-              <div className="relative bg-white rounded-2xl p-8 border border-slate-100 shadow-xl animate-fade-in">
+            {plan === "integral" && <div className="relative bg-white rounded-2xl p-8 border border-slate-100 shadow-xl animate-fade-in">
                 <div className="flex justify-between items-start mb-6">
                   <div>
                     <h3 className="text-2xl font-bold text-slate-900">Pack Integral</h3>
-                    <p className="text-slate-500 text-sm mt-1">Para líderes en investigación e IA</p>
+                    <p className="text-slate-500 text-sm mt-1">Para comité dirección BQDC</p>
                   </div>
                   <span className="bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full uppercase">Recomendado</span>
                 </div>
@@ -597,7 +473,7 @@ const PropuestaKitEspacioDatos: React.FC = () => {
                   </div>
                   <div className="flex justify-between items-center py-3 border-b border-slate-50">
                     <span className="text-emerald-600 font-medium">Subvención Europea</span>
-                    <span className="font-bold text-emerald-600">- 30.000 €</span>
+                    <span className="font-bold text-emerald-600">+ 30.000 €</span>
                   </div>
                   <p className="text-xs text-right text-slate-400">+ IVA (Cuota única de adhesión)</p>
                 </div>
@@ -606,8 +482,7 @@ const PropuestaKitEspacioDatos: React.FC = () => {
                   <li className="flex items-center gap-2">
                     <CheckCircle2 className="text-blue-500 w-4 h-4" /> Conector Soberano Completo
                   </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="text-blue-500 w-4 h-4" /> Wallet Paciente + Dashboard
+                  <li className="flex items-center gap-2">Wallet Paciente + Funcionalidad Completa<CheckCircle2 className="text-blue-500 w-4 h-4" /> Wallet Paciente + Dashboard
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckCircle2 className="text-blue-500 w-4 h-4" /> Módulo IA & Research
@@ -617,18 +492,11 @@ const PropuestaKitEspacioDatos: React.FC = () => {
                   </li>
                 </ul>
 
-                <a 
-                  href="mailto:ivan.becerro@accuro.es?subject=Adhesión Plan Integral BQDC" 
-                  className="block w-full bg-slate-900 text-white text-center py-4 rounded-xl font-bold hover:bg-slate-800 transition"
-                >
-                  Reservar Plaza
-                </a>
-              </div>
-            )}
+                <a href="mailto:ivan.becerro@accuro.es?subject=Adhesión Plan Integral BQDC" className="block w-full bg-slate-900 text-white text-center py-4 rounded-xl font-bold hover:bg-slate-800 transition">Solicitar Kit Espacio de Datos</a>
+              </div>}
 
             {/* PLAN ESENCIAL */}
-            {plan === "essential" && (
-              <div className="relative bg-white rounded-2xl p-8 border border-slate-100 shadow-xl animate-fade-in">
+            {plan === "essential" && <div className="relative bg-white rounded-2xl p-8 border border-slate-100 shadow-xl animate-fade-in">
                 <div className="flex justify-between items-start mb-6">
                   <div>
                     <h3 className="text-2xl font-bold text-slate-900">Pack Esencial</h3>
@@ -667,14 +535,10 @@ const PropuestaKitEspacioDatos: React.FC = () => {
                   </li>
                 </ul>
 
-                <a 
-                  href="mailto:ivan.becerro@accuro.es?subject=Adhesión Plan Esencial BQDC" 
-                  className="block w-full bg-white text-slate-900 border-2 border-slate-200 text-center py-4 rounded-xl font-bold hover:bg-slate-50 transition"
-                >
+                <a href="mailto:ivan.becerro@accuro.es?subject=Adhesión Plan Esencial BQDC" className="block w-full bg-white text-slate-900 border-2 border-slate-200 text-center py-4 rounded-xl font-bold hover:bg-slate-50 transition">
                   Reservar Plaza
                 </a>
-              </div>
-            )}
+              </div>}
           </div>
         </div>
       </section>
@@ -683,21 +547,15 @@ const PropuestaKitEspacioDatos: React.FC = () => {
       <section id="contacto" className="py-20 bg-slate-900 text-center">
         <div className="max-w-3xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-white mb-6">
-            El futuro de la odontología no es tener mejores sillones.<br/>Es tener mejores datos.
+            El futuro de la odontología no es tener mejores sillones.<br />Es tener mejores datos.
           </h2>
           <p className="text-slate-400 mb-8">La ventana de oportunidad de los fondos europeos es limitada. Posicione su clínica hoy.</p>
           
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <a 
-              href="mailto:ivan.becerro@accuro.es" 
-              className="px-8 py-4 bg-emerald-500 hover:bg-emerald-600 text-white rounded-xl font-bold transition"
-            >
+            <a href="mailto:ivan.becerro@accuro.es" className="px-8 py-4 bg-emerald-500 hover:bg-emerald-600 text-white rounded-xl font-bold transition">
               Contactar con ACCURO
             </a>
-            <Link 
-              to="/consulting/technical-proposal" 
-              className="px-8 py-4 bg-transparent border border-slate-700 text-slate-300 hover:text-white hover:border-white rounded-xl font-bold transition"
-            >
+            <Link to="/consulting/technical-proposal" className="px-8 py-4 bg-transparent border border-slate-700 text-slate-300 hover:text-white hover:border-white rounded-xl font-bold transition">
               Descargar Whitepaper Técnico
             </Link>
           </div>
@@ -708,8 +566,6 @@ const PropuestaKitEspacioDatos: React.FC = () => {
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default PropuestaKitEspacioDatos;
