@@ -677,30 +677,7 @@ const PropuestaKitEspacioDatos: React.FC = () => {
                       La solución definitiva para clínicas que buscan liderar sin carga operativa.
                     </p>
                   </div>
-                  
-                  {/* Desglose Económico Visual */}
-                  <div className="bg-slate-50 rounded-xl p-5 mb-8 border border-slate-100">
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="text-slate-500 text-sm">Valor de la Tecnología</span>
-                      <span className="font-semibold text-slate-400 line-through decoration-red-400">35.000 €</span>
-                    </div>
-                    <div className="flex justify-between items-center mb-4 pb-4 border-b border-slate-200">
-                      <span className="text-emerald-600 text-sm font-bold flex items-center gap-2">
-                        <Coins className="w-4 h-4" /> Subvención Kit Espacio Datos
-                      </span>
-                      <span className="font-bold text-emerald-600">- 30.000 €</span>
-                    </div>
-                    <div className="flex justify-between items-end">
-                      <div>
-                        <span className="text-slate-900 font-bold block">Su Aportación Única</span>
-                        <span className="text-[10px] text-slate-400 uppercase tracking-wide">Concepto: Anticipo y Gestión</span>
-                      </div>
-                      <div className="text-right">
-                        <span className="text-4xl font-bold text-blue-900">5.000 €</span>
-                        <span className="text-sm text-slate-400 font-medium ml-1">+ IVA</span>
-                      </div>
-                    </div>
-                  </div>
+
 
                   {/* BLOQUE 1: GESTIÓN ADMINISTRATIVA (El Servicio) */}
                   <div className="mb-6">
