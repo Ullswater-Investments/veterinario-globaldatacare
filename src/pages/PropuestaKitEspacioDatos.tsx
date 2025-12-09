@@ -735,11 +735,11 @@ const PropuestaKitEspacioDatos: React.FC = () => {
                 <div className="bg-gradient-to-r from-slate-50 to-blue-50 rounded-xl p-4 mb-6">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-xs text-slate-500 uppercase tracking-wider">Su aportación única</p>
+                      <p className="text-xs text-slate-500 uppercase tracking-wider">PAGO ANTICIPADO</p>
                       <p className="text-2xl font-bold text-slate-900">2.000 € <span className="text-sm font-normal text-slate-500">+ IVA</span></p>
                     </div>
                     <div className="text-right">
-                      <p className="text-xs text-emerald-600 uppercase tracking-wider">Subvención incluida</p>
+                      <p className="text-xs text-emerald-600 uppercase tracking-wider">SUBVENCIÓN</p>
                       <p className="text-2xl font-bold text-emerald-600">+15.000 €</p>
                     </div>
                   </div>
