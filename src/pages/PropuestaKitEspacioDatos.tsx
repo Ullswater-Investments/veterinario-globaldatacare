@@ -656,7 +656,7 @@ const PropuestaKitEspacioDatos: React.FC = () => {
                         <Coins className="w-5 h-5 text-emerald-600" />
                       </div>
                       <div>
-                        <span className="text-xs text-slate-500 block">Anticipo</span>
+                        <span className="text-xs text-slate-500 block">PAGO ANTICIPADO</span>
                         <span className="text-2xl font-bold text-slate-900">5.000 €</span>
                         <span className="text-xs text-slate-400 ml-1">+ IVA</span>
                       </div>
