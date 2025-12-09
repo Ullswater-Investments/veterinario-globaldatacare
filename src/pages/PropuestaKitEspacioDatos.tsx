@@ -453,50 +453,79 @@ const PropuestaKitEspacioDatos: React.FC = () => {
 
       {/* ROADMAP */}
       <section id="roadmap" className="py-24 bg-slate-50">
-        <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-16">Cronograma de Despliegue</h2>
+        <div className="max-w-5xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-4">Cronograma de Despliegue</h2>
+          <p className="text-center text-slate-600 mb-16 max-w-2xl mx-auto">12 meses para transformar su clínica en un nodo del ecosistema europeo de datos de salud dental</p>
           
           <div className="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-300 before:to-transparent">
             
-            {/* Item 1 */}
+            {/* Fase 1: Infraestructura Soberana */}
             <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
               <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-blue-600 text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
                 <Shield className="w-5 h-5" />
               </div>
-              <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 bg-white rounded-xl border border-slate-200 shadow-sm">
+              <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 bg-white rounded-xl border border-slate-200 shadow-sm hover:border-blue-300 transition-colors">
                 <div className="flex justify-between items-center mb-2">
-                  <h3 className="font-bold text-slate-800">Fase 1: Fortaleza Digital</h3>
-                  <span className="text-xs font-bold text-blue-600 bg-blue-50 px-2 py-1 rounded">Mes 1-3</span>
+                  <h3 className="font-bold text-slate-800">Fase 1: Infraestructura Soberana</h3>
+                  <span className="text-xs font-bold text-blue-600 bg-blue-50 px-2 py-1 rounded">Mes 1-2</span>
                 </div>
-                <p className="text-sm text-slate-600">Instalación del conector soberano, auditoría de seguridad y cumplimiento Data Act.</p>
+                <p className="text-sm text-slate-600">Instalación del Espacio de Datos Conector (EDC), servidor FHIR federado y auditoría de seguridad Data Act.</p>
               </div>
             </div>
 
-            {/* Item 2 */}
+            {/* Fase 2: Núcleo Clínico */}
             <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-              <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-white text-slate-500 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+              <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-emerald-500 text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                <Activity className="w-5 h-5" />
+              </div>
+              <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 bg-white rounded-xl border border-slate-200 shadow-sm hover:border-emerald-300 transition-colors">
+                <div className="flex justify-between items-center mb-2">
+                  <h3 className="font-bold text-slate-800">Fase 2: Núcleo Clínico</h3>
+                  <span className="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-1 rounded">Mes 3-4</span>
+                </div>
+                <p className="text-sm text-slate-600">Dashboard de Gestión Clínica en tiempo real, conexión ERP/Agenda existente y KPIs operativos básicos.</p>
+              </div>
+            </div>
+
+            {/* Fase 3: Experiencia Paciente */}
+            <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+              <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-teal-500 text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
                 <Smartphone className="w-5 h-5" />
               </div>
-              <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 bg-white rounded-xl border border-slate-200 shadow-sm">
+              <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 bg-white rounded-xl border border-slate-200 shadow-sm hover:border-teal-300 transition-colors">
                 <div className="flex justify-between items-center mb-2">
-                  <h3 className="font-bold text-slate-800">Fase 2: Experiencia 360º</h3>
-                  <span className="text-xs font-bold text-slate-500 bg-slate-100 px-2 py-1 rounded">Mes 4-6</span>
+                  <h3 className="font-bold text-slate-800">Fase 3: Experiencia Paciente</h3>
+                  <span className="text-xs font-bold text-teal-600 bg-teal-50 px-2 py-1 rounded">Mes 5-6</span>
                 </div>
-                <p className="text-sm text-slate-600">Lanzamiento de la Wallet del Paciente (App) y Dashboard de Gestión en tiempo real.</p>
+                <p className="text-sm text-slate-600">Wallet del Paciente (App móvil), gestión de citas y consentimientos, Gemelo Digital dental.</p>
               </div>
             </div>
 
-            {/* Item 3 */}
+            {/* Fase 4: Cadena de Valor */}
             <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-              <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-white text-slate-500 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+              <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-indigo-500 text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                <Truck className="w-5 h-5" />
+              </div>
+              <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 bg-white rounded-xl border border-slate-200 shadow-sm hover:border-indigo-300 transition-colors">
+                <div className="flex justify-between items-center mb-2">
+                  <h3 className="font-bold text-slate-800">Fase 4: Cadena de Valor</h3>
+                  <span className="text-xs font-bold text-indigo-600 bg-indigo-50 px-2 py-1 rounded">Mes 7-9</span>
+                </div>
+                <p className="text-sm text-slate-600">Central de Compras Federada, Pasaporte Digital de Producto (DPP) y trazabilidad de materiales.</p>
+              </div>
+            </div>
+
+            {/* Fase 5: Inteligencia Colectiva */}
+            <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+              <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-amber-500 text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
                 <Zap className="w-5 h-5" />
               </div>
-              <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 bg-white rounded-xl border border-slate-200 shadow-sm">
+              <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 bg-white rounded-xl border border-slate-200 shadow-sm hover:border-amber-300 transition-colors">
                 <div className="flex justify-between items-center mb-2">
-                  <h3 className="font-bold text-slate-800">Fase 3: Inteligencia Colectiva</h3>
-                  <span className="text-xs font-bold text-slate-500 bg-slate-100 px-2 py-1 rounded">Mes 7-12</span>
+                  <h3 className="font-bold text-slate-800">Fase 5: Inteligencia Colectiva</h3>
+                  <span className="text-xs font-bold text-amber-600 bg-amber-50 px-2 py-1 rounded">Mes 10-12</span>
                 </div>
-                <p className="text-sm text-slate-600">Activación del Marketplace de Datos y algoritmos de IA Preventiva federada.</p>
+                <p className="text-sm text-slate-600">Marketplace de Datos de Investigación, algoritmos de IA Preventiva federada y benchmarking avanzado con la red.</p>
               </div>
             </div>
           </div>
