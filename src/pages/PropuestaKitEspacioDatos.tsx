@@ -329,16 +329,7 @@ const PropuestaKitEspacioDatos: React.FC = () => {
                 </div>} />
 
             {/* TRANSFORMACIÓN 5: CENTRAL DE COMPRAS (SUPPLY) */}
-            <TransformationBlock 
-              title="5. Central de Compras Federada"
-              subtitle="De Compras Reactivas a Abastecimiento Predictivo"
-              description="No compre solo. Nuestro sistema lee su agenda, predice el consumo de materiales (ej: implantes necesarios para la semana que viene) y agrupa la demanda con cientos de clínicas BQDC para negociar precios mayoristas automáticos."
-              beforeIcon={<ShoppingCart className="w-6 h-6 text-slate-400" />}
-              afterIcon={<Truck className="w-6 h-6 text-indigo-600" />}
-              beforeLabel="Compra Individual"
-              afterLabel="Poder de Red BQDC"
-              beforeVisual={
-                <div className="flex flex-col items-center justify-center h-full gap-4">
+            <TransformationBlock title="5. Central de Compras Federada" subtitle="De Compras Reactivas a Abastecimiento Predictivo" description="No compre solo. Nuestro sistema lee su agenda, predice el consumo de materiales (ej: implantes necesarios para la semana que viene) y agrupa la demanda con cientos de clínicas BQDC para negociar precios mayoristas automáticos." beforeIcon={<ShoppingCart className="w-6 h-6 text-slate-400" />} afterIcon={<Truck className="w-6 h-6 text-indigo-600" />} beforeLabel="Compra Individual" afterLabel="Poder de Red BQDC" beforeVisual={<div className="flex flex-col items-center justify-center h-full gap-4">
                   <div className="flex items-center gap-2 opacity-50">
                     <div className="w-12 h-16 bg-slate-200 border-2 border-slate-300 rounded flex items-center justify-center text-xs text-slate-500 font-medium">Stock?</div>
                     <ArrowDown className="text-slate-400 -rotate-90" />
@@ -347,10 +338,7 @@ const PropuestaKitEspacioDatos: React.FC = () => {
                   <div className="bg-red-50 text-red-500 text-xs px-2 py-1 rounded border border-red-100">
                     Sobre-coste por bajo volumen
                   </div>
-                </div>
-              }
-              afterVisual={
-                <div className="relative w-full h-full flex items-center justify-center">
+                </div>} afterVisual={<div className="relative w-full h-full flex items-center justify-center">
                   {/* Central Hub */}
                   <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-indigo-600 text-white p-4 rounded-full shadow-lg z-10">
                     <Percent className="w-8 h-8" />
@@ -372,21 +360,10 @@ const PropuestaKitEspacioDatos: React.FC = () => {
                   <div className="absolute bottom-4 bg-indigo-50 text-indigo-700 px-3 py-1 rounded-full text-xs font-bold border border-indigo-200 flex items-center gap-2">
                     <Truck className="w-3 h-3" /> Pedido Automático
                   </div>
-                </div>
-              }
-            />
+                </div>} />
 
             {/* TRANSFORMACIÓN 6: KPI CLÍNICAS (INTELIGENCIA OPERATIVA) */}
-            <TransformationBlock 
-              title="6. Inteligencia Operativa (KPIs)"
-              subtitle="De la Intuición a la Decisión de Datos"
-              description="Un Cockpit que fusiona rentabilidad, experiencia de paciente y excelencia clínica. Compare su rendimiento de forma anónima con el promedio de la red BQDC (Benchmarking) y reciba alertas predictivas sobre picos de espera."
-              beforeIcon={<BarChart4 className="w-6 h-6 text-slate-400" />}
-              afterIcon={<Target className="w-6 h-6 text-orange-600" />}
-              beforeLabel="Gestión por Intuición"
-              afterLabel="Data Driven"
-              beforeVisual={
-                <div className="flex flex-col items-center justify-center h-full">
+            <TransformationBlock title="6. Inteligencia Operativa (KPIs)" subtitle="De la Intuición a la Decisión de Datos" description="Un Cockpit que fusiona rentabilidad, experiencia de paciente y excelencia clínica. Compare su rendimiento de forma anónima con el promedio de la red BQDC (Benchmarking) y reciba alertas predictivas sobre picos de espera." beforeIcon={<BarChart4 className="w-6 h-6 text-slate-400" />} afterIcon={<Target className="w-6 h-6 text-orange-600" />} beforeLabel="Gestión por Intuición" afterLabel="Data Driven" beforeVisual={<div className="flex flex-col items-center justify-center h-full">
                   <div className="relative">
                     <div className="w-32 h-20 bg-slate-100 border border-slate-300 rounded flex items-end justify-around p-2 gap-1">
                       <div className="w-4 h-8 bg-slate-300"></div>
@@ -399,10 +376,7 @@ const PropuestaKitEspacioDatos: React.FC = () => {
                     </div>
                   </div>
                   <span className="text-xs text-slate-400 mt-4 text-center">¿Soy rentable? ¿Cómo voy respecto a otros?</span>
-                </div>
-              }
-              afterVisual={
-                <div className="w-full h-full p-6 flex flex-col justify-center">
+                </div>} afterVisual={<div className="w-full h-full p-6 flex flex-col justify-center">
                   {/* Benchmarking Graph */}
                   <div className="flex justify-between items-end text-xs text-slate-400 mb-1">
                     <span>Mi Clínica</span>
@@ -425,9 +399,7 @@ const PropuestaKitEspacioDatos: React.FC = () => {
                       <span className="text-xl font-bold text-green-600">+15%</span>
                     </div>
                   </div>
-                </div>
-              }
-            />
+                </div>} />
 
           </div>
         </div>
@@ -659,8 +631,7 @@ const PropuestaKitEspacioDatos: React.FC = () => {
             <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-emerald-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200" />
             
             {/* PLAN INTEGRAL (REDISENADO PARA MÁXIMA CLARIDAD) */}
-            {plan === "integral" && (
-              <div className="relative bg-white rounded-2xl border border-blue-100 shadow-2xl shadow-blue-900/10 animate-fade-in overflow-hidden">
+            {plan === "integral" && <div className="relative bg-white rounded-2xl border border-blue-100 shadow-2xl shadow-blue-900/10 animate-fade-in overflow-hidden">
                 
                 {/* Banda Superior: Valor Diferencial */}
                 <div className="bg-blue-600 px-8 py-3 flex justify-between items-center text-white">
@@ -685,13 +656,13 @@ const PropuestaKitEspacioDatos: React.FC = () => {
                         <Coins className="w-5 h-5 text-emerald-600" />
                       </div>
                       <div>
-                        <span className="text-xs text-slate-500 block">Su aportación única</span>
+                        <span className="text-xs text-slate-500 block">Anticipo</span>
                         <span className="text-2xl font-bold text-slate-900">5.000 €</span>
                         <span className="text-xs text-slate-400 ml-1">+ IVA</span>
                       </div>
                     </div>
                     <div className="text-right">
-                      <span className="text-xs text-emerald-600 font-medium block">Subvención incluida</span>
+                      <span className="text-xs text-emerald-600 font-medium block">Subvención </span>
                       <span className="text-lg font-bold text-emerald-600">+30.000 €</span>
                     </div>
                   </div>
@@ -738,18 +709,14 @@ const PropuestaKitEspacioDatos: React.FC = () => {
                     </ul>
                   </div>
 
-                  <a 
-                    href="mailto:ivan.becerro@accuro.es?subject=Adhesión Plan Integral BQDC - Solicitud Kit Datos" 
-                    className="block w-full bg-slate-900 text-white text-center py-4 rounded-xl font-bold hover:bg-slate-800 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 duration-200"
-                  >
+                  <a href="mailto:ivan.becerro@accuro.es?subject=Adhesión Plan Integral BQDC - Solicitud Kit Datos" className="block w-full bg-slate-900 text-white text-center py-4 rounded-xl font-bold hover:bg-slate-800 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 duration-200">
                     Solicitar Pack Integral
                   </a>
                   <p className="text-center text-xs text-slate-400 mt-3">
                     Plazas limitadas por la convocatoria Kit Espacio de Datos 2025.
                   </p>
                 </div>
-              </div>
-            )}
+              </div>}
 
             {/* PLAN ESENCIAL */}
             {plan === "essential" && <div className="relative bg-white rounded-2xl p-8 border border-slate-100 shadow-xl animate-fade-in">
