@@ -569,36 +569,22 @@ const PropuestaKitEspacioDatos: React.FC = () => {
       </section>
 
       {/* PRECIOS / FINANCIACIÓN */}
-      <section id="inversion" className="py-24 bg-white">
+      <section id="inversion" className="py-24 bg-slate-50">
         <div className="max-w-5xl mx-auto px-4">
           <div className="text-center mb-12">
             <span className="text-emerald-600 font-bold tracking-wide uppercase text-sm">Kit Espacio de Datos</span>
             <h2 className="text-4xl font-bold text-slate-900 mt-2">Modelo de Co-Inversión Europea</h2>
-            <p className="text-lg text-slate-600 mt-4">ACCURO gestiona la subvención del 85% a fondo perdido.</p>
+            <p className="text-lg text-slate-600 mt-4">ACCURO gestiona la subvención KIT ESPACIO DE DATOS de RED.ES.</p>
           </div>
 
           {/* Toggle Switch */}
           <div className="flex justify-center mb-12">
             <div className="bg-slate-100 p-1 rounded-xl inline-flex relative">
-              <div 
-                className={`absolute w-1/2 h-[calc(100%-8px)] top-1 bg-white rounded-lg shadow-sm transition-all duration-300 ${
-                  plan === "integral" ? "left-1" : "left-[calc(50%)]"
-                }`}
-              />
-              <button 
-                onClick={() => setPlan("integral")} 
-                className={`relative z-10 px-6 py-3 rounded-lg text-sm font-bold transition-colors ${
-                  plan === "integral" ? "text-slate-900" : "text-slate-500"
-                }`}
-              >
+              <div className={`absolute w-1/2 h-[calc(100%-8px)] top-1 bg-white rounded-lg shadow-sm transition-all duration-300 ${plan === "integral" ? "left-1" : "left-[calc(50%)]"}`} />
+              <button onClick={() => setPlan("integral")} className={`relative z-10 px-6 py-3 rounded-lg text-sm font-bold transition-colors ${plan === "integral" ? "text-slate-900" : "text-slate-500"}`}>
                 Transformación Integral
               </button>
-              <button 
-                onClick={() => setPlan("essential")} 
-                className={`relative z-10 px-6 py-3 rounded-lg text-sm font-bold transition-colors ${
-                  plan === "essential" ? "text-slate-900" : "text-slate-500"
-                }`}
-              >
+              <button onClick={() => setPlan("essential")} className={`relative z-10 px-6 py-3 rounded-lg text-sm font-bold transition-colors ${plan === "essential" ? "text-slate-900" : "text-slate-500"}`}>
                 Digitalización Esencial
               </button>
             </div>
@@ -608,106 +594,158 @@ const PropuestaKitEspacioDatos: React.FC = () => {
           <div className="max-w-md mx-auto relative group">
             <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-emerald-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200" />
             
-            {/* PLAN INTEGRAL */}
-            {plan === "integral" && (
-              <div className="relative bg-white rounded-2xl p-8 border border-slate-100 shadow-xl animate-fade-in">
-                <div className="flex justify-between items-start mb-6">
-                  <div>
-                    <h3 className="text-2xl font-bold text-slate-900">Pack Integral</h3>
-                    <p className="text-slate-500 text-sm mt-1">Para líderes en investigación e IA</p>
-                  </div>
-                  <span className="bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full uppercase">Recomendado</span>
-                </div>
+            {/* PLAN INTEGRAL (REDISENADO PARA MÁXIMA CLARIDAD) */}
+            {plan === "integral" && <div className="relative bg-white rounded-2xl border border-blue-100 shadow-2xl shadow-blue-900/10 animate-fade-in overflow-hidden">
                 
-                <div className="space-y-4 mb-8">
-                  <div className="flex justify-between items-center py-3 border-b border-slate-50">
-                    <span className="text-slate-600">Valor Tecnológico</span>
-                    <span className="font-semibold text-slate-900 line-through decoration-red-400">35.000 €</span>
-                  </div>
-                  <div className="flex justify-between items-center py-3 border-b border-slate-50">
-                    <span className="text-emerald-600 font-medium">Subvención Europea</span>
-                    <span className="font-bold text-emerald-600">- 30.000 €</span>
-                  </div>
-                  <div className="flex justify-between items-center pt-4">
-                    <span className="text-slate-900 font-bold text-lg">Inversión Final</span>
-                    <span className="text-4xl font-bold text-slate-900">5.000 €</span>
-                  </div>
-                  <p className="text-xs text-right text-slate-400">+ IVA (Cuota única de adhesión)</p>
+                {/* Banda Superior: Valor Diferencial */}
+                <div className="bg-blue-600 px-8 py-3 flex justify-between items-center text-white">
+                  <span className="text-xs font-bold tracking-widest uppercase flex items-center gap-2">
+                    <Zap className="w-4 h-4 text-yellow-300" fill="currentColor" /> Recomendado BQDC
+                  </span>
+                  <span className="text-xs font-medium bg-blue-700 px-2 py-1 rounded">Todo Incluido</span>
                 </div>
 
-                <ul className="space-y-3 mb-8 text-sm text-slate-600">
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="text-blue-500 w-4 h-4" /> Conector Soberano Completo
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="text-blue-500 w-4 h-4" /> Wallet Paciente + Dashboard
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="text-blue-500 w-4 h-4" /> Módulo IA & Research
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="text-blue-500 w-4 h-4" /> Gestión administrativa incluida
-                  </li>
-                </ul>
+                <div className="p-8">
+                  <div className="mb-6">
+                    <h3 className="text-3xl font-bold text-slate-900">Pack Transformación Integral</h3>
+                    <p className="text-slate-500 text-sm mt-2">
+                      La solución definitiva para clínicas que buscan liderar sin carga operativa.
+                    </p>
+                  </div>
+                  
+                  {/* Resumen de Precio Compacto */}
+                  <div className="flex items-center justify-between bg-gradient-to-r from-slate-50 to-emerald-50 rounded-xl p-4 mb-6 border border-slate-100">
+                    <div className="flex items-center gap-3">
+                      <div className="bg-emerald-100 p-2 rounded-lg">
+                        <Coins className="w-5 h-5 text-emerald-600" />
+                      </div>
+                      <div>
+                        <span className="text-xs text-slate-500 block">PAGO ANTICIPADO</span>
+                        <span className="text-2xl font-bold text-slate-900">5.000 €</span>
+                        <span className="text-xs text-slate-400 ml-1">+ IVA</span>
+                      </div>
+                    </div>
+                    <div className="text-right">
+                      <span className="text-xs text-emerald-600 font-medium block">Subvención </span>
+                      <span className="text-lg font-bold text-emerald-600">+30.000 €</span>
+                    </div>
+                  </div>
 
-                <a 
-                  href="mailto:ivan.becerro@accuro.es?subject=Adhesión Plan Integral BQDC" 
-                  className="block w-full bg-slate-900 text-white text-center py-4 rounded-xl font-bold hover:bg-slate-800 transition"
-                >
-                  Reservar Plaza
-                </a>
-              </div>
-            )}
+                  {/* BLOQUE 1: GESTIÓN ADMINISTRATIVA (El Servicio) */}
+                  <div className="mb-6">
+                    <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">1. Gestión de Ayudas (Burocracia Cero)</h4>
+                    <ul className="space-y-3">
+                      <li className="flex items-start gap-3">
+                        <CheckCircle2 className="text-emerald-500 w-5 h-5 shrink-0 mt-0.5" />
+                        <span className="text-sm text-slate-700"><strong>Tramitación 100% incluida:</strong> Redacción de memoria técnica, solicitud y justificación ante el Ministerio.</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <CheckCircle2 className="text-emerald-500 w-5 h-5 shrink-0 mt-0.5" />
+                        <span className="text-sm text-slate-700"><strong>Garantía de éxito:</strong> Soporte legal y técnico durante todo el proceso de subvención.</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  {/* BLOQUE 2: FUNCIONALIDAD TÉCNICA (El Producto) */}
+                  <div className="mb-8">
+                    <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">2. Suite Tecnológica Completa (6 Módulos)</h4>
+                    <ul className="space-y-2">
+                      <li className="flex items-center gap-2 text-sm text-slate-600">
+                        <div className="w-1.5 h-1.5 rounded-full bg-blue-500"></div>
+                        <span><strong>Clínica:</strong> Dashboard 360º, conexión PMS, Servidor FHIR federado.</span>
+                      </li>
+                      <li className="flex items-center gap-2 text-sm text-slate-600">
+                        <div className="w-1.5 h-1.5 rounded-full bg-emerald-500"></div>
+                        <span><strong>Paciente:</strong> Super-App Wallet con historial, citas y visor 3D.</span>
+                      </li>
+                      <li className="flex items-center gap-2 text-sm text-slate-600">
+                        <div className="w-1.5 h-1.5 rounded-full bg-purple-500"></div>
+                        <span><strong>Industria:</strong> Pasaporte Digital de Producto (DPP) con trazabilidad MDR.</span>
+                      </li>
+                      <li className="flex items-center gap-2 text-sm text-slate-600">
+                        <div className="w-1.5 h-1.5 rounded-full bg-amber-500"></div>
+                        <span><strong>I+D:</strong> IA Federada y Marketplace de Datos Anonimizados.</span>
+                      </li>
+                      <li className="flex items-center gap-2 text-sm text-slate-600">
+                        <div className="w-1.5 h-1.5 rounded-full bg-indigo-500"></div>
+                        <span><strong>Compras:</strong> Central federada con pedidos predictivos y descuentos de red.</span>
+                      </li>
+                      <li className="flex items-center gap-2 text-sm text-slate-600">
+                        <div className="w-1.5 h-1.5 rounded-full bg-orange-500"></div>
+                        <span><strong>KPIs:</strong> Cockpit de inteligencia operativa con benchmarking BQDC.</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <a href="mailto:ivan.becerro@accuro.es?subject=Adhesión Plan Integral BQDC - Solicitud Kit Datos" className="block w-full bg-slate-900 text-white text-center py-4 rounded-xl font-bold hover:bg-slate-800 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 duration-200">
+                    Solicitar Pack Integral
+                  </a>
+                  <p className="text-center text-xs text-slate-400 mt-3">
+                    Plazas limitadas por la convocatoria Kit Espacio de Datos 2025.
+                  </p>
+                </div>
+              </div>}
 
             {/* PLAN ESENCIAL */}
-            {plan === "essential" && (
-              <div className="relative bg-white rounded-2xl p-8 border border-slate-100 shadow-xl animate-fade-in">
+            {plan === "essential" && <div className="relative bg-white rounded-2xl p-8 border border-slate-100 shadow-xl animate-fade-in">
                 <div className="flex justify-between items-start mb-6">
                   <div>
                     <h3 className="text-2xl font-bold text-slate-900">Pack Esencial</h3>
-                    <p className="text-slate-500 text-sm mt-1">Eficiencia y cumplimiento normativo</p>
+                    <p className="text-slate-500 text-sm mt-1">Infraestructura y cumplimiento normativo</p>
                   </div>
                 </div>
                 
-                <div className="space-y-4 mb-8">
-                  <div className="flex justify-between items-center py-3 border-b border-slate-50">
-                    <span className="text-slate-600">Valor Tecnológico</span>
-                    <span className="font-semibold text-slate-900 line-through decoration-red-400">17.000 €</span>
+                {/* BLOQUE 1: RESUMEN ECONÓMICO COMPACTO */}
+                <div className="bg-gradient-to-r from-slate-50 to-blue-50 rounded-xl p-4 mb-6">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-xs text-slate-500 uppercase tracking-wider">PAGO ANTICIPADO</p>
+                      <p className="text-2xl font-bold text-slate-900">2.000 € <span className="text-sm font-normal text-slate-500">+ IVA</span></p>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-xs text-emerald-600 uppercase tracking-wider">SUBVENCIÓN</p>
+                      <p className="text-2xl font-bold text-emerald-600">+15.000 €</p>
+                    </div>
                   </div>
-                  <div className="flex justify-between items-center py-3 border-b border-slate-50">
-                    <span className="text-emerald-600 font-medium">Subvención Europea</span>
-                    <span className="font-bold text-emerald-600">- 15.000 €</span>
-                  </div>
-                  <div className="flex justify-between items-center pt-4">
-                    <span className="text-slate-900 font-bold text-lg">Inversión Final</span>
-                    <span className="text-4xl font-bold text-slate-900">2.000 €</span>
-                  </div>
-                  <p className="text-xs text-right text-slate-400">+ IVA (Cuota única de adhesión)</p>
                 </div>
 
-                <ul className="space-y-3 mb-8 text-sm text-slate-600">
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="text-slate-400 w-4 h-4" /> Conector de Seguridad
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="text-slate-400 w-4 h-4" /> Estandarización FHIR
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="text-slate-400 w-4 h-4" /> Dashboard Básico
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="text-slate-400 w-4 h-4" /> Gestión administrativa incluida
-                  </li>
-                </ul>
+                {/* BLOQUE 2: FUNCIONALIDAD TÉCNICA (3 Módulos Core) */}
+                <div className="mb-8">
+                  <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Módulos Incluidos (3 Core)</h4>
+                  <ul className="space-y-2">
+                    <li className="flex items-center gap-2 text-sm text-slate-600">
+                      <div className="w-1.5 h-1.5 rounded-full bg-blue-500"></div>
+                      <span><strong>Clínica:</strong> Dashboard básico y servidor FHIR federado.</span>
+                    </li>
+                    <li className="flex items-center gap-2 text-sm text-slate-600">
+                      <div className="w-1.5 h-1.5 rounded-full bg-emerald-500"></div>
+                      <span><strong>Paciente:</strong> Acceso básico al historial y citas.</span>
+                    </li>
+                    <li className="flex items-center gap-2 text-sm text-slate-600">
+                      <div className="w-1.5 h-1.5 rounded-full bg-orange-500"></div>
+                      <span><strong>KPIs:</strong> Métricas operativas esenciales.</span>
+                    </li>
+                  </ul>
+                </div>
 
-                <a 
-                  href="mailto:ivan.becerro@accuro.es?subject=Adhesión Plan Esencial BQDC" 
-                  className="block w-full bg-white text-slate-900 border-2 border-slate-200 text-center py-4 rounded-xl font-bold hover:bg-slate-50 transition"
-                >
-                  Reservar Plaza
-                </a>
-              </div>
-            )}
+                {/* BLOQUE 3: GESTIÓN INCLUIDA */}
+                <div className="mb-8">
+                  <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Servicio Incluido</h4>
+                  <ul className="space-y-2 text-sm text-slate-600">
+                    <li className="flex items-center gap-2">
+                      <CheckCircle2 className="text-emerald-500 w-4 h-4" /> Gestión administrativa 100%
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle2 className="text-emerald-500 w-4 h-4" /> Conexión EDC segura
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle2 className="text-emerald-500 w-4 h-4" /> Soporte técnico continuo
+                    </li>
+                  </ul>
+                </div>
+
+                <a href="mailto:ivan.becerro@accuro.es?subject=Adhesión Plan Esencial BQDC" className="block w-full bg-white text-slate-900 border-2 border-slate-200 text-center py-4 rounded-xl font-bold hover:bg-slate-50 transition">Solicitar Kit Espacio de Datos</a>
+              </div>}
           </div>
         </div>
       </section>
