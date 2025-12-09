@@ -581,7 +581,7 @@ const PropuestaKitEspacioDatos: React.FC = () => {
                 <div className="relative z-10 flex flex-col items-center text-center">
                   <div className="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold mb-4 shadow-lg ring-4 ring-white">2</div>
                   <h4 className="font-bold text-slate-900">Solicitud</h4>
-                  <p className="text-xs text-slate-500 mt-2">ACCURO presenta la memoria técnica al Ministerio.</p>
+                  <p className="text-xs text-slate-500 mt-2">ACCURO presenta la memoria técnica a red.es.</p>
                 </div>
 
                 {/* Paso 3 */}
