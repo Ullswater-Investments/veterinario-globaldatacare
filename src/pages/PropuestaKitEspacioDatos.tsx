@@ -727,40 +727,58 @@ const PropuestaKitEspacioDatos: React.FC = () => {
                 <div className="flex justify-between items-start mb-6">
                   <div>
                     <h3 className="text-2xl font-bold text-slate-900">Pack Esencial</h3>
-                    <p className="text-slate-500 text-sm mt-1">Eficiencia y cumplimiento normativo</p>
+                    <p className="text-slate-500 text-sm mt-1">Infraestructura y cumplimiento normativo</p>
                   </div>
                 </div>
                 
-                <div className="space-y-4 mb-8">
-                  <div className="flex justify-between items-center py-3 border-b border-slate-50">
-                    <span className="text-slate-600">Valor Tecnológico</span>
-                    <span className="font-semibold text-slate-900 line-through decoration-red-400">17.000 €</span>
+                {/* BLOQUE 1: RESUMEN ECONÓMICO COMPACTO */}
+                <div className="bg-gradient-to-r from-slate-50 to-blue-50 rounded-xl p-4 mb-6">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-xs text-slate-500 uppercase tracking-wider">Su aportación única</p>
+                      <p className="text-2xl font-bold text-slate-900">2.000 € <span className="text-sm font-normal text-slate-500">+ IVA</span></p>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-xs text-emerald-600 uppercase tracking-wider">Subvención incluida</p>
+                      <p className="text-2xl font-bold text-emerald-600">+15.000 €</p>
+                    </div>
                   </div>
-                  <div className="flex justify-between items-center py-3 border-b border-slate-50">
-                    <span className="text-emerald-600 font-medium">Subvención Europea</span>
-                    <span className="font-bold text-emerald-600">- 15.000 €</span>
-                  </div>
-                  <div className="flex justify-between items-center pt-4">
-                    <span className="text-slate-900 font-bold text-lg">Inversión Final</span>
-                    <span className="text-4xl font-bold text-slate-900">2.000 €</span>
-                  </div>
-                  <p className="text-xs text-right text-slate-400">+ IVA (Cuota única de adhesión)</p>
                 </div>
 
-                <ul className="space-y-3 mb-8 text-sm text-slate-600">
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="text-slate-400 w-4 h-4" /> Conector de Seguridad
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="text-slate-400 w-4 h-4" /> Estandarización FHIR
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="text-slate-400 w-4 h-4" /> Dashboard Básico
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="text-slate-400 w-4 h-4" /> Gestión administrativa incluida
-                  </li>
-                </ul>
+                {/* BLOQUE 2: FUNCIONALIDAD TÉCNICA (3 Módulos Core) */}
+                <div className="mb-8">
+                  <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Módulos Incluidos (3 Core)</h4>
+                  <ul className="space-y-2">
+                    <li className="flex items-center gap-2 text-sm text-slate-600">
+                      <div className="w-1.5 h-1.5 rounded-full bg-blue-500"></div>
+                      <span><strong>Clínica:</strong> Dashboard básico y servidor FHIR federado.</span>
+                    </li>
+                    <li className="flex items-center gap-2 text-sm text-slate-600">
+                      <div className="w-1.5 h-1.5 rounded-full bg-emerald-500"></div>
+                      <span><strong>Paciente:</strong> Acceso básico al historial y citas.</span>
+                    </li>
+                    <li className="flex items-center gap-2 text-sm text-slate-600">
+                      <div className="w-1.5 h-1.5 rounded-full bg-orange-500"></div>
+                      <span><strong>KPIs:</strong> Métricas operativas esenciales.</span>
+                    </li>
+                  </ul>
+                </div>
+
+                {/* BLOQUE 3: GESTIÓN INCLUIDA */}
+                <div className="mb-8">
+                  <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Servicio Incluido</h4>
+                  <ul className="space-y-2 text-sm text-slate-600">
+                    <li className="flex items-center gap-2">
+                      <CheckCircle2 className="text-emerald-500 w-4 h-4" /> Gestión administrativa 100%
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle2 className="text-emerald-500 w-4 h-4" /> Conexión EDC segura
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle2 className="text-emerald-500 w-4 h-4" /> Soporte técnico continuo
+                    </li>
+                  </ul>
+                </div>
 
                 <a href="mailto:ivan.becerro@accuro.es?subject=Adhesión Plan Esencial BQDC" className="block w-full bg-white text-slate-900 border-2 border-slate-200 text-center py-4 rounded-xl font-bold hover:bg-slate-50 transition">
                   Reservar Plaza
