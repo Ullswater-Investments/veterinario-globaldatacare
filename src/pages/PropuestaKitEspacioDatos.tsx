@@ -9,6 +9,82 @@ import {
 import servidoresAisladosImg from "@/assets/servidores-aislados.png";
 import redFederadaImg from "@/assets/red-federada-activa.png";
 
+// --- COMPONENTE AUXILIAR PARA LAS TARJETAS DE TRANSFORMACIÓN ---
+interface TransformationBlockProps {
+  title: string;
+  subtitle: string;
+  description: string;
+  beforeIcon: React.ReactNode;
+  afterIcon: React.ReactNode;
+  beforeLabel: string;
+  afterLabel: string;
+  beforeVisual: React.ReactNode;
+  afterVisual: React.ReactNode;
+}
+
+const TransformationBlock: React.FC<TransformationBlockProps> = ({
+  title, subtitle, description, beforeIcon, afterIcon, beforeLabel, afterLabel, beforeVisual, afterVisual
+}) => {
+  const [view, setView] = useState<"before" | "after">("after");
+
+  return (
+    <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
+      {/* Texto Explicativo */}
+      <div className="order-2 md:order-1">
+        <div className="inline-flex items-center gap-2 mb-2">
+          <div className={`p-2 rounded-lg ${view === "after" ? "bg-blue-100" : "bg-slate-100"}`}>
+            {view === "after" ? afterIcon : beforeIcon}
+          </div>
+          <h3 className="text-2xl font-bold text-slate-900">{title}</h3>
+        </div>
+        <h4 className={`text-xl font-medium mb-4 ${view === "after" ? "text-blue-600" : "text-slate-500"}`}>
+          {subtitle}
+        </h4>
+        <p className="text-slate-600 leading-relaxed mb-8">
+          {description}
+        </p>
+        
+        {/* Toggle Switch */}
+        <div className="inline-flex bg-slate-200 p-1 rounded-lg">
+          <button 
+            onClick={() => setView("before")}
+            className={`px-4 py-2 rounded-md text-sm font-bold transition-all ${view === "before" ? "bg-white text-slate-700 shadow" : "text-slate-500 hover:text-slate-700"}`}
+          >
+            ANTES
+          </button>
+          <button 
+            onClick={() => setView("after")}
+            className={`px-4 py-2 rounded-md text-sm font-bold transition-all ${view === "after" ? "bg-blue-600 text-white shadow" : "text-slate-500 hover:text-slate-700"}`}
+          >
+            DESPUÉS
+          </button>
+        </div>
+      </div>
+
+      {/* Visualización Gráfica */}
+      <div className="order-1 md:order-2 h-80 w-full relative group">
+        <div className={`relative w-full h-full transition-all duration-500 transform border rounded-2xl overflow-hidden ${
+          view === "before" 
+            ? "bg-slate-100 border-slate-300 border-dashed" 
+            : "bg-gradient-to-br from-white to-blue-50 border-blue-200 shadow-xl shadow-blue-100"
+        }`}>
+          {/* Label Badge */}
+          <div className={`absolute top-4 left-4 z-20 px-3 py-1 rounded-full text-xs font-bold ${
+            view === "before" ? "bg-slate-200 text-slate-500" : "bg-emerald-100 text-emerald-700"
+          }`}>
+            {view === "before" ? beforeLabel.toUpperCase() : afterLabel.toUpperCase()}
+          </div>
+
+          {/* Dynamic Content */}
+          <div className="absolute inset-0 p-8 flex items-center justify-center">
+            {view === "before" ? beforeVisual : afterVisual}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const PropuestaKitEspacioDatos: React.FC = () => {
   const [visionTab, setVisionTab] = useState<"today" | "tomorrow">("tomorrow");
   const [plan, setPlan] = useState<"integral" | "essential">("integral");
@@ -199,139 +275,167 @@ const PropuestaKitEspacioDatos: React.FC = () => {
         </div>
       </section>
 
-      {/* FUNCIONALIDADES DETALLADAS (NUEVO BLOQUE TÉCNICO) */}
+      {/* FUNCIONALIDADES: TRANSFORMACIÓN ANTES/DESPUÉS */}
       <section id="funcionalidades" className="py-24 bg-slate-50 border-y border-slate-200">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
-            <span className="text-blue-600 font-bold tracking-wide uppercase text-sm">Ecosistema Global Data Care</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-2">5 Módulos Integrados</h2>
+            <span className="text-blue-600 font-bold tracking-wide uppercase text-sm">El Salto Tecnológico</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-2">Visualice la Transformación</h2>
             <p className="text-lg text-slate-600 mt-4 max-w-2xl mx-auto">
-              Una suite tecnológica completa que cubre desde la operativa clínica hasta la investigación avanzada, basada en los pilares del Whitepaper Técnico.
+              Compare la operativa actual de una clínica estándar frente a una clínica integrada en el ecosistema Global Data Care.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Módulo 1: Clínica */}
-            <div className="bg-white p-8 rounded-2xl border border-slate-200 hover:shadow-xl hover:border-blue-300 transition-all group">
-              <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors">
-                <LayoutDashboard className="text-blue-600 group-hover:text-white" />
-              </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">Dashboard Clínico 360º</h3>
-              <p className="text-slate-600 text-sm mb-4 leading-relaxed">
-                Conexión universal con su PMS actual (Gestión). Unifica agenda, historial y facturación en una interfaz web moderna sin migrar datos sensibles a la nube.
-              </p>
-              <ul className="space-y-2">
-                <li className="flex items-center text-xs text-slate-500 font-medium">
-                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 mr-2"></div>
-                  Conector Zero-Trust (EDC)
-                </li>
-                <li className="flex items-center text-xs text-slate-500 font-medium">
-                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 mr-2"></div>
-                  Automatización de Citas
-                </li>
-              </ul>
-            </div>
+          <div className="space-y-24">
+            
+            {/* TRANSFORMACIÓN 1: CLÍNICA */}
+            <TransformationBlock 
+              title="1. Gestión Clínica"
+              subtitle="De Silos Aislados a Nodo Conectado"
+              description="Actualmente, su PMS (Gestión), sus equipos de Rayos X y su contabilidad hablan idiomas distintos. Con ACCURO, unificamos todo bajo un estándar universal."
+              beforeIcon={<Server className="w-6 h-6 text-slate-400" />}
+              afterIcon={<LayoutDashboard className="w-6 h-6 text-blue-600" />}
+              beforeLabel="Sistemas Desconectados"
+              afterLabel="Hub Inteligente (EDC)"
+              beforeVisual={
+                <div className="relative w-full h-full flex items-center justify-center">
+                  <div className="flex gap-6">
+                    <div className="flex flex-col items-center p-3 border-2 border-dashed border-slate-300 rounded-lg bg-slate-50">
+                      <FileX className="text-slate-400 w-8 h-8 mb-2"/>
+                      <span className="text-xs text-slate-500 font-mono">PMS</span>
+                    </div>
+                    <div className="flex flex-col items-center justify-center">
+                      <FileX className="text-red-400 w-8 h-8"/>
+                    </div>
+                    <div className="flex flex-col items-center p-3 border-2 border-dashed border-slate-300 rounded-lg bg-slate-50">
+                      <FileX className="text-slate-400 w-8 h-8 mb-2"/>
+                      <span className="text-xs text-slate-500 font-mono">ERP</span>
+                    </div>
+                  </div>
+                </div>
+              }
+              afterVisual={
+                <div className="relative w-full h-full flex items-center justify-center">
+                  {/* Central Node */}
+                  <div className="z-10 bg-blue-600 p-4 rounded-full shadow-lg shadow-blue-500/50 animate-pulse">
+                    <Network className="text-white w-10 h-10"/>
+                  </div>
+                  {/* Satellites */}
+                  <div className="absolute top-1/2 left-4 -translate-y-1/2 bg-white p-2 rounded-lg shadow text-xs font-bold text-slate-600 border border-blue-100">PMS</div>
+                  <div className="absolute top-1/2 right-4 -translate-y-1/2 bg-white p-2 rounded-lg shadow text-xs font-bold text-slate-600 border border-blue-100">ERP</div>
+                  <div className="absolute top-4 left-1/2 -translate-x-1/2 bg-white p-2 rounded-lg shadow text-xs font-bold text-slate-600 border border-blue-100">IoT</div>
+                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white p-2 rounded-lg shadow text-xs font-bold text-slate-600 border border-blue-100">DICOM</div>
+                  {/* Connecting Lines */}
+                  <div className="absolute w-3/4 h-[2px] bg-gradient-to-r from-blue-200 via-blue-400 to-blue-200 top-1/2 left-1/2 -translate-x-1/2 -z-0"></div>
+                  <div className="absolute h-3/4 w-[2px] bg-gradient-to-b from-blue-200 via-blue-400 to-blue-200 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-0"></div>
+                </div>
+              }
+            />
 
-            {/* Módulo 2: Paciente */}
-            <div className="bg-white p-8 rounded-2xl border border-slate-200 hover:shadow-xl hover:border-blue-300 transition-all group">
-              <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors">
-                <Smartphone className="text-blue-600 group-hover:text-white" />
-              </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">Wallet del Paciente</h3>
-              <p className="text-slate-600 text-sm mb-4 leading-relaxed">
-                App de Identidad Soberana. El paciente lleva su historial (DICOM, 3D) en el bolsillo, mejorando la experiencia y la fidelización.
-              </p>
-              <ul className="space-y-2">
-                <li className="flex items-center text-xs text-slate-500 font-medium">
-                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 mr-2"></div>
-                  Visor 3D Interactivo
-                </li>
-                <li className="flex items-center text-xs text-slate-500 font-medium">
-                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 mr-2"></div>
-                  Pagos y Financiación In-App
-                </li>
-              </ul>
-            </div>
+            {/* TRANSFORMACIÓN 2: PACIENTE */}
+            <TransformationBlock 
+              title="2. Experiencia del Paciente"
+              subtitle="De Papel y Teléfono a Identidad Soberana"
+              description="Elimine la burocracia en recepción. Entregue al paciente una App (Wallet) donde lleva sus radiografías, sus citas y sus facturas. Fidelización premium."
+              beforeIcon={<FileX className="w-6 h-6 text-slate-400" />}
+              afterIcon={<Smartphone className="w-6 h-6 text-emerald-600" />}
+              beforeLabel="Gestión Analógica"
+              afterLabel="Wallet Digital"
+              beforeVisual={
+                <div className="flex flex-col items-center justify-center h-full gap-3">
+                  <div className="bg-slate-100 p-3 w-28 h-36 border border-slate-300 relative rounded">
+                    <div className="w-full h-2 bg-slate-300 mb-2 rounded"></div>
+                    <div className="w-2/3 h-2 bg-slate-300 mb-2 rounded"></div>
+                    <div className="w-full h-2 bg-slate-300 mb-2 rounded"></div>
+                    <div className="w-1/2 h-2 bg-slate-300 rounded"></div>
+                    <div className="absolute -right-2 -bottom-2 bg-red-100 text-red-600 p-1.5 rounded-full border border-red-200"><FileX className="w-4 h-4"/></div>
+                  </div>
+                  <span className="text-xs text-slate-400 font-medium">Pérdida de Documentos</span>
+                </div>
+              }
+              afterVisual={
+                <div className="flex items-center justify-center h-full">
+                  <div className="bg-slate-900 border-4 border-slate-700 rounded-2xl w-28 h-48 flex flex-col items-center justify-center relative shadow-2xl overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-b from-emerald-500/20 to-blue-500/20"></div>
+                    <Cuboid className="text-emerald-400 w-14 h-14 relative z-10" />
+                    <div className="mt-3 w-16 h-1 bg-white/20 rounded-full"></div>
+                    <div className="absolute bottom-3 w-full flex justify-center gap-1.5">
+                      <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
+                      <div className="w-1.5 h-1.5 bg-white/50 rounded-full"></div>
+                      <div className="w-1.5 h-1.5 bg-white/50 rounded-full"></div>
+                    </div>
+                    <div className="absolute top-3 text-[8px] text-emerald-400 font-bold">WALLET</div>
+                  </div>
+                </div>
+              }
+            />
 
-            {/* Módulo 3: Industria/Trazabilidad */}
-            <div className="bg-white p-8 rounded-2xl border border-slate-200 hover:shadow-xl hover:border-blue-300 transition-all group">
-              <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors">
-                <ScanBarcode className="text-blue-600 group-hover:text-white" />
-              </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">Trazabilidad Blockchain</h3>
-              <p className="text-slate-600 text-sm mb-4 leading-relaxed">
-                Generación automática del "Pasaporte Digital de Producto" (DPP) para implantes y prótesis. Cumplimiento total de normativa MDR.
-              </p>
-              <ul className="space-y-2">
-                <li className="flex items-center text-xs text-slate-500 font-medium">
-                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 mr-2"></div>
-                  Registro Inmutable
-                </li>
-                <li className="flex items-center text-xs text-slate-500 font-medium">
-                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 mr-2"></div>
-                  Certificación de Origen
-                </li>
-              </ul>
-            </div>
+            {/* TRANSFORMACIÓN 3: INDUSTRIA */}
+            <TransformationBlock 
+              title="3. Trazabilidad de Implantes"
+              subtitle="De Caja Negra a Pasaporte Digital"
+              description="¿De dónde viene este implante? Con nuestra tecnología Blockchain, generamos un 'Pasaporte Digital de Producto' (DPP) automático para cumplimiento MDR."
+              beforeIcon={<ScanBarcode className="w-6 h-6 text-slate-400" />}
+              afterIcon={<ShieldCheck className="w-6 h-6 text-purple-600" />}
+              beforeLabel="Origen Incierto"
+              afterLabel="Certificado Blockchain"
+              beforeVisual={
+                <div className="flex items-center justify-center h-full gap-6">
+                  <div className="w-20 h-20 bg-slate-200 border-2 border-dashed border-slate-400 rounded-lg flex items-center justify-center text-slate-400 text-3xl font-bold">?</div>
+                  <ArrowDown className="text-slate-300 -rotate-90 w-6 h-6" />
+                  <div className="text-sm text-slate-500 text-center font-medium">
+                    <div className="text-red-400">¿Lote?</div>
+                    <div className="text-red-400">¿Caducidad?</div>
+                    <div className="text-red-400">¿Origen?</div>
+                  </div>
+                </div>
+              }
+              afterVisual={
+                <div className="flex flex-col items-center justify-center h-full w-full gap-4">
+                  <div className="flex items-center gap-3 w-full justify-center">
+                    <div className="w-10 h-10 bg-white border border-purple-200 rounded-lg flex items-center justify-center shadow"><ScanBarcode className="w-5 h-5 text-purple-600"/></div>
+                    <div className="h-[3px] w-10 bg-gradient-to-r from-purple-300 to-purple-500 rounded"></div>
+                    <div className="w-10 h-10 bg-white border border-purple-200 rounded-lg flex items-center justify-center shadow"><Server className="w-5 h-5 text-purple-600"/></div>
+                    <div className="h-[3px] w-10 bg-gradient-to-r from-purple-500 to-purple-300 rounded"></div>
+                    <div className="w-10 h-10 bg-purple-600 rounded-lg flex items-center justify-center shadow-lg shadow-purple-500/50"><CheckCircle2 className="w-6 h-6 text-white"/></div>
+                  </div>
+                  <span className="text-sm font-bold text-purple-700 bg-purple-50 px-4 py-2 rounded-full border border-purple-200">MDR Compliant</span>
+                </div>
+              }
+            />
 
-            {/* Módulo 4: Investigación (Data) */}
-            <div className="bg-white p-8 rounded-2xl border border-slate-200 hover:shadow-xl hover:border-purple-300 transition-all group">
-              <div className="w-12 h-12 bg-purple-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-purple-600 transition-colors">
-                <Database className="text-purple-600 group-hover:text-white" />
-              </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">Marketplace de Datos</h3>
-              <p className="text-slate-600 text-sm mb-4 leading-relaxed">
-                Monetice datos clínicos anonimizados para investigación. Participe en estudios multicéntricos sin compartir datos sensibles.
-              </p>
-              <ul className="space-y-2">
-                <li className="flex items-center text-xs text-slate-500 font-medium">
-                  <div className="w-1.5 h-1.5 rounded-full bg-purple-500 mr-2"></div>
-                  Real World Evidence (RWE)
-                </li>
-                <li className="flex items-center text-xs text-slate-500 font-medium">
-                  <div className="w-1.5 h-1.5 rounded-full bg-purple-500 mr-2"></div>
-                  Federated Learning (IA)
-                </li>
-              </ul>
-            </div>
-
-            {/* Módulo 5: Gestión (KPIs) */}
-            <div className="bg-white p-8 rounded-2xl border border-slate-200 hover:shadow-xl hover:border-orange-300 transition-all group">
-              <div className="w-12 h-12 bg-orange-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-orange-600 transition-colors">
-                <Activity className="text-orange-600 group-hover:text-white" />
-              </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">Cockpit de Gestión</h3>
-              <p className="text-slate-600 text-sm mb-4 leading-relaxed">
-                Benchmarking federado. Compare el rendimiento de su clínica con la media de la red BQDC en tiempo real y de forma anónima.
-              </p>
-              <ul className="space-y-2">
-                <li className="flex items-center text-xs text-slate-500 font-medium">
-                  <div className="w-1.5 h-1.5 rounded-full bg-orange-500 mr-2"></div>
-                  Business Intelligence
-                </li>
-                <li className="flex items-center text-xs text-slate-500 font-medium">
-                  <div className="w-1.5 h-1.5 rounded-full bg-orange-500 mr-2"></div>
-                  Optimización de Recursos
-                </li>
-              </ul>
-            </div>
-
-            {/* Módulo 6: Innovación Futura */}
-            <div className="bg-slate-900 p-8 rounded-2xl border border-slate-700 hover:border-slate-500 transition-all group relative overflow-hidden">
-              <div className="absolute top-0 right-0 p-4 opacity-10">
-                <BrainCircuit className="w-24 h-24 text-white" />
-              </div>
-              <div className="w-12 h-12 bg-slate-800 rounded-xl flex items-center justify-center mb-6 border border-slate-600">
-                <Cuboid className="text-white" />
-              </div>
-              <h3 className="text-xl font-bold text-white mb-3">Innovation Lab</h3>
-              <p className="text-slate-400 text-sm mb-4 leading-relaxed">
-                Acceso anticipado a tecnologías experimentales: Gemelos Digitales, IA Generativa y Criptografía Post-Cuántica.
-              </p>
-              <span className="inline-block bg-blue-900/50 text-blue-200 text-xs font-bold px-3 py-1 rounded-full border border-blue-500/30">
-                Roadmap 2026
-              </span>
-            </div>
+            {/* TRANSFORMACIÓN 4: DATOS */}
+            <TransformationBlock 
+              title="4. Investigación y Datos"
+              subtitle="De Coste de Almacenaje a Fuente de Ingresos"
+              description="Deje de acumular datos muertos. Participe en el Marketplace de Investigación federada y monetice datasets anonimizados para entrenamiento de IA."
+              beforeIcon={<Database className="w-6 h-6 text-slate-400" />}
+              afterIcon={<BrainCircuit className="w-6 h-6 text-orange-600" />}
+              beforeLabel="Dato Muerto"
+              afterLabel="Activo Monetizable"
+              beforeVisual={
+                <div className="flex items-center justify-center h-full">
+                  <div className="relative">
+                    <Database className="w-24 h-24 text-slate-300" />
+                    <Lock className="w-10 h-10 text-red-400 absolute bottom-0 right-0 bg-white rounded-full p-1.5 border-2 border-red-100 shadow" />
+                  </div>
+                </div>
+              }
+              afterVisual={
+                <div className="flex items-center justify-center h-full relative">
+                  <Database className="w-20 h-20 text-orange-300" />
+                  <div className="absolute top-2 right-16 animate-bounce">
+                    <Coins className="w-8 h-8 text-yellow-500 drop-shadow-lg" />
+                  </div>
+                  <div className="absolute bottom-8 left-16">
+                    <TrendingUp className="w-8 h-8 text-emerald-500" />
+                  </div>
+                  <div className="absolute -bottom-2 bg-white px-3 py-1.5 rounded-lg border border-orange-200 text-xs font-bold text-orange-600 shadow-lg">
+                    IA Training Revenue
+                  </div>
+                </div>
+              }
+            />
 
           </div>
         </div>
