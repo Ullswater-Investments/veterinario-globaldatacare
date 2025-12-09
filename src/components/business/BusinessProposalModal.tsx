@@ -187,6 +187,9 @@ const BusinessProposalModal: React.FC = () => {
   };
 
   if (!isOpen) {
+    // Botón oculto - descomentar para mostrar de nuevo
+    return null;
+    /*
     return (
       <button
         type="button"
@@ -201,6 +204,7 @@ const BusinessProposalModal: React.FC = () => {
         </span>
       </button>
     );
+    */
   }
 
   const slide = slides[currentSlide];
