@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { ShieldCheck, Globe, Coins, FileX, Lock, Network, TrendingUp, Server, Languages, BrainCircuit, Shield, Smartphone, Zap, CheckCircle2, ArrowDown, Share2, LayoutDashboard, ScanBarcode, Database, Activity, Cuboid } from "lucide-react";
+import { ShieldCheck, Globe, Coins, FileX, Lock, Network, TrendingUp, Server, Languages, BrainCircuit, Shield, Smartphone, Zap, CheckCircle2, ArrowDown, Share2, LayoutDashboard, ScanBarcode, Database, Activity, Cuboid, ShoppingCart, Truck, Percent, BarChart4, Target } from "lucide-react";
 import servidoresAisladosImg from "@/assets/servidores-aislados.png";
 import redFederadaImg from "@/assets/red-federada-activa.png";
 
@@ -327,6 +327,107 @@ const PropuestaKitEspacioDatos: React.FC = () => {
                     IA Training Revenue
                   </div>
                 </div>} />
+
+            {/* TRANSFORMACIÓN 5: CENTRAL DE COMPRAS (SUPPLY) */}
+            <TransformationBlock 
+              title="5. Central de Compras Federada"
+              subtitle="De Compras Reactivas a Abastecimiento Predictivo"
+              description="No compre solo. Nuestro sistema lee su agenda, predice el consumo de materiales (ej: implantes necesarios para la semana que viene) y agrupa la demanda con cientos de clínicas BQDC para negociar precios mayoristas automáticos."
+              beforeIcon={<ShoppingCart className="w-6 h-6 text-slate-400" />}
+              afterIcon={<Truck className="w-6 h-6 text-indigo-600" />}
+              beforeLabel="Compra Individual"
+              afterLabel="Poder de Red BQDC"
+              beforeVisual={
+                <div className="flex flex-col items-center justify-center h-full gap-4">
+                  <div className="flex items-center gap-2 opacity-50">
+                    <div className="w-12 h-16 bg-slate-200 border-2 border-slate-300 rounded flex items-center justify-center text-xs text-slate-500 font-medium">Stock?</div>
+                    <ArrowDown className="text-slate-400 -rotate-90" />
+                    <div className="w-12 h-12 bg-white border border-slate-300 rounded flex items-center justify-center text-slate-400 font-bold text-sm">$$$</div>
+                  </div>
+                  <div className="bg-red-50 text-red-500 text-xs px-2 py-1 rounded border border-red-100">
+                    Sobre-coste por bajo volumen
+                  </div>
+                </div>
+              }
+              afterVisual={
+                <div className="relative w-full h-full flex items-center justify-center">
+                  {/* Central Hub */}
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-indigo-600 text-white p-4 rounded-full shadow-lg z-10">
+                    <Percent className="w-8 h-8" />
+                  </div>
+                  
+                  {/* Flow Lines */}
+                  <div className="absolute w-full h-[2px] bg-indigo-100 top-1/2 left-0 -z-0"></div>
+                  
+                  {/* Nodes */}
+                  <div className="absolute left-4 top-1/2 -translate-y-1/2 bg-white p-2 rounded-lg border border-indigo-100 shadow text-xs text-indigo-800 text-center">
+                    <span className="font-bold block">Agenda</span>
+                    Predicción IA
+                  </div>
+                  <div className="absolute right-4 top-1/2 -translate-y-1/2 bg-white p-2 rounded-lg border border-indigo-100 shadow text-xs text-green-600 text-center font-bold">
+                    -30% Coste
+                  </div>
+
+                  {/* Floating Badge */}
+                  <div className="absolute bottom-4 bg-indigo-50 text-indigo-700 px-3 py-1 rounded-full text-xs font-bold border border-indigo-200 flex items-center gap-2">
+                    <Truck className="w-3 h-3" /> Pedido Automático
+                  </div>
+                </div>
+              }
+            />
+
+            {/* TRANSFORMACIÓN 6: KPI CLÍNICAS (INTELIGENCIA OPERATIVA) */}
+            <TransformationBlock 
+              title="6. Inteligencia Operativa (KPIs)"
+              subtitle="De la Intuición a la Decisión de Datos"
+              description="Un Cockpit que fusiona rentabilidad, experiencia de paciente y excelencia clínica. Compare su rendimiento de forma anónima con el promedio de la red BQDC (Benchmarking) y reciba alertas predictivas sobre picos de espera."
+              beforeIcon={<BarChart4 className="w-6 h-6 text-slate-400" />}
+              afterIcon={<Target className="w-6 h-6 text-orange-600" />}
+              beforeLabel="Gestión por Intuición"
+              afterLabel="Data Driven"
+              beforeVisual={
+                <div className="flex flex-col items-center justify-center h-full">
+                  <div className="relative">
+                    <div className="w-32 h-20 bg-slate-100 border border-slate-300 rounded flex items-end justify-around p-2 gap-1">
+                      <div className="w-4 h-8 bg-slate-300"></div>
+                      <div className="w-4 h-12 bg-slate-300"></div>
+                      <div className="w-4 h-6 bg-slate-300"></div>
+                      <div className="w-4 h-10 bg-slate-300"></div>
+                    </div>
+                    <div className="absolute -top-4 -right-4 bg-yellow-100 text-yellow-700 p-2 rounded-full border border-yellow-200 text-sm font-bold">
+                      ?
+                    </div>
+                  </div>
+                  <span className="text-xs text-slate-400 mt-4 text-center">¿Soy rentable? ¿Cómo voy respecto a otros?</span>
+                </div>
+              }
+              afterVisual={
+                <div className="w-full h-full p-6 flex flex-col justify-center">
+                  {/* Benchmarking Graph */}
+                  <div className="flex justify-between items-end text-xs text-slate-400 mb-1">
+                    <span>Mi Clínica</span>
+                    <span>Red BQDC</span>
+                  </div>
+                  <div className="w-full h-2 bg-slate-100 rounded-full mb-6 relative">
+                    <div className="absolute left-0 top-0 h-full w-3/4 bg-orange-200 rounded-full"></div>
+                    <div className="absolute left-0 top-0 h-full w-2/3 bg-orange-500 rounded-full shadow-sm"></div>
+                    {/* Marker */}
+                    <div className="absolute left-2/3 -top-1 w-4 h-4 bg-white border-2 border-orange-600 rounded-full"></div>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="bg-white border border-orange-100 p-2 rounded shadow-sm text-center">
+                      <span className="text-[10px] text-slate-400 uppercase block">NPS Paciente</span>
+                      <span className="text-xl font-bold text-slate-800">9.8</span>
+                    </div>
+                    <div className="bg-white border border-orange-100 p-2 rounded shadow-sm text-center">
+                      <span className="text-[10px] text-slate-400 uppercase block">Eficiencia</span>
+                      <span className="text-xl font-bold text-green-600">+15%</span>
+                    </div>
+                  </div>
+                </div>
+              }
+            />
 
           </div>
         </div>
