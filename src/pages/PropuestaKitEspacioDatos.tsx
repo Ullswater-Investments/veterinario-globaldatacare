@@ -592,16 +592,12 @@ const PropuestaKitEspacioDatos: React.FC = () => {
                 
                 <div className="space-y-4 mb-8">
                   <div className="flex justify-between items-center py-3 border-b border-slate-50">
-                    <span className="text-slate-600">Valor Tecnológico</span>
-                    <span className="font-semibold text-slate-900 line-through decoration-red-400">35.000 €</span>
+                    <span className="text-slate-600">Anticipo</span>
+                    <span className="font-semibold text-slate-900">5.000 €</span>
                   </div>
                   <div className="flex justify-between items-center py-3 border-b border-slate-50">
                     <span className="text-emerald-600 font-medium">Subvención Europea</span>
                     <span className="font-bold text-emerald-600">- 30.000 €</span>
-                  </div>
-                  <div className="flex justify-between items-center pt-4">
-                    <span className="text-slate-900 font-bold text-lg">Inversión Final</span>
-                    <span className="text-4xl font-bold text-slate-900">5.000 €</span>
                   </div>
                   <p className="text-xs text-right text-slate-400">+ IVA (Cuota única de adhesión)</p>
                 </div>
