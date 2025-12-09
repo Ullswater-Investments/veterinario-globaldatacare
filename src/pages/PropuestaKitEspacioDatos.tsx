@@ -780,9 +780,7 @@ const PropuestaKitEspacioDatos: React.FC = () => {
                   </ul>
                 </div>
 
-                <a href="mailto:ivan.becerro@accuro.es?subject=Adhesión Plan Esencial BQDC" className="block w-full bg-white text-slate-900 border-2 border-slate-200 text-center py-4 rounded-xl font-bold hover:bg-slate-50 transition">
-                  Reservar Plaza
-                </a>
+                <a href="mailto:ivan.becerro@accuro.es?subject=Adhesión Plan Esencial BQDC" className="block w-full bg-white text-slate-900 border-2 border-slate-200 text-center py-4 rounded-xl font-bold hover:bg-slate-50 transition">Solicitar Kit Espacio de Datos</a>
               </div>}
           </div>
         </div>
