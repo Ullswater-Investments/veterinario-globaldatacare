@@ -74,6 +74,7 @@ import StrategicPresentation from "./pages/StrategicPresentation";
 import LegalNotice from "./pages/LegalNotice";
 import TechnicalWhitepaperVideo from "./pages/video/TechnicalWhitepaperVideo";
 import ConceptShowcase from "./pages/video/ConceptShowcase";
+import PropuestaKitEspacioDatos from "./pages/PropuestaKitEspacioDatos";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -155,6 +156,7 @@ const App = () => (
 
                 {/* Standalone utility pages */}
                 <Route path="/legal" element={<LegalNotice />} />
+                <Route path="/propuesta-kit-espacio-datos" element={<PropuestaKitEspacioDatos />} />
 
                  <Route element={<AppLayout />}>
                    <Route path="/dashboard" element={<Dashboard />} />

@@ -1,5 +1,6 @@
 import React from "react";
-import { ArrowUp } from "lucide-react";
+import { Link } from "react-router-dom";
+import { ArrowUp, FileText } from "lucide-react";
 
 export const GlobalFooter: React.FC = () => {
   const scrollToTop = () => {
@@ -11,8 +12,17 @@ export const GlobalFooter: React.FC = () => {
   return (
     <footer className="bg-slate-950 text-slate-400 py-8 border-t border-slate-800 mt-auto relative">
       <div className="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-        <div className="text-sm font-medium text-center md:text-left">
-          ACCURO TECHNOLOGY proyecto GLOBAL DATA CARE Derechos Reservados 2025
+        <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
+          <div className="text-sm font-medium text-center md:text-left">
+            ACCURO TECHNOLOGY proyecto GLOBAL DATA CARE Derechos Reservados 2025
+          </div>
+          <Link 
+            to="/propuesta-kit-espacio-datos"
+            className="flex items-center gap-2 text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors"
+          >
+            <FileText className="w-4 h-4" />
+            Propuesta Kit Espacio de Datos
+          </Link>
         </div>
         <button
           type="button"
