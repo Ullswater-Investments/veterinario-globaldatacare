@@ -482,7 +482,8 @@ const PropuestaKitEspacioDatos: React.FC = () => {
                   <li className="flex items-center gap-2">
                     <CheckCircle2 className="text-blue-500 w-4 h-4" /> Conector Soberano Completo
                   </li>
-                  <li className="flex items-center gap-2">Wallet Paciente + Funcionalidad Completa<CheckCircle2 className="text-blue-500 w-4 h-4" /> Wallet Paciente + Dashboard
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="text-blue-500 w-4 h-4" /> Wallet Paciente + Funcionalidad Completa
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckCircle2 className="text-blue-500 w-4 h-4" /> Módulo IA & Research
