@@ -557,44 +557,104 @@ const PropuestaKitEspacioDatos: React.FC = () => {
           <div className="max-w-md mx-auto relative group">
             <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-emerald-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200" />
             
-            {/* PLAN INTEGRAL */}
-            {plan === "integral" && <div className="relative bg-white rounded-2xl p-8 border border-slate-100 shadow-xl animate-fade-in">
-                <div className="flex justify-between items-start mb-6">
-                  <div>
-                    <h3 className="text-2xl font-bold text-slate-900">Pack Integral</h3>
-                    <p className="text-slate-500 text-sm mt-1">Para comité dirección BQDC</p>
-                  </div>
-                  <span className="bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full uppercase">Recomendado</span>
-                </div>
+            {/* PLAN INTEGRAL (REDISENADO PARA MÁXIMA CLARIDAD) */}
+            {plan === "integral" && (
+              <div className="relative bg-white rounded-2xl border border-blue-100 shadow-2xl shadow-blue-900/10 animate-fade-in overflow-hidden">
                 
-                <div className="space-y-4 mb-8">
-                  <div className="flex justify-between items-center py-3 border-b border-slate-50">
-                    <span className="text-slate-600">Anticipo</span>
-                    <span className="font-semibold text-slate-900">5.000 €</span>
-                  </div>
-                  <div className="flex justify-between items-center py-3 border-b border-slate-50">
-                    <span className="text-emerald-600 font-medium">Subvención Europea</span>
-                    <span className="font-bold text-emerald-600">+ 30.000 €</span>
-                  </div>
-                  <p className="text-xs text-right text-slate-400">+ IVA (Cuota única de adhesión)</p>
+                {/* Banda Superior: Valor Diferencial */}
+                <div className="bg-blue-600 px-8 py-3 flex justify-between items-center text-white">
+                  <span className="text-xs font-bold tracking-widest uppercase flex items-center gap-2">
+                    <Zap className="w-4 h-4 text-yellow-300" fill="currentColor" /> Recomendado BQDC
+                  </span>
+                  <span className="text-xs font-medium bg-blue-700 px-2 py-1 rounded">Todo Incluido</span>
                 </div>
 
-                <ul className="space-y-3 mb-8 text-sm text-slate-600">
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="text-blue-500 w-4 h-4" /> Conector Soberano Completo
-                  </li>
-                  <li className="flex items-center gap-2">Wallet Paciente + Funcionalidad Completa<CheckCircle2 className="text-blue-500 w-4 h-4" /> Wallet Paciente + Dashboard
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="text-blue-500 w-4 h-4" /> Módulo IA & Research
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="text-blue-500 w-4 h-4" /> Gestión administrativa incluida
-                  </li>
-                </ul>
+                <div className="p-8">
+                  <div className="mb-6">
+                    <h3 className="text-3xl font-bold text-slate-900">Pack Transformación Integral</h3>
+                    <p className="text-slate-500 text-sm mt-2">
+                      La solución definitiva para clínicas que buscan liderar sin carga operativa.
+                    </p>
+                  </div>
+                  
+                  {/* Desglose Económico Visual */}
+                  <div className="bg-slate-50 rounded-xl p-5 mb-8 border border-slate-100">
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="text-slate-500 text-sm">Valor de la Tecnología</span>
+                      <span className="font-semibold text-slate-400 line-through decoration-red-400">35.000 €</span>
+                    </div>
+                    <div className="flex justify-between items-center mb-4 pb-4 border-b border-slate-200">
+                      <span className="text-emerald-600 text-sm font-bold flex items-center gap-2">
+                        <Coins className="w-4 h-4" /> Subvención Kit Espacio Datos
+                      </span>
+                      <span className="font-bold text-emerald-600">- 30.000 €</span>
+                    </div>
+                    <div className="flex justify-between items-end">
+                      <div>
+                        <span className="text-slate-900 font-bold block">Su Aportación Única</span>
+                        <span className="text-[10px] text-slate-400 uppercase tracking-wide">Concepto: Anticipo y Gestión</span>
+                      </div>
+                      <div className="text-right">
+                        <span className="text-4xl font-bold text-blue-900">5.000 €</span>
+                        <span className="text-sm text-slate-400 font-medium ml-1">+ IVA</span>
+                      </div>
+                    </div>
+                  </div>
 
-                <a href="mailto:ivan.becerro@accuro.es?subject=Adhesión Plan Integral BQDC" className="block w-full bg-slate-900 text-white text-center py-4 rounded-xl font-bold hover:bg-slate-800 transition">Solicitar Kit Espacio de Datos</a>
-              </div>}
+                  {/* BLOQUE 1: GESTIÓN ADMINISTRATIVA (El Servicio) */}
+                  <div className="mb-6">
+                    <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">1. Gestión de Ayudas (Burocracia Cero)</h4>
+                    <ul className="space-y-3">
+                      <li className="flex items-start gap-3">
+                        <CheckCircle2 className="text-emerald-500 w-5 h-5 shrink-0 mt-0.5" />
+                        <span className="text-sm text-slate-700"><strong>Tramitación 100% incluida:</strong> Redacción de memoria técnica, solicitud y justificación ante el Ministerio.</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <CheckCircle2 className="text-emerald-500 w-5 h-5 shrink-0 mt-0.5" />
+                        <span className="text-sm text-slate-700"><strong>Garantía de éxito:</strong> Soporte legal y técnico durante todo el proceso de subvención.</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  {/* BLOQUE 2: FUNCIONALIDAD TÉCNICA (El Producto) */}
+                  <div className="mb-8">
+                    <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">2. Suite Tecnológica Completa</h4>
+                    <ul className="space-y-2">
+                      <li className="flex items-center gap-2 text-sm text-slate-600">
+                        <div className="w-1.5 h-1.5 rounded-full bg-blue-500"></div>
+                        <span><strong>Infraestructura:</strong> Conector Soberano (EDC) + Servidor FHIR.</span>
+                      </li>
+                      <li className="flex items-center gap-2 text-sm text-slate-600">
+                        <div className="w-1.5 h-1.5 rounded-full bg-blue-500"></div>
+                        <span><strong>Clínica:</strong> Dashboard 360º y Conexión con PMS.</span>
+                      </li>
+                      <li className="flex items-center gap-2 text-sm text-slate-600">
+                        <div className="w-1.5 h-1.5 rounded-full bg-blue-500"></div>
+                        <span><strong>Paciente:</strong> App Wallet (iOS/Android) con visor 3D.</span>
+                      </li>
+                      <li className="flex items-center gap-2 text-sm text-slate-600">
+                        <div className="w-1.5 h-1.5 rounded-full bg-blue-500"></div>
+                        <span><strong>I+D:</strong> Módulo de IA Federada y Marketplace de Datos.</span>
+                      </li>
+                      <li className="flex items-center gap-2 text-sm text-slate-600">
+                        <div className="w-1.5 h-1.5 rounded-full bg-blue-500"></div>
+                        <span><strong>Legal:</strong> Trazabilidad Blockchain (MDR Compliance).</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <a 
+                    href="mailto:ivan.becerro@accuro.es?subject=Adhesión Plan Integral BQDC - Solicitud Kit Datos" 
+                    className="block w-full bg-slate-900 text-white text-center py-4 rounded-xl font-bold hover:bg-slate-800 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 duration-200"
+                  >
+                    Solicitar Pack Integral
+                  </a>
+                  <p className="text-center text-xs text-slate-400 mt-3">
+                    Plazas limitadas por la convocatoria Kit Espacio de Datos 2025.
+                  </p>
+                </div>
+              </div>
+            )}
 
             {/* PLAN ESENCIAL */}
             {plan === "essential" && <div className="relative bg-white rounded-2xl p-8 border border-slate-100 shadow-xl animate-fade-in">
