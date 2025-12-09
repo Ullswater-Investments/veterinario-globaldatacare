@@ -5,6 +5,7 @@ import {
   Server, Languages, BrainCircuit, Shield, Smartphone, Zap, 
   CheckCircle2, ArrowDown, Share2
 } from "lucide-react";
+import servidoresAisladosImg from "@/assets/servidores-aislados.png";
 
 const PropuestaKitEspacioDatos: React.FC = () => {
   const [visionTab, setVisionTab] = useState<"today" | "tomorrow">("tomorrow");
@@ -150,8 +151,12 @@ const PropuestaKitEspacioDatos: React.FC = () => {
                   </div>
                 </div>
               </div>
-              <div className="bg-slate-100 rounded-2xl h-64 flex items-center justify-center border-2 border-dashed border-slate-300">
-                <span className="text-slate-400 font-mono">Ilustración: Servidores Aislados</span>
+              <div className="bg-slate-100 rounded-2xl overflow-hidden flex items-center justify-center border border-slate-200">
+                <img 
+                  src={servidoresAisladosImg} 
+                  alt="Servidores aislados representando datos fragmentados" 
+                  className="w-full h-auto object-contain"
+                />
               </div>
             </div>
           )}
