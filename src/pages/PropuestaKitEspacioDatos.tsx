@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { 
   ShieldCheck, Globe, Coins, FileX, Lock, Network, TrendingUp, 
   Server, Languages, BrainCircuit, Shield, Smartphone, Zap, 
-  CheckCircle2, ArrowDown, Share2
+  CheckCircle2, ArrowDown, Share2, LayoutDashboard, ScanBarcode, 
+  Database, Activity, Cuboid
 } from "lucide-react";
 import servidoresAisladosImg from "@/assets/servidores-aislados.png";
 import redFederadaImg from "@/assets/red-federada-activa.png";
@@ -25,6 +26,7 @@ const PropuestaKitEspacioDatos: React.FC = () => {
             </Link>
             <div className="hidden md:flex space-x-8 text-sm font-medium">
               <a href="#vision" className="hover:text-blue-600 transition">Visión</a>
+              <a href="#funcionalidades" className="hover:text-blue-600 transition">Módulos</a>
               <a href="#arquitectura" className="hover:text-blue-600 transition">Arquitectura</a>
               <a href="#roadmap" className="hover:text-blue-600 transition">Roadmap</a>
               <a href="#inversion" className="hover:text-blue-600 transition">Inversión</a>
@@ -70,10 +72,10 @@ const PropuestaKitEspacioDatos: React.FC = () => {
 
           <div className="flex flex-col sm:flex-row justify-center gap-4 mb-16">
             <a 
-              href="#vision" 
+              href="#funcionalidades" 
               className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold transition shadow-lg shadow-blue-500/25 flex items-center justify-center gap-2"
             >
-              Descubrir Propuesta <ArrowDown className="w-4 h-4" />
+              Explorar Ecosistema <ArrowDown className="w-4 h-4" />
             </a>
             <a 
               href="#inversion" 
@@ -194,6 +196,144 @@ const PropuestaKitEspacioDatos: React.FC = () => {
               </div>
             </div>
           )}
+        </div>
+      </section>
+
+      {/* FUNCIONALIDADES DETALLADAS (NUEVO BLOQUE TÉCNICO) */}
+      <section id="funcionalidades" className="py-24 bg-slate-50 border-y border-slate-200">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <span className="text-blue-600 font-bold tracking-wide uppercase text-sm">Ecosistema Global Data Care</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-2">5 Módulos Integrados</h2>
+            <p className="text-lg text-slate-600 mt-4 max-w-2xl mx-auto">
+              Una suite tecnológica completa que cubre desde la operativa clínica hasta la investigación avanzada, basada en los pilares del Whitepaper Técnico.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Módulo 1: Clínica */}
+            <div className="bg-white p-8 rounded-2xl border border-slate-200 hover:shadow-xl hover:border-blue-300 transition-all group">
+              <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors">
+                <LayoutDashboard className="text-blue-600 group-hover:text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">Dashboard Clínico 360º</h3>
+              <p className="text-slate-600 text-sm mb-4 leading-relaxed">
+                Conexión universal con su PMS actual (Gestión). Unifica agenda, historial y facturación en una interfaz web moderna sin migrar datos sensibles a la nube.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-center text-xs text-slate-500 font-medium">
+                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 mr-2"></div>
+                  Conector Zero-Trust (EDC)
+                </li>
+                <li className="flex items-center text-xs text-slate-500 font-medium">
+                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 mr-2"></div>
+                  Automatización de Citas
+                </li>
+              </ul>
+            </div>
+
+            {/* Módulo 2: Paciente */}
+            <div className="bg-white p-8 rounded-2xl border border-slate-200 hover:shadow-xl hover:border-blue-300 transition-all group">
+              <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors">
+                <Smartphone className="text-blue-600 group-hover:text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">Wallet del Paciente</h3>
+              <p className="text-slate-600 text-sm mb-4 leading-relaxed">
+                App de Identidad Soberana. El paciente lleva su historial (DICOM, 3D) en el bolsillo, mejorando la experiencia y la fidelización.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-center text-xs text-slate-500 font-medium">
+                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 mr-2"></div>
+                  Visor 3D Interactivo
+                </li>
+                <li className="flex items-center text-xs text-slate-500 font-medium">
+                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 mr-2"></div>
+                  Pagos y Financiación In-App
+                </li>
+              </ul>
+            </div>
+
+            {/* Módulo 3: Industria/Trazabilidad */}
+            <div className="bg-white p-8 rounded-2xl border border-slate-200 hover:shadow-xl hover:border-blue-300 transition-all group">
+              <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors">
+                <ScanBarcode className="text-blue-600 group-hover:text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">Trazabilidad Blockchain</h3>
+              <p className="text-slate-600 text-sm mb-4 leading-relaxed">
+                Generación automática del "Pasaporte Digital de Producto" (DPP) para implantes y prótesis. Cumplimiento total de normativa MDR.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-center text-xs text-slate-500 font-medium">
+                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 mr-2"></div>
+                  Registro Inmutable
+                </li>
+                <li className="flex items-center text-xs text-slate-500 font-medium">
+                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 mr-2"></div>
+                  Certificación de Origen
+                </li>
+              </ul>
+            </div>
+
+            {/* Módulo 4: Investigación (Data) */}
+            <div className="bg-white p-8 rounded-2xl border border-slate-200 hover:shadow-xl hover:border-purple-300 transition-all group">
+              <div className="w-12 h-12 bg-purple-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-purple-600 transition-colors">
+                <Database className="text-purple-600 group-hover:text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">Marketplace de Datos</h3>
+              <p className="text-slate-600 text-sm mb-4 leading-relaxed">
+                Monetice datos clínicos anonimizados para investigación. Participe en estudios multicéntricos sin compartir datos sensibles.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-center text-xs text-slate-500 font-medium">
+                  <div className="w-1.5 h-1.5 rounded-full bg-purple-500 mr-2"></div>
+                  Real World Evidence (RWE)
+                </li>
+                <li className="flex items-center text-xs text-slate-500 font-medium">
+                  <div className="w-1.5 h-1.5 rounded-full bg-purple-500 mr-2"></div>
+                  Federated Learning (IA)
+                </li>
+              </ul>
+            </div>
+
+            {/* Módulo 5: Gestión (KPIs) */}
+            <div className="bg-white p-8 rounded-2xl border border-slate-200 hover:shadow-xl hover:border-orange-300 transition-all group">
+              <div className="w-12 h-12 bg-orange-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-orange-600 transition-colors">
+                <Activity className="text-orange-600 group-hover:text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">Cockpit de Gestión</h3>
+              <p className="text-slate-600 text-sm mb-4 leading-relaxed">
+                Benchmarking federado. Compare el rendimiento de su clínica con la media de la red BQDC en tiempo real y de forma anónima.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-center text-xs text-slate-500 font-medium">
+                  <div className="w-1.5 h-1.5 rounded-full bg-orange-500 mr-2"></div>
+                  Business Intelligence
+                </li>
+                <li className="flex items-center text-xs text-slate-500 font-medium">
+                  <div className="w-1.5 h-1.5 rounded-full bg-orange-500 mr-2"></div>
+                  Optimización de Recursos
+                </li>
+              </ul>
+            </div>
+
+            {/* Módulo 6: Innovación Futura */}
+            <div className="bg-slate-900 p-8 rounded-2xl border border-slate-700 hover:border-slate-500 transition-all group relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-4 opacity-10">
+                <BrainCircuit className="w-24 h-24 text-white" />
+              </div>
+              <div className="w-12 h-12 bg-slate-800 rounded-xl flex items-center justify-center mb-6 border border-slate-600">
+                <Cuboid className="text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-white mb-3">Innovation Lab</h3>
+              <p className="text-slate-400 text-sm mb-4 leading-relaxed">
+                Acceso anticipado a tecnologías experimentales: Gemelos Digitales, IA Generativa y Criptografía Post-Cuántica.
+              </p>
+              <span className="inline-block bg-blue-900/50 text-blue-200 text-xs font-bold px-3 py-1 rounded-full border border-blue-500/30">
+                Roadmap 2026
+              </span>
+            </div>
+
+          </div>
         </div>
       </section>
 
