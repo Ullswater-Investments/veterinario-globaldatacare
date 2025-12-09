@@ -610,7 +610,7 @@ const PropuestaKitEspacioDatos: React.FC = () => {
           <div className="text-center mb-12">
             <span className="text-emerald-600 font-bold tracking-wide uppercase text-sm">Kit Espacio de Datos</span>
             <h2 className="text-4xl font-bold text-slate-900 mt-2">Modelo de Co-Inversión Europea</h2>
-            <p className="text-lg text-slate-600 mt-4">ACCURO gestiona la subvención del 85% a fondo perdido.</p>
+            <p className="text-lg text-slate-600 mt-4">ACCURO gestiona la subvención KIT ESPACIO DE DATOS de RED.ES.</p>
           </div>
 
           {/* Toggle Switch */}
