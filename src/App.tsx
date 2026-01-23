@@ -24,6 +24,7 @@ import Epidemiology from "./pages/Epidemiology";
 import Claims from "./pages/Claims";
 import PatientWalletPage from "./pages/PatientWalletPage";
 import Wallet from "./pages/Wallet";
+import Hospitalization from "./pages/Hospitalization";
 import NotFound from "./pages/NotFound";
 import DoctorPortal from "./pages/portals/DoctorPortal";
 import LabPortal from "./pages/portals/LabPortal";
@@ -165,6 +166,7 @@ const App = () => (
                    <Route path="/ai-assistant" element={<AIAssistant />} />
                    <Route path="/e-prescription" element={<EPrescription />} />
                    <Route path="/triage" element={<Triage />} />
+                   <Route path="/hospitalization" element={<Hospitalization />} />
                    <Route path="/lab-hub" element={<LabHub />} />
                    <Route path="/inventory" element={<Inventory />} />
                    <Route path="/research" element={<Research />} />
