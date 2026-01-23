@@ -92,9 +92,9 @@ const Sovereignty = () => {
                         <SelectValue placeholder="Seleccionar activo" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="panoramic">Radiografía Panorámica</SelectItem>
-                        <SelectItem value="cbct">Escaneo CBCT 3D</SelectItem>
-                        <SelectItem value="intraoral">Fotos Intraorales</SelectItem>
+                        <SelectItem value="panoramic">Radiografía Veterinaria</SelectItem>
+                        <SelectItem value="cbct">Ecografía Abdominal</SelectItem>
+                        <SelectItem value="intraoral">Analíticas Laboratorio</SelectItem>
                         <SelectItem value="history">Historial Clínico</SelectItem>
                       </SelectContent>
                     </Select>
@@ -107,9 +107,9 @@ const Sovereignty = () => {
                         <SelectValue placeholder="Seleccionar consumidor" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="university">Universidad de Investigación</SelectItem>
-                        <SelectItem value="hospital">Hospital Central</SelectItem>
-                        <SelectItem value="insurance">Aseguradora</SelectItem>
+                        <SelectItem value="university">Centro de Investigación Veterinaria</SelectItem>
+                        <SelectItem value="hospital">Hospital Veterinario de Referencia</SelectItem>
+                        <SelectItem value="insurance">Aseguradora de Mascotas</SelectItem>
                         <SelectItem value="specialist">Especialista Externo</SelectItem>
                       </SelectContent>
                     </Select>
@@ -185,9 +185,9 @@ const Sovereignty = () => {
                                 Asset
                               </p>
                               <p className="text-sm text-white">
-                                {asset === 'panoramic' ? 'Radiografía Panorámica' :
-                                 asset === 'cbct' ? 'Escaneo CBCT 3D' :
-                                 asset === 'intraoral' ? 'Fotos Intraorales' : 'Historial Clínico'}
+                                {asset === 'panoramic' ? 'Radiografía Veterinaria' :
+                                 asset === 'cbct' ? 'Ecografía Abdominal' :
+                                 asset === 'intraoral' ? 'Analíticas Laboratorio' : 'Historial Clínico'}
                               </p>
                             </div>
                             <div>
@@ -195,9 +195,9 @@ const Sovereignty = () => {
                                 Consumer
                               </p>
                               <p className="text-sm text-white">
-                                {consumer === 'university' ? 'Universidad' :
-                                 consumer === 'hospital' ? 'Hospital Central' :
-                                 consumer === 'insurance' ? 'Aseguradora' : 'Especialista'}
+                                {consumer === 'university' ? 'Centro Investigación' :
+                                 consumer === 'hospital' ? 'Hospital Veterinario' :
+                                 consumer === 'insurance' ? 'Aseguradora Mascotas' : 'Especialista'}
                               </p>
                             </div>
                           </div>
@@ -264,7 +264,7 @@ const Sovereignty = () => {
               <Card className="bg-blue-900/20 border-blue-600 flex-1">
                 <CardContent className="p-6 text-center">
                   <Shield className="h-12 w-12 text-blue-400 mx-auto mb-3" />
-                  <h3 className="font-semibold text-white mb-2">Clínica (Provider)</h3>
+                  <h3 className="font-semibold text-white mb-2">Clínica Veterinaria (Provider)</h3>
                   <p className="text-sm text-slate-400">Posee los datos</p>
                 </CardContent>
               </Card>
@@ -284,7 +284,7 @@ const Sovereignty = () => {
               <Card className="bg-purple-900/20 border-purple-600 flex-1">
                 <CardContent className="p-6 text-center">
                   <FileText className="h-12 w-12 text-purple-400 mx-auto mb-3" />
-                  <h3 className="font-semibold text-white mb-2">Hospital (Consumer)</h3>
+                  <h3 className="font-semibold text-white mb-2">Hospital Vet. (Consumer)</h3>
                   <p className="text-sm text-slate-400">Recibe según contrato</p>
                 </CardContent>
               </Card>

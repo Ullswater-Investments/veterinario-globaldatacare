@@ -28,11 +28,11 @@ export const InteroperabilitySection = () => {
       icon: Brain,
       accentBg: 'bg-purple-500/10',
       accentIcon: 'text-purple-400',
-      title: 'Semántica SNODENT',
-      text: 'Estandarización de diagnósticos para IA y medicina general.',
+      title: 'Semántica SNOMED-VET',
+      text: 'Estandarización de diagnósticos para IA veterinaria y One Health.',
       bullets: [
-        'Permite al Prof. Data entrenar modelos robustos',
-        'Conecta la Odontología con Cardiología y Medicina Interna',
+        'Permite a la IA entrenar modelos multiespecie robustos',
+        'Conecta Veterinaria con Medicina Humana bajo enfoque One Health',
       ],
     },
   ];

@@ -28,39 +28,39 @@ export default function TechnicalProposal() {
       id: "dpp",
       title: "PASAPORTE DE PRODUCTO · Industria",
       route: "/solutions/product-passport",
-      concept: "La \"Anatomía de la Verdad\" para cada implante o prótesis.",
+      concept: "La \"Anatomía de la Verdad\" para cada vacuna, microchip o medicamento.",
       icon: Shield,
       bullets: [
-        "Gemelo digital del dispositivo con lote, fabricante, materiales y parámetros críticos.",
-        "Cumplimiento automático MDR: certificados, ISO y marcado CE accesibles en un clic.",
-        "Alertas sanitarias federadas: localiza a todas las clínicas y pacientes afectados por un lote.",
-        "Convierte la trazabilidad regulatoria en argumento de confianza de cara al paciente."
+        "Gemelo digital del producto con lote, fabricante, materiales y parámetros críticos.",
+        "Cumplimiento automático normativo: certificados, ISO y trazabilidad accesibles en un clic.",
+        "Alertas sanitarias federadas: localiza a todas las clínicas y mascotas afectadas por un lote.",
+        "Convierte la trazabilidad regulatoria en argumento de confianza de cara al tutor."
       ]
     },
     {
       id: "wallet",
-      title: "PACIENTE · Wallet / Super-App",
+      title: "TUTOR · Wallet / Super-App",
       route: "/portal/patient",
-      concept: "Gestión 360° de la vida dental: pasado, presente y futuro.",
+      concept: "Gestión 360° de la vida de tus mascotas: pasado, presente y futuro.",
       icon: Key,
       bullets: [
         "Historial clínico y financiero con facturas pagables desde la app.",
         "Panel de tratamiento activo con medicación, alertas de toma y chatbot de dudas rápidas.",
-        "Agenda y catálogo de tratamientos (marketplace) para reservar servicios y comparar opciones.",
-        "Visor 3D de la boca y panel de soberanía de datos con interruptores de acceso por entidad."
+        "Agenda y catálogo de tratamientos (marketplace) para reservar servicios veterinarios.",
+        "Visor 3D del paciente animal y panel de soberanía de datos con interruptores de acceso."
       ]
     },
     {
       id: "research",
-      title: "PROF. DATA · Investigación",
+      title: "ONE HEALTH · Investigación",
       route: "/portal/research",
-      concept: "El \"Nasdaq de los Datos Clínicos\" para IA y estudios multicéntricos.",
+      concept: "El \"Nasdaq de los Datos Veterinarios\" para IA y estudios multicéntricos.",
       icon: Database,
       bullets: [
-        "Marketplace donde los doctores monetizan datasets clínicos anonimizados.",
+        "Marketplace donde los veterinarios monetizan datasets clínicos anonimizados.",
         "Vista previa con datos sintéticos que reproducen la estructura estadística sin exponer pacientes.",
-        "Catálogo de algoritmos listos para licenciar (por ejemplo, detectores de caries pediátrica).",
-        "Convierte el dato clínico en un activo financiero gobernado por reglas de uso claras."
+        "Catálogo de algoritmos listos para licenciar (ej. detectores de tumores, zoonosis).",
+        "Convierte el dato veterinario en un activo financiero gobernado por reglas de uso claras."
       ]
     },
     {
@@ -96,15 +96,15 @@ export default function TechnicalProposal() {
       {/* Hero */}
       <div className="mb-12 pb-8 border-b border-slate-200">
         <h1 className="text-4xl font-bold text-slate-900 mb-4">
-          ACCURO TECHNOLOGY · Global Data Care Technical Whitepaper
+          ACCURO TECHNOLOGY · VetSpace-X Technical Whitepaper
         </h1>
         <p className="text-xl text-slate-600">
-          Arquitectura técnica del Espacio de Datos Federado para salud bucodental en Europa
+          Arquitectura técnica del Espacio de Datos Federado para salud animal en Europa
         </p>
         <div className="flex gap-3 mt-6">
           <Badge variant="secondary" className="text-sm">GDPR Compliant</Badge>
           <Badge variant="secondary" className="text-sm">EU Data Act Ready</Badge>
-          <Badge variant="secondary" className="text-sm">MDR Certified</Badge>
+          <Badge variant="secondary" className="text-sm">One Health Ready</Badge>
         </div>
       </div>
 

@@ -40,11 +40,11 @@ const Traceability = () => {
   const timelineSteps = [
     {
       icon: Factory,
-      title: 'Sinterizado Zirconia',
-      location: 'Fábrica - Pforzheim, Alemania',
+      title: 'Fabricación Microchip',
+      location: 'Fábrica - Heidelberg, Alemania',
       date: '10 Oct 2024, 14:30',
       hash: '0x8a7f4b3c2d1e9f8a7b6c5d4e3f2a1b0c9d8e7f6a5b4c3d2e1f0',
-      details: 'Temperatura: 1500°C • Presión: 150 MPa • Lote: Z9988',
+      details: 'ISO 11784/11785 • Frecuencia: 134.2 kHz • Lote: MC9988',
       color: 'text-purple-400',
       borderColor: 'border-purple-600',
       bgColor: 'bg-purple-900/20'
@@ -52,10 +52,10 @@ const Traceability = () => {
     {
       icon: Truck,
       title: 'Recibido en Clínica',
-      location: 'Logística - Madrid, España',
+      location: 'Distribución - Madrid, España',
       date: '12 Oct 2024, 09:15',
       hash: '0x9b2c8e7a4f3d1c0b9a8e7f6d5c4b3a2e1d0c9b8a7f6e5d4c3b2',
-      details: 'Temperatura transporte: 20°C • UDI: 0123456789012345',
+      details: 'Temperatura transporte: 18°C • Lote: MCISO-993821',
       color: 'text-blue-400',
       borderColor: 'border-blue-600',
       bgColor: 'bg-blue-900/20'
@@ -63,7 +63,7 @@ const Traceability = () => {
     {
       icon: Building,
       title: 'Implantado en Paciente',
-      location: 'Clínica Dental Norte - Madrid',
+      location: 'Clínica Veterinaria Norte - Madrid',
       date: new Date().toLocaleString('es-ES', { 
         day: '2-digit', 
         month: 'short', 
@@ -72,7 +72,7 @@ const Traceability = () => {
         minute: '2-digit'
       }),
       hash: '0x1c4f7a2b5e8d3c6a9f0b4e7d1c5a8b2e6f9a3d7c0e4b8a1d5f',
-      details: 'Dentista: Dr. García • Paciente: ID-P4589 • Diente: 36',
+      details: 'Veterinario: Dra. García • Paciente: Max • Especie: Canino',
       color: 'text-green-400',
       borderColor: 'border-green-600',
       bgColor: 'bg-green-900/20'
@@ -103,7 +103,7 @@ const Traceability = () => {
             Trazabilidad Inmutable
           </h1>
           <p className="text-xl text-slate-300 mb-8">
-            Verificación criptográfica de materiales e implantes desde la fábrica hasta el paciente
+            Verificación criptográfica de vacunas, microchips y medicamentos desde la fábrica hasta la mascota
           </p>
           <Badge className="bg-orange-600 text-white text-sm px-4 py-2">
             Blockchain + Digital Product Passport (DPP)
@@ -115,9 +115,9 @@ const Traceability = () => {
       <section className="py-16 bg-slate-800/50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">Demo Interactiva: Rastreador de Implante</h2>
+            <h2 className="text-4xl font-bold mb-4">Demo Interactiva: Rastreador de Producto Veterinario</h2>
             <p className="text-lg text-slate-300">
-              Verifica la autenticidad y trazabilidad de cualquier material
+              Verifica la autenticidad y trazabilidad de vacunas, microchips y medicamentos
             </p>
           </div>
 
@@ -277,20 +277,20 @@ const Traceability = () => {
               <CardContent>
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="bg-slate-800 rounded-lg p-4">
-                    <p className="text-sm text-slate-400 mb-2">Implante de Zirconia</p>
+                    <p className="text-sm text-slate-400 mb-2">Microchip ISO</p>
                     <p className="text-lg font-mono text-white">LOT-9988-X</p>
                   </div>
                   <div className="bg-slate-800 rounded-lg p-4">
-                    <p className="text-sm text-slate-400 mb-2">Corona Cerámica</p>
-                    <p className="text-lg font-mono text-white">UDI-0123456789012345</p>
+                    <p className="text-sm text-slate-400 mb-2">Vacuna Antirrábica</p>
+                    <p className="text-lg font-mono text-white">VAC-RAB-2024-001</p>
                   </div>
                   <div className="bg-slate-800 rounded-lg p-4">
-                    <p className="text-sm text-slate-400 mb-2">Abutment Titanio</p>
-                    <p className="text-lg font-mono text-white">LOT-7745-T</p>
+                    <p className="text-sm text-slate-400 mb-2">Antiparasitario</p>
+                    <p className="text-lg font-mono text-white">LOT-7745-AP</p>
                   </div>
                   <div className="bg-slate-800 rounded-lg p-4">
-                    <p className="text-sm text-slate-400 mb-2">Prótesis Híbrida</p>
-                    <p className="text-lg font-mono text-white">UDI-9876543210987654</p>
+                    <p className="text-sm text-slate-400 mb-2">Vacuna Triple Felina</p>
+                    <p className="text-lg font-mono text-white">VAC-FEL-2024-003</p>
                   </div>
                 </div>
               </CardContent>
