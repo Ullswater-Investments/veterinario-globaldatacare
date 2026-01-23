@@ -2,22 +2,22 @@ import { useRole } from '@/contexts/RoleContext';
 import { Link } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Stethoscope, Factory, FlaskConical, CreditCard, Wallet, Activity, Shield, Package, Brain, FileText, Wifi, Beaker } from 'lucide-react';
+import { PawPrint, FlaskConical, CreditCard, Wallet, Activity, Shield, Cpu, Brain, FileText, Wifi, Beaker, Dog, Cat, Heart } from 'lucide-react';
 
 const roleGreetings = {
   doctor: {
-    title: '¡Bienvenido, Doctor!',
-    description: 'Accede a tu cockpit clínico y herramientas de diagnóstico',
-    icon: Stethoscope,
+    title: '¡Bienvenido, Veterinario!',
+    description: 'Accede a tu cockpit clínico y herramientas de diagnóstico animal',
+    icon: PawPrint,
   },
   lab_tech: {
     title: '¡Bienvenido al Laboratorio!',
-    description: 'Gestiona órdenes de manufactura e inventario IoT',
-    icon: Factory,
+    description: 'Gestiona análisis clínicos e inventario farmacéutico',
+    icon: FlaskConical,
   },
   researcher: {
     title: '¡Bienvenido, Investigador!',
-    description: 'Explora datasets federados y análisis epidemiológicos',
+    description: 'Explora datasets federados One Health y estudios epidemiológicos',
     icon: FlaskConical,
   },
   insurance_admin: {
@@ -26,14 +26,14 @@ const roleGreetings = {
     icon: CreditCard,
   },
   patient: {
-    title: '¡Bienvenido!',
-    description: 'Gestiona tu identidad digital y consentimientos',
-    icon: Wallet,
+    title: '¡Bienvenido, Tutor!',
+    description: 'Gestiona los datos de salud de tus mascotas',
+    icon: Heart,
   },
   auditor: {
     title: 'Panel de Auditoría',
-    description: 'Vista completa del ecosistema con datos sintéticos',
-    icon: Stethoscope,
+    description: 'Vista completa del ecosistema veterinario con datos sintéticos',
+    icon: PawPrint,
   },
 };
 
@@ -46,16 +46,16 @@ export default function Dashboard() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-3xl font-bold text-slate-800">Dashboard</h1>
-        <p className="text-slate-500 mt-1">OralSpace-X - Plataforma de Salud Digital Dental</p>
+        <h1 className="text-3xl font-bold text-foreground">Dashboard</h1>
+        <p className="text-muted-foreground mt-1">VetSpace-X - Plataforma de Salud Animal Federada</p>
       </div>
 
       {greeting && Icon && (
-        <Card className="bg-gradient-to-br from-blue-50 to-white border-blue-200">
+        <Card className="bg-gradient-to-br from-primary/5 to-white border-primary/20">
           <CardHeader>
             <CardTitle className="flex items-center gap-3 text-2xl">
-              <div className="p-3 bg-blue-600 rounded-lg">
-                <Icon className="h-6 w-6 text-white" />
+              <div className="p-3 bg-primary rounded-lg">
+                <Icon className="h-6 w-6 text-primary-foreground" />
               </div>
               {greeting.title}
             </CardTitle>
@@ -64,7 +64,7 @@ export default function Dashboard() {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <p className="text-slate-600">
+            <p className="text-muted-foreground">
               Usa la barra lateral para navegar entre las diferentes secciones de la plataforma.
             </p>
           </CardContent>
@@ -73,36 +73,36 @@ export default function Dashboard() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         <Link to="/tech/fhir" className="block transition-transform hover:scale-105">
-          <Card className="h-full hover:border-blue-400 cursor-pointer">
+          <Card className="h-full hover:border-primary cursor-pointer">
             <CardHeader>
               <div className="flex items-center gap-3">
-                <div className="p-2 bg-blue-100 rounded-lg">
-                  <Activity className="h-5 w-5 text-blue-600" />
+                <div className="p-2 bg-primary/10 rounded-lg">
+                  <Activity className="h-5 w-5 text-primary" />
                 </div>
                 <CardTitle className="text-base">Interoperabilidad FHIR</CardTitle>
               </div>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-slate-600">
-                Datos clínicos unificados de múltiples fuentes
+              <p className="text-sm text-muted-foreground">
+                Datos clínicos multiespecie unificados de múltiples fuentes
               </p>
             </CardContent>
           </Card>
         </Link>
 
         <Link to="/tech/identity" className="block transition-transform hover:scale-105">
-          <Card className="h-full hover:border-green-400 cursor-pointer">
+          <Card className="h-full hover:border-accent cursor-pointer">
             <CardHeader>
               <div className="flex items-center gap-3">
-                <div className="p-2 bg-green-100 rounded-lg">
-                  <Shield className="h-5 w-5 text-green-600" />
+                <div className="p-2 bg-accent/10 rounded-lg">
+                  <Shield className="h-5 w-5 text-accent" />
                 </div>
                 <CardTitle className="text-base">Identidad Descentralizada</CardTitle>
               </div>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-slate-600">
-                Wallets con control total del paciente (DID)
+              <p className="text-sm text-muted-foreground">
+                Wallets con control total del tutor (DID)
               </p>
             </CardContent>
           </Card>
@@ -113,14 +113,14 @@ export default function Dashboard() {
             <CardHeader>
               <div className="flex items-center gap-3">
                 <div className="p-2 bg-amber-100 rounded-lg">
-                  <Package className="h-5 w-5 text-amber-600" />
+                  <Cpu className="h-5 w-5 text-amber-600" />
                 </div>
                 <CardTitle className="text-base">Pasaporte Digital (DPP)</CardTitle>
               </div>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-slate-600">
-                Trazabilidad blockchain para productos dentales
+              <p className="text-sm text-muted-foreground">
+                Trazabilidad blockchain para microchips, vacunas y pedigrís
               </p>
             </CardContent>
           </Card>
@@ -137,8 +137,8 @@ export default function Dashboard() {
               </div>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-slate-600">
-                Investigación distribuida sin comprometer privacidad
+              <p className="text-sm text-muted-foreground">
+                Investigación One Health sin comprometer privacidad
               </p>
             </CardContent>
           </Card>
@@ -155,7 +155,7 @@ export default function Dashboard() {
               </div>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-slate-600">
+              <p className="text-sm text-muted-foreground">
                 Automatización de pagos y detección de fraude
               </p>
             </CardContent>
@@ -173,8 +173,8 @@ export default function Dashboard() {
               </div>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-slate-600">
-                Monitoreo en tiempo real de equipos y stock
+              <p className="text-sm text-muted-foreground">
+                Monitoreo en tiempo real de equipos y stock farmacéutico
               </p>
             </CardContent>
           </Card>
@@ -187,11 +187,11 @@ export default function Dashboard() {
                 <div className="p-2 bg-purple-100 rounded-lg">
                   <Beaker className="h-5 w-5 text-purple-600" />
                 </div>
-                <CardTitle className="text-base">OralSpace-X Labs (Beta)</CardTitle>
+                <CardTitle className="text-base">VetSpace-X Labs (Beta)</CardTitle>
               </div>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-slate-600">
+              <p className="text-sm text-muted-foreground">
                 Casos de uso experimentales del futuro de la plataforma
               </p>
             </CardContent>
@@ -200,14 +200,14 @@ export default function Dashboard() {
       </div>
 
       {/* Consulting CTA Section */}
-      <div className="mt-12 bg-gradient-to-r from-slate-900 to-blue-900 rounded-xl p-8 text-white">
+      <div className="mt-12 bg-gradient-to-r from-foreground to-primary/90 rounded-xl p-8 text-primary-foreground">
         <div className="max-w-3xl">
-          <h2 className="text-2xl font-bold mb-3">¿Listo para implementar OralSpace-X en su red?</h2>
-          <p className="text-slate-300 mb-6">
+          <h2 className="text-2xl font-bold mb-3">¿Listo para implementar VetSpace-X en su red?</h2>
+          <p className="text-primary-foreground/70 mb-6">
             Explore nuestra propuesta técnica completa con arquitectura, metodología de entrega y modelos de colaboración.
           </p>
           <Link to="/consulting/technical-proposal">
-            <Button size="lg" className="bg-white text-slate-900 hover:bg-slate-100">
+            <Button size="lg" className="bg-white text-foreground hover:bg-white/90">
               <FileText className="h-5 w-5 mr-2" />
               Ver Technical Whitepaper
             </Button>
