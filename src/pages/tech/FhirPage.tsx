@@ -16,7 +16,7 @@ const FhirPage = () => {
         resource: {
           resourceType: "Condition",
           code: {
-            coding: [{ system: "SNODENT", code: "140234D", display: "Periodontitis" }]
+            coding: [{ system: "SNOMED-VET", code: "860574003", display: "Dermatitis Atópica Canina" }]
           }
         }
       },
@@ -24,7 +24,7 @@ const FhirPage = () => {
         resource: {
           resourceType: "Flag",
           status: "active",
-          code: { text: "Riesgo Endocarditis" }
+          code: { text: "Riesgo Alérgico Severo" }
         }
       }
     ]
@@ -46,17 +46,17 @@ const FhirPage = () => {
       {/* Hero */}
       <section className="container mx-auto px-4 py-16">
         <div className="text-center max-w-4xl mx-auto">
-          <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-blue-900/50 mb-6">
-            <Activity className="h-10 w-10 text-blue-400" />
+          <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-emerald-900/50 mb-6">
+            <Activity className="h-10 w-10 text-emerald-400" />
           </div>
-          <h1 className="text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-400">
+          <h1 className="text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-teal-400">
             Interoperabilidad Semántica (HL7 FHIR)
           </h1>
           <p className="text-xl text-slate-300 mb-8">
-            Unificación automática de datos dispersos (Hospital + Dental) en un solo lenguaje estándar
+            Unificación automática de datos dispersos (Hospital Veterinario + Clínica) en un solo lenguaje estándar
           </p>
-          <Badge className="bg-blue-600 text-white text-sm px-4 py-2">
-            HL7 FHIR R4 + SNODENT Ontology
+          <Badge className="bg-emerald-600 text-white text-sm px-4 py-2">
+            HL7 FHIR R4 + SNOMED-VET Ontology
           </Badge>
         </div>
       </section>
@@ -77,16 +77,16 @@ const FhirPage = () => {
               <div className="space-y-4">
                 <h3 className="text-xl font-semibold text-center mb-4">Fuentes Dispersas</h3>
                 
-                <Card className="bg-red-900/20 border-red-600">
+                <Card className="bg-orange-900/20 border-orange-600">
                   <CardHeader>
                     <CardTitle className="text-white flex items-center gap-2">
-                      <FileText className="h-5 w-5 text-red-400" />
-                      Hospital
+                      <FileText className="h-5 w-5 text-orange-400" />
+                      Hospital de Referencia
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
                     <p className="text-sm text-slate-300">
-                      PDF Cardiología: "Válvula Mitral Mecánica"
+                      PDF Cardiología: "Soplo Cardíaco Grado III"
                     </p>
                     <p className="text-xs text-slate-400 mt-2">
                       Formato: Texto plano no estructurado
@@ -94,16 +94,16 @@ const FhirPage = () => {
                   </CardContent>
                 </Card>
 
-                <Card className="bg-blue-900/20 border-blue-600">
+                <Card className="bg-emerald-900/20 border-emerald-600">
                   <CardHeader>
                     <CardTitle className="text-white flex items-center gap-2">
-                      <FileText className="h-5 w-5 text-blue-400" />
-                      Clínica Dental
+                      <FileText className="h-5 w-5 text-emerald-400" />
+                      Clínica Veterinaria
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
                     <p className="text-sm text-slate-300">
-                      Software PMS: "Periodontitis G2"
+                      Software VetPMS: "Dermatitis G2"
                     </p>
                     <p className="text-xs text-slate-400 mt-2">
                       Formato: Código propietario
@@ -115,13 +115,13 @@ const FhirPage = () => {
               {/* Normalización */}
               <div className="flex flex-col items-center justify-center">
                 <div className="text-center space-y-4">
-                  <div className="bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg p-6">
+                  <div className="bg-gradient-to-r from-emerald-600 to-teal-600 rounded-lg p-6">
                     <p className="text-white font-semibold mb-2">Normalización Semántica</p>
                     <ArrowRight className="h-8 w-8 text-white mx-auto animate-pulse" />
                   </div>
                   <Button 
                     onClick={() => setShowFhir(!showFhir)}
-                    className="bg-blue-600 hover:bg-blue-700"
+                    className="bg-emerald-600 hover:bg-emerald-700"
                   >
                     {showFhir ? 'Ocultar' : 'Transformar a FHIR'}
                   </Button>
@@ -160,22 +160,22 @@ const FhirPage = () => {
             <div className="grid md:grid-cols-3 gap-6">
               <Card className="bg-slate-900 border-slate-700">
                 <CardHeader>
-                  <CardTitle className="text-white">Semántica SNODENT</CardTitle>
+                  <CardTitle className="text-white">Semántica SNOMED-VET</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-slate-300">
-                    Códigos estandarizados para procedimientos dentales reconocidos internacionalmente
+                    Códigos estandarizados para procedimientos veterinarios reconocidos internacionalmente
                   </p>
                 </CardContent>
               </Card>
 
               <Card className="bg-slate-900 border-slate-700">
                 <CardHeader>
-                  <CardTitle className="text-white">Conexión Hospitalaria</CardTitle>
+                  <CardTitle className="text-white">Conexión One Health</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-slate-300">
-                    Integración directa con sistemas hospitalarios para datos médicos críticos
+                    Integración directa con hospitales de referencia y centros de zoonosis
                   </p>
                 </CardContent>
               </Card>

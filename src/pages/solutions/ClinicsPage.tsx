@@ -6,8 +6,8 @@ import { Cloud, ArrowRight, Database, Server, Activity, Users, ShoppingCart, Bra
 const ClinicsPage = () => {
   useEffect(() => {
     // SEO: título, descripción y canonical específicos de la página
-    document.title = "Servicios Federados para Clínicas | ACCURO TECHNOLOGY";
-    const descriptionContent = "Conecta tu clínica dental a un cloud federado donde ERP, IA y compras se consumen como servicios, manteniendo tu independencia.";
+    document.title = "Servicios Federados para Clínicas Veterinarias | ACCURO TECHNOLOGY";
+    const descriptionContent = "Conecta tu clínica veterinaria a un cloud federado donde ERP, IA y compras se consumen como servicios, manteniendo tu independencia.";
     let metaDescription = document.querySelector('meta[name="description"]') as HTMLMetaElement | null;
     if (!metaDescription) {
       metaDescription = document.createElement("meta");
@@ -36,9 +36,9 @@ const ClinicsPage = () => {
 
         <div className="container relative z-10 mx-auto px-6">
           <div className="mx-auto max-w-4xl text-center">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-400/30 bg-blue-500/20 px-3 py-1 text-sm font-medium text-blue-300">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-500/20 px-3 py-1 text-sm font-medium text-emerald-300">
               <Cloud className="h-4 w-4" />
-              <span>Infraestructura Cloud Federada para Clínicas</span>
+              <span>Infraestructura Cloud Federada para Clínicas Veterinarias</span>
             </div>
             <h1 className="mb-6 text-4xl font-bold tracking-tight md:text-6xl">
               Servicios de Valor Añadido en una
@@ -47,9 +47,9 @@ const ClinicsPage = () => {
                 Red Federada
               </span>
             </h1>
-            <p className="mb-10 text-xl leading-relaxed text-slate-300">Tu clínica deja de depender de software aislado. Se conecta a un hub de servicios donde el ERP y la Inteligencia Artificial se consumen bajo demanda, manteniendo tu independencia.</p>
-            <Button size="lg" className="mx-auto flex items-center gap-2 rounded-xl bg-primary px-8 py-4 text-primary-foreground shadow-lg shadow-blue-900/50 hover:bg-primary/90">
-              Conectar mi Clínica al Cloud
+            <p className="mb-10 text-xl leading-relaxed text-slate-300">Tu clínica veterinaria deja de depender de software aislado. Se conecta a un hub de servicios donde el ERP y la Inteligencia Artificial se consumen bajo demanda, manteniendo tu independencia.</p>
+            <Button size="lg" className="mx-auto flex items-center gap-2 rounded-xl bg-primary px-8 py-4 text-primary-foreground shadow-lg shadow-emerald-900/50 hover:bg-primary/90">
+              Conectar mi Clínica Veterinaria
               <ArrowRight className="h-5 w-5" />
             </Button>
           </div>
@@ -65,7 +65,7 @@ const ClinicsPage = () => {
             </h2>
             <p className="mt-4 mx-auto max-w-2xl text-slate-500">
               Un único punto de conexión te da acceso a múltiples proveedores
-              externos especializados en odontología.
+              externos especializados en medicina veterinaria.
             </p>
           </div>
 
@@ -138,7 +138,7 @@ const ClinicsPage = () => {
           <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
             {/* Servicio 1: ERP/CRM */}
             <article className="group flex items-start gap-6">
-              <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-blue-50 text-blue-600 transition-colors duration-300 group-hover:bg-blue-600 group-hover:text-white">
+              <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600 transition-colors duration-300 group-hover:bg-emerald-600 group-hover:text-white">
                 <Users className="h-7 w-7" />
               </div>
               <div>
@@ -146,18 +146,18 @@ const ClinicsPage = () => {
                   Gestión Unificada (ERP + CRM)
                 </h3>
                 <p className="mb-4 leading-relaxed text-slate-500">
-                  Activa módulos de gestión especializados en salud bucal. Tu
+                  Activa módulos de gestión especializados en salud animal. Tu
                   CRM sigue siendo tuyo, pero se actualiza automáticamente con
                   las mejores prácticas de la red.
                 </p>
                 <ul className="space-y-2 text-sm text-slate-700">
                   <li className="flex items-center gap-2">
-                    <span className="h-1.5 w-1.5 rounded-full bg-blue-500" />
-                    CRM independiente por clínica.
+                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                    CRM independiente por clínica veterinaria.
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="h-1.5 w-1.5 rounded-full bg-blue-500" />
-                    Módulos específicos dentales y de salud bucal.
+                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                    Módulos específicos veterinarios y de salud animal.
                   </li>
                 </ul>
               </div>
@@ -204,7 +204,7 @@ const ClinicsPage = () => {
                 <ul className="space-y-2 text-sm text-slate-700">
                   <li className="flex items-center gap-2">
                     <span className="h-1.5 w-1.5 rounded-full bg-purple-500" />
-                    Detección automática de patologías en radiografías.
+                    Detección automática de patologías en radiografías veterinarias.
                   </li>
                   <li className="flex items-center gap-2">
                     <span className="h-1.5 w-1.5 rounded-full bg-purple-500" />

@@ -33,11 +33,11 @@ const BusinessModels = () => {
     {
       key: 'clinical',
       title: 'B2B Clínico',
-      subtitle: 'Eficiencia Operativa',
+      subtitle: 'Eficiencia Veterinaria',
       icon: Building2,
-      color: 'text-blue-600',
-      bgColor: 'bg-blue-50',
-      borderColor: 'border-blue-200'
+      color: 'text-emerald-600',
+      bgColor: 'bg-emerald-50',
+      borderColor: 'border-emerald-200'
     },
     {
       key: 'industry',
@@ -68,7 +68,7 @@ const BusinessModels = () => {
     },
     {
       key: 'patient',
-      title: 'Servicios Paciente',
+      title: 'Servicios Tutor',
       subtitle: 'B2C / B2B2C',
       icon: Users,
       color: 'text-green-600',
@@ -96,11 +96,11 @@ const BusinessModels = () => {
       <div className="container mx-auto px-4 py-12">
         {/* Hero Section */}
         <div className="text-center mb-16">
-          <h1 className="text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">
-            Ecosistema de Valor ORALDATA-X
+          <h1 className="text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-emerald-600 to-teal-600">
+            Ecosistema de Valor VETSPACE-X
           </h1>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            25 Flujos de Ingresos Distribuidos en 5 Verticales de Mercado
+            25 Flujos de Ingresos Distribuidos en 5 Verticales del Mercado Veterinario
           </p>
         </div>
 

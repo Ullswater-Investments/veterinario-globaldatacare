@@ -17,10 +17,10 @@ const TechIndex = () => {
       icon: Network,
       title: 'Interoperabilidad',
       subtitle: 'HL7 FHIR',
-      description: 'Hablamos el idioma universal de la salud. Descubre cómo transformamos datos legacy en recursos FHIR estandarizados para conectar clínicas con hospitales.',
-      color: 'text-blue-600',
-      bgColor: 'bg-blue-50',
-      borderColor: 'border-blue-200',
+      description: 'Hablamos el idioma universal de la salud animal. Descubre cómo transformamos datos legacy en recursos FHIR estandarizados para conectar clínicas veterinarias con hospitales de referencia.',
+      color: 'text-emerald-600',
+      bgColor: 'bg-emerald-50',
+      borderColor: 'border-emerald-200',
       link: '/tech/interoperability'
     },
     {
@@ -37,7 +37,7 @@ const TechIndex = () => {
       icon: Database,
       title: 'Trazabilidad',
       subtitle: 'Blockchain',
-      description: 'Seguridad inmutable para implantes y prótesis. Verifica la autenticidad de cualquier material desde la fábrica hasta el paciente con blockchain.',
+      description: 'Seguridad inmutable para vacunas, microchips y pedigrís. Verifica la autenticidad de cualquier producto desde la fábrica hasta la mascota con blockchain.',
       color: 'text-orange-600',
       bgColor: 'bg-orange-50',
       borderColor: 'border-orange-200',
@@ -62,11 +62,11 @@ const TechIndex = () => {
       {/* Hero */}
       <section className="container mx-auto px-4 py-16">
         <div className="text-center max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-cyan-500">
-            Arquitectura de Confianza OralSpace-X
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-emerald-600 to-teal-500">
+            Arquitectura de Confianza VetSpace-X
           </h1>
           <p className="text-xl text-slate-600 mb-8">
-            Tecnologías que garantizan interoperabilidad, soberanía y trazabilidad en el ecosistema dental europeo
+            Tecnologías que garantizan interoperabilidad, soberanía y trazabilidad en el ecosistema veterinario europeo
           </p>
         </div>
       </section>

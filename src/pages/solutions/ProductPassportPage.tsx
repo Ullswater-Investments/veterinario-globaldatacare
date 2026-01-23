@@ -24,10 +24,10 @@ const ProductPassportPage = () => {
   useEffect(() => {
     // SEO: título, descripción y canonical específicos de la página
     const descriptionContent =
-      "Explora el Pasaporte Digital de Producto (DPP) para implantes dentales: trazabilidad total, certificados MDR/ISO y advertencias de seguridad en un solo escaneo.";
+      "Explora el Pasaporte Digital de Producto (DPP) para vacunas, microchips y medicamentos veterinarios: trazabilidad total, certificados y advertencias de seguridad en un solo escaneo.";
 
     document.title =
-      "Pasaporte Digital de Producto Dental (DPP) | ACCURO TECHNOLOGY";
+      "Pasaporte Digital de Producto Veterinario (DPP) | ACCURO TECHNOLOGY";
 
     let metaDescription = document.querySelector(
       'meta[name="description"]',
@@ -54,9 +54,9 @@ const ProductPassportPage = () => {
     const ldJson = {
       "@context": "https://schema.org",
       "@type": "Product",
-      name: "Pasaporte Digital de Producto para implantes dentales",
+      name: "Pasaporte Digital de Producto para vacunas y microchips veterinarios",
       description: descriptionContent,
-      category: "MedicalDevice",
+      category: "VeterinaryDevice",
       brand: {
         "@type": "Organization",
         name: "ACCURO TECHNOLOGY",
@@ -95,11 +95,11 @@ const ProductPassportPage = () => {
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
             La Verdad Detrás de <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-emerald-300">
-              Cada Intervención Clínica
+              Cada Producto Veterinario
             </span>
           </h1>
           <p className="text-xl text-slate-300 mb-8 max-w-3xl mx-auto">
-            Trazabilidad inmutable desde la fábrica hasta el paciente.
+            Trazabilidad inmutable desde la fábrica hasta la mascota.
             Certificados, garantías y advertencias de seguridad accesibles con un
             simple escaneo.
           </p>
@@ -116,7 +116,7 @@ const ProductPassportPage = () => {
                 El Objeto Físico
               </h2>
               <p className="text-slate-500">
-                Un implante, una férula o biomaterial llega a la clínica.
+                Una vacuna, un microchip o medicamento llega a la clínica.
                 Parece una simple caja, pero contiene un identificador único
                 (UDI) vinculado al cloud.
               </p>
@@ -125,7 +125,7 @@ const ProductPassportPage = () => {
                   <div className="w-48 h-48 bg-slate-100 rounded-xl border-2 border-slate-200 flex items-center justify-center shadow-inner">
                     <img
                       src={barcodeImage}
-                      alt="Código de barras del Pasaporte Digital de Producto dental"
+                      alt="Código de barras del Pasaporte Digital de Producto Veterinario"
                       className="w-32 h-32 object-contain mix-blend-multiply opacity-80"
                     />
                   </div>
@@ -159,9 +159,9 @@ const ProductPassportPage = () => {
                         Verificado &amp; Auténtico
                       </span>
                     </div>
-                    <h2 className="text-xl font-bold">Implante Titanio Z-Series</h2>
+                    <h2 className="text-xl font-bold">Microchip ISO 11784</h2>
                     <p className="text-sm text-slate-400">
-                      Ref: TI-400-12 | Lote: #993821-X
+                      Ref: MC-134-ISO | Lote: #993821-X
                     </p>
                   </div>
                   <div className="bg-white p-1 rounded">
@@ -175,7 +175,7 @@ const ProductPassportPage = () => {
                     <p className="text-xs text-slate-400 mb-1">Fabricante</p>
                     <p className="text-sm font-semibold flex items-center gap-2">
                       <Factory className="w-3 h-3 text-purple-400" />
-                      DentalTech GmbH
+                      VetChip GmbH
                     </p>
                   </div>
                   <div className="bg-white/5 p-3 rounded-lg border border-white/5">
@@ -187,7 +187,7 @@ const ProductPassportPage = () => {
                   <div className="bg-white/5 p-3 rounded-lg border border-white/5">
                     <p className="text-xs text-slate-400 mb-1">Material</p>
                     <p className="text-sm font-semibold">
-                      Titanio Grado 5 (Ti-6Al-4V)
+                      Biopolímero ISO 11784/11785
                     </p>
                   </div>
                   <div className="bg-white/5 p-3 rounded-lg border border-white/5">
@@ -357,10 +357,10 @@ const ProductPassportPage = () => {
                     Transparencia y Garantía a Largo Plazo
                   </h3>
                   <p className="text-slate-600 leading-relaxed">
-                    ¿Qué llevo en mi boca? El paciente accede a su "Wallet de
-                    Salud" y ve la marca, modelo y garantía de sus implantes. Si
-                    cambia de dentista o país años después, la información
-                    técnica viaja con él para un mantenimiento adecuado.
+                    ¿Qué lleva mi mascota? El tutor accede al "Wallet de
+                    Salud" y ve la marca, modelo y garantía de sus microchips y vacunas. Si
+                    cambia de veterinario o país años después, la información
+                    técnica viaja con su mascota para un seguimiento adecuado.
                   </p>
                 </div>
               </div>

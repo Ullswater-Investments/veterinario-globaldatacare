@@ -17,44 +17,44 @@ const Interoperability = () => {
   const [isConverting, setIsConverting] = useState(false);
   const [showOutput, setShowOutput] = useState(false);
 
-  const legacyData = `PACIENTE: Juan García
-TRATAMIENTO: Endodoncia
-DIENTE: 36
+  const legacyData = `PACIENTE: Max (Canino)
+TRATAMIENTO: Vacunación Triple
+ESPECIE: Perro - Labrador
 FECHA: 2024-01-15
-DENTISTA: Dr. Martínez`;
+VETERINARIO: Dra. García`;
 
   const fhirOutput = `{
-  "resourceType": "Procedure",
-  "id": "endo-juan-2024",
+  "resourceType": "Immunization",
+  "id": "vaccine-max-2024",
   "status": "completed",
-  "code": {
+  "vaccineCode": {
     "coding": [{
-      "system": "http://cdt.ada.org",
-      "code": "D3330",
-      "display": "Endodontic therapy, molar"
+      "system": "http://snomed.info/sct",
+      "code": "787859002",
+      "display": "Canine DHPPi vaccine"
     }],
-    "text": "Endodoncia"
+    "text": "Vacuna Triple Canina"
   },
-  "subject": {
-    "reference": "Patient/juan-garcia",
-    "display": "Juan García"
+  "patient": {
+    "reference": "Patient/max-labrador",
+    "display": "Max (Labrador)"
   },
-  "performedDateTime": "2024-01-15",
+  "occurrenceDateTime": "2024-01-15",
   "performer": [{
     "actor": {
-      "reference": "Practitioner/dr-martinez",
-      "display": "Dr. Martínez"
+      "reference": "Practitioner/dra-garcia",
+      "display": "Dra. García"
     }
   }],
-  "bodySite": [{
+  "site": {
     "coding": [{
-      "system": "http://fdi.org",
-      "code": "36",
-      "display": "Lower left first molar"
+      "system": "http://snomed.info/sct",
+      "code": "29836001",
+      "display": "Subcutaneous route"
     }]
-  }],
+  },
   "note": [{
-    "text": "Converted from legacy PMS format"
+    "text": "Converted from legacy VetPMS format"
   }]
 }`;
 
@@ -71,18 +71,18 @@ DENTISTA: Dr. Martínez`;
   const advantages = [
     {
       icon: Code,
-      title: 'Semántica SNODENT',
-      description: 'Códigos universales que cualquier sistema entiende'
+      title: 'Semántica SNOMED-VET',
+      description: 'Códigos veterinarios universales que cualquier sistema entiende'
     },
     {
       icon: Network,
-      title: 'Conexión Hospitalaria',
-      description: 'Interoperabilidad real con sistemas médicos generales'
+      title: 'Conexión One Health',
+      description: 'Interoperabilidad real con hospitales de referencia y centros de zoonosis'
     },
     {
       icon: CheckCircle2,
       title: 'Validación Automática',
-      description: 'Estructura validada contra el estándar FHIR R4'
+      description: 'Estructura validada contra el estándar FHIR R4 Veterinario'
     }
   ];
 
@@ -103,17 +103,17 @@ DENTISTA: Dr. Martínez`;
       {/* Hero */}
       <section className="container mx-auto px-4 py-16">
         <div className="text-center max-w-4xl mx-auto">
-          <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-blue-900/50 mb-6">
-            <Network className="h-10 w-10 text-blue-400" />
+          <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-emerald-900/50 mb-6">
+            <Network className="h-10 w-10 text-emerald-400" />
           </div>
-          <h1 className="text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-400">
+          <h1 className="text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-teal-400">
             El Motor HL7 FHIR
           </h1>
           <p className="text-xl text-slate-300 mb-8">
-            Cómo OralSpace-X traduce la odontología al lenguaje universal de la salud
+            Cómo VetSpace-X traduce la medicina veterinaria al lenguaje universal de la salud
           </p>
-          <Badge className="bg-blue-600 text-white text-sm px-4 py-2">
-            Estándar HL7 FHIR R4 Certificado
+          <Badge className="bg-emerald-600 text-white text-sm px-4 py-2">
+            Estándar HL7 FHIR R4 Veterinario
           </Badge>
         </div>
       </section>
