@@ -98,7 +98,7 @@ export const StrategicPresentation: React.FC = () => {
                 </span>
               </h1>
               <p className="text-lg md:text-2xl text-slate-300 font-light">
-                La Primera Red Federada de Salud Dental
+                La Primera Red Federada de Salud Animal
               </p>
               <p className="mt-8 text-xs md:text-sm text-slate-500 uppercase tracking-widest">
                 Accuro Technology · Red.es
@@ -112,10 +112,10 @@ export const StrategicPresentation: React.FC = () => {
           <div className="h-full flex flex-col md:flex-row bg-white">
             <div className="w-full md:w-1/2 p-8 md:p-16 flex flex-col justify-center">
               <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6">
-                El Dato Clínico es un Activo Financiero
+                El Dato Clínico Veterinario es un Activo Financiero
               </h2>
               <p className="text-lg md:text-xl text-slate-600 leading-relaxed">
-                Las clínicas dentales generan terabytes de información valiosa cada día.
+                Las clínicas veterinarias generan terabytes de información valiosa cada día.
                 Hoy, esos datos están "dormidos" en servidores locales. Mañana, serán la base de la medicina
                 predictiva.
               </p>
@@ -184,7 +184,7 @@ export const StrategicPresentation: React.FC = () => {
                   <CheckCircle2 className="text-emerald-400" /> Cumplimiento GDPR automático.
                 </li>
                 <li className="flex items-center gap-3">
-                  <CheckCircle2 className="text-emerald-400" /> Inteligencia Colectiva (500 clínicas).
+                  <CheckCircle2 className="text-emerald-400" /> Inteligencia Colectiva (500 clínicas veterinarias).
                 </li>
               </ul>
             </div>
@@ -328,9 +328,9 @@ export const StrategicPresentation: React.FC = () => {
             </div>
             <div className="w-full md:w-1/2 flex flex-col items-center justify-center gap-6">
               <div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-6 w-full max-w-md">
-                <h3 className="text-xl font-bold mb-2 text-emerald-800">Ideal para clínicas individuales</h3>
+                <h3 className="text-xl font-bold mb-2 text-emerald-800">Ideal para clínicas veterinarias individuales</h3>
                 <p className="text-emerald-700 text-sm">
-                  Entrada accesible al ecosistema Global Data Care con acompañamiento completo en la gestión de la ayuda.
+                  Entrada accesible al ecosistema Global Data Care Veterinario con acompañamiento completo en la gestión de la ayuda.
                 </p>
               </div>
             </div>
@@ -406,9 +406,9 @@ export const StrategicPresentation: React.FC = () => {
               <strong>Periodo Q1 - Q2 2025</strong>
             </p>
             <ul className="max-w-3xl mx-auto space-y-3 text-lg text-slate-700 list-disc list-inside">
-              <li>Construcción del MVP (Producto Mínimo Viable) de la plataforma.</li>
-              <li>Instalación de conectores IDS en las clínicas participantes.</li>
-              <li>Despliegue de los 5 casos de uso piloto acordados.</li>
+              <li>Construcción del MVP (Producto Mínimo Viable) de la plataforma veterinaria.</li>
+              <li>Instalación de conectores IDS en las clínicas veterinarias participantes.</li>
+              <li>Despliegue de los 5 casos de uso piloto acordados (vacunación, microchips, One Health).</li>
             </ul>
           </div>
         );
@@ -436,10 +436,10 @@ export const StrategicPresentation: React.FC = () => {
               Fase 4: IA a Escala
             </h2>
             <ul className="max-w-3xl mx-auto space-y-3 text-lg text-slate-100 list-disc list-inside">
-              <li>Compras predictivas automatizadas entre clínicas federadas.</li>
-              <li>Diagnóstico IA federado global para casos complejos.</li>
+              <li>Compras predictivas automatizadas entre clínicas veterinarias federadas.</li>
+              <li>Diagnóstico IA federado global para patologías complejas (displasia, cardiomiopatía).</li>
               <li>
-                Venta de datasets anonimizados a farmacéuticas con modelos de
+                Venta de datasets anonimizados a laboratorios farmacéuticos veterinarios con modelos de
                 revenue share.
               </li>
             </ul>
@@ -453,23 +453,23 @@ export const StrategicPresentation: React.FC = () => {
               El Valor en la Práctica
             </h2>
             <p className="text-center text-slate-600 mb-6">
-              <strong>Ejemplo de flujo completo</strong>
+              <strong>Ejemplo de flujo completo veterinario</strong>
             </p>
             <ul className="max-w-3xl mx-auto space-y-3 text-lg text-slate-700 list-disc list-inside">
-              <li>La agenda predice 10 implantes en las próximas semanas.</li>
+              <li>La agenda predice 20 vacunaciones y 5 cirugías en las próximas semanas.</li>
               <li>
-                La Central de Compras agrupa el pedido automáticamente con otras
-                clínicas y reduce el coste un 20%.
+                La Central de Compras agrupa el pedido de vacunas automáticamente con otras
+                clínicas veterinarias y reduce el coste un 25%.
               </li>
               <li>
-                Cada implante lleva un Pasaporte Digital de Producto con trazabilidad
-                completa.
+                Cada vacuna y microchip lleva un Pasaporte Digital de Producto con trazabilidad
+                completa de cadena de frío.
               </li>
               <li>
-                El paciente visualiza su implante 3D en la app Wallet.
+                El tutor visualiza el historial de su mascota en la app Wallet.
               </li>
               <li>
-                Los datos anónimos mejoran el algoritmo de éxito de implantes.
+                Los datos anónimos mejoran los algoritmos de diagnóstico veterinario (displasia, dermatitis).
               </li>
             </ul>
           </div>
@@ -512,8 +512,8 @@ export const StrategicPresentation: React.FC = () => {
               Lidera el Cambio
             </h2>
             <p className="text-xl md:text-2xl mb-10 md:mb-12 max-w-xl md:max-w-2xl">
-              No dejes que tu clínica se quede en la era analógica.
-              Únete hoy a Global Data Care.
+              No dejes que tu clínica veterinaria se quede en la era analógica.
+              Únete hoy a Global Data Care Veterinario.
             </p>
             <button className="px-8 md:px-12 py-4 md:py-6 bg-white text-blue-700 rounded-full text-lg md:text-2xl font-bold hover:scale-105 transition-transform shadow-2xl">
               Solicitar Adhesión
