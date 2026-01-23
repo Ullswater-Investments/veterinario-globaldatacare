@@ -81,7 +81,7 @@ const PropuestaKitEspacioDatos: React.FC = () => {
           <div className="flex justify-between items-center h-16">
             <Link to="/" className="flex items-center gap-2">
               <span className="text-xl font-bold tracking-tight text-slate-900">
-                ACCURO <span className="text-blue-600">| BQDC</span>
+                ACCURO <span className="text-blue-600">| VetSpace-X</span>
               </span>
             </Link>
             <div className="hidden md:flex space-x-8 text-sm font-medium">
@@ -114,14 +114,14 @@ const PropuestaKitEspacioDatos: React.FC = () => {
           </div>
           
           <h1 className="text-5xl md:text-7xl font-bold text-white tracking-tight mb-6 leading-tight">
-            Transformando la Excelencia Clínica en <br />
+            Transformando la Excelencia Veterinaria en <br />
             <span className="bg-gradient-to-r from-blue-500 to-emerald-500 bg-clip-text text-transparent">
               Inteligencia de Datos
             </span>
           </h1>
           
           <p className="text-xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
-            Implementación del ecosistema <strong className="text-white">Global Data Care</strong> para la red BQDC.
+            Implementación del ecosistema <strong className="text-white">Global Data Care Veterinario</strong> para la red VetSpace-X.
             Soberanía, Interoperabilidad y Financiación Europea.
           </p>
 
@@ -153,8 +153,8 @@ const PropuestaKitEspacioDatos: React.FC = () => {
       <section id="vision" className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4">De la Clínica Digital a la Clínica Inteligente</h2>
-            <p className="text-lg text-slate-600">BQDC ya lidera en calidad. El siguiente paso es liderar en datos.</p>
+            <h2 className="text-3xl font-bold text-slate-900 mb-4">De la Clínica Veterinaria Digital a la Clínica Inteligente</h2>
+            <p className="text-lg text-slate-600">VetSpace-X ya lidera en calidad. El siguiente paso es liderar en datos One Health.</p>
           </div>
 
           <div className="bg-slate-50 rounded-2xl p-2 max-w-sm mx-auto flex mb-12">
@@ -229,14 +229,14 @@ const PropuestaKitEspacioDatos: React.FC = () => {
             <span className="text-blue-600 font-bold tracking-wide uppercase text-sm">El Salto Tecnológico</span>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-2">Visualice la Transformación</h2>
             <p className="text-lg text-slate-600 mt-4 max-w-2xl mx-auto">
-              Compare la operativa actual de una clínica estándar frente a una clínica integrada en el ecosistema Global Data Care.
+              Compare la operativa actual de una clínica veterinaria estándar frente a una clínica integrada en el ecosistema Global Data Care Veterinario.
             </p>
           </div>
 
           <div className="space-y-24">
             
             {/* TRANSFORMACIÓN 1: CLÍNICA */}
-            <TransformationBlock title="1. Gestión Clínica" subtitle="De Silos Aislados a Nodo Conectado" description="Actualmente, su PMS (Gestión), sus equipos de Rayos X y su contabilidad hablan idiomas distintos. Con ACCURO, unificamos todo bajo un estándar universal." beforeIcon={<Server className="w-6 h-6 text-slate-400" />} afterIcon={<LayoutDashboard className="w-6 h-6 text-blue-600" />} beforeLabel="Sistemas Desconectados" afterLabel="Hub Inteligente (EDC)" beforeVisual={<div className="relative w-full h-full flex items-center justify-center">
+            <TransformationBlock title="1. Gestión Clínica Veterinaria" subtitle="De Silos Aislados a Nodo Conectado" description="Actualmente, su PMS (Gestión), sus equipos de diagnóstico por imagen y su contabilidad hablan idiomas distintos. Con ACCURO, unificamos todo bajo un estándar universal veterinario." beforeIcon={<Server className="w-6 h-6 text-slate-400" />} afterIcon={<LayoutDashboard className="w-6 h-6 text-blue-600" />} beforeLabel="Sistemas Desconectados" afterLabel="Hub Inteligente (EDC)" beforeVisual={<div className="relative w-full h-full flex items-center justify-center">
                   <div className="flex gap-6">
                     <div className="flex flex-col items-center p-3 border-2 border-dashed border-slate-300 rounded-lg bg-slate-50">
                       <FileX className="text-slate-400 w-8 h-8 mb-2" />
@@ -265,8 +265,8 @@ const PropuestaKitEspacioDatos: React.FC = () => {
                   <div className="absolute h-3/4 w-[2px] bg-gradient-to-b from-blue-200 via-blue-400 to-blue-200 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-0"></div>
                 </div>} />
 
-            {/* TRANSFORMACIÓN 2: PACIENTE */}
-            <TransformationBlock title="2. Experiencia del Paciente" subtitle="De Papel y Teléfono a Identidad Soberana" description="Elimine la burocracia en recepción. Entregue al paciente una App (Wallet) donde lleva sus radiografías, sus citas y sus facturas. Fidelización premium." beforeIcon={<FileX className="w-6 h-6 text-slate-400" />} afterIcon={<Smartphone className="w-6 h-6 text-emerald-600" />} beforeLabel="Gestión Analógica" afterLabel="Wallet Digital" beforeVisual={<div className="flex flex-col items-center justify-center h-full gap-3">
+            {/* TRANSFORMACIÓN 2: TUTOR/PACIENTE */}
+            <TransformationBlock title="2. Experiencia del Tutor" subtitle="De Papel y Teléfono a Identidad Soberana" description="Elimine la burocracia en recepción. Entregue al tutor una App (Wallet) donde lleva las radiografías de su mascota, citas y facturas. Fidelización premium." beforeIcon={<FileX className="w-6 h-6 text-slate-400" />} afterIcon={<Smartphone className="w-6 h-6 text-emerald-600" />} beforeLabel="Gestión Analógica" afterLabel="Wallet Digital Veterinario" beforeVisual={<div className="flex flex-col items-center justify-center h-full gap-3">
                   <div className="bg-slate-100 p-3 w-28 h-36 border border-slate-300 relative rounded">
                     <div className="w-full h-2 bg-slate-300 mb-2 rounded"></div>
                     <div className="w-2/3 h-2 bg-slate-300 mb-2 rounded"></div>
@@ -290,13 +290,13 @@ const PropuestaKitEspacioDatos: React.FC = () => {
                 </div>} />
 
             {/* TRANSFORMACIÓN 3: INDUSTRIA */}
-            <TransformationBlock title="3. Trazabilidad de Implantes" subtitle="De Caja Negra a Pasaporte Digital" description="¿De dónde viene este implante? Con nuestra tecnología Blockchain, generamos un 'Pasaporte Digital de Producto' (DPP) automático para cumplimiento MDR." beforeIcon={<ScanBarcode className="w-6 h-6 text-slate-400" />} afterIcon={<ShieldCheck className="w-6 h-6 text-purple-600" />} beforeLabel="Origen Incierto" afterLabel="Certificado Blockchain" beforeVisual={<div className="flex items-center justify-center h-full gap-6">
+            <TransformationBlock title="3. Trazabilidad de Vacunas y Microchips" subtitle="De Caja Negra a Pasaporte Digital" description="¿De dónde viene esta vacuna? Con nuestra tecnología Blockchain, generamos un 'Pasaporte Digital de Producto' (DPP) automático con trazabilidad de cadena de frío." beforeIcon={<ScanBarcode className="w-6 h-6 text-slate-400" />} afterIcon={<ShieldCheck className="w-6 h-6 text-purple-600" />} beforeLabel="Origen Incierto" afterLabel="Certificado Blockchain" beforeVisual={<div className="flex items-center justify-center h-full gap-6">
                   <div className="w-20 h-20 bg-slate-200 border-2 border-dashed border-slate-400 rounded-lg flex items-center justify-center text-slate-400 text-3xl font-bold">?</div>
                   <ArrowDown className="text-slate-300 -rotate-90 w-6 h-6" />
                   <div className="text-sm text-slate-500 text-center font-medium">
                     <div className="text-red-400">¿Lote?</div>
-                    <div className="text-red-400">¿Caducidad?</div>
-                    <div className="text-red-400">¿Origen?</div>
+                    <div className="text-red-400">¿Cadena Frío?</div>
+                    <div className="text-red-400">¿Fabricante?</div>
                   </div>
                 </div>} afterVisual={<div className="flex flex-col items-center justify-center h-full w-full gap-4">
                   <div className="flex items-center gap-3 w-full justify-center">
@@ -306,11 +306,11 @@ const PropuestaKitEspacioDatos: React.FC = () => {
                     <div className="h-[3px] w-10 bg-gradient-to-r from-purple-500 to-purple-300 rounded"></div>
                     <div className="w-10 h-10 bg-purple-600 rounded-lg flex items-center justify-center shadow-lg shadow-purple-500/50"><CheckCircle2 className="w-6 h-6 text-white" /></div>
                   </div>
-                  <span className="text-sm font-bold text-purple-700 bg-purple-50 px-4 py-2 rounded-full border border-purple-200">MDR Compliant</span>
+                  <span className="text-sm font-bold text-purple-700 bg-purple-50 px-4 py-2 rounded-full border border-purple-200">Cold Chain Verified</span>
                 </div>} />
 
-            {/* TRANSFORMACIÓN 4: DATOS */}
-            <TransformationBlock title="4. Investigación y Datos" subtitle="De Coste de Almacenaje a Fuente de Ingresos" description="Deje de acumular datos muertos. Participe en el Marketplace de Investigación federada y monetice datasets anonimizados para entrenamiento de IA." beforeIcon={<Database className="w-6 h-6 text-slate-400" />} afterIcon={<BrainCircuit className="w-6 h-6 text-orange-600" />} beforeLabel="Dato Muerto" afterLabel="Activo Monetizable" beforeVisual={<div className="flex items-center justify-center h-full">
+            {/* TRANSFORMACIÓN 4: DATOS One Health */}
+            <TransformationBlock title="4. Investigación One Health" subtitle="De Coste de Almacenaje a Fuente de Ingresos" description="Deje de acumular datos muertos. Participe en el Marketplace de Investigación One Health y monetice datasets anonimizados para entrenamiento de IA veterinaria." beforeIcon={<Database className="w-6 h-6 text-slate-400" />} afterIcon={<BrainCircuit className="w-6 h-6 text-orange-600" />} beforeLabel="Dato Muerto" afterLabel="Activo Monetizable" beforeVisual={<div className="flex items-center justify-center h-full">
                   <div className="relative">
                     <Database className="w-24 h-24 text-slate-300" />
                     <Lock className="w-10 h-10 text-red-400 absolute bottom-0 right-0 bg-white rounded-full p-1.5 border-2 border-red-100 shadow" />
@@ -324,12 +324,12 @@ const PropuestaKitEspacioDatos: React.FC = () => {
                     <TrendingUp className="w-8 h-8 text-emerald-500" />
                   </div>
                   <div className="absolute -bottom-2 bg-white px-3 py-1.5 rounded-lg border border-orange-200 text-xs font-bold text-orange-600 shadow-lg">
-                    IA Training Revenue
+                    Veterinary AI Training
                   </div>
                 </div>} />
 
-            {/* TRANSFORMACIÓN 5: CENTRAL DE COMPRAS (SUPPLY) */}
-            <TransformationBlock title="5. Central de Compras Federada" subtitle="De Compras Reactivas a Abastecimiento Predictivo" description="No compre solo. Nuestro sistema lee su agenda, predice el consumo de materiales (ej: implantes necesarios para la semana que viene) y agrupa la demanda con cientos de clínicas BQDC para negociar precios mayoristas automáticos." beforeIcon={<ShoppingCart className="w-6 h-6 text-slate-400" />} afterIcon={<Truck className="w-6 h-6 text-indigo-600" />} beforeLabel="Compra Individual" afterLabel="Poder de Red BQDC" beforeVisual={<div className="flex flex-col items-center justify-center h-full gap-4">
+            {/* TRANSFORMACIÓN 5: CENTRAL DE COMPRAS VETERINARIA */}
+            <TransformationBlock title="5. Central de Compras Veterinaria" subtitle="De Compras Reactivas a Abastecimiento Predictivo" description="No compre solo. Nuestro sistema lee su agenda, predice el consumo de materiales (ej: vacunas necesarias para la semana que viene) y agrupa la demanda con cientos de clínicas VetSpace-X para negociar precios mayoristas automáticos." beforeIcon={<ShoppingCart className="w-6 h-6 text-slate-400" />} afterIcon={<Truck className="w-6 h-6 text-indigo-600" />} beforeLabel="Compra Individual" afterLabel="Poder de Red VetSpace-X" beforeVisual={<div className="flex flex-col items-center justify-center h-full gap-4">
                   <div className="flex items-center gap-2 opacity-50">
                     <div className="w-12 h-16 bg-slate-200 border-2 border-slate-300 rounded flex items-center justify-center text-xs text-slate-500 font-medium">Stock?</div>
                     <ArrowDown className="text-slate-400 -rotate-90" />
@@ -362,8 +362,8 @@ const PropuestaKitEspacioDatos: React.FC = () => {
                   </div>
                 </div>} />
 
-            {/* TRANSFORMACIÓN 6: KPI CLÍNICAS (INTELIGENCIA OPERATIVA) */}
-            <TransformationBlock title="6. Inteligencia Operativa (KPIs)" subtitle="De la Intuición a la Decisión de Datos" description="Un Cockpit que fusiona rentabilidad, experiencia de paciente y excelencia clínica. Compare su rendimiento de forma anónima con el promedio de la red BQDC (Benchmarking) y reciba alertas predictivas sobre picos de espera." beforeIcon={<BarChart4 className="w-6 h-6 text-slate-400" />} afterIcon={<Target className="w-6 h-6 text-orange-600" />} beforeLabel="Gestión por Intuición" afterLabel="Data Driven" beforeVisual={<div className="flex flex-col items-center justify-center h-full">
+            {/* TRANSFORMACIÓN 6: KPI CLÍNICAS VETERINARIAS */}
+            <TransformationBlock title="6. Inteligencia Operativa Veterinaria (KPIs)" subtitle="De la Intuición a la Decisión de Datos" description="Un Cockpit que fusiona rentabilidad, experiencia del tutor y excelencia clínica. Compare su rendimiento de forma anónima con el promedio de la red VetSpace-X (Benchmarking) y reciba alertas predictivas sobre picos de espera." beforeIcon={<BarChart4 className="w-6 h-6 text-slate-400" />} afterIcon={<Target className="w-6 h-6 text-orange-600" />} beforeLabel="Gestión por Intuición" afterLabel="Data Driven" beforeVisual={<div className="flex flex-col items-center justify-center h-full">
                   <div className="relative">
                     <div className="w-32 h-20 bg-slate-100 border border-slate-300 rounded flex items-end justify-around p-2 gap-1">
                       <div className="w-4 h-8 bg-slate-300"></div>
@@ -375,12 +375,12 @@ const PropuestaKitEspacioDatos: React.FC = () => {
                       ?
                     </div>
                   </div>
-                  <span className="text-xs text-slate-400 mt-4 text-center">¿Soy rentable? ¿Cómo voy respecto a otros?</span>
+                  <span className="text-xs text-slate-400 mt-4 text-center">¿Soy rentable? ¿Cómo voy respecto a otras clínicas veterinarias?</span>
                 </div>} afterVisual={<div className="w-full h-full p-6 flex flex-col justify-center">
                   {/* Benchmarking Graph */}
                   <div className="flex justify-between items-end text-xs text-slate-400 mb-1">
                     <span>Mi Clínica</span>
-                    <span>Red BQDC</span>
+                    <span>Red VetSpace-X</span>
                   </div>
                   <div className="w-full h-2 bg-slate-100 rounded-full mb-6 relative">
                     <div className="absolute left-0 top-0 h-full w-3/4 bg-orange-200 rounded-full"></div>
@@ -391,7 +391,7 @@ const PropuestaKitEspacioDatos: React.FC = () => {
 
                   <div className="grid grid-cols-2 gap-4">
                     <div className="bg-white border border-orange-100 p-2 rounded shadow-sm text-center">
-                      <span className="text-[10px] text-slate-400 uppercase block">NPS Paciente</span>
+                      <span className="text-[10px] text-slate-400 uppercase block">NPS Tutor</span>
                       <span className="text-xl font-bold text-slate-800">9.8</span>
                     </div>
                     <div className="bg-white border border-orange-100 p-2 rounded shadow-sm text-center">
@@ -411,7 +411,7 @@ const PropuestaKitEspacioDatos: React.FC = () => {
           <div className="mb-16">
             <span className="text-blue-400 font-semibold tracking-wider text-sm">ZERO-TRUST ARCHITECTURE</span>
             <h2 className="text-3xl md:text-4xl font-bold mt-2">Soberanía por Diseño</h2>
-            <p className="text-slate-400 mt-4 max-w-2xl">No llevamos sus datos a la nube. Llevamos la inteligencia a su clínica.</p>
+            <p className="text-slate-400 mt-4 max-w-2xl">No llevamos los datos de sus pacientes a la nube. Llevamos la inteligencia a su clínica veterinaria.</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -431,9 +431,9 @@ const PropuestaKitEspacioDatos: React.FC = () => {
               <div className="w-12 h-12 bg-slate-900 rounded-lg flex items-center justify-center mb-6 group-hover:bg-emerald-600 transition-colors">
                 <Languages className="text-emerald-400 group-hover:text-white" />
               </div>
-              <h3 className="text-xl font-bold mb-3">2. Traductor Universal (FHIR)</h3>
+              <h3 className="text-xl font-bold mb-3">2. Traductor Universal (FHIR Veterinario)</h3>
               <p className="text-slate-400 text-sm leading-relaxed">
-                Traducimos sus datos (sin importar su PMS actual) al estándar internacional HL7. Su clínica pasa a hablar el idioma de Europa.
+                Traducimos sus datos (sin importar su PMS actual) al estándar internacional HL7. Su clínica veterinaria pasa a hablar el idioma de Europa.
               </p>
             </div>
 
@@ -442,9 +442,9 @@ const PropuestaKitEspacioDatos: React.FC = () => {
               <div className="w-12 h-12 bg-slate-900 rounded-lg flex items-center justify-center mb-6 group-hover:bg-purple-600 transition-colors">
                 <BrainCircuit className="text-purple-400 group-hover:text-white" />
               </div>
-              <h3 className="text-xl font-bold mb-3">3. Colaboración Segura</h3>
+              <h3 className="text-xl font-bold mb-3">3. Colaboración One Health</h3>
               <p className="text-slate-400 text-sm leading-relaxed">
-                Para estudios de IA, los datos no viajan; viajan los algoritmos. Privacidad absoluta para sus pacientes.
+                Para estudios de IA veterinaria, los datos no viajan; viajan los algoritmos. Privacidad absoluta para sus pacientes y tutores.
               </p>
             </div>
           </div>
@@ -455,7 +455,7 @@ const PropuestaKitEspacioDatos: React.FC = () => {
       <section id="roadmap" className="py-24 bg-slate-50">
         <div className="max-w-5xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-4">Cronograma de Despliegue</h2>
-          <p className="text-center text-slate-600 mb-16 max-w-2xl mx-auto">12 meses para transformar su clínica en un nodo del ecosistema europeo de datos de salud dental</p>
+          <p className="text-center text-slate-600 mb-16 max-w-2xl mx-auto">12 meses para transformar su clínica en un nodo del ecosistema europeo de datos de salud veterinaria</p>
           
           <div className="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-300 before:to-transparent">
             
@@ -494,10 +494,10 @@ const PropuestaKitEspacioDatos: React.FC = () => {
               </div>
               <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 bg-white rounded-xl border border-slate-200 shadow-sm hover:border-teal-300 transition-colors">
                 <div className="flex justify-between items-center mb-2">
-                  <h3 className="font-bold text-slate-800">Fase 3: Experiencia Paciente</h3>
+                  <h3 className="font-bold text-slate-800">Fase 3: Experiencia del Tutor</h3>
                   <span className="text-xs font-bold text-teal-600 bg-teal-50 px-2 py-1 rounded">Mes 5-6</span>
                 </div>
-                <p className="text-sm text-slate-600">Wallet del Paciente (App móvil), gestión de citas y consentimientos, Gemelo Digital dental.</p>
+                <p className="text-sm text-slate-600">Wallet del Tutor (App móvil), gestión de citas y consentimientos, historial digital de la mascota.</p>
               </div>
             </div>
 
@@ -508,10 +508,10 @@ const PropuestaKitEspacioDatos: React.FC = () => {
               </div>
               <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 bg-white rounded-xl border border-slate-200 shadow-sm hover:border-indigo-300 transition-colors">
                 <div className="flex justify-between items-center mb-2">
-                  <h3 className="font-bold text-slate-800">Fase 4: Cadena de Valor</h3>
+                  <h3 className="font-bold text-slate-800">Fase 4: Cadena de Valor Veterinaria</h3>
                   <span className="text-xs font-bold text-indigo-600 bg-indigo-50 px-2 py-1 rounded">Mes 7-9</span>
                 </div>
-                <p className="text-sm text-slate-600">Central de Compras Federada, Pasaporte Digital de Producto (DPP) y trazabilidad de materiales.</p>
+                <p className="text-sm text-slate-600">Central de Compras Federada, Pasaporte Digital de Producto (DPP) y trazabilidad de vacunas/microchips.</p>
               </div>
             </div>
 
@@ -522,10 +522,10 @@ const PropuestaKitEspacioDatos: React.FC = () => {
               </div>
               <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 bg-white rounded-xl border border-slate-200 shadow-sm hover:border-amber-300 transition-colors">
                 <div className="flex justify-between items-center mb-2">
-                  <h3 className="font-bold text-slate-800">Fase 5: Inteligencia Colectiva</h3>
+                  <h3 className="font-bold text-slate-800">Fase 5: Inteligencia One Health</h3>
                   <span className="text-xs font-bold text-amber-600 bg-amber-50 px-2 py-1 rounded">Mes 10-12</span>
                 </div>
-                <p className="text-sm text-slate-600">Marketplace de Datos de Investigación, algoritmos de IA Preventiva federada y benchmarking avanzado con la red.</p>
+                <p className="text-sm text-slate-600">Marketplace de Datos One Health, IA Federada Veterinaria, Cockpit de benchmarking VetSpace-X.</p>
               </div>
             </div>
           </div>
@@ -665,16 +665,16 @@ const PropuestaKitEspacioDatos: React.FC = () => {
                 {/* Banda Superior: Valor Diferencial */}
                 <div className="bg-blue-600 px-8 py-3 flex justify-between items-center text-white">
                   <span className="text-xs font-bold tracking-widest uppercase flex items-center gap-2">
-                    <Zap className="w-4 h-4 text-yellow-300" fill="currentColor" /> Recomendado BQDC
+                    <Zap className="w-4 h-4 text-yellow-300" fill="currentColor" /> Recomendado VetSpace-X
                   </span>
                   <span className="text-xs font-medium bg-blue-700 px-2 py-1 rounded">Todo Incluido</span>
                 </div>
 
                 <div className="p-8">
                   <div className="mb-6">
-                    <h3 className="text-3xl font-bold text-slate-900">Pack Transformación Integral</h3>
+                    <h3 className="text-3xl font-bold text-slate-900">Pack Transformación Integral Veterinaria</h3>
                     <p className="text-slate-500 text-sm mt-2">
-                      La solución definitiva para clínicas que buscan liderar sin carga operativa.
+                      La solución definitiva para clínicas veterinarias que buscan liderar sin carga operativa.
                     </p>
                   </div>
                   
@@ -717,19 +717,19 @@ const PropuestaKitEspacioDatos: React.FC = () => {
                     <ul className="space-y-2">
                       <li className="flex items-center gap-2 text-sm text-slate-600">
                         <div className="w-1.5 h-1.5 rounded-full bg-blue-500"></div>
-                        <span><strong>Clínica:</strong> Dashboard 360º, conexión PMS, Servidor FHIR federado.</span>
+                        <span><strong>Clínica:</strong> Dashboard 360º veterinario, conexión PMS, Servidor FHIR federado.</span>
                       </li>
                       <li className="flex items-center gap-2 text-sm text-slate-600">
                         <div className="w-1.5 h-1.5 rounded-full bg-emerald-500"></div>
-                        <span><strong>Paciente:</strong> Super-App Wallet con historial, citas y visor 3D.</span>
+                        <span><strong>Tutor:</strong> Super-App Wallet con historial de mascota, citas y documentos.</span>
                       </li>
                       <li className="flex items-center gap-2 text-sm text-slate-600">
                         <div className="w-1.5 h-1.5 rounded-full bg-purple-500"></div>
-                        <span><strong>Industria:</strong> Pasaporte Digital de Producto (DPP) con trazabilidad MDR.</span>
+                        <span><strong>Industria:</strong> Pasaporte Digital de Producto (DPP) con trazabilidad cadena de frío.</span>
                       </li>
                       <li className="flex items-center gap-2 text-sm text-slate-600">
                         <div className="w-1.5 h-1.5 rounded-full bg-amber-500"></div>
-                        <span><strong>I+D:</strong> IA Federada y Marketplace de Datos Anonimizados.</span>
+                        <span><strong>I+D:</strong> IA Federada Veterinaria y Marketplace One Health.</span>
                       </li>
                       <li className="flex items-center gap-2 text-sm text-slate-600">
                         <div className="w-1.5 h-1.5 rounded-full bg-indigo-500"></div>
@@ -737,12 +737,12 @@ const PropuestaKitEspacioDatos: React.FC = () => {
                       </li>
                       <li className="flex items-center gap-2 text-sm text-slate-600">
                         <div className="w-1.5 h-1.5 rounded-full bg-orange-500"></div>
-                        <span><strong>KPIs:</strong> Cockpit de inteligencia operativa con benchmarking BQDC.</span>
+                        <span><strong>KPIs:</strong> Cockpit de inteligencia operativa con benchmarking VetSpace-X.</span>
                       </li>
                     </ul>
                   </div>
 
-                  <a href="mailto:ivan.becerro@accuro.es?subject=Adhesión Plan Integral BQDC - Solicitud Kit Datos" className="block w-full bg-slate-900 text-white text-center py-4 rounded-xl font-bold hover:bg-slate-800 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 duration-200">
+                  <a href="mailto:ivan.becerro@accuro.es?subject=Adhesión Plan Integral VetSpace-X - Solicitud Kit Datos" className="block w-full bg-slate-900 text-white text-center py-4 rounded-xl font-bold hover:bg-slate-800 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 duration-200">
                     Solicitar Pack Integral
                   </a>
                   <p className="text-center text-xs text-slate-400 mt-3">
@@ -755,8 +755,8 @@ const PropuestaKitEspacioDatos: React.FC = () => {
             {plan === "essential" && <div className="relative bg-white rounded-2xl p-8 border border-slate-100 shadow-xl animate-fade-in">
                 <div className="flex justify-between items-start mb-6">
                   <div>
-                    <h3 className="text-2xl font-bold text-slate-900">Pack Esencial</h3>
-                    <p className="text-slate-500 text-sm mt-1">Infraestructura y cumplimiento normativo</p>
+                    <h3 className="text-2xl font-bold text-slate-900">Pack Esencial Veterinario</h3>
+                    <p className="text-slate-500 text-sm mt-1">Infraestructura y cumplimiento normativo veterinario</p>
                   </div>
                 </div>
                 
@@ -780,11 +780,11 @@ const PropuestaKitEspacioDatos: React.FC = () => {
                   <ul className="space-y-2">
                     <li className="flex items-center gap-2 text-sm text-slate-600">
                       <div className="w-1.5 h-1.5 rounded-full bg-blue-500"></div>
-                      <span><strong>Clínica:</strong> Dashboard básico y servidor FHIR federado.</span>
+                      <span><strong>Clínica:</strong> Dashboard básico veterinario y servidor FHIR federado.</span>
                     </li>
                     <li className="flex items-center gap-2 text-sm text-slate-600">
                       <div className="w-1.5 h-1.5 rounded-full bg-emerald-500"></div>
-                      <span><strong>Paciente:</strong> Acceso básico al historial y citas.</span>
+                      <span><strong>Tutor:</strong> Acceso básico al historial de mascota y citas.</span>
                     </li>
                     <li className="flex items-center gap-2 text-sm text-slate-600">
                       <div className="w-1.5 h-1.5 rounded-full bg-orange-500"></div>
@@ -809,7 +809,7 @@ const PropuestaKitEspacioDatos: React.FC = () => {
                   </ul>
                 </div>
 
-                <a href="mailto:ivan.becerro@accuro.es?subject=Adhesión Plan Esencial BQDC" className="block w-full bg-white text-slate-900 border-2 border-slate-200 text-center py-4 rounded-xl font-bold hover:bg-slate-50 transition">Solicitar Kit Espacio de Datos</a>
+                <a href="mailto:ivan.becerro@accuro.es?subject=Adhesión Plan Esencial VetSpace-X" className="block w-full bg-white text-slate-900 border-2 border-slate-200 text-center py-4 rounded-xl font-bold hover:bg-slate-50 transition">Solicitar Kit Espacio de Datos</a>
               </div>}
           </div>
         </div>
@@ -819,9 +819,9 @@ const PropuestaKitEspacioDatos: React.FC = () => {
       <section id="contacto" className="py-20 bg-slate-900 text-center">
         <div className="max-w-3xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-white mb-6">
-            El futuro de la odontología no es tener mejores sillones.<br />Es tener mejores datos.
+            El futuro de la veterinaria no es tener mejores equipos.<br />Es tener mejores datos One Health.
           </h2>
-          <p className="text-slate-400 mb-8">La ventana de oportunidad de los fondos europeos es limitada. Posicione su clínica hoy.</p>
+          <p className="text-slate-400 mb-8">La ventana de oportunidad de los fondos europeos es limitada. Posicione su clínica veterinaria hoy.</p>
           
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <a href="mailto:ivan.becerro@accuro.es" className="px-8 py-4 bg-emerald-500 hover:bg-emerald-600 text-white rounded-xl font-bold transition">
@@ -833,7 +833,7 @@ const PropuestaKitEspacioDatos: React.FC = () => {
           </div>
           
           <div className="mt-16 pt-8 border-t border-slate-800 text-xs text-slate-500">
-            <p>© 2025 ACCURO TECHNOLOGY. Global Data Care Ecosystem.</p>
+            <p>© 2025 ACCURO TECHNOLOGY. Global Data Care Veterinary Ecosystem.</p>
             <p className="mt-2">Confidencialidad: Este documento contiene propiedad intelectual exclusiva.</p>
           </div>
         </div>
