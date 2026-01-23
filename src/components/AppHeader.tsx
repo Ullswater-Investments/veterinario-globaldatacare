@@ -1,7 +1,7 @@
 import { useRole, AppRole } from '@/contexts/RoleContext';
 import { useAuth } from '@/contexts/AuthContext';
 import { Button } from '@/components/ui/button';
-import { Stethoscope, LogOut, User } from 'lucide-react';
+import { PawPrint, LogOut, User } from 'lucide-react';
 import {
   Select,
   SelectContent,
@@ -12,11 +12,11 @@ import {
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 
 const roleOptions: Record<AppRole, string> = {
-  doctor: 'Dr. Dent (Odontólogo)',
-  lab_tech: 'Lab Tech (Técnico)',
-  patient: 'Ana Patient (Paciente)',
-  researcher: 'Prof. Data (Investigador)',
-  insurance_admin: 'SurePay Admin (Aseguradora)',
+  doctor: 'Dr. Vet (Veterinario)',
+  lab_tech: 'Lab Tech (Laboratorio Clínico)',
+  patient: 'María García (Tutora)',
+  researcher: 'Prof. One Health (Investigador)',
+  insurance_admin: 'PetSure Admin (Aseguradora)',
   auditor: 'Auditor del Ecosistema (Demo)',
 };
 
@@ -39,12 +39,12 @@ export function AppHeader() {
   return (
     <header className="h-16 border-b bg-white flex items-center justify-between px-6 shadow-sm">
       <div className="flex items-center gap-3">
-        <div className="p-2 bg-blue-600 rounded-lg">
-          <Stethoscope className="w-5 h-5 text-white" />
+        <div className="p-2 bg-primary rounded-lg">
+          <PawPrint className="w-5 h-5 text-primary-foreground" />
         </div>
         <div>
-          <h1 className="text-xl font-bold text-slate-800">OralSpace-X</h1>
-          <p className="text-xs text-slate-500">Plataforma de Salud Digital</p>
+          <h1 className="text-xl font-bold text-foreground">VetSpace-X</h1>
+          <p className="text-xs text-muted-foreground">Plataforma de Salud Animal Federada</p>
         </div>
       </div>
 
@@ -66,7 +66,7 @@ export function AppHeader() {
 
         <div className="flex items-center gap-2">
           <Avatar className="h-8 w-8">
-            <AvatarFallback className="bg-blue-100 text-blue-600 text-xs">
+            <AvatarFallback className="bg-primary/10 text-primary text-xs">
               {user?.email ? getInitials(user.email) : <User className="h-4 w-4" />}
             </AvatarFallback>
           </Avatar>

@@ -13,16 +13,16 @@ import {
   useSidebar,
 } from '@/components/ui/sidebar';
 import {
-  Stethoscope,
+  PawPrint,
   Bot,
-  Pill,
+  Syringe,
   Video,
-  Factory,
-  Package,
   FlaskConical,
+  Package,
   Map,
   CreditCard,
   Wallet,
+  BedDouble,
   LucideIcon,
 } from 'lucide-react';
 
@@ -35,45 +35,47 @@ type NavItem = {
 
 const navigationConfig: Record<AppRole, NavItem[]> = {
   doctor: [
-    { title: 'Cockpit Clínico', url: '/clinical', icon: Stethoscope },
+    { title: 'Cockpit Veterinario', url: '/clinical', icon: PawPrint },
     { title: 'Asistente AI', url: '/ai-assistant', icon: Bot },
-    { title: 'e-Receta', url: '/e-prescription', icon: Pill },
-    { title: 'Teledentistría', url: '/triage', icon: Video },
+    { title: 'e-Receta Vet', url: '/e-prescription', icon: Syringe },
+    { title: 'Teleconsulta Vet', url: '/triage', icon: Video },
+    { title: 'Hospitalización', url: '/hospitalization', icon: BedDouble },
   ],
   lab_tech: [
-    { title: 'Hub de Manufactura', url: '/lab-hub', icon: Factory },
+    { title: 'Laboratorio Clínico', url: '/lab-hub', icon: FlaskConical },
     { title: 'Inventario IoT', url: '/inventory', icon: Package },
   ],
   researcher: [
-    { title: 'Mercado de Datos', url: '/research', icon: FlaskConical },
+    { title: 'Investigación One Health', url: '/research', icon: FlaskConical },
     { title: 'Mapa Epidemiológico', url: '/epidemiology', icon: Map },
   ],
   insurance_admin: [
     { title: 'Gestión de Claims', url: '/claims', icon: CreditCard },
   ],
   patient: [
-    { title: 'Mi Wallet', url: '/wallet', icon: Wallet },
+    { title: 'Wallet del Tutor', url: '/wallet', icon: Wallet },
   ],
   auditor: [
-    { title: 'Cockpit Clínico', url: '/clinical', icon: Stethoscope, domain: 'DOMINIO CLÍNICO' },
+    { title: 'Cockpit Veterinario', url: '/clinical', icon: PawPrint, domain: 'DOMINIO CLÍNICO' },
     { title: 'Asistente AI', url: '/ai-assistant', icon: Bot },
-    { title: 'e-Receta', url: '/e-prescription', icon: Pill },
-    { title: 'Teledentistría', url: '/triage', icon: Video },
-    { title: 'Hub de Manufactura', url: '/lab-hub', icon: Factory, domain: 'DOMINIO LABORATORIO' },
+    { title: 'e-Receta Vet', url: '/e-prescription', icon: Syringe },
+    { title: 'Teleconsulta Vet', url: '/triage', icon: Video },
+    { title: 'Hospitalización', url: '/hospitalization', icon: BedDouble },
+    { title: 'Laboratorio Clínico', url: '/lab-hub', icon: FlaskConical, domain: 'DOMINIO LABORATORIO' },
     { title: 'Inventario IoT', url: '/inventory', icon: Package },
-    { title: 'Mercado de Datos', url: '/research', icon: FlaskConical, domain: 'DOMINIO INVESTIGACIÓN' },
+    { title: 'Investigación One Health', url: '/research', icon: FlaskConical, domain: 'DOMINIO INVESTIGACIÓN' },
     { title: 'Mapa Epidemiológico', url: '/epidemiology', icon: Map },
     { title: 'Gestión de Claims', url: '/claims', icon: CreditCard, domain: 'DOMINIO SEGUROS' },
-    { title: 'Mi Wallet', url: '/wallet', icon: Wallet, domain: 'DOMINIO PACIENTE' },
+    { title: 'Wallet del Tutor', url: '/wallet', icon: Wallet, domain: 'DOMINIO TUTOR' },
   ],
 };
 
 const roleLabels = {
-  doctor: 'Doctor',
+  doctor: 'Veterinario',
   lab_tech: 'Laboratorio',
-  researcher: 'Investigador',
+  researcher: 'Investigador One Health',
   insurance_admin: 'Aseguradora',
-  patient: 'Paciente',
+  patient: 'Tutor de Mascota',
   auditor: 'Auditor del Ecosistema',
 };
 
@@ -112,7 +114,7 @@ export function AppSidebar() {
                           end
                           className={({ isActive }) =>
                             isActive
-                              ? "flex items-center gap-2 rounded-md px-2 py-1.5 text-sm bg-blue-50 text-blue-600 border-l-2 border-blue-600"
+                              ? "flex items-center gap-2 rounded-md px-2 py-1.5 text-sm bg-primary/10 text-primary border-l-2 border-primary"
                               : "flex items-center gap-2 rounded-md px-2 py-1.5 text-sm hover:bg-muted/50 transition-colors"
                           }
                         >
