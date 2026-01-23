@@ -14,6 +14,8 @@ import {
   AlertCircle,
   ChevronRight,
   Loader2,
+  Heart,
+  PawPrint,
 } from "lucide-react";
 
 // Tipos de pestañas
@@ -23,19 +25,19 @@ import {
 const upcomingAppointment = {
   date: "14 Oct, 2024",
   time: "10:30",
-  doctor: "Dr. Sarah Smith",
-  type: "Revisión Implante",
-  location: "Sala 4",
+  doctor: "Dra. María García",
+  type: "Revisión Post-Cirugía",
+  location: "Consulta 2",
 };
 
 const medications = [
-  { name: "Amoxicilina 500mg", dosage: "Cada 8 horas", daysLeft: 3, alert: "Tomar con comida" },
-  { name: "Enjuague Clorhexidina", dosage: "Cada 12 horas", daysLeft: 5, alert: "No ingerir" },
+  { name: "Meloxicam 1.5mg", dosage: "Cada 24 horas", daysLeft: 3, alert: "Administrar con comida" },
+  { name: "Cefadroxilo 250mg", dosage: "Cada 12 horas", daysLeft: 5, alert: "Completar tratamiento" },
 ];
 
 const invoices = [
-  { id: "INV-2024-001", desc: "Implante Titanio", amount: 850, status: "Pagado", date: "10 Sep 2024" },
-  { id: "INV-2024-002", desc: "Limpieza Dental", amount: 60, status: "Pendiente", date: "01 Oct 2024" },
+  { id: "INV-2024-001", desc: "Cirugía Ortopédica", amount: 850, status: "Pagado", date: "10 Sep 2024" },
+  { id: "INV-2024-002", desc: "Vacunación Anual", amount: 60, status: "Pendiente", date: "01 Oct 2024" },
 ];
 
 export default function Wallet() {
@@ -44,10 +46,10 @@ export default function Wallet() {
 
   // SEO básico para la página de Wallet
   useEffect(() => {
-    document.title = "Mi Wallet de Salud | ACCURO TECHNOLOGY";
+    document.title = "Mi Wallet de Salud Mascota | ACCURO TECHNOLOGY";
 
     const description =
-      "Wallet de Salud para pacientes: citas, medicación, facturas y control de privacidad en ACCURO TECHNOLOGY.";
+      "Wallet de Salud para tutores de mascotas: citas, medicación, facturas y control de privacidad en ACCURO TECHNOLOGY.";
     let meta = document.querySelector("meta[name='description']") as HTMLMetaElement | null;
     if (!meta) {
       meta = document.createElement("meta");
@@ -84,11 +86,11 @@ export default function Wallet() {
         <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl" />
         <div className="relative z-10 flex justify-between items-center">
           <div>
-            <p className="text-emerald-100 text-sm">Bienvenida de nuevo,</p>
-            <h1 className="text-2xl font-bold">Ana Patient</h1>
+            <p className="text-emerald-100 text-sm">Bienvenido de nuevo,</p>
+            <h1 className="text-2xl font-bold">Tutor de Max 🐕</h1>
           </div>
           <div className="bg-white/20 p-2 rounded-full backdrop-blur-sm border border-white/30">
-            <User className="w-6 h-6 text-white" aria-hidden="true" />
+            <PawPrint className="w-6 h-6 text-white" aria-hidden="true" />
           </div>
         </div>
 
@@ -187,7 +189,7 @@ export default function Wallet() {
                       <div className="mt-3 bg-yellow-50 border border-yellow-100 p-2 rounded-lg flex items-start gap-2">
                         <AlertCircle className="w-4 h-4 text-yellow-600 shrink-0 mt-0.5" aria-hidden="true" />
                         <p className="text-xs text-yellow-800 font-medium">
-                          Nota del fabricante: {med.alert}
+                          Nota veterinaria: {med.alert}
                         </p>
                       </div>
                     </div>
@@ -203,23 +205,23 @@ export default function Wallet() {
                 <div className="flex justify-between items-center mb-6">
                   <div>
                     <h2 className="text-xl font-bold flex items-center gap-2">
-                      <Activity className="w-5 h-5 text-cyan-400" aria-hidden="true" />
-                      Tu gemelo digital
+                      <Heart className="w-5 h-5 text-cyan-400" aria-hidden="true" />
+                      Perfil de Salud de Max
                     </h2>
-                    <p className="text-slate-400 text-sm">Visualización 3D actualizada el 10/10/2024</p>
+                    <p className="text-slate-400 text-sm">Historial actualizado el 10/10/2024</p>
                   </div>
                   <span className="bg-cyan-500/20 text-cyan-300 px-3 py-1 rounded-full text-xs font-bold border border-cyan-500/30">
-                    HD SCAN READY
+                    MICROCHIP ACTIVO
                   </span>
                 </div>
 
                 <div className="h-64 bg-slate-800/50 rounded-2xl border border-white/10 flex items-center justify-center flex-col gap-4 group cursor-pointer hover:bg-slate-800 transition-colors">
                   <div className="w-20 h-20 bg-cyan-500/20 rounded-full flex items-center justify-center animate-pulse">
-                    <span className="sr-only">Placeholder de modelo 3D</span>
-                    <Activity className="w-10 h-10 text-cyan-300" aria-hidden="true" />
+                    <span className="sr-only">Perfil de salud</span>
+                    <PawPrint className="w-10 h-10 text-cyan-300" aria-hidden="true" />
                   </div>
                   <p className="text-sm text-cyan-200 font-medium group-hover:underline">
-                    Tocar para interactuar en 3D
+                    Ver historial completo
                   </p>
                 </div>
 
@@ -228,7 +230,7 @@ export default function Wallet() {
                     Estado general: <span className="text-emerald-400">Saludable</span>
                   </span>
                   <span>
-                    Implantes: <span className="text-white">2 activos</span>
+                    Microchip: <span className="text-white">1 activo</span>
                   </span>
                 </div>
               </div>
@@ -288,20 +290,20 @@ export default function Wallet() {
 
             {/* Catálogo de tratamientos */}
             <section className="bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl p-6 text-white">
-              <h2 className="font-bold text-lg mb-2">Reserva tu próximo tratamiento</h2>
+              <h2 className="font-bold text-lg mb-2">Reserva tu próximo servicio</h2>
               <p className="text-emerald-100 text-sm mb-6">Consulta precios y disponibilidad en tiempo real.</p>
 
               <div className="grid grid-cols-2 gap-3">
                 <button className="bg-white/10 hover:bg-white/20 p-4 rounded-xl text-left border border-white/20 backdrop-blur-sm transition-all">
-                  <span className="block font-bold">Blanqueamiento</span>
-                  <span className="text-sm text-emerald-200">Desde 150€</span>
+                  <span className="block font-bold">Vacunación</span>
+                  <span className="text-sm text-emerald-200">Desde 35€</span>
                 </button>
                 <button className="bg-white/10 hover:bg-white/20 p-4 rounded-xl text-left border border-white/20 backdrop-blur-sm transition-all">
-                  <span className="block font-bold">Ortodoncia</span>
-                  <span className="text-sm text-emerald-200">Presupuesto online</span>
+                  <span className="block font-bold">Desparasitación</span>
+                  <span className="text-sm text-emerald-200">Desde 25€</span>
                 </button>
                 <button className="bg-white/10 hover:bg-white/20 p-4 rounded-xl text-left border border-white/20 backdrop-blur-sm transition-all">
-                  <span className="block font-bold">Higiene</span>
+                  <span className="block font-bold">Peluquería</span>
                   <span className="text-sm text-emerald-200">Agenda abierta</span>
                 </button>
                 <button className="bg-white text-emerald-600 p-4 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-emerald-50 transition-all">
@@ -321,11 +323,11 @@ export default function Wallet() {
                 Soberanía de datos
               </h2>
               <p className="text-slate-500 mb-6">
-                Tú decides quién accede a tu información. Revoca permisos en cualquier momento.
+                Tú decides quién accede a la información de tu mascota. Revoca permisos en cualquier momento.
               </p>
 
               <div className="space-y-4">
-                {["Clínica Dental Norte", "Hospital Central", "Aseguradora SurePay"].map((entity, index) => (
+                {["Clínica Veterinaria Norte", "Hospital Veterinario Central", "Seguro PetCare Plus"].map((entity, index) => (
                   <div
                     key={entity}
                     className="flex items-center justify-between p-4 border rounded-xl hover:bg-slate-50 transition-colors"
@@ -360,7 +362,7 @@ export default function Wallet() {
               <div className="mt-6 bg-blue-50 text-blue-700 p-4 rounded-lg text-sm flex items-start gap-2">
                 <AlertCircle className="w-4 h-4 mt-0.5" aria-hidden="true" />
                 <p>
-                  Al revocar un acceso, la entidad dejará de ver tu historial actualizado inmediatamente.
+                  Al revocar un acceso, la entidad dejará de ver el historial actualizado de tu mascota inmediatamente.
                 </p>
               </div>
             </section>
@@ -372,4 +374,3 @@ export default function Wallet() {
     </main>
   );
 }
-

@@ -19,59 +19,56 @@ import { GlobalFooter } from "@/components/ui/GlobalFooter";
 const datasets = [
   {
     id: 1,
-    title: "Cohorte Longitudinal Caries Pediátrica",
-    author: "Clínica Universitaria de Valencia",
+    title: "Cohorte Longitudinal Dermatitis Atópica Canina",
+    author: "Hospital Veterinario Universitario de Valencia",
     n: 12500,
     price: "450 Tokens",
     type: "Datos Estructurados + Imágenes",
-    quality: "Gold Standard (Validado por humanos)",
-    tags: ["Pediatría", "Caries", "Dieta"],
+    quality: "Gold Standard (Validado por veterinarios)",
+    tags: ["Dermatología", "Canino", "Alérgenos"],
     previewData: {
       patient_id: "SYNTH-9921",
-      age_group: "6-12",
-      dmft_index: 4.2,
-      diet_sugar_freq: "High",
-      fluoride_exposure: false,
-      intervention_history: ["Sealant #16", "Filling #36"],
+      species: "Canino",
+      breed: "Labrador",
+      cadesi_score: 42,
+      allergen_exposure: "Alto",
+      treatment_history: ["Apoquel 16mg", "Baño medicado semanal"],
     },
   },
   {
     id: 2,
-    title: "Marcadores Genéticos Periodontitis Agresiva",
-    author: "Dr. Genetic Lab (Hub Norte)",
+    title: "Marcadores Genéticos Cardiomiopatía Felina",
+    author: "Dr. Genetic Lab Veterinario (Hub Norte)",
     n: 850,
     price: "1200 Tokens",
     type: "Datos Genómicos + Clínicos",
     quality: "Sequencing High-Fi",
-    tags: ["Periodoncia", "Genética", "Raro"],
+    tags: ["Cardiología", "Felino", "Genética"],
     previewData: {
       sample_id: "GEN-552",
-      periodontal_stage: "Stage IV",
-      grade: "Grade C",
-      marker_il1: "Positive",
-      pocket_depth_avg: "6mm",
-      bone_loss_ratios: ">50%",
+      species: "Felino",
+      cardiomyopathy_type: "HCM",
+      mutation_mybpc3: "Positivo",
+      wall_thickness_mm: "7.2mm",
+      prognosis: "Moderado",
     },
   },
   {
     id: 3,
-    title: "Segmentación Canal Mandibular (CBCT)",
-    author: "Radiology AI Corp",
+    title: "Segmentación Displasia Cadera (Rx)",
+    author: "VetVision AI Corp",
     n: 5000,
     price: "800 Tokens",
     type: "DICOM + Máscaras Segmentación",
     quality: "Pixel-Perfect Annotation",
-    tags: ["Implantología", "Visión Artificial", "CBCT"],
+    tags: ["Ortopedia", "Canino", "Visión Artificial"],
     previewData: {
-      scan_id: "CBCT-8821",
-      resolution: "0.2mm voxel",
-      nerve_path_coordinates: [
-        [12, 45, 99],
-        [13, 46, 100],
-        "...",
-      ],
-      noise_level: "Low",
-      artifact_reduction: true,
+      scan_id: "RX-8821",
+      species: "Canino",
+      breed: "Pastor Alemán",
+      norberg_angle: "98°",
+      hip_score: "Moderado",
+      bilateral: true,
     },
   },
 ];
@@ -79,17 +76,17 @@ const datasets = [
 const algorithms = [
   {
     id: 101,
-    name: "Predictor de Riesgo Periimplantario",
+    name: "Predictor de Riesgo Displasia Cadera",
     accuracy: "94.5%",
-    author: "Consorcio Europeo Perio",
+    author: "Consorcio Europeo Veterinario",
     status: "Production Ready",
     nodes: 120,
   },
   {
     id: 102,
-    name: "Auto-Detección Caries Interproximal",
+    name: "Auto-Detección Lesiones Dermatológicas",
     accuracy: "91.2%",
-    author: "DeepDent AI",
+    author: "VetVision AI",
     status: "Beta Testing",
     nodes: 450,
   },
@@ -101,10 +98,10 @@ const ResearchDataMarketplace: React.FC = () => {
 
   useEffect(() => {
     const descriptionContent =
-      "Marketplace federado de datos clínicos y algoritmos para investigación en salud bucodental, con datos sintéticos y privacidad preservada.";
+      "Marketplace federado de datos clínicos y algoritmos para investigación en salud veterinaria, con datos sintéticos y privacidad preservada.";
 
     document.title =
-      "Marketplace de Datos y Algoritmos Clínicos | ACCURO TECHNOLOGY";
+      "Marketplace de Datos y Algoritmos Veterinarios | ACCURO TECHNOLOGY";
 
     let metaDescription = document.querySelector(
       'meta[name="description"]',
@@ -130,7 +127,7 @@ const ResearchDataMarketplace: React.FC = () => {
     const ldJson = {
       "@context": "https://schema.org",
       "@type": "WebPage",
-      name: "Marketplace de Datos y Algoritmos Clínicos",
+      name: "Marketplace de Datos y Algoritmos Veterinarios",
       description: descriptionContent,
     };
 
@@ -162,17 +159,17 @@ const ResearchDataMarketplace: React.FC = () => {
             <div className="max-w-2xl">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/20 border border-orange-400/30 text-orange-300 text-sm font-medium mb-6">
                 <Globe className="w-4 h-4" />
-                <span>Red Global de Inteligencia Colectiva</span>
+                <span>Red Global de Inteligencia Veterinaria Colectiva</span>
               </div>
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
                 Mercado Federado de <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-200">
-                  Datos Clínicos y Algoritmos
+                  Datos Clínicos Veterinarios y Algoritmos
                 </span>
               </h1>
               <p className="text-lg text-slate-300 mb-8 leading-relaxed">
                 Monetiza tus registros clínicos anonimizados o adquiere datasets
-                validados para entrenar tus propios modelos. Todo bajo
+                validados para entrenar tus propios modelos veterinarios. Todo bajo
                 arquitectura Zero-Trust: los datos nunca abandonan su nodo de
                 origen sin permiso.
               </p>
@@ -201,7 +198,7 @@ const ResearchDataMarketplace: React.FC = () => {
               <div className="space-y-3">
                 <div className="flex justify-between text-sm">
                   <span className="text-slate-400">Nodos Activos</span>
-                  <span className="text-white font-mono">542 Clínicas</span>
+                  <span className="text-white font-mono">542 Clínicas Veterinarias</span>
                 </div>
                 <div className="flex justify-between text-sm">
                   <span className="text-slate-400">Datos Sintéticos Generados</span>
@@ -264,7 +261,7 @@ const ResearchDataMarketplace: React.FC = () => {
                   <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
                   <input
                     type="text"
-                    placeholder="Buscar patología, autor..."
+                    placeholder="Buscar patología, especie..."
                     className="pl-10 pr-4 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 w-64"
                   />
                 </div>
@@ -338,7 +335,7 @@ const ResearchDataMarketplace: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="font-bold text-blue-900 text-lg">
-                    Catálogo de Innovación Abierta
+                    Catálogo de Innovación Veterinaria Abierta
                   </h3>
                   <p className="text-blue-700/80 mt-1">
                     Estos modelos ya han sido entrenados por la red federada.
@@ -369,7 +366,7 @@ const ResearchDataMarketplace: React.FC = () => {
                             Precisión: {algo.accuracy}
                           </span>
                           <span className="bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full">
-                            {algo.nodes} Nodos entrenando
+                            {algo.nodes} Clínicas entrenando
                           </span>
                         </div>
                       </div>
@@ -423,22 +420,23 @@ const ResearchDataMarketplace: React.FC = () => {
               <pre className="font-mono text-xs md:text-sm text-green-400 overflow-x-auto p-4 bg-slate-900/50 rounded-lg border border-slate-700">
                 {JSON.stringify(selectedPreview.previewData, null, 2)}
               </pre>
+            </div>
 
-              <div className="mt-6 flex justify-end gap-3">
-                <button
-                  type="button"
-                  onClick={() => setSelectedPreview(null)}
-                  className="px-4 py-2 text-slate-300 hover:text-white text-sm"
-                >
-                  Cerrar
-                </button>
-                <button
-                  type="button"
-                  className="px-4 py-2 bg-orange-600 hover:bg-orange-500 text-white rounded-lg text-sm font-bold shadow-lg shadow-orange-900/50"
-                >
-                  Adquirir Dataset Completo
-                </button>
-              </div>
+            {/* Footer Modal */}
+            <div className="p-4 bg-slate-800 flex justify-end gap-3">
+              <button
+                type="button"
+                onClick={() => setSelectedPreview(null)}
+                className="px-4 py-2 border border-slate-600 text-slate-300 rounded-lg hover:bg-slate-700 text-sm"
+              >
+                Cerrar
+              </button>
+              <button
+                type="button"
+                className="px-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-500 text-sm font-medium flex items-center gap-2"
+              >
+                <ShoppingCart className="w-4 h-4" /> Adquirir Dataset Completo
+              </button>
             </div>
           </div>
         </div>

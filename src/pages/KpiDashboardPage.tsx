@@ -13,6 +13,7 @@ import {
   MessageSquareWarning,
   CheckCircle2,
   Smartphone,
+  Heart,
 } from "lucide-react";
 import { NavigationControls } from "@/components/ui/NavigationControls";
 import { GlobalFooter } from "@/components/ui/GlobalFooter";
@@ -24,10 +25,10 @@ const KpiDashboardPage: React.FC = () => {
 
   useEffect(() => {
     const descriptionContent =
-      "Centro de control de excelencia clínica y de servicio para clínicas dentales, uniendo datos de pacientes, sensores y resultados médicos.";
+      "Centro de control de excelencia clínica y de servicio para clínicas veterinarias, uniendo datos de tutores, sensores y resultados médicos.";
 
     document.title =
-      "Dashboard KPI Clínicas | Excelencia 360º | ACCURO TECHNOLOGY";
+      "Dashboard KPI Clínicas Veterinarias | Excelencia 360º | ACCURO TECHNOLOGY";
 
     let metaDescription = document.querySelector(
       'meta[name="description"]',
@@ -53,7 +54,7 @@ const KpiDashboardPage: React.FC = () => {
     const ldJson = {
       "@context": "https://schema.org",
       "@type": "WebPage",
-      name: "Dashboard KPI Clínicas",
+      name: "Dashboard KPI Clínicas Veterinarias",
       description: descriptionContent,
     };
 
@@ -83,16 +84,16 @@ const KpiDashboardPage: React.FC = () => {
         <div className="container mx-auto px-6 relative z-10 text-center">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/20 border border-indigo-400/30 text-indigo-300 text-sm font-medium mb-6">
             <BarChart3 className="w-4 h-4" />
-            <span>Business Intelligence &amp; Medical Analytics</span>
+            <span>Business Intelligence &amp; Medical Analytics Veterinario</span>
           </div>
           <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">
-            No solo midas tu clínica. <br />
+            No solo midas tu clínica veterinaria. <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-blue-300">
               Predice su Futuro.
             </span>
           </h1>
           <p className="text-xl text-slate-300 mb-10 max-w-3xl mx-auto leading-relaxed">
-            Unimos datos de la App del Paciente, sensores en sala y notas
+            Unimos datos de la App del Tutor, sensores en sala y notas
             clínicas para crear un sistema de gestión inteligente. Detecta
             cuellos de botella en tiempo real y eleva la excelencia médica
             automáticamente.
@@ -123,9 +124,9 @@ const KpiDashboardPage: React.FC = () => {
               <div className="w-16 h-16 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Smartphone className="w-8 h-8" />
               </div>
-              <h3 className="font-bold text-lg mb-2">Voz del Paciente</h3>
+              <h3 className="font-bold text-lg mb-2">Voz del Tutor</h3>
               <p className="text-slate-500 text-sm">
-                NPS en tiempo real, reportes de dolor post-tratamiento desde la
+                NPS en tiempo real, reportes de evolución post-tratamiento desde la
                 Wallet y encuestas de satisfacción.
               </p>
             </div>
@@ -137,7 +138,7 @@ const KpiDashboardPage: React.FC = () => {
               <h3 className="font-bold text-lg mb-2">Flujo Operativo</h3>
               <p className="text-slate-500 text-sm">
                 Tiempos de espera en sala, duración real vs. planificada de la
-                intervención y uso de gabinetes.
+                consulta y uso de gabinetes.
               </p>
             </div>
 
@@ -147,7 +148,7 @@ const KpiDashboardPage: React.FC = () => {
               </div>
               <h3 className="font-bold text-lg mb-2">Resultado Clínico</h3>
               <p className="text-slate-500 text-sm">
-                Tasas de éxito en implantes, complicaciones reportadas y
+                Tasas de éxito en cirugías veterinarias, complicaciones reportadas y
                 re-intervenciones.
               </p>
             </div>
@@ -208,7 +209,7 @@ const KpiDashboardPage: React.FC = () => {
                 <p className="text-sm md:text-base font-medium">
                   {activeView === "service"
                     ? "Alerta de Saturación: Se prevé un aumento del 20% en tiempos de espera los martes por la tarde. Sugerencia: Reforzar recepción de 16:00 a 19:00."
-                    : "Patrón Detectado: Ligero aumento (3%) en sensibilidad post-blanqueamiento con el Lote #9921. Sugerencia: Revisar protocolo de aplicación."}
+                    : "Patrón Detectado: Ligero aumento (3%) en reacción post-vacunación con el Lote #9921. Sugerencia: Revisar protocolo de aplicación."}
                 </p>
               </div>
             </div>
@@ -281,7 +282,7 @@ const KpiDashboardPage: React.FC = () => {
                 <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
                   <div className="flex justify_between mb-4">
                     <span className="text-slate-500 text-sm font-medium">
-                      Éxito en Implantes (12m)
+                      Éxito Quirúrgico (12m)
                     </span>
                     <Activity className="w-5 h-5 text-emerald-500" />
                   </div>
@@ -289,7 +290,7 @@ const KpiDashboardPage: React.FC = () => {
                     98.5%
                   </div>
                   <p className="text-xs text-slate-400">
-                    Basado en 450 procedimientos
+                    Basado en 450 procedimientos veterinarios
                   </p>
                   <div className="mt-4 pt-4 border-t border-slate-50">
                     <p className="text-xs text-indigo-600 font-bold">
@@ -303,7 +304,7 @@ const KpiDashboardPage: React.FC = () => {
                     <span className="text-slate-500 text-sm font-medium">
                       Recuperación Post-Op
                     </span>
-                    <Smile className="w-5 h-5 text-emerald-500" />
+                    <Heart className="w-5 h-5 text-emerald-500" />
                   </div>
                   <div className="flex items-end gap-2 mb-2">
                     <span className="text-4xl font-bold text-slate-800">
@@ -314,14 +315,14 @@ const KpiDashboardPage: React.FC = () => {
                     </span>
                   </div>
                   <p className="text-xs text-slate-400">
-                    Reportado vía App Paciente
+                    Reportado vía App Tutor
                   </p>
                 </div>
 
                 <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
                   <div className="flex justify_between mb-4">
                     <span className="text-slate-500 text-sm font-medium">
-                      Adherencia Tratamiento
+                      Adherencia Vacunación
                     </span>
                     <CheckCircle2 className="w-5 h-5 text-blue-500" />
                   </div>
@@ -329,7 +330,7 @@ const KpiDashboardPage: React.FC = () => {
                     89%
                   </div>
                   <p className="text-xs text-slate-400">
-                    Pacientes que completan el plan
+                    Mascotas que completan el plan
                   </p>
                   <div className="w-full bg-slate-100 h-1.5 rounded-full mt-3 overflow-hidden">
                     <div className="bg-blue-500 w-[89%] h-full" />
@@ -347,7 +348,7 @@ const KpiDashboardPage: React.FC = () => {
           <h2 className="text-3xl font-bold mb-6">Benchmarking Federado</h2>
           <p className="text-indigo-200 mb-8 max-w-2xl mx-auto">
             ¿Cómo saber si tu tiempo de espera es bueno? El sistema compara tus
-            KPIs (de forma anónima) con el promedio de la red de 50 clínicas
+            KPIs (de forma anónima) con el promedio de la red de 50 clínicas veterinarias
             para que sepas dónde situarte.
           </p>
           <div className="flex justify-center gap-4 text-sm font-mono text-indigo-300">

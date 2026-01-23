@@ -12,7 +12,8 @@ import {
   Thermometer, 
   QrCode,
   Clock,
-  CheckCircle2
+  CheckCircle2,
+  Snowflake
 } from 'lucide-react';
 
 const LabPortal = () => {
@@ -69,11 +70,11 @@ const LabPortal = () => {
             <Factory className="h-10 w-10 text-purple-600" />
           </div>
           <h1 className="text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-500">
-            Centro de Excelencia Certificada
+            Centro de Excelencia Laboratorio Veterinario
           </h1>
           <p className="text-xl text-slate-600 mb-8">
-            Transforma el cumplimiento MDR en tu ventaja competitiva. 
-            Trazabilidad automática y Pasaportes Digitales en cada envío.
+            Transforma el cumplimiento normativo en tu ventaja competitiva. 
+            Trazabilidad automática y Pasaportes Digitales para vacunas y biológicos.
           </p>
           <Button 
             size="lg" 
@@ -109,7 +110,7 @@ const LabPortal = () => {
                         <CardContent className="p-4">
                           <div className="flex items-start justify-between mb-2">
                             <p className="text-sm font-medium">
-                              {order.patients?.full_name || 'Paciente Desconocido'}
+                              {order.patients?.full_name || 'Mascota Desconocida'}
                             </p>
                             <QrCode className="h-4 w-4 text-purple-600" />
                           </div>
@@ -136,7 +137,7 @@ const LabPortal = () => {
                         <CardContent className="p-4">
                           <div className="flex items-start justify-between mb-2">
                             <p className="text-sm font-medium">
-                              {order.patients?.full_name || 'Paciente Desconocido'}
+                              {order.patients?.full_name || 'Mascota Desconocida'}
                             </p>
                             <QrCode className="h-4 w-4 text-purple-600" />
                           </div>
@@ -163,7 +164,7 @@ const LabPortal = () => {
                         <CardContent className="p-4">
                           <div className="flex items-start justify-between mb-2">
                             <p className="text-sm font-medium">
-                              {order.patients?.full_name || 'Paciente Desconocido'}
+                              {order.patients?.full_name || 'Mascota Desconocida'}
                             </p>
                             <QrCode className="h-4 w-4 text-purple-600" />
                           </div>
@@ -185,48 +186,48 @@ const LabPortal = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold mb-4">Auditoría de Proceso en Tiempo Real</h2>
-            <p className="text-lg text-slate-600">Tus máquinas documentan la calidad por ti. Datos inmutables directo al DPP.</p>
+            <p className="text-lg text-slate-600">Tus equipos documentan la calidad por ti. Datos inmutables directo al DPP.</p>
           </div>
 
           <div className="max-w-4xl mx-auto">
-            <Card className="border-orange-200 bg-gradient-to-br from-orange-50 to-white">
+            <Card className="border-blue-200 bg-gradient-to-br from-blue-50 to-white">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  <Thermometer className="h-6 w-6 text-orange-600" />
-                  Validación Automática de Sinterizado
+                  <Snowflake className="h-6 w-6 text-blue-600" />
+                  Monitorización Cadena de Frío Vacunas
                 </CardTitle>
                 <CardDescription>Datos escritos automáticamente en el Pasaporte Digital (DPP)</CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="bg-white rounded-lg p-6 border-2 border-orange-300">
+                <div className="bg-white rounded-lg p-6 border-2 border-blue-300">
                   <div className="flex items-center justify-between">
                     <div>
-                      <div className="text-6xl font-bold text-orange-600 mb-2">1500°C</div>
+                      <div className="text-6xl font-bold text-blue-600 mb-2">4.2°C</div>
                       <p className="text-slate-600 font-medium">Temperatura Actual</p>
                     </div>
                     <div className="text-right">
                       <Badge className="bg-green-100 text-green-700 border-green-300 mb-2">
-                        En Operación
+                        Rango Óptimo (2-8°C)
                       </Badge>
                       <p className="text-sm text-slate-600">
-                        Sinterizando Lote <strong className="text-slate-900">#9988</strong>
+                        Lote Vacunas <strong className="text-slate-900">#VAC-9988</strong>
                       </p>
-                      <p className="text-xs text-slate-500 mt-1">Tiempo restante: 45 min</p>
+                      <p className="text-xs text-slate-500 mt-1">Próxima verificación: 15 min</p>
                     </div>
                   </div>
                 </div>
 
                 <div className="mt-6 grid grid-cols-3 gap-4">
                   <div className="text-center p-4 bg-slate-50 rounded-lg">
-                    <p className="text-2xl font-bold text-slate-900">98.5%</p>
-                    <p className="text-sm text-slate-600">Eficiencia</p>
+                    <p className="text-2xl font-bold text-slate-900">99.8%</p>
+                    <p className="text-sm text-slate-600">Cumplimiento</p>
                   </div>
                   <div className="text-center p-4 bg-slate-50 rounded-lg">
                     <p className="text-2xl font-bold text-slate-900">24/7</p>
-                    <p className="text-sm text-slate-600">Disponibilidad</p>
+                    <p className="text-sm text-slate-600">Monitorización</p>
                   </div>
                   <div className="text-center p-4 bg-slate-50 rounded-lg">
-                    <p className="text-2xl font-bold text-slate-900">142</p>
+                    <p className="text-2xl font-bold text-slate-900">342</p>
                     <p className="text-sm text-slate-600">Lotes/Mes</p>
                   </div>
                 </div>
