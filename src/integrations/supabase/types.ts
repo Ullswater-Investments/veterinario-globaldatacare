@@ -62,6 +62,63 @@ export type Database = {
           },
         ]
       }
+      hospitalizations: {
+        Row: {
+          admission_date: string
+          attending_vet_id: string | null
+          cage_number: string
+          created_at: string
+          current_status: string
+          discharge_date: string | null
+          id: string
+          next_medication_time: string | null
+          patient_id: string
+          treatment_notes: string | null
+          updated_at: string
+        }
+        Insert: {
+          admission_date?: string
+          attending_vet_id?: string | null
+          cage_number: string
+          created_at?: string
+          current_status?: string
+          discharge_date?: string | null
+          id?: string
+          next_medication_time?: string | null
+          patient_id: string
+          treatment_notes?: string | null
+          updated_at?: string
+        }
+        Update: {
+          admission_date?: string
+          attending_vet_id?: string | null
+          cage_number?: string
+          created_at?: string
+          current_status?: string
+          discharge_date?: string | null
+          id?: string
+          next_medication_time?: string | null
+          patient_id?: string
+          treatment_notes?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "hospitalizations_attending_vet_id_fkey"
+            columns: ["attending_vet_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "hospitalizations_patient_id_fkey"
+            columns: ["patient_id"]
+            isOneToOne: false
+            referencedRelation: "patients"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       iot_devices: {
         Row: {
           created_at: string
@@ -145,29 +202,53 @@ export type Database = {
       }
       patients: {
         Row: {
+          breed: string | null
           created_at: string
           created_by: string | null
+          date_of_birth: string | null
           did: string
           full_name: string
+          guardian_id: string | null
           id: string
+          is_neutered: boolean | null
+          microchip_id: string | null
+          photo_url: string | null
+          sex: string | null
+          species: string | null
           updated_at: string
           wallet_status: Json | null
         }
         Insert: {
+          breed?: string | null
           created_at?: string
           created_by?: string | null
+          date_of_birth?: string | null
           did: string
           full_name: string
+          guardian_id?: string | null
           id?: string
+          is_neutered?: boolean | null
+          microchip_id?: string | null
+          photo_url?: string | null
+          sex?: string | null
+          species?: string | null
           updated_at?: string
           wallet_status?: Json | null
         }
         Update: {
+          breed?: string | null
           created_at?: string
           created_by?: string | null
+          date_of_birth?: string | null
           did?: string
           full_name?: string
+          guardian_id?: string | null
           id?: string
+          is_neutered?: boolean | null
+          microchip_id?: string | null
+          photo_url?: string | null
+          sex?: string | null
+          species?: string | null
           updated_at?: string
           wallet_status?: Json | null
         }
@@ -175,6 +256,13 @@ export type Database = {
           {
             foreignKeyName: "patients_created_by_fkey"
             columns: ["created_by"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "patients_guardian_id_fkey"
+            columns: ["guardian_id"]
             isOneToOne: false
             referencedRelation: "profiles"
             referencedColumns: ["id"]
@@ -263,6 +351,51 @@ export type Database = {
           user_id?: string
         }
         Relationships: []
+      }
+      weight_history: {
+        Row: {
+          created_at: string
+          id: string
+          notes: string | null
+          patient_id: string
+          recorded_at: string
+          recorded_by: string | null
+          weight_kg: number
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          notes?: string | null
+          patient_id: string
+          recorded_at?: string
+          recorded_by?: string | null
+          weight_kg: number
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          notes?: string | null
+          patient_id?: string
+          recorded_at?: string
+          recorded_by?: string | null
+          weight_kg?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "weight_history_patient_id_fkey"
+            columns: ["patient_id"]
+            isOneToOne: false
+            referencedRelation: "patients"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "weight_history_recorded_by_fkey"
+            columns: ["recorded_by"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
       }
     }
     Views: {
