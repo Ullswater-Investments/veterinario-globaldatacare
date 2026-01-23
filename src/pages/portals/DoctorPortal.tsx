@@ -13,7 +13,8 @@ import {
   FileSearch, 
   Pill, 
   Video,
-  Activity
+  Activity,
+  PawPrint
 } from 'lucide-react';
 
 const DoctorPortal = () => {
@@ -45,13 +46,13 @@ const DoctorPortal = () => {
   const features = [
     {
       icon: FileSearch,
-      title: 'Directorio Europeo de Pacientes',
-      description: 'Acceso global a historiales federados por DID.'
+      title: 'Directorio Europeo de Mascotas',
+      description: 'Acceso global a historiales federados por microchip.'
     },
     {
       icon: Pill,
-      title: 'Prescripción Universal Segura',
-      description: 'Validez legal instantánea en cualquier farmacia adherida.'
+      title: 'Prescripción Veterinaria Segura',
+      description: 'Validez legal instantánea en cualquier farmacia veterinaria adherida.'
     },
     {
       icon: Video,
@@ -73,11 +74,11 @@ const DoctorPortal = () => {
             <Stethoscope className="h-10 w-10 text-blue-600" />
           </div>
           <h1 className="text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-cyan-500">
-            Panel de Control Clínico Unificado
+            Panel de Control Clínico Veterinario Unificado
           </h1>
           <p className="text-xl text-slate-600 mb-8">
             Diagnóstico, historial hospitalario y alertas de riesgo en una sola vista.
-            Toma decisiones médicas con el contexto completo del paciente.
+            Toma decisiones médicas con el contexto completo del paciente animal.
           </p>
           <Button 
             size="lg" 
@@ -94,7 +95,7 @@ const DoctorPortal = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold mb-4">Trayectoria de Salud del Paciente</h2>
-            <p className="text-lg text-slate-600">Visión 360° integrando datos de cardiólogos, hospitales y laboratorios en tiempo real.</p>
+            <p className="text-lg text-slate-600">Visión 360° integrando datos de especialistas, hospitales veterinarios y laboratorios en tiempo real.</p>
           </div>
 
           <div className="max-w-4xl mx-auto">
@@ -130,8 +131,9 @@ const DoctorPortal = () => {
                                 {new Date(encounter.encounter_date).toLocaleDateString('es-ES')}
                               </span>
                             </div>
-                            <p className="text-sm font-medium">
-                              Paciente: {encounter.patients?.full_name || 'Desconocido'}
+                            <p className="text-sm font-medium flex items-center gap-2">
+                              <PawPrint className="w-4 h-4 text-slate-400" />
+                              {encounter.patients?.full_name || 'Desconocido'}
                             </p>
                             {encounter.risk_level && (
                               <div className="flex items-center gap-2 mt-2">
@@ -155,7 +157,7 @@ const DoctorPortal = () => {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Brain className="h-5 w-5 text-purple-600" />
-                  Copiloto de Diagnóstico AI
+                  Copiloto de Diagnóstico AI Veterinario
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -167,7 +169,7 @@ const DoctorPortal = () => {
                     <div className="flex-1">
                       <h4 className="font-semibold text-lg mb-2">Segunda opinión automática generada.</h4>
                       <p className="text-slate-600 mb-3">
-                        <strong className="text-purple-600">Prioridad Alta: 3 Lesiones detectadas</strong>
+                        <strong className="text-purple-600">Prioridad Alta: Posible displasia detectada</strong>
                       </p>
                       <Badge variant="secondary" className="bg-purple-100 text-purple-700">
                         Confianza: 98%
@@ -186,7 +188,7 @@ const DoctorPortal = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold mb-4">Funcionalidades Clave</h2>
-            <p className="text-lg text-slate-600">Herramientas profesionales para la práctica moderna</p>
+            <p className="text-lg text-slate-600">Herramientas profesionales para la práctica veterinaria moderna</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">

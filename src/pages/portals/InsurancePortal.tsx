@@ -11,7 +11,8 @@ import {
   TrendingUp,
   ArrowLeft,
   Shield,
-  Zap
+  Zap,
+  Stethoscope
 } from 'lucide-react';
 
 const InsurancePortal = () => {
@@ -62,10 +63,10 @@ const InsurancePortal = () => {
             <FileCheck className="h-10 w-10 text-cyan-400" />
           </div>
           <h1 className="text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-400">
-            Smart Claims Automation
+            Smart Claims Automation Veterinario
           </h1>
           <p className="text-xl text-slate-300 mb-8">
-            Validación clínica automática mediante Smart Contracts
+            Validación clínica automática mediante Smart Contracts para seguros de mascotas
           </p>
           <Button 
             size="lg" 
@@ -98,15 +99,15 @@ const InsurancePortal = () => {
                     <div className="space-y-3">
                       <div>
                         <p className="text-sm text-slate-400">Tratamiento</p>
-                        <p className="text-xl font-bold text-white">Endodoncia</p>
+                        <p className="text-xl font-bold text-white">Castración Canina</p>
                       </div>
                       <div>
                         <p className="text-sm text-slate-400">Código</p>
-                        <p className="text-lg font-medium text-cyan-400">D3330</p>
+                        <p className="text-lg font-medium text-cyan-400">VET-CST-001</p>
                       </div>
                       <div>
                         <p className="text-sm text-slate-400">Importe</p>
-                        <p className="text-2xl font-bold text-white">450€</p>
+                        <p className="text-2xl font-bold text-white">280€</p>
                       </div>
                       <Badge className="bg-yellow-600 text-white">
                         Pendiente de Validación
@@ -123,7 +124,7 @@ const InsurancePortal = () => {
                     <div className="space-y-3">
                       <div>
                         <p className="text-sm text-slate-400">Documentación</p>
-                        <p className="text-lg font-medium text-white">✓ Radiografía Periapical</p>
+                        <p className="text-lg font-medium text-white">✓ Radiografía Abdominal</p>
                       </div>
                       <div>
                         <p className="text-sm text-slate-400">Trazabilidad</p>
@@ -188,15 +189,15 @@ const InsurancePortal = () => {
                     </div>
                     <div className="flex-1">
                       <h4 className="font-semibold text-lg text-white mb-2">
-                        Clínica Dental Sur - Desviación Detectada
+                        Clínica Veterinaria Sur - Desviación Detectada
                       </h4>
                       <p className="text-slate-300 mb-4">
                         Presenta una desviación estadística del <strong className="text-red-400">40%</strong> en 
-                        tratamientos de implantes comparado con la media del sector
+                        cirugías de esterilización comparado con la media del sector
                       </p>
                       <div className="grid grid-cols-3 gap-4 mt-4">
                         <div className="bg-slate-800 p-3 rounded-lg">
-                          <p className="text-sm text-slate-400">Implantes/Mes</p>
+                          <p className="text-sm text-slate-400">Cirugías/Mes</p>
                           <p className="text-2xl font-bold text-red-400">84</p>
                         </div>
                         <div className="bg-slate-800 p-3 rounded-lg">
@@ -239,7 +240,7 @@ const InsurancePortal = () => {
                       <div className="flex items-center justify-between">
                         <div>
                           <p className="font-medium text-white">
-                            {claim.patients?.full_name || 'Paciente Desconocido'}
+                            {claim.patients?.full_name || 'Mascota Desconocida'}
                           </p>
                           <p className="text-sm text-slate-400">
                             {claim.treatment_code} - {claim.amount}€

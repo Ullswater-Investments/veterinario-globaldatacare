@@ -16,10 +16,10 @@ import { GlobalFooter } from "@/components/ui/GlobalFooter";
 const SupplyChainPage: React.FC = () => {
   useEffect(() => {
     const descriptionContent =
-      "Central de compras predictiva para clínicas dentales: conecta agenda, stock y proveedores para compras federadas con ahorro en material médico-dental.";
+      "Central de compras predictiva para clínicas veterinarias: conecta agenda, stock y proveedores para compras federadas con ahorro en material veterinario.";
 
     document.title =
-      "Central de Compras Predictiva | ACCURO TECHNOLOGY";
+      "Central de Compras Predictiva Veterinaria | ACCURO TECHNOLOGY";
 
     let metaDescription = document.querySelector(
       'meta[name="description"]',
@@ -45,7 +45,7 @@ const SupplyChainPage: React.FC = () => {
     const ldJson = {
       "@context": "https://schema.org",
       "@type": "WebPage",
-      name: "Central de Compras Predictiva para Clínicas Dentales",
+      name: "Central de Compras Predictiva para Clínicas Veterinarias",
       description: descriptionContent,
     };
 
@@ -77,7 +77,7 @@ const SupplyChainPage: React.FC = () => {
             <div className="md:w-1/2">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/20 border border-cyan-400/30 text-cyan-300 text-sm font-medium mb-6">
                 <BrainCircuit className="w-4 h-4" />
-                <span>AI Supply Chain</span>
+                <span>AI Supply Chain Veterinario</span>
               </div>
               <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">
                 Compras Predictivas <br />
@@ -88,7 +88,7 @@ const SupplyChainPage: React.FC = () => {
               <p className="text-lg text-slate-300 mb-8 leading-relaxed">
                 Tu agenda clínica dicta tu stock. El sistema se conecta con tu
                 ERP, predice qué materiales necesitarás y lanza órdenes de
-                compra conjuntas con cientos de clínicas para conseguir precios
+                compra conjuntas con cientos de clínicas veterinarias para conseguir precios
                 de mayorista, manteniendo tu independencia.
               </p>
               <div className="flex gap-4">
@@ -130,7 +130,7 @@ const SupplyChainPage: React.FC = () => {
                     <p className="text-xs text-slate-400 mb-1">Ahorro Medio</p>
                     <p className="text-2xl font-bold text-cyan-400">22.5%</p>
                     <p className="text-xs text-slate-400 mt-1">
-                      En implantes y biomateriales
+                      En vacunas y biológicos
                     </p>
                   </div>
                 </div>
@@ -173,8 +173,8 @@ const SupplyChainPage: React.FC = () => {
                 1. Lectura de Agenda
               </h3>
               <p className="text-slate-500 text-center text-sm leading-relaxed">
-                El algoritmo lee tu CRM: "Próxima semana: 15 cirugías de
-                implante y 4 regeneraciones óseas".
+                El algoritmo lee tu CRM: "Próxima semana: 15 vacunaciones caninas
+                y 4 cirugías de esterilización".
               </p>
             </div>
 
@@ -187,7 +187,7 @@ const SupplyChainPage: React.FC = () => {
               </h3>
               <p className="text-slate-500 text-center text-sm leading-relaxed">
                 Cruza tu stock actual con la necesidad futura. Detecta déficit y
-                suma tu pedido al de 500 clínicas más.
+                suma tu pedido al de 500 clínicas veterinarias más.
               </p>
             </div>
 
@@ -231,7 +231,7 @@ const SupplyChainPage: React.FC = () => {
                         Citas Próxima Semana
                       </span>
                       <span className="font-bold text-white">
-                        15 Implantes
+                        15 Vacunaciones
                       </span>
                     </div>
                     <div className="w-full bg-slate-700 h-1.5 rounded-full overflow-hidden">
@@ -282,31 +282,31 @@ const SupplyChainPage: React.FC = () => {
                   <tbody>
                     <tr className="border-b border-slate-50">
                       <td className="py-3 font-medium">
-                        Implante Titanio Tipo-Z
+                        Vacuna Rabia Nobivac
                       </td>
                       <td className="text-center py-3">15 u.</td>
                       <td className="text-right py-3 text-slate-400 line-through">
-                        120€
+                        25€
                       </td>
                       <td className="text-right py-3 font-bold">
-                        95€
+                        19€
                         <span className="text-xs text-green-600 font-normal">
                           {" "}
-                          (-21%)
+                          (-24%)
                         </span>
                       </td>
                     </tr>
                     <tr>
-                      <td className="py-3 font-medium">Biomaterial Óseo 0.5g</td>
-                      <td className="text-center py-3">5 u.</td>
+                      <td className="py-3 font-medium">Antiparasitario Nexgard 10-25kg</td>
+                      <td className="text-center py-3">10 u.</td>
                       <td className="text-right py-3 text-slate-400 line-through">
-                        85€
+                        35€
                       </td>
                       <td className="text-right py-3 font-bold">
-                        70€
+                        28€
                         <span className="text-xs text-green-600 font-normal">
                           {" "}
-                          (-18%)
+                          (-20%)
                         </span>
                       </td>
                     </tr>
@@ -325,7 +325,7 @@ const SupplyChainPage: React.FC = () => {
                       </p>
                     </div>
                   </div>
-                  <span className="text-2xl font-bold text-green-700">450€</span>
+                  <span className="text-2xl font-bold text-green-700">160€</span>
                 </div>
 
                 <div className="flex gap-4">
@@ -356,13 +356,13 @@ const SupplyChainPage: React.FC = () => {
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              { name: "Implantes & Prótesis", icon: "🦷" },
-              { name: "Células Madre Bucales", icon: "🧬" },
-              { name: "Equipamiento Rayos X", icon: "⚡" },
+              { name: "Vacunas & Biológicos", icon: "💉" },
+              { name: "Productos Farmacéuticos", icon: "💊" },
+              { name: "Equipamiento Diagnóstico", icon: "🔬" },
               { name: "Consumibles Diarios", icon: "🧤" },
               { name: "Mobiliario Clínico", icon: "💺" },
               { name: "Software & Licencias", icon: "💻" },
-              { name: "Formación Médica", icon: "🎓" },
+              { name: "Formación Veterinaria", icon: "🎓" },
               { name: "Servicios de Marketing", icon: "📢" },
             ].map((item) => (
               <div

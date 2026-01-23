@@ -9,6 +9,7 @@ import {
   Factory,
   Users,
   Database,
+  Stethoscope,
 } from 'lucide-react';
 
 const ProcurementPortal = () => {
@@ -29,15 +30,15 @@ const ProcurementPortal = () => {
               <Package className="h-10 w-10 text-emerald-600" />
             </div>
             <h1 className="text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-emerald-600 to-cyan-500">
-              Central de Compras OralSpace-X
+              Central de Compras VetSpace-X
             </h1>
             <p className="text-xl text-slate-600 mb-6">
-              Planificación y seguimiento de compras de material médico-dental
-              conectado al espacio de datos OralSpace-X y a los sistemas de
+              Planificación y seguimiento de compras de material veterinario
+              conectado al espacio de datos VetSpace-X y a los sistemas de
               cada clínica.
             </p>
             <p className="text-slate-600 mb-8">
-              Agregamos el consumo real de las clínicas, coordinamos pedidos
+              Agregamos el consumo real de las clínicas veterinarias, coordinamos pedidos
               con proveedores homologados y garantizamos trazabilidad y ahorro
               a nivel de grupo.
             </p>
@@ -53,15 +54,15 @@ const ProcurementPortal = () => {
           </div>
         </section>
 
-        {/* Flujo de Compras: Del sillón al proveedor */}
+        {/* Flujo de Compras: De la consulta al proveedor */}
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold mb-4">
-                Del sillón al proveedor
+                De la consulta al proveedor
               </h2>
               <p className="text-lg text-slate-600">
-                Conectamos la actividad clínica, los sistemas de planificación
+                Conectamos la actividad clínica veterinaria, los sistemas de planificación
                 y la central de compras en un único flujo coordinado.
               </p>
             </div>
@@ -70,12 +71,12 @@ const ProcurementPortal = () => {
               <Card className="bg-white border-emerald-200">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2 text-lg text-slate-900">
-                    <Users className="h-5 w-5 text-emerald-600" />
+                    <Stethoscope className="h-5 w-5 text-emerald-600" />
                     Consumo Clínico
                   </CardTitle>
                   <CardDescription className="text-slate-600">
                     Tratamientos y protocolos consumen material en tiempo real
-                    desde el cockpit clínico.
+                    desde el cockpit clínico veterinario.
                   </CardDescription>
                 </CardHeader>
               </Card>
@@ -87,7 +88,7 @@ const ProcurementPortal = () => {
                     Datos Federados
                   </CardTitle>
                   <CardDescription className="text-slate-600">
-                    OralSpace-X agrega sólo los datos necesarios (consumo,
+                    VetSpace-X agrega sólo los datos necesarios (consumo,
                     stock mínimo, caducidades) sin sacar la historia clínica.
                   </CardDescription>
                 </CardHeader>
@@ -130,7 +131,7 @@ const ProcurementPortal = () => {
                 Una vista para cada actor
               </h2>
               <p className="text-lg text-slate-600">
-                Clínicas, central de compras y proveedores comparten un mismo
+                Clínicas veterinarias, central de compras y proveedores comparten un mismo
                 lenguaje de datos, manteniendo la soberanía en cada nodo.
               </p>
             </div>
@@ -139,7 +140,7 @@ const ProcurementPortal = () => {
               <Card className="bg-white border-emerald-100">
                 <CardHeader>
                   <CardTitle className="text-lg text-slate-900">
-                    Clínica Dental
+                    Clínica Veterinaria
                   </CardTitle>
                   <CardDescription className="text-slate-600">
                     Panel sencillo con stock actual, alertas de rotura,
@@ -148,7 +149,7 @@ const ProcurementPortal = () => {
                 </CardHeader>
                 <CardContent>
                   <ul className="text-sm text-slate-600 space-y-2">
-                    <li>• Alertas de stock por box / especialidad</li>
+                    <li>• Alertas de stock por consulta / especie</li>
                     <li>• Seguimiento de pedidos y backorders</li>
                     <li>• Históricos de consumo por tratamiento</li>
                   </ul>

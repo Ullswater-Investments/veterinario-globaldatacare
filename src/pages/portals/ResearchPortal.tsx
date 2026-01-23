@@ -11,7 +11,8 @@ import {
   Brain,
   Shield,
   Network,
-  Database
+  Database,
+  Stethoscope
 } from 'lucide-react';
 
 const ResearchPortal = () => {
@@ -19,20 +20,20 @@ const ResearchPortal = () => {
 
   const algorithms = [
     {
-      name: 'Algoritmo Detección Periapical',
-      description: 'Red neuronal para identificación de lesiones periapicales',
+      name: 'Algoritmo Detección Displasia Cadera',
+      description: 'Red neuronal para identificación de displasia de cadera en caninos a partir de radiografías',
       nodes: 240,
       accuracy: '96.2%'
     },
     {
-      name: 'Algoritmo Segmentación de Nervio',
-      description: 'Mapeo 3D del canal mandibular para planificación de implantes',
+      name: 'Algoritmo Segmentación Cardíaca Felina',
+      description: 'Mapeo 3D del corazón felino para diagnóstico de cardiomiopatía hipertrófica',
       nodes: 180,
       accuracy: '94.8%'
     },
     {
-      name: 'Predictor de Caries',
-      description: 'Modelo predictivo de riesgo de caries en población pediátrica',
+      name: 'Predictor Dermatitis Atópica Canina',
+      description: 'Modelo predictivo de riesgo de dermatitis atópica basado en raza, edad y ambiente',
       nodes: 320,
       accuracy: '91.5%'
     }
@@ -48,13 +49,13 @@ const ResearchPortal = () => {
       <section className="container mx-auto px-4 py-16">
         <div className="text-center max-w-4xl mx-auto">
           <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-orange-900/50 mb-6">
-            <TrendingUp className="h-10 w-10 text-orange-400" />
+            <Stethoscope className="h-10 w-10 text-orange-400" />
           </div>
           <h1 className="text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-pink-400">
-            Red de Inteligencia Colectiva
+            Red de Inteligencia Veterinaria Colectiva
           </h1>
           <p className="text-xl text-slate-300 mb-8">
-            Acelera descubrimientos clínicos accediendo a datos globales 
+            Acelera descubrimientos clínicos veterinarios accediendo a datos globales 
             sin que la información sensible salga nunca de la clínica.
           </p>
           <Button 
@@ -72,8 +73,8 @@ const ResearchPortal = () => {
       <section className="py-16 bg-slate-900/50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">Catálogo de Innovación Abierta</h2>
-            <p className="text-lg text-slate-300">Despliega algoritmos de vanguardia en miles de nodos clínicos simultáneamente.</p>
+            <h2 className="text-4xl font-bold mb-4">Catálogo de Innovación Veterinaria Abierta</h2>
+            <p className="text-lg text-slate-300">Despliega algoritmos de vanguardia en miles de nodos clínicos veterinarios simultáneamente.</p>
           </div>
 
           <div className="max-w-5xl mx-auto">
@@ -100,7 +101,7 @@ const ResearchPortal = () => {
                     <div className="space-y-4">
                       <div>
                         <div className="flex justify-between text-sm mb-2">
-                          <span className="text-slate-400">Entrenando en {algo.nodes} nodos</span>
+                          <span className="text-slate-400">Entrenando en {algo.nodes} clínicas veterinarias</span>
                           <span className="text-orange-400 font-medium">45% completado</span>
                         </div>
                         <Progress value={45} className="h-2 bg-slate-700" />
