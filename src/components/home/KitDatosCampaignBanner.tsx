@@ -39,7 +39,7 @@ export const KitDatosCampaignBanner = () => {
           <div className="flex flex-wrap justify-center gap-4 md:gap-8 mb-8">
             <div className="flex items-center gap-2 text-sm md:text-base">
               <CheckCircle2 className="h-5 w-5 text-green-600" />
-              <span className="text-foreground">Tramitación 100% gratuita</span>
+              <span className="text-foreground">Tramitación incluida en la cuota mensual</span>
             </div>
             <div className="flex items-center gap-2 text-sm md:text-base">
               <CheckCircle2 className="h-5 w-5 text-green-600" />
