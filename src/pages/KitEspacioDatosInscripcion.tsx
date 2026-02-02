@@ -13,7 +13,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Progress } from '@/components/ui/progress';
 import { toast } from '@/hooks/use-toast';
-import { Building2, User, Settings, CheckCircle2, ArrowRight, ArrowLeft, Send, Euro, PawPrint, FileText, ScrollText, ChevronDown } from 'lucide-react';
+import { Building2, User, Settings, CheckCircle2, ArrowRight, ArrowLeft, Send, Euro, PawPrint, FileText, ScrollText, ChevronDown, Home } from 'lucide-react';
+import { NavigationControls } from '@/components/ui/NavigationControls';
 import ContractContent from '@/components/legal/ContractContent';
 import AcceptanceActContent from '@/components/legal/AcceptanceActContent';
 import { GlobalFooter } from '@/components/ui/GlobalFooter';
@@ -264,6 +265,7 @@ const KitEspacioDatosInscripcion = () => {
       </header>
 
       <main className="container mx-auto px-4 py-8">
+        <NavigationControls />
         <div className="max-w-3xl mx-auto">
           {/* Title */}
           <div className="text-center mb-8">
