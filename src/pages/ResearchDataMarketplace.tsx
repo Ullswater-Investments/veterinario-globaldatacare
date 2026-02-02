@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Database,
   BrainCircuit,
@@ -10,68 +11,13 @@ import {
   Globe,
   FileJson,
   CheckCircle2,
+  Clock,
+  Filter,
 } from "lucide-react";
 import { NavigationControls } from "@/components/ui/NavigationControls";
 import { GlobalFooter } from "@/components/ui/GlobalFooter";
-
-// --- DATOS MOCK (Simulación) ---
-
-const datasets = [
-  {
-    id: 1,
-    title: "Cohorte Longitudinal Dermatitis Atópica Canina",
-    author: "Hospital Veterinario Universitario de Valencia",
-    n: 12500,
-    price: "450 Tokens",
-    type: "Datos Estructurados + Imágenes",
-    quality: "Gold Standard (Validado por veterinarios)",
-    tags: ["Dermatología", "Canino", "Alérgenos"],
-    previewData: {
-      patient_id: "SYNTH-9921",
-      species: "Canino",
-      breed: "Labrador",
-      cadesi_score: 42,
-      allergen_exposure: "Alto",
-      treatment_history: ["Apoquel 16mg", "Baño medicado semanal"],
-    },
-  },
-  {
-    id: 2,
-    title: "Marcadores Genéticos Cardiomiopatía Felina",
-    author: "Dr. Genetic Lab Veterinario (Hub Norte)",
-    n: 850,
-    price: "1200 Tokens",
-    type: "Datos Genómicos + Clínicos",
-    quality: "Sequencing High-Fi",
-    tags: ["Cardiología", "Felino", "Genética"],
-    previewData: {
-      sample_id: "GEN-552",
-      species: "Felino",
-      cardiomyopathy_type: "HCM",
-      mutation_mybpc3: "Positivo",
-      wall_thickness_mm: "7.2mm",
-      prognosis: "Moderado",
-    },
-  },
-  {
-    id: 3,
-    title: "Segmentación Displasia Cadera (Rx)",
-    author: "VetVision AI Corp",
-    n: 5000,
-    price: "800 Tokens",
-    type: "DICOM + Máscaras Segmentación",
-    quality: "Pixel-Perfect Annotation",
-    tags: ["Ortopedia", "Canino", "Visión Artificial"],
-    previewData: {
-      scan_id: "RX-8821",
-      species: "Canino",
-      breed: "Pastor Alemán",
-      norberg_angle: "98°",
-      hip_score: "Moderado",
-      bilateral: true,
-    },
-  },
-];
+import { Badge } from "@/components/ui/badge";
+import { researchDatasets, getCategories, getSpeciesList } from "@/data/researchDatasets";
 
 const algorithms = [
   {
@@ -93,9 +39,26 @@ const algorithms = [
 ];
 
 const ResearchDataMarketplace: React.FC = () => {
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState<"data" | "algos">("data");
-  const [selectedPreview, setSelectedPreview] = useState<any>(null);
+  const [selectedPreview, setSelectedPreview] = useState<typeof researchDatasets[0] | null>(null);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState<string>("");
+  const [selectedSpecies, setSelectedSpecies] = useState<string>("");
 
+  const categories = getCategories();
+  const speciesList = getSpeciesList();
+
+  // Filter datasets based on search and filters
+  const filteredDatasets = researchDatasets.filter(ds => {
+    const matchesSearch = searchQuery === "" || 
+      ds.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      ds.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase())) ||
+      ds.category.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesCategory = selectedCategory === "" || ds.category === selectedCategory;
+    const matchesSpecies = selectedSpecies === "" || ds.species === selectedSpecies;
+    return matchesSearch && matchesCategory && matchesSpecies;
+  });
   useEffect(() => {
     const descriptionContent =
       "Marketplace federado de datos clínicos y algoritmos para investigación en salud veterinaria, con datos sintéticos y privacidad preservada.";
@@ -247,58 +210,93 @@ const ResearchDataMarketplace: React.FC = () => {
           {/* VISTA 1: MARKETPLACE DE DATOS */}
           {activeTab === "data" && (
             <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-              <div className="flex justify-between items-end mb-8">
+              <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 mb-8">
                 <div>
                   <h2 className="text-2xl font-bold text-slate-800">
-                    Datasets Disponibles
+                    Datasets Disponibles ({filteredDatasets.length})
                   </h2>
                   <p className="text-slate-500">
                     Adquiere derechos de entrenamiento sobre datos anonimizados o
                     sintéticos.
                   </p>
                 </div>
-                <div className="relative">
-                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
-                  <input
-                    type="text"
-                    placeholder="Buscar patología, especie..."
-                    className="pl-10 pr-4 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 w-64"
-                  />
+                <div className="flex flex-wrap gap-3">
+                  <div className="relative">
+                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+                    <input
+                      type="text"
+                      placeholder="Buscar patología, especie..."
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                      className="pl-10 pr-4 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 w-64"
+                    />
+                  </div>
+                  <select
+                    value={selectedCategory}
+                    onChange={(e) => setSelectedCategory(e.target.value)}
+                    className="px-3 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
+                  >
+                    <option value="">Todas las categorías</option>
+                    {categories.map(cat => (
+                      <option key={cat} value={cat}>{cat}</option>
+                    ))}
+                  </select>
+                  <select
+                    value={selectedSpecies}
+                    onChange={(e) => setSelectedSpecies(e.target.value)}
+                    className="px-3 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
+                  >
+                    <option value="">Todas las especies</option>
+                    {speciesList.map(sp => (
+                      <option key={sp} value={sp}>{sp}</option>
+                    ))}
+                  </select>
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {datasets.map((ds) => (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                {filteredDatasets.map((ds) => (
                   <div
                     key={ds.id}
                     className="bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-xl transition-all hover:-translate-y-1 group"
                   >
-                    <div className="p-6">
-                      <div className="flex justify-between items-start mb-4">
-                        <span className="bg-orange-50 text-orange-700 text-xs px-2 py-1 rounded-md font-bold">
-                          {ds.quality}
-                        </span>
-                        <Lock className="w-4 h-4 text-slate-400" />
+                    <div className="p-5">
+                      <div className="flex justify-between items-start mb-3">
+                        <div className="flex flex-wrap gap-1">
+                          <Badge variant="secondary" className="text-xs bg-slate-100">
+                            {ds.category}
+                          </Badge>
+                          {ds.status === "Generating" && (
+                            <Badge className="bg-amber-100 text-amber-700 border-amber-200 text-xs">
+                              <Clock className="w-3 h-3 mr-1" /> {ds.progress}%
+                            </Badge>
+                          )}
+                          {ds.status === "Sold" && (
+                            <Badge className="bg-slate-100 text-slate-600 border-slate-200 text-xs">
+                              <Lock className="w-3 h-3 mr-1" /> Vendido
+                            </Badge>
+                          )}
+                        </div>
+                        <Lock className="w-4 h-4 text-slate-300" />
                       </div>
-                      <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-orange-600 transition-colors">
+                      <h3 className="text-base font-bold text-slate-900 mb-2 group-hover:text-orange-600 transition-colors line-clamp-2">
                         {ds.title}
                       </h3>
-                      <p className="text-sm text-slate-500 mb-4 flex items-center gap-1">
-                        Por: {ds.author} <CheckCircle2 className="w-3 h-3 text-blue-500" />
+                      <p className="text-xs text-slate-500 mb-3 flex items-center gap-1 line-clamp-1">
+                        <CheckCircle2 className="w-3 h-3 text-blue-500 flex-shrink-0" />
+                        <span className="truncate">{ds.author}</span>
                       </p>
 
-                      <div className="grid grid-cols-2 gap-2 text-sm text-slate-600 mb-6 bg-slate-50 p-3 rounded-lg">
+                      <div className="grid grid-cols-2 gap-2 text-sm text-slate-600 mb-4 bg-slate-50 p-2 rounded-lg">
                         <div>
-                          <span className="block text-xs text-slate-400">
-                            Registros (N)
-                          </span>
-                          <span className="font-mono font-bold">
+                          <span className="block text-xs text-slate-400">N</span>
+                          <span className="font-mono font-bold text-sm">
                             {ds.n.toLocaleString()}
                           </span>
                         </div>
                         <div>
                           <span className="block text-xs text-slate-400">Precio</span>
-                          <span className="font-mono font-bold text-orange-600">
+                          <span className="font-mono font-bold text-orange-600 text-sm">
                             {ds.price}
                           </span>
                         </div>
@@ -307,14 +305,15 @@ const ResearchDataMarketplace: React.FC = () => {
                       <div className="flex gap-2">
                         <button
                           type="button"
-                          onClick={() => setSelectedPreview(ds)}
-                          className="flex-1 py-2 border border-slate-200 rounded-lg text-sm font-medium hover:bg-slate-50 flex items-center justify-center gap-2"
+                          onClick={() => navigate(ds.sampleUrl)}
+                          className="flex-1 py-2 border border-slate-200 rounded-lg text-sm font-medium hover:bg-slate-50 flex items-center justify-center gap-1"
                         >
-                          <Eye className="w-4 h-4" /> Ver Muestra
+                          <Eye className="w-4 h-4" /> Muestra
                         </button>
                         <button
                           type="button"
-                          className="flex-1 py-2 bg-slate-900 text-white rounded-lg text-sm font-medium hover:bg-slate-800 flex items-center justify-center gap-2"
+                          disabled={ds.status === "Sold"}
+                          className="flex-1 py-2 bg-slate-900 text-white rounded-lg text-sm font-medium hover:bg-slate-800 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-1"
                         >
                           <ShoppingCart className="w-4 h-4" /> Comprar
                         </button>
@@ -323,6 +322,14 @@ const ResearchDataMarketplace: React.FC = () => {
                   </div>
                 ))}
               </div>
+
+              {filteredDatasets.length === 0 && (
+                <div className="text-center py-16 text-slate-500">
+                  <Database className="w-12 h-12 mx-auto mb-4 opacity-50" />
+                  <p className="text-lg font-medium">No se encontraron datasets</p>
+                  <p className="text-sm">Prueba con otros filtros o términos de búsqueda</p>
+                </div>
+              )}
             </div>
           )}
 
