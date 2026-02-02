@@ -34,6 +34,7 @@ import {
   CircleCheck,
   FileCheck,
   Send,
+  Info,
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -423,7 +424,7 @@ const GuiaKitEspacioDatos = () => {
           <div className="text-center mb-12">
             <h2 className="text-2xl md:text-3xl font-bold mb-4">¿Cuánto Puedo Conseguir?</h2>
             <p className="text-muted-foreground">
-              Importe de subvención según tu clínica
+              El importe depende del nivel de madurez en gestión de datos de salud animal
             </p>
           </div>
 
@@ -440,6 +441,34 @@ const GuiaKitEspacioDatos = () => {
                   <CardDescription>
                     Subvención a fondo perdido según criterios RED.ES
                   </CardDescription>
+                  
+                  {/* Explicación de criterios de subvención */}
+                  <div className="mt-4 space-y-3">
+                    <div className="bg-green-50 border border-green-200 rounded-lg p-3">
+                      <Badge variant="outline" className="bg-green-100 text-green-800 border-green-300">
+                        Hasta 15.000€
+                      </Badge>
+                      <p className="text-sm text-green-700 mt-2">
+                        Para clínicas que inician su transformación digital en gestión de datos de salud animal.
+                      </p>
+                    </div>
+                    
+                    <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
+                      <Badge variant="outline" className="bg-blue-100 text-blue-800 border-blue-300">
+                        Hasta 30.000€
+                      </Badge>
+                      <p className="text-sm text-blue-700 mt-2">
+                        Para entidades con experiencia demostrable en gestión de datos de salud animal.
+                      </p>
+                    </div>
+                    
+                    <div className="flex items-start gap-2 bg-amber-50 border border-amber-200 rounded-lg p-3">
+                      <Info className="h-4 w-4 text-amber-600 mt-0.5 shrink-0" />
+                      <p className="text-xs text-amber-700">
+                        Durante nuestra consultoría inicial, evaluamos tu nivel de madurez y te recomendamos el importe más adecuado para tu clínica.
+                      </p>
+                    </div>
+                  </div>
                 </CardHeader>
                 <CardContent className="space-y-3">
                   <div className="flex items-center gap-2">
