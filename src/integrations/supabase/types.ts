@@ -155,6 +155,99 @@ export type Database = {
         }
         Relationships: []
       }
+      kit_inscriptions: {
+        Row: {
+          address: string
+          cif: string
+          city: string
+          clinic_name: string
+          communications_accepted: boolean | null
+          contact_email: string
+          contact_name: string
+          contact_phone: string
+          contact_role: string
+          created_at: string | null
+          current_software: string | null
+          email: string
+          has_digital_records: string | null
+          has_website: boolean | null
+          id: string
+          interested_modules: Json | null
+          num_employees: number | null
+          num_veterinarians: number | null
+          phone: string
+          postal_code: string
+          privacy_accepted: boolean
+          province: string
+          status: string | null
+          terms_accepted: boolean
+          updated_at: string | null
+          utm_campaign: string | null
+          utm_medium: string | null
+          utm_source: string | null
+        }
+        Insert: {
+          address: string
+          cif: string
+          city: string
+          clinic_name: string
+          communications_accepted?: boolean | null
+          contact_email: string
+          contact_name: string
+          contact_phone: string
+          contact_role: string
+          created_at?: string | null
+          current_software?: string | null
+          email: string
+          has_digital_records?: string | null
+          has_website?: boolean | null
+          id?: string
+          interested_modules?: Json | null
+          num_employees?: number | null
+          num_veterinarians?: number | null
+          phone: string
+          postal_code: string
+          privacy_accepted?: boolean
+          province: string
+          status?: string | null
+          terms_accepted?: boolean
+          updated_at?: string | null
+          utm_campaign?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+        }
+        Update: {
+          address?: string
+          cif?: string
+          city?: string
+          clinic_name?: string
+          communications_accepted?: boolean | null
+          contact_email?: string
+          contact_name?: string
+          contact_phone?: string
+          contact_role?: string
+          created_at?: string | null
+          current_software?: string | null
+          email?: string
+          has_digital_records?: string | null
+          has_website?: boolean | null
+          id?: string
+          interested_modules?: Json | null
+          num_employees?: number | null
+          num_veterinarians?: number | null
+          phone?: string
+          postal_code?: string
+          privacy_accepted?: boolean
+          province?: string
+          status?: string | null
+          terms_accepted?: boolean
+          updated_at?: string | null
+          utm_campaign?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+        }
+        Relationships: []
+      }
       lab_orders: {
         Row: {
           created_at: string

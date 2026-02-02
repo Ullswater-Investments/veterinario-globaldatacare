@@ -77,6 +77,7 @@ import TechnicalWhitepaperVideo from "./pages/video/TechnicalWhitepaperVideo";
 import ConceptShowcase from "./pages/video/ConceptShowcase";
 import PropuestaKitEspacioDatos from "./pages/PropuestaKitEspacioDatos";
 import DatasetSamplePage from "./pages/research/DatasetSamplePage";
+import KitEspacioDatosInscripcion from "./pages/KitEspacioDatosInscripcion";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -160,6 +161,7 @@ const App = () => (
                 {/* Standalone utility pages */}
                 <Route path="/legal" element={<LegalNotice />} />
                 <Route path="/propuesta-kit-espacio-datos" element={<PropuestaKitEspacioDatos />} />
+                <Route path="/inscripcion-kit-espacio-datos" element={<KitEspacioDatosInscripcion />} />
 
                  <Route element={<AppLayout />}>
                    <Route path="/dashboard" element={<Dashboard />} />

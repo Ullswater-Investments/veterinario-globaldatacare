@@ -8,6 +8,7 @@ import { PawPrint, FlaskConical, Heart, TrendingUp, Package, BarChart3, ArrowRig
 import { InteroperabilitySection } from '@/components/home/InteroperabilitySection';
 import { FinalCTA } from '@/components/home/FinalCTA';
 import { GlobalFooter } from "@/components/ui/GlobalFooter";
+import { KitDatosCampaignBanner } from '@/components/home/KitDatosCampaignBanner';
 
 const Landing = () => {
   const navigate = useNavigate();
@@ -130,6 +131,9 @@ const Landing = () => {
           </div>
         </div>
       </section>
+
+      {/* Kit Espacio de Datos Campaign Banner */}
+      <KitDatosCampaignBanner />
 
       {/* Mid CTA Section */}
       <section className="-mt-2 pt-0 pb-14 bg-white">
