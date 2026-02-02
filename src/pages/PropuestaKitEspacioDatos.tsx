@@ -742,7 +742,7 @@ const PropuestaKitEspacioDatos: React.FC = () => {
                     </ul>
                   </div>
 
-                  <a href="mailto:ivan.becerro@accuro.es?subject=Adhesión Plan Integral VetSpace-X - Solicitud Kit Datos" className="block w-full bg-slate-900 text-white text-center py-4 rounded-xl font-bold hover:bg-slate-800 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 duration-200">
+                  <a href="mailto:emilio.mulet@globaldatacare.es?subject=Adhesión Plan Integral VetSpace-X - Solicitud Kit Datos" className="block w-full bg-slate-900 text-white text-center py-4 rounded-xl font-bold hover:bg-slate-800 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 duration-200">
                     Solicitar Pack Integral
                   </a>
                   <p className="text-center text-xs text-slate-400 mt-3">
@@ -809,7 +809,7 @@ const PropuestaKitEspacioDatos: React.FC = () => {
                   </ul>
                 </div>
 
-                <a href="mailto:ivan.becerro@accuro.es?subject=Adhesión Plan Esencial VetSpace-X" className="block w-full bg-white text-slate-900 border-2 border-slate-200 text-center py-4 rounded-xl font-bold hover:bg-slate-50 transition">Solicitar Kit Espacio de Datos</a>
+                <a href="mailto:emilio.mulet@globaldatacare.es?subject=Adhesión Plan Esencial VetSpace-X" className="block w-full bg-white text-slate-900 border-2 border-slate-200 text-center py-4 rounded-xl font-bold hover:bg-slate-50 transition">Solicitar Kit Espacio de Datos</a>
               </div>}
           </div>
         </div>
@@ -824,8 +824,8 @@ const PropuestaKitEspacioDatos: React.FC = () => {
           <p className="text-slate-400 mb-8">La ventana de oportunidad de los fondos europeos es limitada. Posicione su clínica veterinaria hoy.</p>
           
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <a href="mailto:ivan.becerro@accuro.es" className="px-8 py-4 bg-emerald-500 hover:bg-emerald-600 text-white rounded-xl font-bold transition">
-              Contactar con ACCURO
+            <a href="mailto:emilio.mulet@globaldatacare.es" className="px-8 py-4 bg-emerald-500 hover:bg-emerald-600 text-white rounded-xl font-bold transition">
+              Contactar con Global Data Care
             </a>
             <Link to="/consulting/technical-proposal" className="px-8 py-4 bg-transparent border border-slate-700 text-slate-300 hover:text-white hover:border-white rounded-xl font-bold transition">
               Descargar Whitepaper Técnico

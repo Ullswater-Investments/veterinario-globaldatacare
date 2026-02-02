@@ -460,7 +460,7 @@ const MobilePresentation: React.FC = () => {
                 </p>
                 <div className="mt-4 flex items-center gap-2 text-sm text-muted-foreground">
                   <Mail className="h-4 w-4" />
-                  <span>ivan.becerro@accuro.es</span>
+                  <span>emilio.mulet@globaldatacare.es</span>
                 </div>
                 <div className="mt-6 flex flex-col items-stretch gap-2">
                   <button

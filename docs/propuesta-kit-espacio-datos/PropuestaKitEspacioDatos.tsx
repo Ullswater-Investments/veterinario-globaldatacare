@@ -778,7 +778,7 @@ const PropuestaKitEspacioDatos: React.FC = () => {
                     </ul>
                   </div>
 
-                  <a href="mailto:ivan.becerro@accuro.es?subject=Adhesión Plan Integral BQDC - Solicitud Kit Datos" className="block w-full bg-slate-900 text-white text-center py-4 rounded-xl font-bold hover:bg-slate-800 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 duration-200">
+                  <a href="mailto:emilio.mulet@globaldatacare.es?subject=Adhesión Plan Integral BQDC - Solicitud Kit Datos" className="block w-full bg-slate-900 text-white text-center py-4 rounded-xl font-bold hover:bg-slate-800 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 duration-200">
                     Solicitar Pack Integral
                   </a>
                   <p className="text-center text-xs text-slate-400 mt-3">
@@ -845,7 +845,7 @@ const PropuestaKitEspacioDatos: React.FC = () => {
                   </ul>
                 </div>
 
-                <a href="mailto:ivan.becerro@accuro.es?subject=Adhesión Plan Esencial BQDC" className="block w-full bg-white text-slate-900 border-2 border-slate-200 text-center py-4 rounded-xl font-bold hover:bg-slate-50 transition">Solicitar Kit Espacio de Datos</a>
+                <a href="mailto:emilio.mulet@globaldatacare.es?subject=Adhesión Plan Esencial BQDC" className="block w-full bg-white text-slate-900 border-2 border-slate-200 text-center py-4 rounded-xl font-bold hover:bg-slate-50 transition">Solicitar Kit Espacio de Datos</a>
               </div>}
           </div>
         </div>
@@ -861,10 +861,10 @@ const PropuestaKitEspacioDatos: React.FC = () => {
           
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <a 
-              href="mailto:ivan.becerro@accuro.es" 
+              href="mailto:emilio.mulet@globaldatacare.es" 
               className="px-8 py-4 bg-emerald-500 hover:bg-emerald-600 text-white rounded-xl font-bold transition"
             >
-              Contactar con ACCURO
+              Contactar con Global Data Care
             </a>
             <Link 
               to="/consulting/technical-proposal" 
