@@ -157,6 +157,7 @@ export type Database = {
       }
       kit_inscriptions: {
         Row: {
+          acceptance_act_accepted: boolean | null
           address: string
           cif: string
           city: string
@@ -166,6 +167,8 @@ export type Database = {
           contact_name: string
           contact_phone: string
           contact_role: string
+          contract_accepted: boolean | null
+          contract_accepted_at: string | null
           created_at: string | null
           current_software: string | null
           email: string
@@ -187,6 +190,7 @@ export type Database = {
           utm_source: string | null
         }
         Insert: {
+          acceptance_act_accepted?: boolean | null
           address: string
           cif: string
           city: string
@@ -196,6 +200,8 @@ export type Database = {
           contact_name: string
           contact_phone: string
           contact_role: string
+          contract_accepted?: boolean | null
+          contract_accepted_at?: string | null
           created_at?: string | null
           current_software?: string | null
           email: string
@@ -217,6 +223,7 @@ export type Database = {
           utm_source?: string | null
         }
         Update: {
+          acceptance_act_accepted?: boolean | null
           address?: string
           cif?: string
           city?: string
@@ -226,6 +233,8 @@ export type Database = {
           contact_name?: string
           contact_phone?: string
           contact_role?: string
+          contract_accepted?: boolean | null
+          contract_accepted_at?: string | null
           created_at?: string | null
           current_software?: string | null
           email?: string
