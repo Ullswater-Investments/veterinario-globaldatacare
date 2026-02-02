@@ -1,204 +1,274 @@
 
 
-## Plan: Integrar Contrato de Adhesión y Acta de Conformidad en el Formulario de Inscripción
+## Plan: Crear Página "Condiciones del Kit Espacio de Datos" con Gráficos Explicativos
 
 ### Objetivo
-Añadir una sección de **lectura obligatoria del Contrato de Adhesión** y el **Acta de Entrega y Conformidad** en el Paso 3 (Confirmación) del formulario de inscripción, antes de que el usuario pueda enviar su solicitud.
+Crear una nueva página `/condiciones-kit-espacio-datos` que presente de forma visual y clara las condiciones contractuales extraídas del Contrato de Adhesión, utilizando gráficos, iconos, tarjetas y diagramas explicativos para facilitar la comprensión.
 
 ---
 
-## Parte 1: Estructura de la Fase de Confirmación Mejorada
+## Parte 1: Condiciones Clave a Visualizar
 
-El paso 3 actual se reestructurará para incluir:
+Basándome en el análisis del Contrato de Adhesión (`ContractContent.tsx`), estas son las condiciones principales que se presentarán:
+
+| Condición | Cláusula | Importancia Visual |
+|-----------|----------|-------------------|
+| **Estructura de 2 Fases** | Cláusula 2 | Timeline/Diagrama de flujo |
+| **Fase 1: 6 meses irrevocable** | Cláusula 2.1 | Card destacada (amber) |
+| **Fase 2: Prórroga automática** | Cláusula 2.2 | Card destacada (green) |
+| **Precio Fase 1: 1.140€ (190€/mes x 6)** | Cláusula 3.1 | Calculadora visual |
+| **Precio Fase 2: Importe de la subvención** | Cláusula 3.2 | Diagrama de flujo de fondos |
+| **Financiación Hokodo** | Cláusula 4 | Infografía de pago |
+| **Acta de Conformidad** | Cláusula 5 | Paso a paso visual |
+| **Mandato de Representación** | Cláusula 6 | Iconografía proceso |
+| **Separación pagos vs. incidencias** | Cláusula 7 | Diagrama de 2 columnas |
+
+---
+
+## Parte 2: Estructura de la Página
 
 ```text
-PASO 3: CONFIRMACIÓN Y CONTRATO
-├── 3.1 Información Adicional (opcional) [existente]
-│   ├── Número de veterinarios
-│   ├── Número de empleados
-│   ├── Software actual
-│   └── Historia clínica digital
-│
-├── 3.2 Módulos de Interés [existente]
-│
-├── 3.3 CONTRATO DE ADHESIÓN [NUEVO]
-│   ├── ScrollArea con texto completo del contrato
-│   ├── Indicador "Scroll para leer todo"
-│   ├── Tiempo mínimo de lectura (30 segundos)
-│   └── Checkbox: "He leído y acepto el Contrato de Adhesión"
-│
-├── 3.4 ACTA DE ENTREGA Y CONFORMIDAD [NUEVO]
-│   ├── ScrollArea con texto del acta
-│   └── Checkbox: "Acepto el Acta de Entrega y Conformidad"
-│
-└── 3.5 Consentimientos Adicionales [existente actualizado]
-    ├── Política de privacidad
-    ├── Condiciones de participación
-    └── Comunicaciones comerciales
+/condiciones-kit-espacio-datos
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  HEADER: Navegación + Logo                                                   │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  HERO: "Condiciones Transparentes del Kit Espacio de Datos"                 │
+│  Subtítulo: "Todo lo que necesitas saber antes de inscribirte"              │
+│                                                                              │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  SECCIÓN 1: RESUMEN EJECUTIVO (Tarjetas de 3 columnas)                      │
+│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐                       │
+│  │ 💰 190€/mes  │  │ ⏱️ 6 meses   │  │ 🎯 30.000€   │                       │
+│  │ Cuota fija   │  │ Fase inicial │  │ Subvención   │                       │
+│  └──────────────┘  └──────────────┘  └──────────────┘                       │
+│                                                                              │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  SECCIÓN 2: ESTRUCTURA DE FASES (Timeline Interactivo)                      │
+│                                                                              │
+│  ┌─────────────────────────────────────────────────────────────────────┐    │
+│  │                                                                     │    │
+│  │   FASE 1 (Irrevocable)          FASE 2 (Condicional)               │    │
+│  │   ┌─────────────────┐          ┌─────────────────┐                  │    │
+│  │   │ 6 MESES         │────────▶│ 12 MESES        │                  │    │
+│  │   │ 1.140€ total    │          │ = Subvención    │                  │    │
+│  │   │ (190€ x 6)      │          │ (15.000-30.000€)│                  │    │
+│  │   └─────────────────┘          └─────────────────┘                  │    │
+│  │                                                                     │    │
+│  │   ⚠️ Sin cancelación           ✅ Solo si aprobada                  │    │
+│  │      anticipada                   la subvención                     │    │
+│  │                                                                     │    │
+│  └─────────────────────────────────────────────────────────────────────┘    │
+│                                                                              │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  SECCIÓN 3: DESGLOSE ECONÓMICO (Infografía de Flujo)                        │
+│                                                                              │
+│  ┌───────────────────────────────────────────────────────────────┐          │
+│  │  TU INVERSIÓN          →    RETORNO POTENCIAL                 │          │
+│  │  ┌─────────────┐            ┌─────────────┐                   │          │
+│  │  │ 1.140€      │            │ 30.000€     │                   │          │
+│  │  │ + IVA       │            │ Subvención  │                   │          │
+│  │  └─────────────┘            └─────────────┘                   │          │
+│  │                                                               │          │
+│  │  ROI: 26x sobre tu inversión inicial                          │          │
+│  └───────────────────────────────────────────────────────────────┘          │
+│                                                                              │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  SECCIÓN 4: PROCESO DE PAGO (Cards con Hokodo)                              │
+│                                                                              │
+│  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐         │
+│  │ Mes 1       │  │ Mes 2       │  │ Mes 3       │  │ ...Mes 6    │         │
+│  │ 190€+IVA    │  │ 190€+IVA    │  │ 190€+IVA    │  │ 190€+IVA    │         │
+│  └─────────────┘  └─────────────┘  └─────────────┘  └─────────────┘         │
+│                                                                              │
+│  📌 Financiación gestionada por Hokodo (entidad financiera externa)         │
+│                                                                              │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  SECCIÓN 5: QUÉ INCLUYE TU CUOTA (Grid de servicios)                        │
+│                                                                              │
+│  ✅ Acceso al Espacio de Datos Federado                                     │
+│  ✅ Consultoría técnica y administrativa                                    │
+│  ✅ Tramitación completa de la subvención                                   │
+│  ✅ Redacción de memoria técnica                                            │
+│  ✅ Presentación ante RED.ES                                                │
+│  ✅ Justificación del proyecto                                              │
+│                                                                              │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  SECCIÓN 6: CONDICIONES IMPORTANTES (Acordeón/FAQ)                          │
+│                                                                              │
+│  ▼ ¿Puedo cancelar durante los 6 primeros meses?                            │
+│    No. La Fase 1 es irrevocable porque los recursos se ponen               │
+│    a disposición desde el día 1.                                            │
+│                                                                              │
+│  ▼ ¿Qué pasa si me conceden la subvención?                                  │
+│    El contrato se prorroga automáticamente 12 meses adicionales.           │
+│                                                                              │
+│  ▼ ¿Qué es el Acta de Conformidad?                                          │
+│    Es el documento que certifica la entrega del servicio y activa          │
+│    las obligaciones de pago.                                                │
+│                                                                              │
+│  ▼ ¿Quién tramita la subvención?                                            │
+│    VetSpace Technology S.L. actúa como tu representante voluntario.        │
+│                                                                              │
+│  ▼ ¿Qué pasa si tengo una incidencia técnica?                               │
+│    Las incidencias se gestionan por SLA, pero no afectan los pagos         │
+│    comprometidos con la entidad financiera.                                 │
+│                                                                              │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  SECCIÓN 7: AVISO LEGAL                                                      │
+│  Card con texto explicativo sobre la naturaleza vinculante del contrato    │
+│                                                                              │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  CTA FINAL                                                                   │
+│  [📝 Solicitar Inscripción por 190€/mes]  [📄 Descargar Contrato PDF]       │
+│                                                                              │
+└─────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## Parte 2: Componentes del Contrato
+## Parte 3: Componentes Visuales Específicos
 
-### 2.1 Contrato de Adhesión (Contenido resumido para UI)
-
-Se mostrará en un ScrollArea con las siguientes secciones:
-
-| Cláusula | Contenido Principal |
-|----------|---------------------|
-| 1. OBJETO | Licencia de uso + Consultoría para Kit Espacio de Datos |
-| 2. DURACIÓN | Fase 1 (6 meses irrevocable) + Fase 2 (prórroga automática si se concede ayuda) |
-| 3. PRECIO | Fase 1: 1.140€ + IVA (190€/mes x 6) / Fase 2: Importe de la subvención |
-| 4. FORMA DE PAGO | Financiación a través de Hokodo |
-| 5. ACTA DE CONFORMIDAD | Activación del servicio = deuda exigible |
-| 6. MANDATO | Autorización para tramitar la subvención |
-| 7. DISPUTAS | Separación de incidencias técnicas vs. pagos |
-
-### 2.2 Acta de Entrega y Conformidad (Texto digital)
-
-Se mostrará como un documento separado que certifica:
-- Recepción de credenciales de acceso
-- Inicio de la consultoría
-- Conformidad con el servicio
-- Activación irrevocable de la financiación
-
----
-
-## Parte 3: Validaciones Adicionales
-
-### 3.1 Nuevos campos en el schema Zod
-
-```typescript
-// Añadir al formSchema
-contract_read: z.boolean().refine(val => val === true, 
-  'Debes leer y aceptar el Contrato de Adhesión'),
-acceptance_act_read: z.boolean().refine(val => val === true, 
-  'Debes aceptar el Acta de Entrega y Conformidad'),
-```
-
-### 3.2 Nuevas columnas en la base de datos
-
-Se añadirán a la tabla `kit_inscriptions`:
-- `contract_accepted: boolean`
-- `acceptance_act_accepted: boolean`  
-- `contract_accepted_at: timestamptz`
-
----
-
-## Parte 4: Diseño Visual del Contrato
+### 3.1 Timeline de Fases (Diagrama Horizontal)
 
 ```text
-┌─────────────────────────────────────────────────────────────────┐
-│  📜 CONTRATO DE ADHESIÓN AL ESPACIO DE DATOS FEDERADO          │
-│     Y GESTIÓN DE AYUDAS "KIT ESPACIO DE DATOS"                  │
-├─────────────────────────────────────────────────────────────────┤
-│  ┌─────────────────────────────────────────────────────────┐    │
-│  │                                                         │    │
-│  │  REUNIDOS                                               │▒   │
-│  │                                                         │▒   │
-│  │  DE UNA PARTE: VetSpace Technology S.L., en adelante   │▒   │
-│  │  "EL PRESTADOR"                                         │▒   │
-│  │                                                         │▒   │
-│  │  DE OTRA PARTE: [NOMBRE CLÍNICA], en adelante          │▒   │
-│  │  "EL CLIENTE"                                           │▒   │
-│  │                                                         │▒   │
-│  │  CLÁUSULA 1. OBJETO DEL CONTRATO...                    │▒   │
-│  │                                                         │    │
-│  └─────────────────────────────────────────────────────────┘    │
-│                     ↓ Desplázate para leer todo ↓               │
-├─────────────────────────────────────────────────────────────────┤
-│  [ ] He leído y acepto íntegramente el CONTRATO DE ADHESIÓN *  │
-└─────────────────────────────────────────────────────────────────┘
+      ┌───────────────────────────┐         ┌───────────────────────────┐
+      │      FASE 1               │         │      FASE 2               │
+      │   ┌─────────────────┐     │         │   ┌─────────────────┐     │
+      │   │   6 MESES       │     │─────────│   │  12 MESES       │     │
+      │   │  IRREVOCABLE    │     │         │   │  AUTOMÁTICA     │     │
+      │   └─────────────────┘     │         │   └─────────────────┘     │
+      │                           │         │                           │
+      │   💰 190€/mes x 6         │         │   💰 = Subvención         │
+      │   = 1.140€ + IVA          │         │   (15.000-30.000€)        │
+      │                           │         │                           │
+      │   🔒 Sin cancelación      │         │   ✅ Solo si aprobada     │
+      └───────────────────────────┘         └───────────────────────────┘
+                   │                                    │
+                   ▼                                    ▼
+           Acceso inmediato                    Continuidad del
+           a la plataforma                     ecosistema completo
 ```
+
+### 3.2 Calculadora Visual de ROI
+
+```text
+  ┌─────────────────────────────────────────────────────────────────┐
+  │                                                                 │
+  │   TU INVERSIÓN                 VALOR TECNOLÓGICO                │
+  │   ┌──────────────┐             ┌──────────────┐                 │
+  │   │              │             │              │                 │
+  │   │   1.140€     │     →       │  30.000€     │                 │
+  │   │   + IVA      │             │  Subvención  │                 │
+  │   │              │             │  RED.ES      │                 │
+  │   └──────────────┘             └──────────────┘                 │
+  │                                                                 │
+  │   ════════════════════════════════════════════                  │
+  │   ROI = 26x sobre tu inversión inicial                          │
+  │   Financiación: 85-90% cubierta por fondos europeos             │
+  │                                                                 │
+  └─────────────────────────────────────────────────────────────────┘
+```
+
+### 3.3 Grid de Cuotas Mensuales
+
+Seis cards horizontales mostrando cada cuota de 190€/mes con indicadores de estado (pagado/pendiente).
 
 ---
 
-## Parte 5: Archivos a Crear/Modificar
+## Parte 4: Archivos a Crear/Modificar
 
 | Archivo | Acción | Descripción |
 |---------|--------|-------------|
-| `src/pages/KitEspacioDatosInscripcion.tsx` | MODIFICAR | Añadir secciones de contrato y acta |
-| `src/components/legal/ContractContent.tsx` | CREAR | Componente con el texto del contrato |
-| `src/components/legal/AcceptanceActContent.tsx` | CREAR | Componente con el texto del acta |
-| **Base de datos** | MIGRACIÓN | Añadir columnas `contract_accepted`, `acceptance_act_accepted` |
+| `src/pages/CondicionesKitEspacioDatos.tsx` | **CREAR** | Página completa con todas las secciones visuales |
+| `src/App.tsx` | **MODIFICAR** | Añadir ruta `/condiciones-kit-espacio-datos` |
+| `src/components/home/KitDatosCampaignBanner.tsx` | **MODIFICAR** | Cambiar enlace "Ver Condiciones" a la nueva página |
 
 ---
 
-## Parte 6: Flujo de Usuario Actualizado
+## Parte 5: Tecnologías y Componentes UI
 
-```text
-PASO 1: Datos Clínica
-    ↓
-PASO 2: Datos Responsable  
-    ↓
-PASO 3: Confirmación y Contrato
-    ├── 3.1 Información adicional (opcional)
-    ├── 3.2 Módulos de interés (opcional)
-    ├── 3.3 📜 LEER CONTRATO DE ADHESIÓN [scroll obligatorio]
-    │       └── ✅ "He leído y acepto el Contrato de Adhesión"
-    ├── 3.4 📋 LEER ACTA DE CONFORMIDAD [scroll obligatorio]
-    │       └── ✅ "Acepto el Acta de Entrega y Conformidad"
-    ├── 3.5 Consentimientos adicionales
-    │       ├── ✅ Política de privacidad
-    │       ├── ✅ Condiciones de participación
-    │       └── ◻ Comunicaciones comerciales
-    └── [ENVIAR SOLICITUD] → Solo activo si todo aceptado
-    ↓
-PANTALLA DE ÉXITO
-    └── Referencia + "Nos pondremos en contacto en 48h"
-```
+| Elemento | Implementación |
+|----------|----------------|
+| Hero Section | Gradient background + título centrado |
+| Cards de resumen | Grid 3 columnas con shadcn/ui Card |
+| Timeline de fases | Flex horizontal con conectores CSS |
+| Calculadora ROI | Card con iconos y números grandes |
+| Grid de cuotas | Grid 6 columnas (responsive) |
+| FAQ/Acordeón | `@radix-ui/react-accordion` (ya instalado) |
+| Iconos | Lucide React (ya instalado) |
+| Animaciones | Framer Motion (ya instalado) |
 
 ---
 
-## Parte 7: Contenido Legal Completo
+## Parte 6: Contenido de Secciones Principales
 
-### 7.1 Contrato de Adhesión (Extracto UI)
+### Sección 1: Resumen Ejecutivo (3 Cards)
 
-El contrato incluirá todas las cláusulas proporcionadas:
+| Card | Título | Valor | Descripción |
+|------|--------|-------|-------------|
+| 1 | Cuota Mensual | 190€ + IVA | Durante 6 meses iniciales |
+| 2 | Fase Inicial | 6 meses | Compromiso irrevocable |
+| 3 | Subvención | Hasta 30.000€ | A fondo perdido de RED.ES |
 
-1. **OBJETO**: Licencia de uso del Espacio de Datos Federado + Consultoría para tramitación de ayuda "Kit Espacio de Datos" (aprox. 15.000-30.000€)
+### Sección 5: Qué Incluye Tu Cuota
 
-2. **DURACIÓN**: 
-   - Fase 1: 6 meses (irrevocable)
-   - Fase 2: Prórroga automática de 12 meses si se concede la ayuda
+- Acceso al Espacio de Datos Federado de Salud Animal
+- Consultoría técnica y administrativa completa
+- Tramitación de la ayuda "Kit Espacio de Datos"
+- Redacción de memoria técnica para RED.ES
+- Presentación de solicitud ante el organismo competente
+- Justificación completa del proyecto subvencionado
+- Soporte durante todo el proceso de concesión
 
-3. **PRECIO**: 
-   - Fase 1: 1.140€ + IVA (6 cuotas de 190€/mes)
-   - Fase 2: Importe de la subvención concedida
+### Sección 6: FAQ con Condiciones Importantes
 
-4. **FORMA DE PAGO**: Financiación a través de Hokodo
+**Q: ¿Puedo cancelar durante los 6 primeros meses?**
+A: No. La Fase 1 es irrevocable dado que los recursos técnicos y de consultoría se ponen a disposición desde el día 1 de la firma.
 
-5. **ACTA DE CONFORMIDAD**: Certificación de entrega del servicio
+**Q: ¿Qué pasa si me conceden la subvención?**
+A: El contrato se prorroga automáticamente por 12 meses adicionales. El precio de esta Fase 2 será equivalente al importe de la subvención concedida.
 
-6. **MANDATO**: Autorización para actuar como representante ante organismos públicos
+**Q: ¿Qué es el Acta de Conformidad?**
+A: Es un documento digital que certifica la recepción del servicio y activa irrevocablemente las obligaciones de pago ante la entidad financiera.
 
-7. **DISPUTAS**: Separación de reclamaciones técnicas vs. obligaciones de pago
+**Q: ¿Quién tramita la subvención?**
+A: VetSpace Technology S.L. actúa como tu Representante Voluntario ante RED.ES. Debes facilitar la documentación necesaria en 5 días hábiles.
 
-### 7.2 Acta de Entrega y Conformidad
-
-Documento digital que certifica:
-- Recepción efectiva del servicio
-- Inicio de la consultoría
-- Conformidad y ausencia de incidencias
-- Activación irrevocable de la financiación
-- Validez de la firma digital
-
----
-
-## Resumen Técnico
-
-| Componente | Implementación |
-|------------|----------------|
-| ScrollArea | `@radix-ui/react-scroll-area` (ya instalado) |
-| Validación | Zod + React Hook Form |
-| UI | Cards con iconos FileText, ScrollText |
-| Base de datos | Columnas adicionales para tracking de aceptación |
-| Seguridad | Timestamp de aceptación para trazabilidad legal |
+**Q: ¿Y si hay incidencias técnicas?**
+A: Las reclamaciones técnicas se gestionan por canales de soporte (SLA), pero no afectan el flujo de pagos comprometido con Hokodo.
 
 ---
 
-## Nota Legal
+## Parte 7: Sección de Aviso Legal
 
-Este contrato es un borrador estructurado con lógica financiera y comercial. Debe ser revisado y validado por asesoría jurídica para asegurar el cumplimiento normativo estricto en España antes de su uso en producción.
+Card destacada con borde rojo/ámbar que incluya:
+
+- "Este documento tiene carácter contractual vinculante"
+- "Debe ser revisado por asesoría jurídica antes de su firma"
+- "La aceptación digital tiene la misma validez que la firma manuscrita"
+
+---
+
+## Resumen de Implementación
+
+La nueva página presentará de forma visual y comprensible:
+
+1. **Estructura económica clara**: 190€/mes x 6 = 1.140€ + IVA
+2. **Diagrama de 2 fases**: Timeline con Fase 1 irrevocable y Fase 2 condicional
+3. **ROI visual**: Inversión de 1.140€ vs. retorno potencial de 30.000€
+4. **Grid de cuotas**: Visualización de los 6 pagos mensuales
+5. **Servicios incluidos**: Lista de lo que cubre la cuota
+6. **FAQ legal**: Preguntas frecuentes sobre condiciones importantes
+7. **Avisos legales**: Información sobre la naturaleza vinculante del contrato
+8. **CTAs claros**: Botones para inscribirse o ver el contrato completo
 
