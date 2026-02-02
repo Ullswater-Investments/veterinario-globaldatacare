@@ -1,100 +1,115 @@
 
 
-## Plan: Añadir enlaces a Contrato y Condiciones al botón CTA
+## Plan: Nueva Página Explicativa "Guía Kit Espacio de Datos"
 
 ### Objetivo
-Modificar la sección CTA final de la página de Condiciones para añadir un tercer botón que enlace al contrato completo, manteniendo el enlace a la propuesta y añadiendo acceso directo a los documentos legales.
+Crear una nueva página informativa detallada que explique en profundidad los servicios del Espacio de Datos de Salud Animal, los beneficios de las ayudas Kit Espacio de Datos, y el funcionamiento del programa de subvenciones europeas. Esta página se enlazará desde el botón "Ver Propuesta Completa" en la página de condiciones.
 
 ---
 
-### Cambios Propuestos
+### Nueva Página: `/guia-kit-espacio-datos`
 
-#### Archivo: `src/pages/CondicionesKitEspacioDatos.tsx`
+**Ruta:** `/guia-kit-espacio-datos`  
+**Archivo:** `src/pages/GuiaKitEspacioDatos.tsx`
 
-**Cambio en la sección CTA (líneas 450-462)**
+#### Estructura de Contenido
 
-Transformar la sección de 2 botones en una sección de 3 botones:
-
-| Botón Actual | Acción |
-|--------------|--------|
-| Solicitar Inscripción por 190€/mes | Mantener igual → `/inscripcion-kit-espacio-datos` |
-| Ver Propuesta Completa | Mantener igual → `/propuesta-kit-espacio-datos` |
-| **NUEVO: Ver Contrato Completo** | **Añadir** → `/inscripcion-kit-espacio-datos#contrato` (ancla al contrato en el formulario de inscripción) |
-
-**Estructura visual propuesta:**
-
-```text
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                                                                             │
-│       ¿Listo para digitalizar tu clínica?                                  │
-│       Accede a hasta 30.000€ de subvención...                              │
-│                                                                             │
-│  ┌─────────────────────────┐  ┌─────────────────────────┐                  │
-│  │ 🐾 Solicitar Inscripción │  │ 📄 Ver Propuesta       │                  │
-│  │    por 190€/mes          │  │    Completa            │                  │
-│  └─────────────────────────┘  └─────────────────────────┘                  │
-│                                                                             │
-│                    ┌─────────────────────────┐                             │
-│                    │ 📜 Ver Contrato Completo │                             │
-│                    └─────────────────────────┘                             │
-│                                                                             │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
+| Sección | Contenido |
+|---------|-----------|
+| **Hero** | Titulo principal + badge de convocatoria abierta + plazo limite 24 Feb |
+| **1. ¿Qué es el Kit Espacio de Datos?** | Explicacion del programa del Gobierno de Espana financiado con fondos Next Generation EU |
+| **2. ¿Qué es el Espacio de Datos de Salud Animal?** | Descripcion de la infraestructura tecnologica federada para clinicas veterinarias |
+| **3. Servicios Incluidos** | Grid de 8-10 servicios con iconos (FHIR, DPP, Wallet, One Health, KPIs, etc.) |
+| **4. Beneficios de la Ayuda** | Cards comparativas: Sin Ayuda vs Con Ayuda |
+| **5. ¿Cuánto puedo conseguir?** | Visualizacion de la subvencion (15.000-30.000 euros) |
+| **6. ¿Cómo funciona el proceso?** | Timeline de 4 pasos (Adhesion, Solicitud, Concesion, Justificacion) |
+| **7. Preguntas Frecuentes** | Accordion con FAQs sobre elegibilidad, plazos y requisitos |
+| **8. CTA Final** | Botones para inscripcion y ver condiciones |
 
 ---
 
-### Implementación Técnica
+### Secciones Detalladas
 
-El nuevo botón enlazará directamente a la sección del contrato que ya existe en la página de inscripción (`/inscripcion-kit-espacio-datos`), donde el componente `ContractContent` muestra el contrato completo.
+#### 1. ¿Qué es el Kit Espacio de Datos?
+- Programa del Gobierno de Espana
+- Financiado por fondos europeos Next Generation EU
+- Objetivo: fomentar la soberania del dato en PYMEs
+- Subvencion a fondo perdido (no es un credito)
+- Gestionado por RED.ES
 
-**Opción alternativa**: Si se prefiere que el contrato se abra en una vista independiente, se puede crear una nueva página `/contrato-kit-espacio-datos` que muestre solo el `ContractContent` en pantalla completa.
+#### 2. ¿Qué es el Espacio de Datos de Salud Animal?
+- Infraestructura tecnologica federada
+- Interoperabilidad veterinaria con estandar FHIR
+- Conectores EDC (Eclipse Dataspace Components)
+- Privacidad y soberania del dato
+- Red colaborativa One Health
 
-**Iconografía:**
-- Nuevo botón usará el icono `ScrollText` de Lucide React (ya importado en el archivo)
+#### 3. Servicios Incluidos (Grid de 6 modulos principales)
+| Modulo | Descripcion |
+|--------|-------------|
+| Gestion Clinica Digital (FHIR) | Dashboard 360° veterinario con conexion al PMS existente |
+| Wallet del Tutor | App movil con historial de mascota, citas y documentos |
+| Pasaporte Digital (DPP) | Trazabilidad de vacunas, microchips y medicamentos |
+| Investigacion One Health | IA Federada y Marketplace de datos veterinarios |
+| Central de Compras | Pedidos predictivos con descuentos de red |
+| Dashboard KPIs | Inteligencia operativa con benchmarking |
 
----
+#### 4. Beneficios de la Ayuda
+- Cobertura del 100% de costes de implantacion
+- Tramitacion administrativa 100% incluida
+- Soporte tecnico durante todo el proceso
+- Acceso inmediato a la plataforma
+- Sin riesgo de impago (solo pagas la entrada)
 
-### Código a Modificar
-
-Líneas 450-462 del archivo `src/pages/CondicionesKitEspacioDatos.tsx`:
-
-**Antes:**
-```tsx
-<div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-  <Link to="/inscripcion-kit-espacio-datos">
-    <Button ...>Solicitar Inscripción por 190€/mes</Button>
-  </Link>
-  <Link to="/propuesta-kit-espacio-datos">
-    <Button ...>Ver Propuesta Completa</Button>
-  </Link>
-</div>
-```
-
-**Después:**
-```tsx
-<div className="flex flex-col items-center justify-center gap-4">
-  <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-    <Link to="/inscripcion-kit-espacio-datos">
-      <Button ...>Solicitar Inscripción por 190€/mes</Button>
-    </Link>
-    <Link to="/propuesta-kit-espacio-datos">
-      <Button ...>Ver Propuesta Completa</Button>
-    </Link>
-  </div>
-  <Link to="/inscripcion-kit-espacio-datos">
-    <Button variant="ghost" className="text-muted-foreground hover:text-foreground">
-      <ScrollText className="mr-2 h-4 w-4" />
-      Ver Contrato Completo y Condiciones
-    </Button>
-  </Link>
-</div>
-```
+#### 5. Importes de Subvencion
+- Pack Esencial: hasta 15.000 euros
+- Pack Integral: hasta 30.000 euros
+- Pago anticipado minimo: desde 1.140 euros (fraccionado)
 
 ---
 
-### Resumen de Cambios
+### Archivos a Crear/Modificar
 
-| Archivo | Acción | Descripción |
+| Archivo | Accion | Descripcion |
 |---------|--------|-------------|
-| `src/pages/CondicionesKitEspacioDatos.tsx` | **MODIFICAR** | Añadir tercer botón "Ver Contrato Completo y Condiciones" enlazando a la página de inscripción donde está el contrato |
+| `src/pages/GuiaKitEspacioDatos.tsx` | **CREAR** | Nueva pagina explicativa completa |
+| `src/App.tsx` | **MODIFICAR** | Añadir ruta `/guia-kit-espacio-datos` |
+| `src/pages/CondicionesKitEspacioDatos.tsx` | **MODIFICAR** | Cambiar enlace del boton "Ver Propuesta Completa" a la nueva pagina |
+
+---
+
+### Detalles Tecnicos
+
+#### Componentes UI a utilizar (ya existentes):
+- `Card`, `CardHeader`, `CardContent`, `CardTitle`, `CardDescription`
+- `Badge`
+- `Button`
+- `Accordion`, `AccordionItem`, `AccordionTrigger`, `AccordionContent`
+- `Separator`
+- `motion.div` (Framer Motion para animaciones)
+
+#### Iconos Lucide a utilizar:
+- `Euro`, `Clock`, `Shield`, `Users`, `FileText`, `CheckCircle2`
+- `Building2`, `Smartphone`, `Network`, `BrainCircuit`
+- `ShoppingCart`, `BarChart4`, `PawPrint`, `ArrowRight`
+
+---
+
+### Flujo de Navegacion Actualizado
+
+```
+/condiciones-kit-espacio-datos
+    |
+    +-- [Solicitar Inscripcion] --> /inscripcion-kit-espacio-datos
+    |
+    +-- [Ver Propuesta Completa] --> /guia-kit-espacio-datos (NUEVA)
+    |
+    +-- [Ver Contrato Completo] --> /inscripcion-kit-espacio-datos
+```
+
+---
+
+### Estimacion de Implementacion
+
+La nueva pagina tendra aproximadamente 400-500 lineas de codigo, siguiendo el estilo visual de las paginas existentes (`CondicionesKitEspacioDatos.tsx` y `PropuestaKitEspacioDatos.tsx`).
 
