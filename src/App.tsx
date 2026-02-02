@@ -76,6 +76,7 @@ import LegalNotice from "./pages/LegalNotice";
 import TechnicalWhitepaperVideo from "./pages/video/TechnicalWhitepaperVideo";
 import ConceptShowcase from "./pages/video/ConceptShowcase";
 import PropuestaKitEspacioDatos from "./pages/PropuestaKitEspacioDatos";
+import DatasetSamplePage from "./pages/research/DatasetSamplePage";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -101,6 +102,7 @@ const App = () => (
                 <Route path="/portal/lab" element={<LabPortal />} />
                 <Route path="/portal/patient" element={<PatientWalletPage />} />
                 <Route path="/portal/research" element={<ResearchDataMarketplace />} />
+                <Route path="/research/sample/:datasetId" element={<DatasetSamplePage />} />
                 <Route path="/portal/insurance" element={<InsurancePortal />} />
                 <Route path="/portal/procurement" element={<ProcurementPortal />} />
                 <Route path="/portal/supply" element={<SupplyChainPage />} />
