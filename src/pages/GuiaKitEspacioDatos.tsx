@@ -423,50 +423,23 @@ const GuiaKitEspacioDatos = () => {
           <div className="text-center mb-12">
             <h2 className="text-2xl md:text-3xl font-bold mb-4">¿Cuánto Puedo Conseguir?</h2>
             <p className="text-muted-foreground">
-              Importes de subvención según el pack elegido
+              Importe de subvención según tu clínica
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <motion.div {...fadeInUp} transition={{ delay: 0.1 }}>
-              <Card className="border-2 hover:border-primary/50 transition-colors h-full">
+          <div className="max-w-xl mx-auto">
+            <motion.div {...fadeInUp}>
+              <Card className="border-2 border-primary/50 bg-primary/5">
                 <CardHeader className="text-center pb-4">
-                  <Badge className="w-fit mx-auto mb-2">Pack Esencial</Badge>
-                  <CardTitle className="text-4xl font-bold text-primary">15.000€</CardTitle>
-                  <CardDescription>Subvención máxima a fondo perdido</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-green-600" />
-                    <span className="text-sm">Módulos esenciales de gestión</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-green-600" />
-                    <span className="text-sm">Wallet del tutor básico</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-green-600" />
-                    <span className="text-sm">Tramitación administrativa</span>
-                  </div>
-                  <Separator className="my-4" />
-                  <div className="text-center">
-                    <p className="text-sm text-muted-foreground">Pago anticipado</p>
-                    <p className="text-2xl font-bold">760€ <span className="text-sm font-normal text-muted-foreground">+ IVA</span></p>
-                    <p className="text-xs text-muted-foreground">(126€/mes × 6 meses)</p>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-
-            <motion.div {...fadeInUp} transition={{ delay: 0.2 }}>
-              <Card className="border-2 border-primary/50 bg-primary/5 h-full relative overflow-hidden">
-                <div className="absolute top-4 right-4">
-                  <Badge className="bg-primary">Recomendado</Badge>
-                </div>
-                <CardHeader className="text-center pb-4">
-                  <Badge variant="outline" className="w-fit mx-auto mb-2 border-primary text-primary">Pack Integral</Badge>
-                  <CardTitle className="text-4xl font-bold text-primary">30.000€</CardTitle>
-                  <CardDescription>Subvención máxima a fondo perdido</CardDescription>
+                  <Badge className="w-fit mx-auto mb-2 bg-primary">
+                    Kit Espacio de Datos
+                  </Badge>
+                  <CardTitle className="text-4xl font-bold text-primary">
+                    15.000€ — 30.000€
+                  </CardTitle>
+                  <CardDescription>
+                    Subvención a fondo perdido según criterios RED.ES
+                  </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-3">
                   <div className="flex items-center gap-2">
@@ -488,6 +461,10 @@ const GuiaKitEspacioDatos = () => {
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="h-5 w-5 text-green-600" />
                     <span className="text-sm">Dashboard KPIs avanzado</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="h-5 w-5 text-green-600" />
+                    <span className="text-sm">Tramitación administrativa 100% incluida</span>
                   </div>
                   <Separator className="my-4" />
                   <div className="text-center">
