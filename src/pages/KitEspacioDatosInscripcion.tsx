@@ -13,7 +13,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Progress } from '@/components/ui/progress';
 import { toast } from '@/hooks/use-toast';
-import { Building2, User, Settings, CheckCircle2, ArrowRight, ArrowLeft, Send, Euro, PawPrint } from 'lucide-react';
+import { Building2, User, Settings, CheckCircle2, ArrowRight, ArrowLeft, Send, Euro, PawPrint, FileText, ScrollText, ChevronDown } from 'lucide-react';
+import ContractContent from '@/components/legal/ContractContent';
+import AcceptanceActContent from '@/components/legal/AcceptanceActContent';
 import { GlobalFooter } from '@/components/ui/GlobalFooter';
 
 // Spanish provinces
@@ -71,6 +73,10 @@ const formSchema = z.object({
   // Modules
   interested_modules: z.array(z.string()).optional(),
   
+  // Contract & Legal Documents
+  contract_accepted: z.boolean().refine(val => val === true, 'Debes leer y aceptar el Contrato de Adhesión'),
+  acceptance_act_accepted: z.boolean().refine(val => val === true, 'Debes aceptar el Acta de Entrega y Conformidad'),
+  
   // Consents
   privacy_accepted: z.boolean().refine(val => val === true, 'Debes aceptar la política de privacidad'),
   communications_accepted: z.boolean().optional(),
@@ -108,6 +114,8 @@ const KitEspacioDatosInscripcion = () => {
       has_website: false,
       has_digital_records: undefined,
       interested_modules: [],
+      contract_accepted: false,
+      acceptance_act_accepted: false,
       privacy_accepted: false,
       communications_accepted: false,
       terms_accepted: false
@@ -138,6 +146,9 @@ const KitEspacioDatosInscripcion = () => {
           has_website: data.has_website,
           has_digital_records: data.has_digital_records || null,
           interested_modules: data.interested_modules || [],
+          contract_accepted: data.contract_accepted,
+          acceptance_act_accepted: data.acceptance_act_accepted,
+          contract_accepted_at: new Date().toISOString(),
           privacy_accepted: data.privacy_accepted,
           communications_accepted: data.communications_accepted || false,
           terms_accepted: data.terms_accepted,
@@ -671,9 +682,89 @@ const KitEspacioDatosInscripcion = () => {
                       />
                     </div>
 
-                    {/* Consents */}
+                    {/* CONTRACT SECTION */}
                     <div className="space-y-4 pt-4 border-t">
-                      <h3 className="font-medium text-foreground">Consentimientos</h3>
+                      <div className="flex items-center gap-3">
+                        <FileText className="h-5 w-5 text-primary" />
+                        <h3 className="font-semibold text-foreground">Contrato de Adhesión</h3>
+                      </div>
+                      <p className="text-sm text-muted-foreground">
+                        Lee detenidamente el siguiente contrato antes de continuar. Incluye las condiciones 
+                        económicas (190€/mes durante 6 meses) y la prórroga automática en caso de concesión de la ayuda.
+                      </p>
+                      <div className="relative">
+                        <ContractContent clinicName={form.watch('clinic_name') || '[NOMBRE DE LA CLÍNICA]'} />
+                        <div className="flex items-center justify-center gap-1 mt-2 text-xs text-muted-foreground">
+                          <ChevronDown className="h-4 w-4 animate-bounce" />
+                          <span>Desplázate para leer todo el contrato</span>
+                        </div>
+                      </div>
+                      <FormField
+                        control={form.control}
+                        name="contract_accepted"
+                        render={({ field }) => (
+                          <FormItem className="flex items-start gap-3 bg-primary/5 p-4 rounded-lg border border-primary/20">
+                            <FormControl>
+                              <Checkbox checked={field.value} onCheckedChange={field.onChange} className="mt-0.5" />
+                            </FormControl>
+                            <div className="flex-1">
+                              <FormLabel className="!mt-0 font-medium">
+                                He leído y acepto íntegramente el CONTRATO DE ADHESIÓN al Espacio de Datos Federado *
+                              </FormLabel>
+                              <FormDescription className="text-xs mt-1">
+                                Incluye la aceptación de las 7 cláusulas del contrato y las condiciones de financiación.
+                              </FormDescription>
+                              <FormMessage />
+                            </div>
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+
+                    {/* ACCEPTANCE ACT SECTION */}
+                    <div className="space-y-4 pt-4 border-t">
+                      <div className="flex items-center gap-3">
+                        <ScrollText className="h-5 w-5 text-primary" />
+                        <h3 className="font-semibold text-foreground">Acta de Entrega y Conformidad</h3>
+                      </div>
+                      <p className="text-sm text-muted-foreground">
+                        Este documento certifica la recepción del servicio y activa irrevocablemente la financiación.
+                      </p>
+                      <div className="relative">
+                        <AcceptanceActContent 
+                          clinicName={form.watch('clinic_name') || '[NOMBRE DE LA CLÍNICA]'}
+                          contactName={form.watch('contact_name') || '[NOMBRE DEL REPRESENTANTE]'}
+                        />
+                        <div className="flex items-center justify-center gap-1 mt-2 text-xs text-muted-foreground">
+                          <ChevronDown className="h-4 w-4 animate-bounce" />
+                          <span>Desplázate para leer todo el documento</span>
+                        </div>
+                      </div>
+                      <FormField
+                        control={form.control}
+                        name="acceptance_act_accepted"
+                        render={({ field }) => (
+                          <FormItem className="flex items-start gap-3 bg-amber-50 p-4 rounded-lg border border-amber-200">
+                            <FormControl>
+                              <Checkbox checked={field.value} onCheckedChange={field.onChange} className="mt-0.5" />
+                            </FormControl>
+                            <div className="flex-1">
+                              <FormLabel className="!mt-0 font-medium text-amber-900">
+                                Acepto el ACTA DE ENTREGA Y CONFORMIDAD *
+                              </FormLabel>
+                              <FormDescription className="text-xs mt-1 text-amber-700">
+                                Al marcar esta casilla, certifico la recepción del servicio y autorizo la activación de la financiación.
+                              </FormDescription>
+                              <FormMessage />
+                            </div>
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+
+                    {/* OTHER CONSENTS */}
+                    <div className="space-y-4 pt-4 border-t">
+                      <h3 className="font-medium text-foreground">Consentimientos Adicionales</h3>
                       
                       <FormField
                         control={form.control}
