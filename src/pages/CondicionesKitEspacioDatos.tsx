@@ -8,6 +8,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
+import { Separator } from '@/components/ui/separator';
 import {
   Euro,
   Clock,
@@ -27,6 +28,7 @@ import {
   Calendar,
   ArrowLeft,
   ScrollText,
+  Info,
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -123,6 +125,93 @@ const CondicionesKitEspacioDatos = () => {
               Todo lo que necesitas saber antes de inscribirte. Sin letra pequeña.
             </p>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Cuadro de Pricing con Criterios */}
+      <section className="py-12 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="max-w-xl mx-auto">
+            <motion.div {...fadeInUp}>
+              <Card className="border-2 border-primary/50 bg-primary/5">
+                <CardHeader className="text-center pb-4">
+                  <Badge className="w-fit mx-auto mb-2 bg-primary hover:bg-primary/90">
+                    Kit Espacio de Datos
+                  </Badge>
+                  <CardTitle className="text-4xl md:text-5xl font-bold text-primary">
+                    15.000€ — 30.000€
+                  </CardTitle>
+                  <p className="text-muted-foreground mt-2">
+                    Subvención a fondo perdido según criterios RED.ES
+                  </p>
+                  
+                  {/* Explicación de criterios de subvención */}
+                  <div className="mt-4 space-y-3 text-left">
+                    <div className="bg-green-50 border border-green-200 rounded-lg p-3">
+                      <Badge variant="outline" className="bg-green-100 text-green-800 border-green-300">
+                        Hasta 15.000€
+                      </Badge>
+                      <p className="text-sm text-green-700 mt-2">
+                        Para clínicas que inician su transformación digital en gestión de datos de salud animal.
+                      </p>
+                    </div>
+                    
+                    <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
+                      <Badge variant="outline" className="bg-blue-100 text-blue-800 border-blue-300">
+                        Hasta 30.000€
+                      </Badge>
+                      <p className="text-sm text-blue-700 mt-2">
+                        Para entidades con experiencia demostrable en gestión de datos de salud animal.
+                      </p>
+                    </div>
+                    
+                    <div className="flex items-start gap-2 bg-amber-50 border border-amber-200 rounded-lg p-3">
+                      <Info className="h-4 w-4 text-amber-600 mt-0.5 shrink-0" />
+                      <p className="text-xs text-amber-700">
+                        Durante nuestra consultoría inicial, evaluamos tu nivel de madurez y te recomendamos el importe más adecuado para tu clínica.
+                      </p>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-3">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="h-5 w-5 text-primary shrink-0" />
+                    <span className="text-sm">Todos los módulos del ecosistema</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="h-5 w-5 text-primary shrink-0" />
+                    <span className="text-sm">Wallet del tutor completo</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="h-5 w-5 text-primary shrink-0" />
+                    <span className="text-sm">Pasaporte digital (DPP)</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="h-5 w-5 text-primary shrink-0" />
+                    <span className="text-sm">Investigación One Health</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="h-5 w-5 text-primary shrink-0" />
+                    <span className="text-sm">Dashboard KPIs avanzado</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="h-5 w-5 text-primary shrink-0" />
+                    <span className="text-sm">Tramitación administrativa 100% incluida</span>
+                  </div>
+                  
+                  <Separator className="my-4" />
+                  
+                  <div className="text-center pt-2">
+                    <p className="text-sm text-muted-foreground mb-1">Pago anticipado</p>
+                    <p className="text-2xl font-bold text-foreground">
+                      1.140€ <span className="text-base font-normal text-muted-foreground">+ IVA</span>
+                    </p>
+                    <p className="text-sm text-muted-foreground">(190€/mes × 6 meses)</p>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </div>
         </div>
       </section>
 
