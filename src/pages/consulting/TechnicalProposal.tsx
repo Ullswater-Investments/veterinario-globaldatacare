@@ -479,7 +479,7 @@ export default function TechnicalProposal() {
           <strong>ACCURO TECHNOLOGY · Global Data Care Technical Whitepaper</strong> v1.0 • Last Updated: Diciembre 2025
         </p>
         <p className="mt-2">
-          For technical inquiries: <a href="mailto:ivan.becerro@accuro.es" className="text-blue-600 hover:underline">ivan.becerro@accuro.es</a>
+          For technical inquiries: <a href="mailto:emilio.mulet@globaldatacare.es" className="text-blue-600 hover:underline">emilio.mulet@globaldatacare.es</a>
         </p>
       </div>
     </DocsLayout>
