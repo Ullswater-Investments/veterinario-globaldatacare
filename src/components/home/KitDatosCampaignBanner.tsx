@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Euro, Zap, CheckCircle2, PawPrint, FileText } from 'lucide-react';
+import { Euro, Zap, CheckCircle2, PawPrint, FileText, Clock } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export const KitDatosCampaignBanner = () => {
@@ -9,7 +9,7 @@ export const KitDatosCampaignBanner = () => {
     <section className="py-8 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border-y border-primary/20">
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
-          {/* Header with badge */}
+          {/* Header with badges */}
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-6">
             <div className="flex items-center gap-3">
               <div className="p-2 rounded-full bg-primary/20">
@@ -19,15 +19,28 @@ export const KitDatosCampaignBanner = () => {
                 AYUDAS KIT ESPACIO DE DATOS
               </h2>
             </div>
-            <motion.div
-              animate={{ scale: [1, 1.05, 1] }}
-              transition={{ repeat: Infinity, duration: 2 }}
-            >
-              <Badge variant="destructive" className="flex items-center gap-1.5 px-3 py-1.5 text-sm">
-                <Zap className="h-4 w-4" />
-                PLAZAS LIMITADAS
-              </Badge>
-            </motion.div>
+            <div className="flex items-center gap-2 flex-wrap justify-center">
+              {/* Deadline badge */}
+              <motion.div
+                animate={{ scale: [1, 1.03, 1] }}
+                transition={{ repeat: Infinity, duration: 1.5 }}
+              >
+                <Badge className="flex items-center gap-1.5 px-3 py-1.5 text-sm bg-amber-500 hover:bg-amber-600 text-white">
+                  <Clock className="h-4 w-4" />
+                  Inscripción hasta 24 Feb
+                </Badge>
+              </motion.div>
+              {/* Limited spots badge */}
+              <motion.div
+                animate={{ scale: [1, 1.05, 1] }}
+                transition={{ repeat: Infinity, duration: 2 }}
+              >
+                <Badge variant="destructive" className="flex items-center gap-1.5 px-3 py-1.5 text-sm">
+                  <Zap className="h-4 w-4" />
+                  PLAZAS LIMITADAS
+                </Badge>
+              </motion.div>
+            </div>
           </div>
 
           {/* Main message */}
