@@ -455,7 +455,7 @@ const CondicionesKitEspacioDatos = () => {
       {/* Footer mínimo */}
       <footer className="py-8 bg-muted/50 border-t">
         <div className="container mx-auto px-4 text-center text-sm text-muted-foreground">
-          <p>© {new Date().getFullYear()} VetSpace Technology S.L. — Todos los derechos reservados</p>
+          <p>© {new Date().getFullYear()} GLOBAL DATA CARE — Todos los derechos reservados</p>
           <div className="flex items-center justify-center gap-4 mt-2">
             <Link to="/legal" className="hover:text-foreground transition-colors">Aviso Legal</Link>
             <span>·</span>
