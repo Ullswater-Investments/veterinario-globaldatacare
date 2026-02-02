@@ -26,6 +26,7 @@ import {
   Banknote,
   Calendar,
   ArrowLeft,
+  ScrollText,
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -447,17 +448,25 @@ const CondicionesKitEspacioDatos = () => {
             Accede a hasta 30.000€ de subvención para transformar tu práctica veterinaria
           </p>
           
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="flex flex-col items-center justify-center gap-4">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link to="/inscripcion-kit-espacio-datos">
+                <Button size="lg" className="text-base px-8 py-6 bg-primary hover:bg-primary/90 shadow-lg">
+                  <PawPrint className="mr-2 h-5 w-5" />
+                  Solicitar Inscripción por 190€/mes
+                </Button>
+              </Link>
+              <Link to="/propuesta-kit-espacio-datos">
+                <Button size="lg" variant="outline" className="text-base px-6 py-6 border-primary text-primary hover:bg-primary/5">
+                  <FileText className="mr-2 h-5 w-5" />
+                  Ver Propuesta Completa
+                </Button>
+              </Link>
+            </div>
             <Link to="/inscripcion-kit-espacio-datos">
-              <Button size="lg" className="text-base px-8 py-6 bg-primary hover:bg-primary/90 shadow-lg">
-                <PawPrint className="mr-2 h-5 w-5" />
-                Solicitar Inscripción por 190€/mes
-              </Button>
-            </Link>
-            <Link to="/propuesta-kit-espacio-datos">
-              <Button size="lg" variant="outline" className="text-base px-6 py-6 border-primary text-primary hover:bg-primary/5">
-                <FileText className="mr-2 h-5 w-5" />
-                Ver Propuesta Completa
+              <Button variant="ghost" className="text-muted-foreground hover:text-foreground">
+                <ScrollText className="mr-2 h-4 w-4" />
+                Ver Contrato Completo y Condiciones
               </Button>
             </Link>
           </div>
