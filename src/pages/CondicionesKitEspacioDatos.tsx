@@ -218,10 +218,11 @@ const CondicionesKitEspacioDatos = () => {
                 <Card className="border-2 border-green-500/50 bg-green-50/50 dark:bg-green-950/20 h-full">
                   <CardHeader>
                     <div className="flex items-center justify-between mb-2">
-                      <Badge className="bg-green-500 hover:bg-green-600">FASE 2</Badge>
+                      <Badge className="bg-green-500 hover:bg-green-600">FASE 2 (Condicional)</Badge>
                       <CheckCircle2 className="h-5 w-5 text-green-600" />
                     </div>
-                    <CardTitle className="text-2xl">12 Meses Automática</CardTitle>
+                    <CardTitle className="text-xl">Renovación automática 1 año</CardTitle>
+                    <p className="text-sm text-muted-foreground mt-1">Solo si se consigue la subvención</p>
                   </CardHeader>
                   <CardContent className="space-y-4">
                     <div className="flex items-center gap-3 p-4 bg-background rounded-lg">
