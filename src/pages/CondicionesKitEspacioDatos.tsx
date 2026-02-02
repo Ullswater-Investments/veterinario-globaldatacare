@@ -456,7 +456,7 @@ const CondicionesKitEspacioDatos = () => {
                   Solicitar Inscripción por 190€/mes
                 </Button>
               </Link>
-              <Link to="/propuesta-kit-espacio-datos">
+              <Link to="/guia-kit-espacio-datos">
                 <Button size="lg" variant="outline" className="text-base px-6 py-6 border-primary text-primary hover:bg-primary/5">
                   <FileText className="mr-2 h-5 w-5" />
                   Ver Propuesta Completa
