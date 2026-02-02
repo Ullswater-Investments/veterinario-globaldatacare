@@ -16,7 +16,7 @@ export const KitDatosCampaignBanner = () => {
                 <Euro className="h-6 w-6 text-primary" />
               </div>
               <h2 className="text-xl md:text-2xl font-bold text-foreground">
-                AYUDAS KIT ESPACIO DE DATOS 2025
+                AYUDAS KIT ESPACIO DE DATOS
               </h2>
             </div>
             <motion.div
@@ -32,7 +32,7 @@ export const KitDatosCampaignBanner = () => {
 
           {/* Main message */}
           <p className="text-lg md:text-xl text-center text-muted-foreground mb-6">
-            Digitaliza tu clínica veterinaria con hasta <span className="font-bold text-primary">25.000€</span> de subvención europea
+            Digitaliza tu clínica veterinaria con hasta <span className="font-bold text-primary">30.000 €</span> de Subvención a fondo perdido de RED.ES
           </p>
 
           {/* Benefits */}
@@ -56,7 +56,7 @@ export const KitDatosCampaignBanner = () => {
             <Link to="/inscripcion-kit-espacio-datos">
               <Button size="lg" className="text-base px-8 py-6 bg-primary hover:bg-primary/90 shadow-lg">
                 <PawPrint className="mr-2 h-5 w-5" />
-                SOLICITAR INSCRIPCIÓN GRATUITA
+                Solicitar Inscripción por 190€ al mes
               </Button>
             </Link>
             <Link to="/propuesta-kit-espacio-datos">
