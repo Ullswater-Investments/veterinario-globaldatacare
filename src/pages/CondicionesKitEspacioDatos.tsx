@@ -99,6 +99,18 @@ const CondicionesKitEspacioDatos = () => {
       <section className="py-16 bg-gradient-to-b from-primary/10 via-accent/5 to-background">
         <div className="container mx-auto px-4 text-center">
           <motion.div {...fadeInUp}>
+            {/* Deadline Badge */}
+            <motion.div
+              animate={{ scale: [1, 1.03, 1] }}
+              transition={{ repeat: Infinity, duration: 1.5 }}
+              className="mb-4"
+            >
+              <Badge className="px-4 py-2 text-sm bg-amber-500 hover:bg-amber-600 text-white">
+                <Clock className="mr-2 h-4 w-4" />
+                ⚠️ Plazo de Inscripción hasta el 24 de Febrero
+              </Badge>
+            </motion.div>
+            
             <Badge variant="outline" className="mb-4 px-4 py-1.5 text-sm border-primary/30">
               <Euro className="mr-2 h-4 w-4" />
               Programa Kit Espacio de Datos
