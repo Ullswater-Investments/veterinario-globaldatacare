@@ -1,236 +1,203 @@
 
-## Plan de Generación de Datos Sintéticos - VetSpace-X
+## Plan: Generar 20 Datasets de Investigación Veterinaria + Páginas de Muestra
 
-### Estado Actual de la Base de Datos
-
-| Tabla | Registros Actuales | Objetivo Recomendado | Gap |
-|-------|-------------------|---------------------|-----|
-| `profiles` | **0** | 30 | -30 |
-| `user_roles` | **0** | 30 | -30 |
-| `patients` | 15 | 50 | -35 |
-| `clinical_encounters` | 13 | 100 | -87 |
-| `hospitalizations` | 8 | 15-20 | -7 |
-| `lab_orders` | 7 | 50 | -43 |
-| `smart_claims` | 12 | 100 | -88 |
-| `iot_devices` | 8 | 15 | -7 |
-| `weight_history` | 27 | 200 | -173 |
+### Objetivo
+Expandir el Research Data Marketplace con 20 nuevos datasets veterinarios bilingües (ES/EN), cada uno con una página de muestra individual que muestra datos sintéticos de ejemplo.
 
 ---
 
-### Plan de Ejecución por Fases
+## Parte 1: Estructura de Datos (20 Datasets)
+
+### Distribución por Categoría Clínica
+
+| # | Dataset | Especie | Categoría | Tipo Datos | Precio (Tokens) |
+|---|---------|---------|-----------|------------|-----------------|
+| 1 | Cohorte Displasia Cadera PennHIP | Canino | Ortopedia | DICOM + Scores | 950 |
+| 2 | Cardiomiopatía Dilatada Canina (DCM) | Canino | Cardiología | Echo + ECG | 1100 |
+| 3 | Enfermedad Renal Crónica Felina IRIS | Felino | Nefrología | Labs + Staging | 800 |
+| 4 | Mastocitoma Cutáneo (Grading Pataki) | Multi-especie | Oncología | Citología + Imágenes | 1500 |
+| 5 | Epilepsia Idiopática Canina | Canino | Neurología | EEG + Historial | 1200 |
+| 6 | Diabetes Mellitus Veterinaria | Multi-especie | Endocrino | Glucosa + Fructosamina | 650 |
+| 7 | Leishmaniosis Canina (IFI + PCR) | Canino | Infecciosas | Serología + Hematología | 700 |
+| 8 | Dermatitis Atópica Canina CADESI-04 | Canino | Dermatología | Scores + Tratamiento | 550 |
+| 9 | Filariosis Dirofilaria immitis | Canino | Parasitología | Antígeno + Microfilarias | 480 |
+| 10 | FeLV/FIV Prevalencia Nacional | Felino | Infecciosas | Serología + Outcomes | 900 |
+| 11 | Obesidad y Síndrome Metabólico | Multi-especie | Metabolismo | Peso + BCS + Labs | 420 |
+| 12 | Ehrlichiosis/Anaplasma Canina | Canino | Hematología | Serología + Frotis | 580 |
+| 13 | Glaucoma y Presión Intraocular | Multi-especie | Oftalmología | Tonometría + Fundoscopia | 750 |
+| 14 | Luxación Patelar Congénita | Canino | Ortopedia | Rx + Grading | 680 |
+| 15 | Parvovirosis Canina Outcomes | Canino | Infecciosas | Labs + Hospitalización | 620 |
+| 16 | Hipertiroidismo Felino | Felino | Endocrino | T4 + Gammagrafía | 720 |
+| 17 | Comportamiento y Ansiedad | Multi-especie | Etología | Cuestionarios + Tratamiento | 350 |
+| 18 | Otitis Externa Recurrente | Multi-especie | Dermatología | Citología + Cultivo | 380 |
+| 19 | Enfermedad Periodontal Veterinaria | Multi-especie | Dental | Radiografía + Staging | 520 |
+| 20 | Microbioma Gastrointestinal | Multi-especie | Gastroenterología | Secuenciación 16S | 1800 |
 
 ---
 
-## FASE 1: Usuarios y Roles (Crítico - Base del Sistema)
+## Parte 2: Estructura de Cada Dataset
 
-**Prioridad**: ALTA (requerido para autenticación y RLS)
-
-**Tablas**: `profiles`, `user_roles`
-
-**Datos a generar**:
-- 30 perfiles de usuario con nombres bilingues (ES/EN)
-- Distribución de roles:
-  - 8 doctores/veterinarios
-  - 4 técnicos de laboratorio
-  - 12 tutores (pacientes/owners)
-  - 3 investigadores
-  - 2 administradores de seguros
-  - 1 auditor
-
-**Formato**: SQL INSERT
-
----
-
-## FASE 2: Pacientes Adicionales (Ampliación)
-
-**Prioridad**: ALTA
-
-**Tabla**: `patients`
-
-**Datos a generar**:
-- 35 nuevas mascotas (total: 50)
-- Distribución especies:
-  - 60% Caninos (21 perros adicionales)
-  - 30% Felinos (10 gatos adicionales)
-  - 10% Exóticos (4: conejos, aves, reptiles)
-- Campos bilingues en `wallet_status`
-- Microchips formato ISO 11784
-- DIDs formato did:web:vetspace.health
-
----
-
-## FASE 3: Encuentros Clínicos con FHIR
-
-**Prioridad**: ALTA
-
-**Tabla**: `clinical_encounters`
-
-**Datos a generar**:
-- 87 nuevos encuentros (total: 100)
-- FHIR bundles con resourceType:
-  - 30% Immunization (vacunaciones)
-  - 40% Observation (consultas)
-  - 20% Procedure (cirugías)
-  - 10% Condition (diagnósticos)
-- Códigos SNOMED-VET bilingues
-- Distribución risk_level: 10% high, 25% medium, 65% normal
-
----
-
-## FASE 4: Historial de Peso
-
-**Prioridad**: MEDIA
-
-**Tabla**: `weight_history`
-
-**Datos a generar**:
-- 173 nuevos registros (total: 200)
-- 4-5 registros por paciente
-- Progresión realista según especie/raza
-- Notas bilingues (ES/EN)
-
----
-
-## FASE 5: Laboratorio y DPP
-
-**Prioridad**: MEDIA
-
-**Tabla**: `lab_orders`
-
-**Datos a generar**:
-- 43 nuevas órdenes (total: 50)
-- Estados: received, designing, manufacturing, shipped
-- DPP payload con:
-  - Tipos de muestra (Sangre, Orina, Heces, Biopsia)
-  - Tests (Hemograma, Bioquímica, Serología)
-  - Cold chain validation
-  - Blockchain hashes
-
----
-
-## FASE 6: Reclamaciones de Seguros
-
-**Prioridad**: MEDIA
-
-**Tabla**: `smart_claims`
-
-**Datos a generar**:
-- 88 nuevas claims (total: 100)
-- Códigos veterinarios:
-  - VET-VAC-xxx (vacunaciones)
-  - VET-CST-xxx (castraciones)
-  - VET-CIR-xxx (cirugías)
-  - VET-DEN-xxx (dental)
-  - VET-HOS-xxx (hospitalización)
-  - VET-IMG-xxx (diagnóstico por imagen)
-  - VET-LAB-xxx (laboratorio)
-- Estados: 70% paid, 20% pending, 10% fraud_detected
-
----
-
-## FASE 7: Hospitalizaciones
-
-**Prioridad**: MEDIA
-
-**Tabla**: `hospitalizations`
-
-**Datos a generar**:
-- 7-12 nuevas hospitalizaciones (total: 15-20)
-- Zonas: A1-A3 (canina), B1-B3 (felina), UCI-1/2, ISO-1
-- Estados: 50% stable, 35% observation, 15% critical
-- Notas de tratamiento bilingues
-
----
-
-## FASE 8: Dispositivos IoT
-
-**Prioridad**: BAJA
-
-**Tabla**: `iot_devices`
-
-**Datos a generar**:
-- 7 nuevos dispositivos (total: 15)
-- Tipos adicionales:
-  - Refrigeradores de vacunas (2-8°C)
-  - Analizadores hematológicos
-  - Sensores de temperatura
-  - Monitores de stock
-
----
-
-## FASE 9: Datos para Vistas Especiales (TypeScript/Mock)
-
-**Prioridad**: MEDIA
-
-**Archivos**: `src/lib/mockData.ts` y nuevos archivos de datos
-
-**Datos a generar**:
-
-### 9.1 Epidemiología
 ```text
-- Datos regionales España (17 CCAA)
-- Enfermedades: Leishmaniosis, Filariosis, Ehrlichiosis
-- Zoonosis One Health
-- Alertas AI
-```
-
-### 9.2 Research Marketplace
-```text
-- 10 datasets sintéticos con precios
-- Algoritmos federados
-- Estados: Ready, Generating, Sold
-```
-
-### 9.3 KPI Dashboard
-```text
-- 8 KPIs veterinarios
-- Series temporales 12 meses
-- Alertas AI predictivas
-```
-
-### 9.4 Supply Chain
-```text
-- Catálogo productos veterinarios
-- Proveedores (Zoetis, MSD, Elanco)
-- Órdenes automatizadas
+interface ResearchDataset {
+  id: string;                    // "DS-VET-2024-001"
+  title: string;                 // Nombre descriptivo
+  title_en: string;              // English title
+  author: string;                // Institución/Autor
+  n: number;                     // Número de registros
+  price: string;                 // "X Tokens"
+  priceValue: number;            // Valor numérico
+  type: string;                  // Tipo de datos
+  quality: string;               // Badge de calidad
+  species: string;               // Canino/Felino/Multi-especie
+  tags: string[];                // Etiquetas de búsqueda
+  status: 'Ready' | 'Generating' | 'Sold';
+  progress?: number;             // Si status = Generating
+  buyer?: string;                // Si status = Sold
+  description: string;           // Descripción detallada
+  description_en: string;        // English description
+  previewData: object;           // Muestra de datos sintéticos
+  sampleUrl: string;             // Ruta a página de muestra "/research/sample/X"
+}
 ```
 
 ---
 
-## Resumen de Ejecución
+## Parte 3: Archivos a Crear
 
-| Fase | Tabla/Archivo | Registros | Prioridad |
-|------|---------------|-----------|-----------|
-| 1 | profiles + user_roles | 30+30 | ALTA |
-| 2 | patients | +35 | ALTA |
-| 3 | clinical_encounters | +87 | ALTA |
-| 4 | weight_history | +173 | MEDIA |
-| 5 | lab_orders | +43 | MEDIA |
-| 6 | smart_claims | +88 | MEDIA |
-| 7 | hospitalizations | +12 | MEDIA |
-| 8 | iot_devices | +7 | BAJA |
-| 9 | mockData.ts | N/A | MEDIA |
+### 3.1 Archivo de Datos (src/data/researchDatasets.ts)
+- 20 datasets completos con todos los campos
+- Datos de preview (previewData) para cada uno
+- Datos de muestra extendidos para las páginas individuales
 
-**Total de registros SQL a generar**: ~475 nuevos registros
+### 3.2 Página de Muestra Reutilizable
+**Archivo:** `src/pages/research/DatasetSamplePage.tsx`
+
+Componente que recibe el ID del dataset y muestra:
+- Header con información del dataset
+- Estadísticas del dataset (N, especies, formato)
+- Vista de datos sintéticos en formato JSON/tabla
+- Gráficos de distribución cuando aplique
+- Botón para adquirir dataset completo
+- Navegación de vuelta al marketplace
+
+### 3.3 Actualizar ResearchDataMarketplace.tsx
+- Importar nuevos datasets desde `researchDatasets.ts`
+- Actualizar la lógica de "Ver Muestra" para navegar a `/research/sample/:id`
+- Mantener modal para preview rápido
+
+### 3.4 Actualizar Rutas (App.tsx)
+- Añadir ruta: `/research/sample/:datasetId` → DatasetSamplePage
 
 ---
 
-## Especificaciones Técnicas
+## Parte 4: Contenido de Cada Dataset (Muestra)
 
-### Idiomas (Bilingue ES/EN)
-- Campos de texto: Incluir versiones en español e inglés donde aplique
-- Notas clínicas: Español (contexto España)
-- FHIR resources: Inglés (estándar internacional)
-- UI labels en mockData: Ambos idiomas
+### Dataset 1: Displasia Cadera PennHIP
+```json
+{
+  "patient_id": "SYNTH-DC-001",
+  "species": "Canino",
+  "breed": "Pastor Alemán",
+  "age_months": 18,
+  "pennhip_di_left": 0.42,
+  "pennhip_di_right": 0.45,
+  "ofa_grade": "Moderate",
+  "bilateral": true,
+  "treatment": "Manejo conservador"
+}
+```
 
-### Formato de Salida
-1. **SQL**: INSERT statements para Supabase
-2. **TypeScript**: Constantes tipadas para mockData
-3. **JSON**: FHIR bundles y DPP payloads
+### Dataset 2: Cardiomiopatía Dilatada
+```json
+{
+  "patient_id": "SYNTH-DCM-001",
+  "species": "Canino",
+  "breed": "Doberman",
+  "age_years": 6,
+  "lvidd_mm": 58.2,
+  "lvids_mm": 48.5,
+  "fs_percent": 16.8,
+  "ef_percent": 32,
+  "arrhythmia": "VPCs",
+  "stage": "B2"
+}
+```
 
-### Integridad Referencial
-- patient_id debe existir en patients
-- doctor_id/lab_tech_id debe existir en profiles
-- guardian_id debe existir en profiles
-- Microchips únicos (15 dígitos, prefijo 724)
-- DIDs únicos (did:web:vetspace.health:[slug])
+### Dataset 3: ERC Felina IRIS
+```json
+{
+  "patient_id": "SYNTH-CKD-001",
+  "species": "Felino",
+  "breed": "Europeo Común",
+  "age_years": 12,
+  "creatinine_mg_dl": 3.2,
+  "sdma_ug_dl": 28,
+  "upc_ratio": 0.8,
+  "blood_pressure_mmhg": 165,
+  "iris_stage": "3",
+  "substage": "Proteinúrico/Hipertenso"
+}
+```
+
+### [Continúa con 17 datasets más con estructuras similares...]
+
+---
+
+## Parte 5: Página de Muestra - Componentes
+
+```text
+DatasetSamplePage.tsx
+├── Header (título, autor, badges)
+├── StatsPanel (N, especie, formato, precio)
+├── DataPreviewSection
+│   ├── TabView: "JSON" | "Tabla" | "Estadísticas"
+│   ├── JSONViewer (como el modal actual)
+│   ├── TableView (datos en tabla interactiva)
+│   └── StatsView (distribuciones, histogramas)
+├── PrivacyBadge (K-Anonymity, Differential Privacy)
+├── ActionButtons
+│   ├── "Descargar Muestra (100 registros)"
+│   └── "Adquirir Dataset Completo"
+└── RelatedDatasets (otros datasets similares)
+```
+
+---
+
+## Parte 6: Especificaciones Técnicas
+
+### Navegación
+- `/portal/research` → Marketplace principal (existente)
+- `/research/sample/:id` → Página de muestra individual (nuevo)
+- Modal en marketplace para preview rápido (existente, mejorado)
+
+### Datos Sintéticos por Página
+Cada página de muestra incluirá:
+- 5-10 registros de ejemplo en formato JSON
+- Distribución de variables principales (gráfico)
+- Metadatos del dataset (fecha creación, última actualización, versión)
+
+### Estándares Clínicos
+- Scores veterinarios: PennHIP DI, IRIS, CADESI-04, OFA, Pataki
+- Códigos SNOMED-VET donde aplique
+- Unidades SI (mg/dL, mmHg, mm, %)
+
+### Bilingüe (ES/EN)
+- Títulos y descripciones en ambos idiomas
+- Campos clínicos en inglés (estándar internacional)
+- UI labels en español (contexto mercado español)
+
+---
+
+## Resumen de Cambios
+
+| Archivo | Acción | Descripción |
+|---------|--------|-------------|
+| `src/data/researchDatasets.ts` | CREAR | 20 datasets con datos completos |
+| `src/pages/research/DatasetSamplePage.tsx` | CREAR | Página de muestra reutilizable |
+| `src/pages/ResearchDataMarketplace.tsx` | MODIFICAR | Importar datos, añadir navegación |
+| `src/App.tsx` | MODIFICAR | Añadir ruta `/research/sample/:id` |
+
+**Total:**
+- 2 archivos nuevos
+- 2 archivos modificados
+- 20 datasets veterinarios con páginas de muestra individuales
