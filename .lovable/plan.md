@@ -1,203 +1,203 @@
 
-## Plan: Generar 20 Datasets de Investigación Veterinaria + Páginas de Muestra
+
+## Plan: Sistema de Inscripción para Campaña de Marketing Kit Espacio de Datos
 
 ### Objetivo
-Expandir el Research Data Marketplace con 20 nuevos datasets veterinarios bilingües (ES/EN), cada uno con una página de muestra individual que muestra datos sintéticos de ejemplo.
+Añadir un **CTA prominente en la página principal** y crear un **formulario de inscripción** para que las clínicas veterinarias puedan registrar sus datos y solicitar las ayudas del Kit Espacio de Datos (financiación europea).
 
 ---
 
-## Parte 1: Estructura de Datos (20 Datasets)
+## Parte 1: Cambios en la Página Principal (Index.tsx)
 
-### Distribución por Categoría Clínica
+### 1.1 Banner CTA de Campaña
+Añadir un banner llamativo justo debajo del Hero con:
+- Icono de subvención (moneda/euro)
+- Texto: "**Ayudas Kit Espacio de Datos 2025** - Subvención hasta 25.000€ para digitalizar tu clínica veterinaria"
+- Botón: "Solicitar Inscripción Gratuita"
+- Badge animado con "Plazas Limitadas"
+- Diseño con gradiente verde/azul que destaque del resto
 
-| # | Dataset | Especie | Categoría | Tipo Datos | Precio (Tokens) |
-|---|---------|---------|-----------|------------|-----------------|
-| 1 | Cohorte Displasia Cadera PennHIP | Canino | Ortopedia | DICOM + Scores | 950 |
-| 2 | Cardiomiopatía Dilatada Canina (DCM) | Canino | Cardiología | Echo + ECG | 1100 |
-| 3 | Enfermedad Renal Crónica Felina IRIS | Felino | Nefrología | Labs + Staging | 800 |
-| 4 | Mastocitoma Cutáneo (Grading Pataki) | Multi-especie | Oncología | Citología + Imágenes | 1500 |
-| 5 | Epilepsia Idiopática Canina | Canino | Neurología | EEG + Historial | 1200 |
-| 6 | Diabetes Mellitus Veterinaria | Multi-especie | Endocrino | Glucosa + Fructosamina | 650 |
-| 7 | Leishmaniosis Canina (IFI + PCR) | Canino | Infecciosas | Serología + Hematología | 700 |
-| 8 | Dermatitis Atópica Canina CADESI-04 | Canino | Dermatología | Scores + Tratamiento | 550 |
-| 9 | Filariosis Dirofilaria immitis | Canino | Parasitología | Antígeno + Microfilarias | 480 |
-| 10 | FeLV/FIV Prevalencia Nacional | Felino | Infecciosas | Serología + Outcomes | 900 |
-| 11 | Obesidad y Síndrome Metabólico | Multi-especie | Metabolismo | Peso + BCS + Labs | 420 |
-| 12 | Ehrlichiosis/Anaplasma Canina | Canino | Hematología | Serología + Frotis | 580 |
-| 13 | Glaucoma y Presión Intraocular | Multi-especie | Oftalmología | Tonometría + Fundoscopia | 750 |
-| 14 | Luxación Patelar Congénita | Canino | Ortopedia | Rx + Grading | 680 |
-| 15 | Parvovirosis Canina Outcomes | Canino | Infecciosas | Labs + Hospitalización | 620 |
-| 16 | Hipertiroidismo Felino | Felino | Endocrino | T4 + Gammagrafía | 720 |
-| 17 | Comportamiento y Ansiedad | Multi-especie | Etología | Cuestionarios + Tratamiento | 350 |
-| 18 | Otitis Externa Recurrente | Multi-especie | Dermatología | Citología + Cultivo | 380 |
-| 19 | Enfermedad Periodontal Veterinaria | Multi-especie | Dental | Radiografía + Staging | 520 |
-| 20 | Microbioma Gastrointestinal | Multi-especie | Gastroenterología | Secuenciación 16S | 1800 |
+### 1.2 Ubicación Estratégica
+El banner se posicionará:
+- Inmediatamente después del subtítulo del Hero
+- Antes de la sección "Únete a la primera red europea"
+- Fijo en la parte superior (sticky) al hacer scroll (opcional)
 
 ---
 
-## Parte 2: Estructura de Cada Dataset
+## Parte 2: Página de Formulario de Inscripción
+
+### 2.1 Nueva Ruta
+- **URL**: `/inscripcion-kit-espacio-datos`
+- **Archivo**: `src/pages/KitEspacioDatosInscripcion.tsx`
+
+### 2.2 Campos del Formulario
 
 ```text
-interface ResearchDataset {
-  id: string;                    // "DS-VET-2024-001"
-  title: string;                 // Nombre descriptivo
-  title_en: string;              // English title
-  author: string;                // Institución/Autor
-  n: number;                     // Número de registros
-  price: string;                 // "X Tokens"
-  priceValue: number;            // Valor numérico
-  type: string;                  // Tipo de datos
-  quality: string;               // Badge de calidad
-  species: string;               // Canino/Felino/Multi-especie
-  tags: string[];                // Etiquetas de búsqueda
-  status: 'Ready' | 'Generating' | 'Sold';
-  progress?: number;             // Si status = Generating
-  buyer?: string;                // Si status = Sold
-  description: string;           // Descripción detallada
-  description_en: string;        // English description
-  previewData: object;           // Muestra de datos sintéticos
-  sampleUrl: string;             // Ruta a página de muestra "/research/sample/X"
-}
+DATOS DE LA CLÍNICA VETERINARIA
+├── Nombre de la Clínica* (text)
+├── CIF* (text, validación formato español)
+├── Dirección Completa* (text)
+├── Código Postal* (text, 5 dígitos)
+├── Ciudad* (text)
+├── Provincia* (select con 52 provincias españolas)
+├── Teléfono* (tel)
+├── Email de la Clínica* (email)
+
+DATOS DEL RESPONSABLE
+├── Nombre y Apellidos* (text)
+├── Cargo* (select: Director/a, Gerente, Veterinario/a responsable, Otro)
+├── Teléfono de Contacto* (tel)
+├── Email Personal* (email)
+
+INFORMACIÓN ADICIONAL
+├── Número de Veterinarios (number, 1-50)
+├── Número de Empleados Total (number)
+├── Software de Gestión Actual (text, placeholder: "Ej: Qvet, Provet, Veterges, Ninguno")
+├── ¿Tiene página web? (radio: Sí/No)
+├── ¿Usa actualmente algún sistema de historia clínica digital? (radio: Sí/No/Parcialmente)
+
+INTERÉS EN MÓDULOS (Checkboxes múltiples)
+├── [ ] Gestión Clínica Digital (FHIR)
+├── [ ] Pasaporte Digital de Producto (DPP)
+├── [ ] Wallet para Tutores
+├── [ ] Investigación One Health
+├── [ ] Abastecimiento Inteligente
+├── [ ] Dashboard KPIs
+
+CONSENTIMIENTOS
+├── [ ] Acepto la política de privacidad* (checkbox obligatorio)
+├── [ ] Acepto recibir comunicaciones sobre las ayudas Kit Espacio de Datos (checkbox)
+├── [ ] He leído y acepto las condiciones de participación* (checkbox obligatorio)
+
+BOTÓN: "Enviar Solicitud de Inscripción"
 ```
+
+### 2.3 Diseño Visual
+- Header con logo VetSpace-X y título de campaña
+- Barra de progreso visual (3 pasos: Datos Clínica → Responsable → Confirmación)
+- Iconos junto a cada sección
+- Colores alineados con la marca (verde/azul)
+- Footer con información sobre las ayudas europeas
 
 ---
 
-## Parte 3: Archivos a Crear
+## Parte 3: Almacenamiento en Base de Datos
 
-### 3.1 Archivo de Datos (src/data/researchDatasets.ts)
-- 20 datasets completos con todos los campos
-- Datos de preview (previewData) para cada uno
-- Datos de muestra extendidos para las páginas individuales
+### 3.1 Nueva Tabla: `kit_inscriptions`
 
-### 3.2 Página de Muestra Reutilizable
-**Archivo:** `src/pages/research/DatasetSamplePage.tsx`
+```sql
+CREATE TABLE kit_inscriptions (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  
+  -- Datos de la clínica
+  clinic_name TEXT NOT NULL,
+  cif TEXT NOT NULL,
+  address TEXT NOT NULL,
+  postal_code TEXT NOT NULL,
+  city TEXT NOT NULL,
+  province TEXT NOT NULL,
+  phone TEXT NOT NULL,
+  email TEXT NOT NULL,
+  
+  -- Datos del responsable
+  contact_name TEXT NOT NULL,
+  contact_role TEXT NOT NULL,
+  contact_phone TEXT NOT NULL,
+  contact_email TEXT NOT NULL,
+  
+  -- Información adicional
+  num_veterinarians INTEGER,
+  num_employees INTEGER,
+  current_software TEXT,
+  has_website BOOLEAN,
+  has_digital_records TEXT,
+  
+  -- Módulos de interés (array JSON)
+  interested_modules JSONB DEFAULT '[]',
+  
+  -- Consentimientos
+  privacy_accepted BOOLEAN NOT NULL DEFAULT false,
+  communications_accepted BOOLEAN DEFAULT false,
+  terms_accepted BOOLEAN NOT NULL DEFAULT false,
+  
+  -- Metadatos
+  status TEXT DEFAULT 'pending',
+  utm_source TEXT,
+  utm_medium TEXT,
+  utm_campaign TEXT,
+  created_at TIMESTAMPTZ DEFAULT now(),
+  updated_at TIMESTAMPTZ DEFAULT now()
+);
+```
 
-Componente que recibe el ID del dataset y muestra:
-- Header con información del dataset
-- Estadísticas del dataset (N, especies, formato)
-- Vista de datos sintéticos en formato JSON/tabla
-- Gráficos de distribución cuando aplique
-- Botón para adquirir dataset completo
-- Navegación de vuelta al marketplace
-
-### 3.3 Actualizar ResearchDataMarketplace.tsx
-- Importar nuevos datasets desde `researchDatasets.ts`
-- Actualizar la lógica de "Ver Muestra" para navegar a `/research/sample/:id`
-- Mantener modal para preview rápido
-
-### 3.4 Actualizar Rutas (App.tsx)
-- Añadir ruta: `/research/sample/:datasetId` → DatasetSamplePage
+### 3.2 RLS Policy
+- INSERT: Público (cualquiera puede inscribirse)
+- SELECT/UPDATE/DELETE: Solo administradores autenticados
 
 ---
 
-## Parte 4: Contenido de Cada Dataset (Muestra)
-
-### Dataset 1: Displasia Cadera PennHIP
-```json
-{
-  "patient_id": "SYNTH-DC-001",
-  "species": "Canino",
-  "breed": "Pastor Alemán",
-  "age_months": 18,
-  "pennhip_di_left": 0.42,
-  "pennhip_di_right": 0.45,
-  "ofa_grade": "Moderate",
-  "bilateral": true,
-  "treatment": "Manejo conservador"
-}
-```
-
-### Dataset 2: Cardiomiopatía Dilatada
-```json
-{
-  "patient_id": "SYNTH-DCM-001",
-  "species": "Canino",
-  "breed": "Doberman",
-  "age_years": 6,
-  "lvidd_mm": 58.2,
-  "lvids_mm": 48.5,
-  "fs_percent": 16.8,
-  "ef_percent": 32,
-  "arrhythmia": "VPCs",
-  "stage": "B2"
-}
-```
-
-### Dataset 3: ERC Felina IRIS
-```json
-{
-  "patient_id": "SYNTH-CKD-001",
-  "species": "Felino",
-  "breed": "Europeo Común",
-  "age_years": 12,
-  "creatinine_mg_dl": 3.2,
-  "sdma_ug_dl": 28,
-  "upc_ratio": 0.8,
-  "blood_pressure_mmhg": 165,
-  "iris_stage": "3",
-  "substage": "Proteinúrico/Hipertenso"
-}
-```
-
-### [Continúa con 17 datasets más con estructuras similares...]
-
----
-
-## Parte 5: Página de Muestra - Componentes
+## Parte 4: Flujo de Usuario
 
 ```text
-DatasetSamplePage.tsx
-├── Header (título, autor, badges)
-├── StatsPanel (N, especie, formato, precio)
-├── DataPreviewSection
-│   ├── TabView: "JSON" | "Tabla" | "Estadísticas"
-│   ├── JSONViewer (como el modal actual)
-│   ├── TableView (datos en tabla interactiva)
-│   └── StatsView (distribuciones, histogramas)
-├── PrivacyBadge (K-Anonymity, Differential Privacy)
-├── ActionButtons
-│   ├── "Descargar Muestra (100 registros)"
-│   └── "Adquirir Dataset Completo"
-└── RelatedDatasets (otros datasets similares)
+1. Usuario ve el banner en la página principal (/)
+2. Hace clic en "Solicitar Inscripción Gratuita"
+3. Navega a /inscripcion-kit-espacio-datos
+4. Completa el formulario de 3 pasos
+5. Envío → Guardado en Supabase
+6. Pantalla de confirmación con:
+   - Mensaje de éxito
+   - Número de referencia
+   - "Nos pondremos en contacto en 48h"
+   - Enlace a /propuesta-kit-espacio-datos para más información
 ```
 
 ---
 
-## Parte 6: Especificaciones Técnicas
-
-### Navegación
-- `/portal/research` → Marketplace principal (existente)
-- `/research/sample/:id` → Página de muestra individual (nuevo)
-- Modal en marketplace para preview rápido (existente, mejorado)
-
-### Datos Sintéticos por Página
-Cada página de muestra incluirá:
-- 5-10 registros de ejemplo en formato JSON
-- Distribución de variables principales (gráfico)
-- Metadatos del dataset (fecha creación, última actualización, versión)
-
-### Estándares Clínicos
-- Scores veterinarios: PennHIP DI, IRIS, CADESI-04, OFA, Pataki
-- Códigos SNOMED-VET donde aplique
-- Unidades SI (mg/dL, mmHg, mm, %)
-
-### Bilingüe (ES/EN)
-- Títulos y descripciones en ambos idiomas
-- Campos clínicos en inglés (estándar internacional)
-- UI labels en español (contexto mercado español)
-
----
-
-## Resumen de Cambios
+## Parte 5: Archivos a Crear/Modificar
 
 | Archivo | Acción | Descripción |
 |---------|--------|-------------|
-| `src/data/researchDatasets.ts` | CREAR | 20 datasets con datos completos |
-| `src/pages/research/DatasetSamplePage.tsx` | CREAR | Página de muestra reutilizable |
-| `src/pages/ResearchDataMarketplace.tsx` | MODIFICAR | Importar datos, añadir navegación |
-| `src/App.tsx` | MODIFICAR | Añadir ruta `/research/sample/:id` |
+| `src/pages/Index.tsx` | MODIFICAR | Añadir banner CTA de campaña |
+| `src/pages/KitEspacioDatosInscripcion.tsx` | CREAR | Formulario de inscripción completo |
+| `src/components/home/KitDatosCampaignBanner.tsx` | CREAR | Componente del banner reutilizable |
+| `src/App.tsx` | MODIFICAR | Añadir ruta `/inscripcion-kit-espacio-datos` |
+| **Base de datos** | MIGRACIÓN | Crear tabla `kit_inscriptions` |
 
-**Total:**
-- 2 archivos nuevos
-- 2 archivos modificados
-- 20 datasets veterinarios con páginas de muestra individuales
+---
+
+## Parte 6: Diseño del Banner (Vista Previa)
+
+```text
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  🎯 AYUDAS KIT ESPACIO DE DATOS 2025                    ⚡ PLAZAS LIMITADAS │
+│                                                                             │
+│  Digitaliza tu clínica veterinaria con hasta 25.000€ de subvención europea │
+│                                                                             │
+│  ✓ Tramitación 100% gratuita    ✓ Subvención 85-90%    ✓ Sin letra pequeña │
+│                                                                             │
+│         [ 🐾 SOLICITAR INSCRIPCIÓN GRATUITA ]   [ Ver Condiciones ]         │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## Resumen Técnico
+
+| Componente | Tecnología |
+|------------|------------|
+| Formulario | React Hook Form + Zod (validación) |
+| UI | Componentes shadcn/ui existentes |
+| Base de datos | Supabase (tabla `kit_inscriptions`) |
+| Seguridad | RLS: INSERT público, SELECT restringido |
+| Tracking | Parámetros UTM capturados automáticamente |
+| Responsive | Mobile-first design |
+
+---
+
+## Próximos Pasos Opcionales
+- Añadir notificación por email (Edge Function)
+- Panel de administración para ver inscripciones
+- Exportación a CSV/Excel
+- Integración con CRM (HubSpot, Salesforce)
+
