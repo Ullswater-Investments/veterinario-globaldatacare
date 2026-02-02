@@ -463,7 +463,7 @@ const CondicionesKitEspacioDatos = () => {
                 </Button>
               </Link>
             </div>
-            <Link to="/inscripcion-kit-espacio-datos">
+            <Link to="/contrato-kit-espacio-datos">
               <Button variant="ghost" className="text-muted-foreground hover:text-foreground">
                 <ScrollText className="mr-2 h-4 w-4" />
                 Ver Contrato Completo y Condiciones
