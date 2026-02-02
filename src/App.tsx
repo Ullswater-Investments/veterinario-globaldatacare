@@ -80,6 +80,7 @@ import DatasetSamplePage from "./pages/research/DatasetSamplePage";
 import KitEspacioDatosInscripcion from "./pages/KitEspacioDatosInscripcion";
 import CondicionesKitEspacioDatos from "./pages/CondicionesKitEspacioDatos";
 import GuiaKitEspacioDatos from "./pages/GuiaKitEspacioDatos";
+import ContratoKitEspacioDatos from "./pages/ContratoKitEspacioDatos";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -166,6 +167,7 @@ const App = () => (
                 <Route path="/inscripcion-kit-espacio-datos" element={<KitEspacioDatosInscripcion />} />
                 <Route path="/condiciones-kit-espacio-datos" element={<CondicionesKitEspacioDatos />} />
                 <Route path="/guia-kit-espacio-datos" element={<GuiaKitEspacioDatos />} />
+                <Route path="/contrato-kit-espacio-datos" element={<ContratoKitEspacioDatos />} />
                  <Route element={<AppLayout />}>
                    <Route path="/dashboard" element={<Dashboard />} />
                    <Route path="/auditor-dashboard" element={<AuditorDashboard />} />
