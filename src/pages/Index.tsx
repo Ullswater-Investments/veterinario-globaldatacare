@@ -147,7 +147,7 @@ const Landing = () => {
       <section className="-mt-2 pt-0 pb-14 bg-white">
         <div className="container mx-auto px-4 text-center">
           <a 
-            href="/documents/Espacios_de_Datos_Elegibles_KTED.pdf"
+            href="/documents/Espacios_de_Datos_Elegibles_KTED.pdf#page=22"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6 hover:bg-primary/20 transition-colors cursor-pointer"
