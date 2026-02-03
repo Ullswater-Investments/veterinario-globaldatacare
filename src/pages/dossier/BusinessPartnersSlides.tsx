@@ -387,7 +387,7 @@ export default function BusinessPartnersSlides() {
           
           <div className="grid md:grid-cols-4 gap-6">
             {[
-              { phase: 'F1', period: 'H1 2025', title: 'MVP', items: ['50 clínicas', '5 labs', 'Core platform'], active: true },
+              { phase: 'F1', period: 'H1 2026', title: 'MVP', items: ['50 clínicas', '5 labs', 'Core platform'], active: true },
               { phase: 'F2', period: 'H2 2025', title: 'Expansion', items: ['500 clínicas', 'Pharma', 'Research'] },
               { phase: 'F3', period: '2026', title: 'Consolidación', items: ['2K clínicas', 'Insurance', 'IoT'] },
               { phase: 'F4', period: '2027+', title: 'EU', items: ['PT & FR', 'EU Spaces', 'Series B'] },
