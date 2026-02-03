@@ -127,11 +127,17 @@ const CondicionesKitEspacioDatos = () => {
               Todo lo que necesitas saber antes de inscribirte. Sin letra pequeña.
             </p>
             <div className="flex flex-col md:flex-row items-center justify-center gap-6 mt-2">
-              <img 
-                src={logoKitEspacioDatos} 
-                alt="Kit Espacios de Datos" 
-                className="h-16 md:h-20 object-contain"
-              />
+              <a 
+                href="https://www.acelerapyme.gob.es/kit-espacios-de-datos" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                <img 
+                  src={logoKitEspacioDatos} 
+                  alt="Kit Espacios de Datos" 
+                  className="h-16 md:h-20 object-contain hover:opacity-80 transition-opacity"
+                />
+              </a>
               <img 
                 src={logoGobiernoRedEs} 
                 alt="Gobierno de España - Ministerio para la Transformación Digital - Red.es" 
