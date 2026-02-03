@@ -214,7 +214,7 @@ const Landing = () => {
             <div className="text-sm text-primary-foreground/60">ACCURO TECHNOLOGY</div>
             <div className="flex gap-6 text-sm">
               <Link to="/consulting/technical-proposal" className="text-primary-foreground/60 hover:text-primary-foreground transition">
-                Whitepaper Técnico · VetSpace Technology
+                Whitepaper Técnico Espacio de Datos de Salud Animal
               </Link>
               <Link to="/business/models" className="text-primary-foreground/60 hover:text-primary-foreground transition">
                 Documento Casos de Negocio
