@@ -91,6 +91,8 @@ import ResearchDemoPanel from "./pages/demo/ResearchDemoPanel";
 import TutorVoicePage from "./pages/kpi/TutorVoicePage";
 import OperationalFlowPage from "./pages/kpi/OperationalFlowPage";
 import ClinicalOutcomesPage from "./pages/kpi/ClinicalOutcomesPage";
+import BusinessPartnersDossier from "./pages/dossier/BusinessPartnersDossier";
+import BusinessPartnersSlides from "./pages/dossier/BusinessPartnersSlides";
 
 const queryClient = new QueryClient();
 
@@ -192,6 +194,10 @@ const App = () => (
                 {/* KPI Detail Pages */}
                 <Route path="/kpi/tutor-voice" element={<TutorVoicePage />} />
                 <Route path="/kpi/operational-flow" element={<OperationalFlowPage />} />
+
+                {/* Dossier Business Partners */}
+                <Route path="/dossier" element={<BusinessPartnersDossier />} />
+                <Route path="/dossier/slides" element={<BusinessPartnersSlides />} />
                 <Route path="/kpi/clinical-outcomes" element={<ClinicalOutcomesPage />} />
 
                  <Route element={<AppLayout />}>
