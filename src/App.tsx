@@ -73,6 +73,7 @@ import AdhesionEspacioDatos from "./pages/solutions/AdhesionEspacioDatos";
 import BusinessProposalModal from "@/components/business/BusinessProposalModal";
 import ProjectAssistant from "@/components/ProjectAssistant";
 import MobilePresentation from "./pages/presentation/MobilePresentation";
+import InvestorPitchDeck from "./pages/presentation/InvestorPitchDeck";
 import StrategicPresentation from "./pages/StrategicPresentation";
 import LegalNotice from "./pages/LegalNotice";
 import TechnicalWhitepaperVideo from "./pages/video/TechnicalWhitepaperVideo";
@@ -172,6 +173,7 @@ const App = () => (
                 {/* Presentations */}
                 <Route path="/presentation/mobile" element={<MobilePresentation />} />
                 <Route path="/presentation/strategic" element={<StrategicPresentation />} />
+                <Route path="/investor-pitch" element={<InvestorPitchDeck />} />
                 
                 {/* Video Production (Hidden - Direct URL only) */}
                 <Route path="/video/whitepaper" element={<TechnicalWhitepaperVideo />} />
