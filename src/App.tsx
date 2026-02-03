@@ -83,6 +83,12 @@ import KitEspacioDatosInscripcion from "./pages/KitEspacioDatosInscripcion";
 import CondicionesKitEspacioDatos from "./pages/CondicionesKitEspacioDatos";
 import GuiaKitEspacioDatos from "./pages/GuiaKitEspacioDatos";
 import ContratoKitEspacioDatos from "./pages/ContratoKitEspacioDatos";
+import DemoSelector from "./pages/demo/index";
+import TutorDemoPanel from "./pages/demo/TutorDemoPanel";
+import VetDemoPanel from "./pages/demo/VetDemoPanel";
+import ClinicDemoPanel from "./pages/demo/ClinicDemoPanel";
+import ResearchDemoPanel from "./pages/demo/ResearchDemoPanel";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -172,6 +178,14 @@ const App = () => (
                 <Route path="/condiciones-kit-espacio-datos" element={<CondicionesKitEspacioDatos />} />
                 <Route path="/guia-kit-espacio-datos" element={<GuiaKitEspacioDatos />} />
                 <Route path="/contrato-kit-espacio-datos" element={<ContratoKitEspacioDatos />} />
+
+                {/* Demo Panels por Tipología de Usuario */}
+                <Route path="/demo" element={<DemoSelector />} />
+                <Route path="/demo/tutor" element={<TutorDemoPanel />} />
+                <Route path="/demo/vet" element={<VetDemoPanel />} />
+                <Route path="/demo/clinic" element={<ClinicDemoPanel />} />
+                <Route path="/demo/research" element={<ResearchDemoPanel />} />
+
                  <Route element={<AppLayout />}>
                    <Route path="/dashboard" element={<Dashboard />} />
                    <Route path="/auditor-dashboard" element={<AuditorDashboard />} />
