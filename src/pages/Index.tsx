@@ -4,7 +4,7 @@ import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { PawPrint, FlaskConical, Heart, TrendingUp, Package, BarChart3, ArrowRight, Network, Database, Lock, Cpu, Dog, Cat } from 'lucide-react';
+import { PawPrint, FlaskConical, Heart, TrendingUp, Package, BarChart3, ArrowRight, Network, Database, Lock, Cpu, Dog, Cat, ExternalLink } from 'lucide-react';
 import { InteroperabilitySection } from '@/components/home/InteroperabilitySection';
 import { FinalCTA } from '@/components/home/FinalCTA';
 import { GlobalFooter } from "@/components/ui/GlobalFooter";
@@ -146,9 +146,15 @@ const Landing = () => {
       {/* Mid CTA Section */}
       <section className="-mt-2 pt-0 pb-14 bg-white">
         <div className="container mx-auto px-4 text-center">
-          <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6">
-            Únete a la primera red europea de Datos Veterinarios
-          </div>
+          <a 
+            href="/documents/Espacios_de_Datos_Elegibles_KTED.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6 hover:bg-primary/20 transition-colors cursor-pointer"
+          >
+            <ExternalLink className="w-4 h-4" />
+            Ver Espacios de Datos Elegibles
+          </a>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-0 tracking-tight leading-tight">
             El Futuro de la Medicina Veterinaria <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-purple-500 to-accent">
