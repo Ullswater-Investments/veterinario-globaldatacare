@@ -212,7 +212,7 @@ const ContratoKitEspacioDatos = () => {
                       </CardTitle>
                     </CardHeader>
                     <CardContent className="text-sm">
-                      <p><strong>GLOBAL DATA CARE</strong>, con NIF [B-XXXXXXXX], con domicilio social en [Dirección], Madrid, debidamente representada por D./Dña. [Nombre del Representante] en calidad de [Cargo].</p>
+                      <p><strong>ACCURO TECHNOLOGY, S.L.</strong>, con CIF B87617981, con domicilio social en C/ Colquide, 6 – Portal 2, 1ª planta, Edificio Prisma de Las Rozas – Madrid. Teléfono: (+34) 91 710 48 40. Correo electrónico: ivan.becerro@accuro.es. En adelante "EL PRESTADOR".</p>
                     </CardContent>
                   </Card>
 
