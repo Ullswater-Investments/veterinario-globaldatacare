@@ -1,173 +1,147 @@
 
 
-# Plan: Dossier de Business Partners - Espacio de Datos Federados de Salud Animal
+# Plan: Presentacion Scroll Continuo del Espacio de Datos de Salud Animal
 
-## Contexto y Objetivo
+## Objetivo
 
-Crear un **documento/portal independiente** dentro del proyecto que sirva como "Dossier de Business Partners" para el Espacio de Datos Federados de Salud Animal. Este dossier debe poder:
+Crear una pagina de presentacion en formato de scroll continuo (single-page) siguiendo exactamente el estilo de https://comercio.kitespaciodedatos.net/ pero adaptada al **Espacio de Datos Federados de Salud Animal**.
 
-1. **Reutilizar** screenshots, interfaces y conceptos del proyecto existente como evidencia visual
-2. **Mantenerse aislado** del resto del proyecto (no interferir con las funcionalidades existentes)
-3. **Servir como documento comercial** para presentar a potenciales Business Partners
+## Formato de Referencia
 
----
+El sitio de referencia tiene estas caracteristicas:
+- Pagina unica con scroll vertical
+- Secciones alternando fondos (blanco, gris, azul/naranja para CTAs)
+- Cada seccion tiene: etiqueta de categoria, titulo, subtitulo, contenido
+- Metricas destacadas con numeros grandes
+- Cards con iconos para beneficios y features
+- Capturas de pantalla de la plataforma
+- Diagramas de arquitectura y flujos
 
-## Opciones de Arquitectura
+## Estructura de la Presentacion
 
-### Opcion A: Portal Web Independiente (Recomendada)
+La presentacion seguira este orden con capturas de pantalla reales:
 
-Crear una nueva ruta `/dossier-business-partners` con un portal web completo y navegable, similar a `PropuestaKitEspacioDatos.tsx` o `StrategicPresentation.tsx`.
+### Seccion 1: Hero
+- Titulo: "Espacio de Datos Federado de Salud Animal"
+- Subtitulo: "Conectando Clinicas, Laboratorios, Industria e Investigacion"
+- Diagrama de actores: Clinicas → Espacio de Datos → Investigacion
 
-**Ventajas:**
-- Interactivo y navegable
-- Puede incluir capturas de pantalla de las interfaces existentes
-- Profesional para presentaciones en vivo
-- Reutiliza componentes del proyecto
+### Seccion 2: El Problema Actual
+- Fragmentacion de datos veterinarios
+- Metricas: 85% clinicas aisladas, 0% interoperabilidad, duplicacion de pruebas
+- Captura: Imagen de "servidores aislados"
 
-**Estructura propuesta:**
-```
-src/
-├── pages/
-│   └── dossier/
-│       ├── BusinessPartnersDossier.tsx    # Página principal del dossier
-│       ├── sections/
-│       │   ├── ExecutiveSummary.tsx       # Resumen ejecutivo
-│       │   ├── MarketOpportunity.tsx      # Oportunidad de mercado
-│       │   ├── PlatformShowcase.tsx       # Demostración visual de la plataforma
-│       │   ├── PartnerProfiles.tsx        # Perfiles de partners objetivo
-│       │   ├── ValueProposition.tsx       # Propuesta de valor por tipo de partner
-│       │   ├── TechnologyOverview.tsx     # Resumen tecnológico
-│       │   ├── BusinessModels.tsx         # Modelos de negocio y revenue share
-│       │   └── NextSteps.tsx              # Llamada a la acción
-│       └── components/
-│           └── DossierLayout.tsx          # Layout específico del dossier
-│
-└── layouts/
-    └── DossierLayout.tsx                  # Layout con navegación lateral
-```
+### Seccion 3: La Vision - Red Federada
+- Explicacion del modelo federado
+- Captura: Imagen de "red federada activa"
+- Diagrama de flujo de datos
 
-### Opcion B: Presentación en Slides (Alternativa)
+### Seccion 4: Panel del Tutor de Mascotas
+- Screenshot: `/demo/tutor` (TutorDemoPanel)
+- Explicacion de funcionalidades: Wallet, economia, privacidad, tokens
 
-Similar a `StrategicPresentation.tsx`, crear una presentación navegable con flechas.
+### Seccion 5: Cockpit Veterinario
+- Screenshot: `/portal/doctor` (DoctorPortal)
+- Explicacion: Historial federado, diagnostico IA, trayectoria de salud
 
-**Ventajas:**
-- Formato tipo Keynote/PowerPoint
-- Ideal para proyector
-- Navegación secuencial
+### Seccion 6: Panel Director de Clinica
+- Screenshot: `/demo/clinic` (ClinicDemoPanel)
+- Explicacion: KPIs, finanzas, benchmarking, excelencia operativa
 
-**Estructura:**
-```
-src/pages/dossier/
-└── BusinessPartnersPresentation.tsx   # 15-20 slides navegables
-```
+### Seccion 7: Marketplace de Investigacion
+- Screenshot: `/portal/research` (ResearchDataMarketplace)
+- Explicacion: Datasets, algoritmos federados, epidemiologia
 
----
+### Seccion 8: Central de Compras Predictiva
+- Screenshot: `/portal/supply` (SupplyChainPage)
+- Explicacion: Compras federadas, prediccion IA, ahorro colectivo
 
-## Recomendacion: Opcion A + B Combinada
+### Seccion 9: Pasaporte Digital de Producto
+- Screenshot: `/solutions/product-passport` (ProductPassportPage)
+- Explicacion: DPP, trazabilidad, QR, blockchain
 
-Crear **ambos formatos**:
-1. Un **portal web completo** para consulta detallada
-2. Una **versión slides** para presentaciones ejecutivas
+### Seccion 10: Dashboard KPIs
+- Screenshot: `/portal/kpi` (KpiDashboardPage)
+- Explicacion: Metricas en tiempo real, benchmarking sectorial
 
----
+### Seccion 11: Fundamentos Tecnologicos
+- Arquitectura Gaia-X / IDS
+- Componentes: Identity, ODRL, Blockchain, RLS
+- Referencia a `/tech/*` pages
 
-## Contenido del Dossier
+### Seccion 12: Kit Espacio de Datos
+- Programa Red.es, financiacion europea
+- Subvencion 15-30K EUR
+- Referencia a `/propuesta-kit-espacio-datos`
 
-### Secciones Principales
+### Seccion 13: Perfiles de Business Partners
+- 8 tipos de partners con beneficios
+- Clinicas, Labs, Pharma, Aseguradoras, Investigacion, IoT, Centrales Compra, Inversores
 
-| Seccion | Contenido | Elementos Visuales del Proyecto a Reutilizar |
-|---------|-----------|----------------------------------------------|
-| **1. Portada** | Título, logo, fecha, confidencialidad | Hero de `Index.tsx` |
-| **2. Resumen Ejecutivo** | Vision, mision, oportunidad | Badges de `PropuestaKitEspacioDatos.tsx` |
-| **3. El Problema** | Fragmentacion de datos veterinarios | Imagen "servidores aislados" |
-| **4. La Solucion** | Arquitectura federada | Imagen "red federada activa", diagrama de `Interoperability.tsx` |
-| **5. Plataforma en Accion** | Capturas de los 6 portales | Screenshots de: Doctor Portal, Patient Wallet, Research Marketplace, Supply Chain, KPI Dashboard |
-| **6. Perfiles de Partners** | Tipos de socios buscados | Tarjetas de perfil de `KpiDashboardPage.tsx` |
-| **7. Propuesta de Valor** | Beneficios por tipo de partner | Cards de `BusinessModels.tsx` |
-| **8. Modelos de Negocio** | Revenue streams y revenue share | Calculadora ROI de `BusinessModels.tsx` |
-| **9. Tecnologia** | Stack y arquitectura | Diagrama de `TechnicalProposal.tsx` |
-| **10. Financiacion** | Kit Espacio de Datos | Seccion de `PropuestaKitEspacioDatos.tsx` |
-| **11. Roadmap** | Fases de implementacion | Timeline de `StrategicPresentation.tsx` |
-| **12. Llamada a la Accion** | Formulario de contacto | CTA existente |
+### Seccion 14: Metricas de Impacto
+- ROI cuantificable
+- Reduccion de costes, mejora de outcomes
 
-### Tipos de Business Partners a Destacar
-
-Basandome en el proyecto existente:
-
-1. **Clinicas Veterinarias** - Proveedores de datos clinicos
-2. **Laboratorios** - Integracion de resultados diagnosticos
-3. **Industria Farmaceutica** - Trazabilidad de productos
-4. **Aseguradoras** - Smart claims y parametric insurance
-5. **Instituciones de Investigacion** - Federated learning
-6. **Centrales de Compra** - Supply chain federado
-7. **Fabricantes IoT** - Sensores y dispositivos
-8. **Inversores** - Financiacion del ecosistema
-
----
+### Seccion 15: CTA Final
+- "Unete al Espacio de Datos de Salud Animal"
+- Boton de contacto
 
 ## Archivos a Crear
 
-| Archivo | Tipo | Descripcion |
-|---------|------|-------------|
-| `src/pages/dossier/BusinessPartnersDossier.tsx` | CREAR | Pagina principal con navegacion |
-| `src/layouts/DossierLayout.tsx` | CREAR | Layout con sidebar y header |
-| `src/pages/dossier/BusinessPartnersSlides.tsx` | CREAR | Version slides para presentaciones |
-| `src/data/dossier/partnerProfiles.ts` | CREAR | Datos de tipos de partners |
-| `src/data/dossier/valuePropositions.ts` | CREAR | Propuestas de valor por perfil |
+| Archivo | Descripcion |
+|---------|-------------|
+| `src/pages/dossier/PlatformShowcase.tsx` | Pagina principal de scroll continuo con todas las secciones |
 
 ## Archivos a Modificar
 
 | Archivo | Cambio |
 |---------|--------|
-| `src/App.tsx` | Agregar rutas `/dossier` y `/dossier/slides` |
+| `src/App.tsx` | Agregar ruta `/showcase` |
 
----
+## Componentes Reutilizables
 
-## Rutas Nuevas
+Cada seccion usara componentes consistentes:
+- `SectionLabel`: Etiqueta de categoria (ej: "FUNDAMENTOS TECNOLOGICOS")
+- `SectionTitle`: Titulo grande
+- `SectionSubtitle`: Subtitulo explicativo
+- `MetricCard`: Numero grande + descripcion
+- `FeatureCard`: Icono + titulo + descripcion
+- `ScreenshotFrame`: Marco para capturas de pantalla con sombra
 
-```
-/dossier                    → BusinessPartnersDossier (portal completo)
-/dossier/slides             → BusinessPartnersSlides (version presentacion)
-```
+## Capturas de Pantalla
 
----
+Las capturas se implementaran de dos formas posibles:
+1. **Iframes embebidos** (interactivos pero pesados)
+2. **Imagenes estaticas** (ligeras, requieren captura manual)
 
-## Elementos Visuales a Capturar/Referenciar
+Recomendacion: Usar componentes que rendericen versiones simplificadas de cada pantalla inline, similar a "mini-previews".
 
-El dossier incluira referencias visuales a estas paginas existentes:
+## Rutas de Pantallas a Mostrar
 
-1. **`/portal/doctor`** - Cockpit veterinario
-2. **`/portal/patient`** - Wallet del tutor
-3. **`/portal/research`** - Marketplace de datos
-4. **`/portal/supply`** - Central de compras
-5. **`/portal/kpi`** - Dashboard de KPIs
-6. **`/solutions/product-passport`** - Pasaporte digital
-7. **`/business/models`** - Modelos de negocio
-8. **`/demo/*`** - Paneles demo por perfil
+| Pantalla | Ruta | Componente |
+|----------|------|------------|
+| Panel Tutor | `/demo/tutor` | TutorDemoPanel |
+| Cockpit Vet | `/portal/doctor` | DoctorPortal |
+| Panel Clinica | `/demo/clinic` | ClinicDemoPanel |
+| Marketplace Research | `/portal/research` | ResearchDataMarketplace |
+| Central Compras | `/portal/supply` | SupplyChainPage |
+| Pasaporte Digital | `/solutions/product-passport` | ProductPassportPage |
+| Dashboard KPIs | `/portal/kpi` | KpiDashboardPage |
+| Wallet Paciente | `/portal/patient` | PatientWalletPage |
 
----
-
-## Estimacion de Trabajo
+## Estimacion
 
 | Componente | Lineas Estimadas |
 |------------|------------------|
-| DossierLayout.tsx | ~100 |
-| BusinessPartnersDossier.tsx | ~600 |
-| BusinessPartnersSlides.tsx | ~500 |
-| partnerProfiles.ts | ~80 |
-| valuePropositions.ts | ~100 |
-| Modificaciones App.tsx | ~10 |
-| **Total** | ~1,400 lineas |
-
----
+| PlatformShowcase.tsx | ~1200-1500 lineas |
+| Modificaciones App.tsx | ~5 lineas |
 
 ## Resultado Final
 
-Un portal profesional accesible en `/dossier` que:
-
-- Presenta la oportunidad de negocio del Espacio de Datos Federados
-- Muestra visualmente la plataforma existente como evidencia
-- Define claramente los perfiles de Business Partners buscados
-- Explica los modelos de colaboracion y revenue share
-- Incluye una version en slides para presentaciones ejecutivas
+Una pagina accesible en `/showcase` que:
+- Presenta toda la plataforma en formato scroll continuo
+- Incluye capturas/previews de cada pantalla principal
+- Explica la propuesta de valor del Espacio de Datos
+- Sirve como herramienta comercial para Business Partners
+- Sigue exactamente el formato de comercio.kitespaciodedatos.net
 
