@@ -4,6 +4,7 @@ import { Badge } from '@/components/ui/badge';
 import { Euro, Zap, CheckCircle2, PawPrint, FileText, Clock } from 'lucide-react';
 import { motion } from 'framer-motion';
 import logoGobiernoRedEs from '@/assets/logo-gobierno-red-es.png';
+import logoKitEspacioDatos from '@/assets/logo-kit-espacio-datos.jpg';
 
 export const KitDatosCampaignBanner = () => {
   return (
@@ -82,7 +83,12 @@ export const KitDatosCampaignBanner = () => {
           </div>
 
           {/* Logo institucional */}
-          <div className="mt-6 flex justify-center">
+          <div className="mt-6 flex flex-col md:flex-row items-center justify-center gap-6">
+            <img 
+              src={logoKitEspacioDatos} 
+              alt="Kit Espacios de Datos" 
+              className="h-14 md:h-16 object-contain"
+            />
             <img 
               src={logoGobiernoRedEs} 
               alt="Gobierno de España - Ministerio para la Transformación Digital - Red.es" 
