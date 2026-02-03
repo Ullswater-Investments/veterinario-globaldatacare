@@ -262,7 +262,7 @@ const KitEspacioDatosInscripcion = () => {
             <img 
               src={logoKitEspacioDatos} 
               alt="Kit Espacios de Datos" 
-              className="mx-auto h-16 md:h-20 object-contain mb-4"
+              className="mx-auto h-20 md:h-28 object-contain mb-4"
             />
             <h1 className="text-3xl font-bold text-foreground mb-2">
               Inscripción Kit Espacio de Datos
