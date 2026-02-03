@@ -31,6 +31,7 @@ import {
   Info,
 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import logoGobiernoRedEs from '@/assets/logo-gobierno-red-es.png';
 
 const CondicionesKitEspacioDatos = () => {
   const fadeInUp = {
@@ -121,9 +122,14 @@ const CondicionesKitEspacioDatos = () => {
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
               Condiciones Transparentes
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-6">
               Todo lo que necesitas saber antes de inscribirte. Sin letra pequeña.
             </p>
+            <img 
+              src={logoGobiernoRedEs} 
+              alt="Gobierno de España - Ministerio para la Transformación Digital - Red.es" 
+              className="mx-auto h-10 md:h-12 object-contain"
+            />
           </motion.div>
         </div>
       </section>
