@@ -84,11 +84,17 @@ export const KitDatosCampaignBanner = () => {
 
           {/* Logo institucional */}
           <div className="mt-6 flex flex-col md:flex-row items-center justify-center gap-6">
-            <img 
-              src={logoKitEspacioDatos} 
-              alt="Kit Espacios de Datos" 
-              className="h-14 md:h-16 object-contain"
-            />
+            <a 
+              href="https://www.acelerapyme.gob.es/kit-espacios-de-datos" 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
+              <img 
+                src={logoKitEspacioDatos} 
+                alt="Kit Espacios de Datos" 
+                className="h-14 md:h-16 object-contain hover:opacity-80 transition-opacity"
+              />
+            </a>
             <img 
               src={logoGobiernoRedEs} 
               alt="Gobierno de España - Ministerio para la Transformación Digital - Red.es" 
