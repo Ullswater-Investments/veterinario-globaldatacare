@@ -211,7 +211,7 @@ const Landing = () => {
       <footer className="py-12 bg-foreground text-primary-foreground">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="text-sm text-primary-foreground/60">VETSPACE TECHNOLOGY</div>
+            <div className="text-sm text-primary-foreground/60">ACCURO TECHNOLOGY</div>
             <div className="flex gap-6 text-sm">
               <Link to="/consulting/technical-proposal" className="text-primary-foreground/60 hover:text-primary-foreground transition">
                 Whitepaper Técnico · VetSpace Technology
