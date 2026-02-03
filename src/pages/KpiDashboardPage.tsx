@@ -9,7 +9,7 @@ import {
   AlertTriangle,
   Brain,
   Stethoscope,
-  ArrowRight,
+  Sparkles,
   TrendingUp,
   MessageSquareWarning,
   CheckCircle2,
@@ -101,10 +101,10 @@ const KpiDashboardPage: React.FC = () => {
           </p>
           <Link
             to="/demo"
-            className="px-8 py-4 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl font-bold shadow-lg shadow-indigo-900/50 flex items-center gap-2 mx-auto transition-all"
+            className="px-6 py-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white rounded-full font-medium border border-white/20 flex items-center gap-2 mx-auto transition-all"
           >
-            Ver Demo del Panel
-            <ArrowRight className="w-5 h-5" />
+            <Sparkles className="w-4 h-4" />
+            Demo Interactivo de Paneles KPI
           </Link>
         </div>
       </section>
