@@ -1,178 +1,107 @@
 
 
-# Plan: Crear 3 Páginas de Detalle para las Fuentes de Datos 360°
+# Plan: Añadir Tarjetas de Perfil en la Página Principal
 
-## Contexto
+## Objetivo
 
-Las 3 tarjetas seleccionadas en `KpiDashboardPage.tsx` representan las fuentes de datos que alimentan la visión 360° del sistema:
+Incluir las 4 tarjetas de perfil de stakeholder (Tutor de Mascotas, Médico Veterinario, Director de Clínica, Científico de Datos) en la página `Index.tsx`, replicando exactamente el diseño que ya existe en `KpiDashboardPage.tsx`.
 
-1. **Voz del Tutor** (azul) - NPS, reportes de evolución, encuestas de satisfacción
-2. **Flujo Operativo** (índigo) - Tiempos de espera, duración de consultas, uso de gabinetes
-3. **Resultado Clínico** (esmeralda) - Éxito quirúrgico, complicaciones, re-intervenciones
+## Ubicación
 
-Cada página tendrá un enfoque profundo con KPIs, gráficos interactivos y datos sintéticos específicos.
-
----
-
-## Arquitectura de las Páginas
+Las tarjetas se insertarán **entre** la sección de portales (línea 189) y la sección "Arquitectura de Confianza" (línea 192).
 
 ```text
-src/
-├── pages/
-│   └── kpi/
-│       ├── TutorVoicePage.tsx        # Voz del Tutor
-│       ├── OperationalFlowPage.tsx   # Flujo Operativo
-│       └── ClinicalOutcomesPage.tsx  # Resultado Clínico
-│
-└── data/
-    └── kpiSources/
-        ├── tutorVoiceMockData.ts      # Datos NPS, encuestas, evolución
-        ├── operationalFlowMockData.ts # Tiempos, ocupación, eficiencia
-        └── clinicalOutcomesMockData.ts# Cirugías, complicaciones, readmisiones
+┌─────────────────────────────────────────────────────────────┐
+│  Sección Portales (6 tarjetas existentes)                   │
+│  [GESTIÓN VETERINARIA] [PASAPORTE DIGITAL] [TUTOR/WALLET]  │
+│  [INVESTIGACIÓN]       [ABASTECIMIENTO]    [EXCELENCIA]    │
+└─────────────────────────────────────────────────────────────┘
+                            ↓
+┌─────────────────────────────────────────────────────────────┐
+│  ★ NUEVA SECCIÓN: Explora los Paneles por Perfil ★         │
+│  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐       │
+│  │  Tutor   │ │   Vet    │ │ Director │ │Científico│       │
+│  │ Mascotas │ │   Vet.   │ │ Clínica  │ │  Datos   │       │
+│  └──────────┘ └──────────┘ └──────────┘ └──────────┘       │
+└─────────────────────────────────────────────────────────────┘
+                            ↓
+┌─────────────────────────────────────────────────────────────┐
+│  Arquitectura de Confianza                                  │
+│  [Interoperabilidad] [Soberanía] [Trazabilidad]            │
+└─────────────────────────────────────────────────────────────┘
 ```
 
----
+## Diseño de las Tarjetas (Idéntico a la referencia)
 
-## Página 1: Voz del Tutor (`/kpi/tutor-voice`)
+Cada tarjeta incluirá:
+- **Barra de color superior** con gradiente según el perfil
+- **Icono** en caja con gradiente de color
+- **Título** principal (ej: "Tutor de Mascotas")
+- **Subtítulo** en color (ej: "Patient/Owner" en verde esmeralda)
+- **Descripción** del panel
+- **Tags/badges** con las funcionalidades
+- **Enlace** "Ver Demo →" en verde
 
-### Diseño Visual
-- **Header**: Gradiente azul a cian (coincide con icono actual)
-- **Hero Stat**: NPS Global con gauge animado
+## Datos de las Tarjetas
 
-### Secciones
+| Perfil | Subtítulo | Gradiente | Icono | Ruta | Tags |
+|--------|-----------|-----------|-------|------|------|
+| Tutor de Mascotas | Patient/Owner | azul→cian | PawPrint | /demo/tutor | Salud de mascotas, Economía familiar, Privacidad de datos, Tokens de monetización |
+| Médico Veterinario | Doctor/Clinician | esmeralda→teal | Stethoscope | /demo/vet | Productividad diaria, Calidad clínica, Hospitalización, Copiloto AI |
+| Director de Clínica | Manager/CEO | índigo→púrpura | Building2 | /demo/clinic | Finanzas, Excelencia operativa, Benchmarking, Supply Chain |
+| Científico de Datos | Researcher | ámbar→naranja | FlaskConical | /demo/research | Marketplace datos, Federated Learning, Epidemiología, Impacto científico |
 
-| Sección | Contenido |
-|---------|-----------|
-| NPS en Tiempo Real | Gauge de NPS (0-100), tendencia 6 meses, distribución promotores/detractores/neutros |
-| Reportes de Evolución | Lista de últimos reportes enviados por tutores desde la Wallet, con estado y seguimiento |
-| Encuestas de Satisfacción | Resultados agregados por categoría (atención, limpieza, precio, tiempo espera) |
-| Feedback Textual | Nube de palabras o lista de comentarios destacados (positivos/negativos) |
-| Análisis AI | Insights generados automáticamente: tendencias, alertas, recomendaciones |
+## Cambios Técnicos
 
-### KPIs Principales
-- NPS Global: 72
-- Respuestas este mes: 156
-- Reportes de evolución: 34
-- Tasa de respuesta: 68%
-- Satisfacción media: 4.3/5
+### Archivo: `src/pages/Index.tsx`
 
----
+1. **Añadir imports** (línea 7):
+   - `Stethoscope`, `Building2` de `lucide-react`
+   - Nota: `PawPrint`, `FlaskConical`, `ArrowRight` ya están importados
 
-## Página 2: Flujo Operativo (`/kpi/operational-flow`)
+2. **Añadir array de datos** `profileCards` (después de línea 111, antes del return):
+   - Reutilizar exactamente la misma estructura que en `KpiDashboardPage.tsx`
 
-### Diseño Visual
-- **Header**: Gradiente índigo a púrpura (coincide con icono actual)
-- **Hero Stat**: Tiempo de espera medio actual
+3. **Añadir nueva sección** (entre líneas 189 y 191):
+   - Título: "Explora los Paneles por Perfil"
+   - Subtítulo: "Cada stakeholder tiene su propio dashboard optimizado"
+   - Grid responsivo de 4 tarjetas (1 col móvil, 2 col tablet, 4 col desktop)
 
-### Secciones
+## Estructura de la Nueva Sección
 
-| Sección | Contenido |
-|---------|-----------|
-| Tiempos de Espera | Tiempo actual vs objetivo, histórico 7 días, por franja horaria |
-| Duración de Consultas | Comparativa planificado vs real, por tipo de consulta, por veterinario |
-| Ocupación de Gabinetes | Heatmap semanal (reutilizar OccupancyHeatmap), alertas de saturación |
-| Bottlenecks Detectados | Lista de cuellos de botella identificados por AI con sugerencias |
-| Predicción de Carga | Forecast para próximas 24h basado en histórico |
-
-### KPIs Principales
-- Tiempo espera medio: 12 min
-- Desviación consulta: +8%
-- Ocupación gabinetes: 78%
-- Consultas/día: 42
-- Eficiencia programación: 91%
-
----
-
-## Página 3: Resultado Clínico (`/kpi/clinical-outcomes`)
-
-### Diseño Visual
-- **Header**: Gradiente esmeralda a teal (coincide con icono actual)
-- **Hero Stat**: Tasa de éxito quirúrgico
-
-### Secciones
-
-| Sección | Contenido |
-|---------|-----------|
-| Éxito Quirúrgico | Tasa global, desglose por tipo de cirugía, tendencia 12 meses |
-| Complicaciones | Clasificación por severidad, tipos más frecuentes, comparativa con benchmark |
-| Re-intervenciones | Tasa de re-intervención 30 días, causas principales, seguimiento de casos |
-| Calidad Diagnóstica | Tasa de diagnósticos confirmados vs modificados, precisión por patología |
-| Mortalidad Hospitalaria | Tasa global, casos críticos, análisis de causas |
-
-### KPIs Principales
-- Éxito quirúrgico: 96.2%
-- Complicaciones menores: 3.1%
-- Complicaciones mayores: 0.7%
-- Re-intervenciones 30d: 1.8%
-- Mortalidad hospitalaria: 0.3%
-
----
-
-## Resumen de Archivos
-
-| Archivo | Acción | Descripción |
-|---------|--------|-------------|
-| `src/pages/kpi/TutorVoicePage.tsx` | CREAR | Página completa de Voz del Tutor |
-| `src/pages/kpi/OperationalFlowPage.tsx` | CREAR | Página completa de Flujo Operativo |
-| `src/pages/kpi/ClinicalOutcomesPage.tsx` | CREAR | Página completa de Resultado Clínico |
-| `src/data/kpiSources/tutorVoiceMockData.ts` | CREAR | Datos NPS, encuestas, reportes |
-| `src/data/kpiSources/operationalFlowMockData.ts` | CREAR | Datos tiempos, ocupación, eficiencia |
-| `src/data/kpiSources/clinicalOutcomesMockData.ts` | CREAR | Datos cirugías, complicaciones |
-| `src/pages/KpiDashboardPage.tsx` | MODIFICAR | Enlazar tarjetas a las nuevas páginas |
-| `src/App.tsx` | MODIFICAR | Registrar las 3 nuevas rutas |
-
----
-
-## Rutas a Registrar
-
-```text
-/kpi/tutor-voice       → TutorVoicePage
-/kpi/operational-flow  → OperationalFlowPage
-/kpi/clinical-outcomes → ClinicalOutcomesPage
-```
-
----
-
-## Modificación de Tarjetas Existentes
-
-Las 3 tarjetas en `KpiDashboardPage.tsx` (líneas 176-207) se convertirán en componentes `Link` clickeables que navegarán a sus respectivas páginas de detalle.
-
-**Antes:**
 ```tsx
-<div className="bg-white p-8 rounded-2xl ...">
+{/* Profile Cards Section */}
+<section className="py-14 bg-slate-50">
+  <div className="container mx-auto px-4">
+    <div className="text-center mb-12">
+      <h2 className="text-3xl font-bold text-slate-900">
+        Explora los Paneles por Perfil
+      </h2>
+      <p className="text-slate-500 mt-2">
+        Cada stakeholder tiene su propio dashboard optimizado
+      </p>
+    </div>
+
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+      {profileCards.map((card) => (
+        <Card key={card.title} className="...">
+          {/* Barra de color, icono, título, subtítulo, descripción, tags, enlace */}
+        </Card>
+      ))}
+    </div>
+  </div>
+</section>
 ```
 
-**Después:**
-```tsx
-<Link to="/kpi/tutor-voice" className="bg-white p-8 rounded-2xl ... cursor-pointer">
-```
+## Resumen de Cambios
 
----
+| Archivo | Línea | Acción | Descripción |
+|---------|-------|--------|-------------|
+| `src/pages/Index.tsx` | 7 | MODIFICAR | Añadir imports `Stethoscope`, `Building2` |
+| `src/pages/Index.tsx` | ~112 | AÑADIR | Definir array `profileCards` |
+| `src/pages/Index.tsx` | 189-191 | AÑADIR | Nueva sección con las 4 tarjetas de perfil |
 
-## Componentes Reutilizados
+## Resultado Esperado
 
-| Componente | Uso |
-|------------|-----|
-| `KpiCard` | Tarjetas de métricas principales |
-| `TrendChart` | Gráficos de evolución temporal |
-| `OccupancyHeatmap` | Mapas de calor de ocupación |
-| `AlertsPanel` | Alertas y recomendaciones AI |
-| `NavigationControls` | Navegación estándar del proyecto |
-| `GlobalFooter` | Footer consistente |
-
----
-
-## Estimación de Implementación
-
-| Componente | Líneas Estimadas |
-|------------|------------------|
-| TutorVoicePage.tsx | ~350 |
-| OperationalFlowPage.tsx | ~400 |
-| ClinicalOutcomesPage.tsx | ~350 |
-| tutorVoiceMockData.ts | ~120 |
-| operationalFlowMockData.ts | ~150 |
-| clinicalOutcomesMockData.ts | ~130 |
-| Modificaciones App.tsx | ~10 |
-| Modificaciones KpiDashboardPage.tsx | ~30 |
-| **Total** | ~1,540 líneas |
+La página principal mostrará una nueva sección visualmente atractiva con las 4 tarjetas de perfil, cada una enlazando a su respectiva demo (`/demo/tutor`, `/demo/vet`, `/demo/clinic`, `/demo/research`), justo encima de la sección "Arquitectura de Confianza".
 
