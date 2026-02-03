@@ -2,88 +2,71 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/accordion';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Separator } from '@/components/ui/separator';
-import {
-  Euro,
-  Clock,
-  Target,
-  ArrowRight,
-  CheckCircle2,
-  Lock,
-  FileCheck,
-  Users,
-  Headphones,
-  FileText,
-  PawPrint,
-  AlertTriangle,
-  Shield,
-  Building2,
-  Banknote,
-  Calendar,
-  ArrowLeft,
-  ScrollText,
-  Info,
-} from 'lucide-react';
+import { Euro, Clock, Target, ArrowRight, CheckCircle2, Lock, FileCheck, Users, Headphones, FileText, PawPrint, AlertTriangle, Shield, Building2, Banknote, Calendar, ArrowLeft, ScrollText, Info } from 'lucide-react';
 import { motion } from 'framer-motion';
 import logoGobiernoRedEs from '@/assets/logo-gobierno-red-es.png';
 import logoKitEspacioDatos from '@/assets/logo-kit-espacio-datos.jpg';
-
 const CondicionesKitEspacioDatos = () => {
   const fadeInUp = {
-    initial: { opacity: 0, y: 20 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.5 }
+    initial: {
+      opacity: 0,
+      y: 20
+    },
+    animate: {
+      opacity: 1,
+      y: 0
+    },
+    transition: {
+      duration: 0.5
+    }
   };
-
-  const serviciosIncluidos = [
-    { icon: Shield, text: 'Acceso al Espacio de Datos Federado de Salud Animal' },
-    { icon: Users, text: 'Consultoría técnica y administrativa completa' },
-    { icon: FileText, text: 'Tramitación de la ayuda "Kit Espacio de Datos"' },
-    { icon: FileCheck, text: 'Redacción de memoria técnica para RED.ES' },
-    { icon: Building2, text: 'Presentación de solicitud ante el organismo competente' },
-    { icon: CheckCircle2, text: 'Justificación completa del proyecto subvencionado' },
-    { icon: Headphones, text: 'Soporte durante todo el proceso de concesión' },
-  ];
-
-  const faqItems = [
-    {
-      question: '¿Puedo cancelar durante los 6 primeros meses?',
-      answer: 'No. La Fase 1 es irrevocable dado que los recursos técnicos y de consultoría se ponen a disposición desde el día 1 de la firma. Esta condición garantiza la viabilidad del servicio de tramitación.'
-    },
-    {
-      question: '¿Qué pasa si me conceden la subvención?',
-      answer: 'El contrato se prorroga automáticamente por 12 meses adicionales (Fase 2). El precio de esta fase será equivalente al importe de la subvención concedida (entre 15.000€ y 30.000€), que será abonado directamente por el organismo público.'
-    },
-    {
-      question: '¿Qué es el Acta de Conformidad?',
-      answer: 'Es un documento digital que certifica la recepción efectiva del servicio (credenciales de acceso, inicio de consultoría). Su firma activa irrevocablemente las obligaciones de pago ante la entidad financiera Hokodo.'
-    },
-    {
-      question: '¿Quién tramita la subvención?',
-      answer: 'VetSpace Technology S.L. actúa como tu Representante Voluntario ante RED.ES y organismos públicos. Debes facilitar la documentación necesaria en un plazo máximo de 5 días hábiles cuando se te solicite.'
-    },
-    {
-      question: '¿Y si hay incidencias técnicas?',
-      answer: 'Las reclamaciones técnicas se gestionan por canales de soporte con SLA definido, pero no afectan el flujo de pagos comprometido con la entidad financiera. Pagos e incidencias técnicas son vías separadas.'
-    },
-    {
-      question: '¿Qué pasa si no me conceden la subvención?',
-      answer: 'Si la subvención es denegada, el contrato finaliza al término de la Fase 1 (6 meses). No hay prórroga automática ni obligaciones adicionales. Solo habrás pagado los 1.140€ + IVA de la fase inicial.'
-    },
-    {
-      question: '¿Cómo funciona la financiación con Hokodo?',
-      answer: 'Hokodo es una entidad financiera externa que gestiona el fraccionamiento del pago. Ellos abonan el importe total a VetSpace y tú pagas las cuotas mensuales a Hokodo. El Acta de Conformidad activa esta financiación.'
-    },
-  ];
-
-  return (
-    <div className="min-h-screen bg-background">
+  const serviciosIncluidos = [{
+    icon: Shield,
+    text: 'Acceso al Espacio de Datos Federado de Salud Animal'
+  }, {
+    icon: Users,
+    text: 'Consultoría técnica y administrativa completa'
+  }, {
+    icon: FileText,
+    text: 'Tramitación de la ayuda "Kit Espacio de Datos"'
+  }, {
+    icon: FileCheck,
+    text: 'Redacción de memoria técnica para RED.ES'
+  }, {
+    icon: Building2,
+    text: 'Presentación de solicitud ante el organismo competente'
+  }, {
+    icon: CheckCircle2,
+    text: 'Justificación completa del proyecto subvencionado'
+  }, {
+    icon: Headphones,
+    text: 'Soporte durante todo el proceso de concesión'
+  }];
+  const faqItems = [{
+    question: '¿Puedo cancelar durante los 6 primeros meses?',
+    answer: 'No. La Fase 1 es irrevocable dado que los recursos técnicos y de consultoría se ponen a disposición desde el día 1 de la firma. Esta condición garantiza la viabilidad del servicio de tramitación.'
+  }, {
+    question: '¿Qué pasa si me conceden la subvención?',
+    answer: 'El contrato se prorroga automáticamente por 12 meses adicionales (Fase 2). El precio de esta fase será equivalente al importe de la subvención concedida (entre 15.000€ y 30.000€), que será abonado directamente por el organismo público.'
+  }, {
+    question: '¿Qué es el Acta de Conformidad?',
+    answer: 'Es un documento digital que certifica la recepción efectiva del servicio (credenciales de acceso, inicio de consultoría). Su firma activa irrevocablemente las obligaciones de pago ante la entidad financiera Hokodo.'
+  }, {
+    question: '¿Quién tramita la subvención?',
+    answer: 'VetSpace Technology S.L. actúa como tu Representante Voluntario ante RED.ES y organismos públicos. Debes facilitar la documentación necesaria en un plazo máximo de 5 días hábiles cuando se te solicite.'
+  }, {
+    question: '¿Y si hay incidencias técnicas?',
+    answer: 'Las reclamaciones técnicas se gestionan por canales de soporte con SLA definido, pero no afectan el flujo de pagos comprometido con la entidad financiera. Pagos e incidencias técnicas son vías separadas.'
+  }, {
+    question: '¿Qué pasa si no me conceden la subvención?',
+    answer: 'Si la subvención es denegada, el contrato finaliza al término de la Fase 1 (6 meses). No hay prórroga automática ni obligaciones adicionales. Solo habrás pagado los 1.140€ + IVA de la fase inicial.'
+  }, {
+    question: '¿Cómo funciona la financiación con Hokodo?',
+    answer: 'Hokodo es una entidad financiera externa que gestiona el fraccionamiento del pago. Ellos abonan el importe total a VetSpace y tú pagas las cuotas mensuales a Hokodo. El Acta de Conformidad activa esta financiación.'
+  }];
+  return <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
@@ -105,11 +88,12 @@ const CondicionesKitEspacioDatos = () => {
         <div className="container mx-auto px-4 text-center">
           <motion.div {...fadeInUp}>
             {/* Deadline Badge */}
-            <motion.div
-              animate={{ scale: [1, 1.03, 1] }}
-              transition={{ repeat: Infinity, duration: 1.5 }}
-              className="mb-4"
-            >
+            <motion.div animate={{
+            scale: [1, 1.03, 1]
+          }} transition={{
+            repeat: Infinity,
+            duration: 1.5
+          }} className="mb-4">
               <Badge className="px-4 py-2 text-sm bg-amber-500 hover:bg-amber-600 text-white">
                 <Clock className="mr-2 h-4 w-4" />
                 ⚠️ Plazo de Inscripción hasta el 24 de Febrero
@@ -127,27 +111,11 @@ const CondicionesKitEspacioDatos = () => {
               Todo lo que necesitas saber antes de inscribirte. Sin letra pequeña.
             </p>
             <div className="flex flex-col md:flex-row items-center justify-center gap-6 mt-2">
-              <a 
-                href="https://www.acelerapyme.gob.es/kit-espacios-de-datos" 
-                target="_blank" 
-                rel="noopener noreferrer"
-              >
-                <img 
-                  src={logoKitEspacioDatos} 
-                  alt="Kit Espacios de Datos" 
-                  className="h-16 md:h-20 object-contain hover:opacity-80 transition-opacity"
-                />
+              <a href="https://www.acelerapyme.gob.es/kit-espacios-de-datos" target="_blank" rel="noopener noreferrer">
+                <img src={logoKitEspacioDatos} alt="Kit Espacios de Datos" className="h-16 md:h-20 object-contain hover:opacity-80 transition-opacity" />
               </a>
-              <a 
-                href="https://www.red.es/es/iniciativas/proyectos/kit-espacios-de-datos" 
-                target="_blank" 
-                rel="noopener noreferrer"
-              >
-                <img 
-                  src={logoGobiernoRedEs} 
-                  alt="Gobierno de España - Ministerio para la Transformación Digital - Red.es" 
-                  className="h-10 md:h-12 object-contain hover:opacity-80 transition-opacity"
-                />
+              <a href="https://www.red.es/es/iniciativas/proyectos/kit-espacios-de-datos" target="_blank" rel="noopener noreferrer">
+                <img src={logoGobiernoRedEs} alt="Gobierno de España - Ministerio para la Transformación Digital - Red.es" className="h-10 md:h-12 object-contain hover:opacity-80 transition-opacity" />
               </a>
             </div>
           </motion.div>
@@ -236,16 +204,8 @@ const CondicionesKitEspacioDatos = () => {
                     
                     {/* Logo institucional */}
                     <div className="mt-4 pt-4 border-t border-border">
-                      <a 
-                        href="https://www.red.es/es/iniciativas/proyectos/kit-espacios-de-datos" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                      >
-                        <img 
-                          src={logoGobiernoRedEs} 
-                          alt="Gobierno de España - Ministerio para la Transformación Digital - Red.es" 
-                          className="mx-auto h-8 md:h-10 object-contain hover:opacity-80 transition-opacity"
-                        />
+                      <a href="https://www.red.es/es/iniciativas/proyectos/kit-espacios-de-datos" target="_blank" rel="noopener noreferrer">
+                        <img src={logoGobiernoRedEs} alt="Gobierno de España - Ministerio para la Transformación Digital - Red.es" className="mx-auto h-8 md:h-10 object-contain hover:opacity-80 transition-opacity" />
                       </a>
                     </div>
                   </div>
@@ -260,7 +220,9 @@ const CondicionesKitEspacioDatos = () => {
       <section className="py-12 bg-background">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            <motion.div {...fadeInUp} transition={{ delay: 0.1 }}>
+            <motion.div {...fadeInUp} transition={{
+            delay: 0.1
+          }}>
               <Card className="text-center border-2 hover:border-primary/50 transition-colors h-full">
                 <CardHeader className="pb-2">
                   <div className="mx-auto p-3 rounded-full bg-primary/10 w-fit mb-2">
@@ -275,7 +237,9 @@ const CondicionesKitEspacioDatos = () => {
               </Card>
             </motion.div>
 
-            <motion.div {...fadeInUp} transition={{ delay: 0.2 }}>
+            <motion.div {...fadeInUp} transition={{
+            delay: 0.2
+          }}>
               <Card className="text-center border-2 hover:border-amber-500/50 transition-colors h-full">
                 <CardHeader className="pb-2">
                   <div className="mx-auto p-3 rounded-full bg-amber-500/10 w-fit mb-2">
@@ -290,7 +254,9 @@ const CondicionesKitEspacioDatos = () => {
               </Card>
             </motion.div>
 
-            <motion.div {...fadeInUp} transition={{ delay: 0.3 }}>
+            <motion.div {...fadeInUp} transition={{
+            delay: 0.3
+          }}>
               <Card className="text-center border-2 hover:border-green-500/50 transition-colors h-full">
                 <CardHeader className="pb-2">
                   <div className="mx-auto p-3 rounded-full bg-green-500/10 w-fit mb-2">
@@ -316,7 +282,9 @@ const CondicionesKitEspacioDatos = () => {
           <div className="max-w-5xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-4 items-stretch">
               {/* Fase 1 */}
-              <motion.div {...fadeInUp} transition={{ delay: 0.1 }}>
+              <motion.div {...fadeInUp} transition={{
+              delay: 0.1
+            }}>
                 <Card className="border-2 border-amber-500/50 bg-amber-50/50 dark:bg-amber-950/20 h-full">
                   <CardHeader>
                     <div className="flex items-center justify-between mb-2">
@@ -357,7 +325,9 @@ const CondicionesKitEspacioDatos = () => {
               </div>
 
               {/* Fase 2 */}
-              <motion.div {...fadeInUp} transition={{ delay: 0.2 }}>
+              <motion.div {...fadeInUp} transition={{
+              delay: 0.2
+            }}>
                 <Card className="border-2 border-green-500/50 bg-green-50/50 dark:bg-green-950/20 h-full">
                   <CardHeader>
                     <div className="flex items-center justify-between mb-2">
@@ -454,13 +424,15 @@ const CondicionesKitEspacioDatos = () => {
           
           <div className="max-w-4xl mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
-              {[1, 2, 3, 4, 5, 6].map((mes) => (
-                <motion.div
-                  key={mes}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: mes * 0.1 }}
-                >
+              {[1, 2, 3, 4, 5, 6].map(mes => <motion.div key={mes} initial={{
+              opacity: 0,
+              scale: 0.9
+            }} animate={{
+              opacity: 1,
+              scale: 1
+            }} transition={{
+              delay: mes * 0.1
+            }}>
                   <Card className="text-center hover:border-primary/50 transition-colors">
                     <CardContent className="p-4">
                       <div className="flex items-center justify-center gap-1 mb-2">
@@ -471,8 +443,7 @@ const CondicionesKitEspacioDatos = () => {
                       <p className="text-xs text-muted-foreground">+ IVA</p>
                     </CardContent>
                   </Card>
-                </motion.div>
-              ))}
+                </motion.div>)}
             </div>
             
             <div className="mt-8 p-4 bg-background rounded-lg border text-center">
@@ -495,20 +466,20 @@ const CondicionesKitEspacioDatos = () => {
           
           <div className="max-w-3xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {serviciosIncluidos.map((servicio, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  className="flex items-start gap-3 p-4 bg-muted/30 rounded-lg"
-                >
+              {serviciosIncluidos.map((servicio, index) => <motion.div key={index} initial={{
+              opacity: 0,
+              x: -20
+            }} animate={{
+              opacity: 1,
+              x: 0
+            }} transition={{
+              delay: index * 0.1
+            }} className="flex items-start gap-3 p-4 bg-muted/30 rounded-lg">
                   <div className="p-2 rounded-full bg-primary/10 shrink-0">
                     <servicio.icon className="h-5 w-5 text-primary" />
                   </div>
                   <span className="text-sm text-foreground">{servicio.text}</span>
-                </motion.div>
-              ))}
+                </motion.div>)}
             </div>
           </div>
         </div>
@@ -524,20 +495,14 @@ const CondicionesKitEspacioDatos = () => {
           
           <div className="max-w-3xl mx-auto">
             <Accordion type="single" collapsible className="space-y-4">
-              {faqItems.map((item, index) => (
-                <AccordionItem
-                  key={index}
-                  value={`item-${index}`}
-                  className="bg-background border rounded-lg px-6"
-                >
+              {faqItems.map((item, index) => <AccordionItem key={index} value={`item-${index}`} className="bg-background border rounded-lg px-6">
                   <AccordionTrigger className="text-left hover:no-underline">
                     <span className="font-medium">{item.question}</span>
                   </AccordionTrigger>
                   <AccordionContent className="text-muted-foreground">
                     {item.answer}
                   </AccordionContent>
-                </AccordionItem>
-              ))}
+                </AccordionItem>)}
             </Accordion>
           </div>
         </div>
@@ -555,8 +520,7 @@ const CondicionesKitEspacioDatos = () => {
                 </div>
               </CardHeader>
               <CardContent className="space-y-3 text-sm text-muted-foreground">
-                <p>
-                  <strong className="text-foreground">Este documento tiene carácter contractual vinculante.</strong> Al aceptar las condiciones en el formulario de inscripción, estás formalizando un acuerdo legal con VetSpace Technology S.L.
+                <p>Este documento tiene carácter contractual vinculante. Al aceptar las condiciones en el formulario de inscripción, estás formalizando un acuerdo legal con ACCURO TECHNOLOGY S.L.<strong className="text-foreground">Este documento tiene carácter contractual vinculante.</strong> Al aceptar las condiciones en el formulario de inscripción, estás formalizando un acuerdo legal con VetSpace Technology S.L.
                 </p>
                 <p>
                   Te recomendamos que revises el contrato completo con tu asesoría jurídica antes de la firma si tienes dudas sobre alguna cláusula.
@@ -614,8 +578,6 @@ const CondicionesKitEspacioDatos = () => {
           </div>
         </div>
       </footer>
-    </div>
-  );
+    </div>;
 };
-
 export default CondicionesKitEspacioDatos;
