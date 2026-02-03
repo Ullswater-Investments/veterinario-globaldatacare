@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { GlobalFooter } from "@/components/ui/GlobalFooter";
 import { ShieldCheck, Globe, Coins, FileX, Lock, Network, TrendingUp, Server, Languages, BrainCircuit, Shield, Smartphone, Zap, CheckCircle2, ArrowDown, Share2, LayoutDashboard, ScanBarcode, Database, Activity, Cuboid, ShoppingCart, Truck, Percent, BarChart4, Target } from "lucide-react";
 import servidoresAisladosImg from "@/assets/servidores-aislados.png";
 import redFederadaImg from "@/assets/red-federada-activa.png";
@@ -833,11 +834,12 @@ const PropuestaKitEspacioDatos: React.FC = () => {
           </div>
           
           <div className="mt-16 pt-8 border-t border-slate-800 text-xs text-slate-500">
-            <p>© 2025 ACCURO TECHNOLOGY. Global Data Care Veterinary Ecosystem.</p>
-            <p className="mt-2">Confidencialidad: Este documento contiene propiedad intelectual exclusiva.</p>
+            <p>Confidencialidad: Este documento contiene propiedad intelectual exclusiva.</p>
           </div>
         </div>
       </section>
+
+      <GlobalFooter />
     </div>;
 };
 export default PropuestaKitEspacioDatos;
