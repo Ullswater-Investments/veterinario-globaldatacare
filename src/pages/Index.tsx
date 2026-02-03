@@ -9,6 +9,7 @@ import { InteroperabilitySection } from '@/components/home/InteroperabilitySecti
 import { FinalCTA } from '@/components/home/FinalCTA';
 import { GlobalFooter } from "@/components/ui/GlobalFooter";
 import { KitDatosCampaignBanner } from '@/components/home/KitDatosCampaignBanner';
+import logosKitDigital from '@/assets/logos-kit-digital.jpg';
 
 const Landing = () => {
   const navigate = useNavigate();
