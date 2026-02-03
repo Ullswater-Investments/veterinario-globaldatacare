@@ -173,8 +173,11 @@ const KpiDashboardPage: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center relative">
             <div className="hidden md:block absolute top-12 left-[20%] right-[20%] h-0.5 bg-indigo-100 z-0" />
 
-            <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 relative z-10 hover:-translate-y-1 transition-transform">
-              <div className="w-16 h-16 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+            <Link
+              to="/kpi/tutor-voice"
+              className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 relative z-10 hover:-translate-y-1 hover:shadow-lg transition-all cursor-pointer group"
+            >
+              <div className="w-16 h-16 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                 <Smartphone className="w-8 h-8" />
               </div>
               <h3 className="font-bold text-lg mb-2">Voz del Tutor</h3>
@@ -182,10 +185,16 @@ const KpiDashboardPage: React.FC = () => {
                 NPS en tiempo real, reportes de evolución post-tratamiento desde la
                 Wallet y encuestas de satisfacción.
               </p>
-            </div>
+              <span className="inline-flex items-center gap-1 mt-4 text-blue-600 text-sm font-medium group-hover:gap-2 transition-all">
+                Ver Detalle <ArrowRight className="w-4 h-4" />
+              </span>
+            </Link>
 
-            <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 relative z-10 hover:-translate-y-1 transition-transform">
-              <div className="w-16 h-16 bg-indigo-50 text-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4">
+            <Link
+              to="/kpi/operational-flow"
+              className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 relative z-10 hover:-translate-y-1 hover:shadow-lg transition-all cursor-pointer group"
+            >
+              <div className="w-16 h-16 bg-indigo-50 text-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                 <Clock className="w-8 h-8" />
               </div>
               <h3 className="font-bold text-lg mb-2">Flujo Operativo</h3>
@@ -193,10 +202,16 @@ const KpiDashboardPage: React.FC = () => {
                 Tiempos de espera en sala, duración real vs. planificada de la
                 consulta y uso de gabinetes.
               </p>
-            </div>
+              <span className="inline-flex items-center gap-1 mt-4 text-indigo-600 text-sm font-medium group-hover:gap-2 transition-all">
+                Ver Detalle <ArrowRight className="w-4 h-4" />
+              </span>
+            </Link>
 
-            <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 relative z-10 hover:-translate-y-1 transition-transform">
-              <div className="w-16 h-16 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4">
+            <Link
+              to="/kpi/clinical-outcomes"
+              className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 relative z-10 hover:-translate-y-1 hover:shadow-lg transition-all cursor-pointer group"
+            >
+              <div className="w-16 h-16 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                 <Stethoscope className="w-8 h-8" />
               </div>
               <h3 className="font-bold text-lg mb-2">Resultado Clínico</h3>
@@ -204,7 +219,10 @@ const KpiDashboardPage: React.FC = () => {
                 Tasas de éxito en cirugías veterinarias, complicaciones reportadas y
                 re-intervenciones.
               </p>
-            </div>
+              <span className="inline-flex items-center gap-1 mt-4 text-emerald-600 text-sm font-medium group-hover:gap-2 transition-all">
+                Ver Detalle <ArrowRight className="w-4 h-4" />
+              </span>
+            </Link>
           </div>
 
           {/* Separador */}
