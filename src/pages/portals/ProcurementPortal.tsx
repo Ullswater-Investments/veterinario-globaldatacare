@@ -45,10 +45,18 @@ const ProcurementPortal = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 size="lg"
-                onClick={() => navigate('/portal/supply')}
+                onClick={() => navigate('/portal/procurement/adhesion')}
                 className="bg-emerald-600 hover:bg-emerald-700 text-lg px-8 py-6 h-auto"
               >
-                Ver Central Predictiva
+                Unirse a la Central de Compras
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                onClick={() => navigate('/portal/supply')}
+                className="text-lg px-8 py-6 h-auto border-emerald-600 text-emerald-600 hover:bg-emerald-50"
+              >
+                Ver Demo Predictiva
               </Button>
             </div>
           </div>

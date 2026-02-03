@@ -30,6 +30,7 @@ import DoctorPortal from "./pages/portals/DoctorPortal";
 import LabPortal from "./pages/portals/LabPortal";
 import InsurancePortal from "./pages/portals/InsurancePortal";
 import ProcurementPortal from "./pages/portals/ProcurementPortal";
+import ProcurementAdhesion from "./pages/portals/ProcurementAdhesion";
 import SupplyChainPage from "./pages/SupplyChainPage";
 import KpiDashboardPage from "./pages/KpiDashboardPage";
 import TechIndex from "./pages/tech/TechIndex";
@@ -110,6 +111,7 @@ const App = () => (
                 <Route path="/research/sample/:datasetId" element={<DatasetSamplePage />} />
                 <Route path="/portal/insurance" element={<InsurancePortal />} />
                 <Route path="/portal/procurement" element={<ProcurementPortal />} />
+                <Route path="/portal/procurement/adhesion" element={<ProcurementAdhesion />} />
                 <Route path="/portal/supply" element={<SupplyChainPage />} />
                 <Route path="/portal/kpi" element={<KpiDashboardPage />} />
                 
