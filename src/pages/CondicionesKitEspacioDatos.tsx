@@ -575,8 +575,13 @@ const CondicionesKitEspacioDatos = () => {
 
       {/* Footer mínimo */}
       <footer className="py-8 bg-muted/50 border-t">
-        <div className="container mx-auto px-4 text-center text-sm text-muted-foreground">
+        <div className="container mx-auto px-4 text-center text-sm text-muted-foreground space-y-2">
           <p>© {new Date().getFullYear()} GLOBAL DATA CARE — Todos los derechos reservados</p>
+          <p className="text-xs">
+            <strong>ACCURO TECHNOLOGY, S.L.</strong> · CIF: B87617981<br />
+            C/ Colquide, 6 – Portal 2, 1ª planta, Edificio Prisma de Las Rozas – Madrid<br />
+            Tel: (+34) 91 710 48 40 · ivan.becerro@accuro.es
+          </p>
           <div className="flex items-center justify-center gap-4 mt-2">
             <Link to="/legal" className="hover:text-foreground transition-colors">Aviso Legal</Link>
             <span>·</span>
