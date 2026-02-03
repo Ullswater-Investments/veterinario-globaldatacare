@@ -1,49 +1,75 @@
 
 
-# Plan: Convertir Badge en Enlace al PDF de Espacios de Datos Elegibles
+# Plan: Abrir PDF en la Página de GLOBAL DATA CARE
 
 ## Objetivo
-Convertir el elemento badge "Únete a la primera red europea de Datos Veterinarios" en un enlace clickeable que abra el PDF oficial del Catálogo de Espacios de Datos Elegibles del Gobierno de España.
+Modificar el enlace al PDF de Espacios de Datos Elegibles para que se abra directamente en la **Página 22**, donde aparece la entrada de **GLOBAL-DATACARE** (ACCURO TECHNOLOGY, S.L.).
+
+## Contexto
+En el PDF del catálogo oficial del CRED, la entrada de GLOBAL DATA CARE aparece en la **Página 22**:
+
+```
+GLOBAL-DATACARE
+Sector: SALUD
+Empresa: ACCURO TECHNOLOGY, S.L.
+CIF: B87617981
+URL: https://www.accuro.es/global-datacare
+Email: ivan.becerro@accuro.es
+```
+
+## Solución Técnica
+
+Los navegadores modernos soportan el fragmento `#page=N` en URLs de PDF para abrir directamente en una página específica.
+
+**Ejemplo:**
+```
+/documents/archivo.pdf#page=22
+```
 
 ## Cambios Propuestos
 
-### Modificar `src/pages/Index.tsx` (línea 149-151)
+### Archivo: `src/pages/Index.tsx`
+
+**Línea 150 - Antes:**
+```tsx
+href="/documents/Espacios_de_Datos_Elegibles_KTED.pdf"
+```
+
+**Línea 150 - Después:**
+```tsx
+href="/documents/Espacios_de_Datos_Elegibles_KTED.pdf#page=22"
+```
+
+### Archivo: `src/components/ui/GlobalFooter.tsx`
+
+También actualizar el enlace del footer para mantener consistencia:
 
 **Antes:**
 ```tsx
-<div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6">
-  Únete a la primera red europea de Datos Veterinarios
-</div>
+href="/documents/Espacios_de_Datos_Elegibles_KTED.pdf"
 ```
 
 **Después:**
 ```tsx
-<a 
-  href="/documents/Espacios_de_Datos_Elegibles_KTED.pdf"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6 hover:bg-primary/20 transition-colors cursor-pointer"
->
-  <ExternalLink className="w-4 h-4" />
-  Ver Espacios de Datos Elegibles
-</a>
+href="/documents/Espacios_de_Datos_Elegibles_KTED.pdf#page=22"
 ```
 
-### Importar icono
+## Resumen de Archivos a Modificar
 
-Añadir `ExternalLink` a los imports de `lucide-react` en la línea 4.
+| Archivo | Línea | Cambio |
+|---------|-------|--------|
+| `src/pages/Index.tsx` | 150 | Añadir `#page=22` al href |
+| `src/components/ui/GlobalFooter.tsx` | ~65 | Añadir `#page=22` al href |
 
-## Resultado Final
+## Compatibilidad
 
-El badge se convertirá en un enlace interactivo que:
-- Muestra el texto "Ver Espacios de Datos Elegibles"
-- Incluye un icono de enlace externo
-- Abre el PDF en una nueva pestaña
-- Tiene efecto hover para indicar que es clickeable
+El fragmento `#page=N` es soportado por:
+- Chrome, Firefox, Edge (visor PDF integrado)
+- Safari (visor PDF integrado)
+- Adobe Acrobat Reader
+- La mayoría de visores PDF modernos
 
-## Archivos a Modificar
+## Resultado Esperado
 
-| Archivo | Acción |
-|---------|--------|
-| `src/pages/Index.tsx` | Convertir `<div>` a `<a>`, añadir import ExternalLink |
+Cuando el usuario hace clic en "Ver Espacios de Datos Elegibles", el PDF se abrirá mostrando directamente la página donde aparece **GLOBAL-DATACARE** con los datos de ACCURO TECHNOLOGY, S.L.
 
