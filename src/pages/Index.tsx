@@ -126,9 +126,16 @@ const Landing = () => {
             <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">
               El primer Espacio de Datos Federado de Salud Animal en Europa
             </h1>
-            <p className="text-xl text-muted-foreground mb-12 max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
               Conectando Clínicas Veterinarias, Laboratorios, Tutores de Mascotas y Aseguradoras bajo estándares Gaia-X, FHIR y Soberanía Digital.
             </p>
+            <div className="flex justify-center">
+              <img 
+                src={logosKitDigital} 
+                alt="Logos institucionales: Gobierno de España, Red.es, Kit Digital, Plan de Recuperación, Unión Europea" 
+                className="max-w-full md:max-w-2xl h-auto object-contain"
+              />
+            </div>
           </div>
         </div>
       </section>
