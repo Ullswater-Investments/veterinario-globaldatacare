@@ -48,7 +48,7 @@ export const partnerProfiles: PartnerProfile[] = [
     integrationPoints: ['Portal Veterinario', 'E-Prescription', 'Lab Hub', 'Inventory'],
     revenueModel: 'Suscripción SaaS + Revenue share por datos',
     marketSize: '6,200+ clínicas en España',
-    targetCount: '500 clínicas en Fase 1'
+    targetCount: '100 clínicas en Fase 1'
   },
   {
     id: 'laboratorios',
