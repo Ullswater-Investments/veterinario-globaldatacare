@@ -138,11 +138,17 @@ const CondicionesKitEspacioDatos = () => {
                   className="h-16 md:h-20 object-contain hover:opacity-80 transition-opacity"
                 />
               </a>
-              <img 
-                src={logoGobiernoRedEs} 
-                alt="Gobierno de España - Ministerio para la Transformación Digital - Red.es" 
-                className="h-10 md:h-12 object-contain"
-              />
+              <a 
+                href="https://www.red.es/es/iniciativas/proyectos/kit-espacios-de-datos" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                <img 
+                  src={logoGobiernoRedEs} 
+                  alt="Gobierno de España - Ministerio para la Transformación Digital - Red.es" 
+                  className="h-10 md:h-12 object-contain hover:opacity-80 transition-opacity"
+                />
+              </a>
             </div>
           </motion.div>
         </div>
