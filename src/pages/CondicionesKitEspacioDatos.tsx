@@ -520,7 +520,13 @@ const CondicionesKitEspacioDatos = () => {
                 </div>
               </CardHeader>
               <CardContent className="space-y-3 text-sm text-muted-foreground">
-                <p>Este documento tiene carácter contractual vinculante. Al aceptar las condiciones en el formulario de inscripción, estás formalizando un acuerdo legal con ACCURO TECHNOLOGY S.L.<strong className="text-foreground">Este documento tiene carácter contractual vinculante.</strong> Al aceptar las condiciones en el formulario de inscripción, estás formalizando un acuerdo legal con VetSpace Technology S.L.
+                <p>
+                  <strong className="text-foreground">Este documento tiene carácter contractual vinculante.</strong> Al aceptar las condiciones en el formulario de inscripción, estás formalizando un acuerdo legal con ACCURO TECHNOLOGY, S.L.
+                </p>
+                <p className="text-xs">
+                  <strong>Denominación social:</strong> ACCURO TECHNOLOGY, S.L. · <strong>CIF:</strong> B87617981<br />
+                  <strong>Domicilio Social:</strong> C/ Colquide, 6 – Portal 2, 1ª planta, Edificio Prisma de Las Rozas – Madrid<br />
+                  <strong>Teléfono:</strong> (+34) 91 710 48 40 · <strong>Correo electrónico:</strong> ivan.becerro@accuro.es
                 </p>
                 <p>
                   Te recomendamos que revises el contrato completo con tu asesoría jurídica antes de la firma si tienes dudas sobre alguna cláusula.
