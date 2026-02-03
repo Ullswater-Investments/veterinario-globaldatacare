@@ -18,6 +18,7 @@ import { NavigationControls } from '@/components/ui/NavigationControls';
 import ContractContent from '@/components/legal/ContractContent';
 import AcceptanceActContent from '@/components/legal/AcceptanceActContent';
 import { GlobalFooter } from '@/components/ui/GlobalFooter';
+import logoGobiernoRedEs from '@/assets/logo-gobierno-red-es.png';
 
 // Spanish provinces
 const PROVINCES = ['Álava', 'Albacete', 'Alicante', 'Almería', 'Asturias', 'Ávila', 'Badajoz', 'Barcelona', 'Burgos', 'Cáceres', 'Cádiz', 'Cantabria', 'Castellón', 'Ciudad Real', 'Córdoba', 'Cuenca', 'Gerona', 'Granada', 'Guadalajara', 'Guipúzcoa', 'Huelva', 'Huesca', 'Islas Baleares', 'Jaén', 'La Coruña', 'La Rioja', 'Las Palmas', 'León', 'Lérida', 'Lugo', 'Madrid', 'Málaga', 'Murcia', 'Navarra', 'Orense', 'Palencia', 'Pontevedra', 'Salamanca', 'Santa Cruz de Tenerife', 'Segovia', 'Sevilla', 'Soria', 'Tarragona', 'Teruel', 'Toledo', 'Valencia', 'Valladolid', 'Vizcaya', 'Zamora', 'Zaragoza', 'Ceuta', 'Melilla'];
@@ -693,6 +694,11 @@ const KitEspacioDatosInscripcion = () => {
               Programa financiado por la Unión Europea - NextGenerationEU
             </p>
             <p className="mt-1">Tramitación gestionada por ACCURO TECHNOLOGY.</p>
+            <img 
+              src={logoGobiernoRedEs} 
+              alt="Gobierno de España - Ministerio para la Transformación Digital - Red.es" 
+              className="mx-auto mt-4 h-12 object-contain"
+            />
           </div>
         </div>
       </main>
