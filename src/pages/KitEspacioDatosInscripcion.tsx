@@ -19,6 +19,7 @@ import ContractContent from '@/components/legal/ContractContent';
 import AcceptanceActContent from '@/components/legal/AcceptanceActContent';
 import { GlobalFooter } from '@/components/ui/GlobalFooter';
 import logoGobiernoRedEs from '@/assets/logo-gobierno-red-es.png';
+import logoKitEspacioDatos from '@/assets/logo-kit-espacio-datos.jpg';
 
 // Spanish provinces
 const PROVINCES = ['Álava', 'Albacete', 'Alicante', 'Almería', 'Asturias', 'Ávila', 'Badajoz', 'Barcelona', 'Burgos', 'Cáceres', 'Cádiz', 'Cantabria', 'Castellón', 'Ciudad Real', 'Córdoba', 'Cuenca', 'Gerona', 'Granada', 'Guadalajara', 'Guipúzcoa', 'Huelva', 'Huesca', 'Islas Baleares', 'Jaén', 'La Coruña', 'La Rioja', 'Las Palmas', 'León', 'Lérida', 'Lugo', 'Madrid', 'Málaga', 'Murcia', 'Navarra', 'Orense', 'Palencia', 'Pontevedra', 'Salamanca', 'Santa Cruz de Tenerife', 'Segovia', 'Sevilla', 'Soria', 'Tarragona', 'Teruel', 'Toledo', 'Valencia', 'Valladolid', 'Vizcaya', 'Zamora', 'Zaragoza', 'Ceuta', 'Melilla'];
@@ -258,6 +259,11 @@ const KitEspacioDatosInscripcion = () => {
         <div className="max-w-3xl mx-auto">
           {/* Title */}
           <div className="text-center mb-8">
+            <img 
+              src={logoKitEspacioDatos} 
+              alt="Kit Espacios de Datos" 
+              className="mx-auto h-16 md:h-20 object-contain mb-4"
+            />
             <h1 className="text-3xl font-bold text-foreground mb-2">
               Inscripción Kit Espacio de Datos
             </h1>
