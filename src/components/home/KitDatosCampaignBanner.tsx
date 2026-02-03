@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Euro, Zap, CheckCircle2, PawPrint, FileText, Clock } from 'lucide-react';
 import { motion } from 'framer-motion';
+import logoGobiernoRedEs from '@/assets/logo-gobierno-red-es.png';
 
 export const KitDatosCampaignBanner = () => {
   return (
@@ -78,6 +79,15 @@ export const KitDatosCampaignBanner = () => {
                 Ver Condiciones
               </Button>
             </Link>
+          </div>
+
+          {/* Logo institucional */}
+          <div className="mt-6 flex justify-center">
+            <img 
+              src={logoGobiernoRedEs} 
+              alt="Gobierno de España - Ministerio para la Transformación Digital - Red.es" 
+              className="h-10 md:h-12 object-contain"
+            />
           </div>
         </div>
       </div>
