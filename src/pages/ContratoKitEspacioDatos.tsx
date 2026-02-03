@@ -6,44 +6,27 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Separator } from '@/components/ui/separator';
-import {
-  ArrowLeft,
-  ArrowRight,
-  ScrollText,
-  FileText,
-  Shield,
-  Clock,
-  AlertTriangle,
-  CheckCircle2,
-  PawPrint,
-  Building2,
-  Euro,
-  Lock,
-  Banknote,
-  FileCheck,
-  Users,
-  Scale,
-  Mail,
-  Fingerprint,
-  Key,
-  CreditCard,
-} from 'lucide-react';
+import { ArrowLeft, ArrowRight, ScrollText, FileText, Shield, Clock, AlertTriangle, CheckCircle2, PawPrint, Building2, Euro, Lock, Banknote, FileCheck, Users, Scale, Mail, Fingerprint, Key, CreditCard } from 'lucide-react';
 import { motion } from 'framer-motion';
-
 const ContratoKitEspacioDatos = () => {
   const navigate = useNavigate();
-  
   const [hasScrolledToEnd, setHasScrolledToEnd] = useState(false);
   const [contractAccepted, setContractAccepted] = useState(false);
   const [actAccepted, setActAccepted] = useState(false);
   const [acceptanceTimestamp, setAcceptanceTimestamp] = useState<string | null>(null);
-
   const fadeInUp = {
-    initial: { opacity: 0, y: 20 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.5 }
+    initial: {
+      opacity: 0,
+      y: 20
+    },
+    animate: {
+      opacity: 1,
+      y: 0
+    },
+    transition: {
+      duration: 0.5
+    }
   };
-
   const currentDate = new Date().toLocaleDateString('es-ES', {
     day: 'numeric',
     month: 'long',
@@ -56,15 +39,13 @@ const ContratoKitEspacioDatos = () => {
       const scrollTop = window.scrollY;
       const windowHeight = window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
-      
+
       // Margen de 300px para considerar que ha llegado al final
       const isAtBottom = scrollTop + windowHeight >= documentHeight - 300;
-      
       if (isAtBottom && !hasScrolledToEnd) {
         setHasScrolledToEnd(true);
       }
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [hasScrolledToEnd]);
@@ -74,27 +55,23 @@ const ContratoKitEspacioDatos = () => {
     if (contractAccepted && actAccepted && !acceptanceTimestamp) {
       const timestamp = new Date().toISOString();
       setAcceptanceTimestamp(timestamp);
-      
+
       // Guardar en localStorage como respaldo
       localStorage.setItem('contract_acceptance', JSON.stringify({
         contractAccepted: true,
         actAccepted: true,
-        timestamp,
+        timestamp
       }));
     }
   }, [contractAccepted, actAccepted, acceptanceTimestamp]);
-
   const handleContinue = () => {
     if (contractAccepted && actAccepted && acceptanceTimestamp) {
       navigate(`/inscripcion-kit-espacio-datos?contrato_leido=true&acta_leida=true&timestamp=${encodeURIComponent(acceptanceTimestamp)}`);
     }
   };
-
   const canCheckBoxes = hasScrolledToEnd;
   const canContinue = contractAccepted && actAccepted;
-
-  return (
-    <div className="min-h-screen bg-background">
+  return <div className="min-h-screen bg-background">
       {/* Header fijo */}
       <header className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
@@ -128,16 +105,14 @@ const ContratoKitEspacioDatos = () => {
       </section>
 
       {/* Indicador de progreso de lectura */}
-      {!hasScrolledToEnd && (
-        <div className="sticky top-16 z-40 bg-amber-500/10 border-b border-amber-500/30">
+      {!hasScrolledToEnd && <div className="sticky top-16 z-40 bg-amber-500/10 border-b border-amber-500/30">
           <div className="container mx-auto px-4 py-3 flex items-center justify-center gap-3 text-sm">
             <AlertTriangle className="h-4 w-4 text-amber-600" />
             <span className="text-amber-700 dark:text-amber-400">
               Desplázate hasta el final del documento para poder aceptar las condiciones
             </span>
           </div>
-        </div>
-      )}
+        </div>}
 
       {/* Contenido del Contrato */}
       <main className="container mx-auto px-4 py-12">
@@ -152,8 +127,7 @@ const ContratoKitEspacioDatos = () => {
               </div>
             </CardHeader>
             <CardContent className="text-sm text-muted-foreground space-y-2">
-              <p>
-                Este documento constituye un <strong className="text-foreground">contrato vinculante</strong> entre las partes. 
+              <p>Este documento constituye un contrato vinculante entre las partes. Al aceptar las condiciones mediante los checkboxes inferiores, estás formalizando un acuerdo legal con GLOBAL DATA CARE - ACCURO TECHNOLOGY, S.L., con CIF B87617981, con domicilio social en C/ Colquide, 6 – Portal 2, 1ª planta, Edificio Prisma de Las Rozas – Madrid. Teléfono: (+34) 91 710 48 40. Correo electrónico: ivan.becerro@accuro.es..<strong className="text-foreground">contrato vinculante</strong> entre las partes. 
                 Al aceptar las condiciones mediante los checkboxes inferiores, estás formalizando un acuerdo legal con GLOBAL DATA CARE.
               </p>
               <p>
@@ -165,7 +139,9 @@ const ContratoKitEspacioDatos = () => {
           {/* ======================= */}
           {/* SECCIÓN 1: CONTRATO PRINCIPAL */}
           {/* ======================= */}
-          <motion.section {...fadeInUp} transition={{ delay: 0.1 }}>
+          <motion.section {...fadeInUp} transition={{
+          delay: 0.1
+        }}>
             <div className="flex items-center gap-3 mb-6">
               <div className="p-2 rounded-full bg-primary/10">
                 <FileText className="h-6 w-6 text-primary" />
@@ -492,7 +468,9 @@ const ContratoKitEspacioDatos = () => {
           {/* ======================= */}
           {/* SECCIÓN 2: ACTA DE ENTREGA */}
           {/* ======================= */}
-          <motion.section {...fadeInUp} transition={{ delay: 0.2 }}>
+          <motion.section {...fadeInUp} transition={{
+          delay: 0.2
+        }}>
             <div className="flex items-center gap-3 mb-6">
               <div className="p-2 rounded-full bg-green-500/10">
                 <CheckCircle2 className="h-6 w-6 text-green-600" />
@@ -597,7 +575,9 @@ const ContratoKitEspacioDatos = () => {
           {/* ======================= */}
           {/* SECCIÓN DE ACEPTACIÓN */}
           {/* ======================= */}
-          <motion.section {...fadeInUp} transition={{ delay: 0.3 }}>
+          <motion.section {...fadeInUp} transition={{
+          delay: 0.3
+        }}>
             <Card className={`border-2 ${canContinue ? 'border-green-500' : 'border-muted'} transition-colors`}>
               <CardHeader className="bg-muted/30">
                 <CardTitle className="text-lg flex items-center gap-2">
@@ -608,39 +588,26 @@ const ContratoKitEspacioDatos = () => {
               <CardContent className="pt-6 space-y-6">
                 
                 {/* Estado de lectura */}
-                {!canCheckBoxes && (
-                  <div className="flex items-center gap-3 p-4 bg-amber-500/10 rounded-lg border border-amber-500/30">
+                {!canCheckBoxes && <div className="flex items-center gap-3 p-4 bg-amber-500/10 rounded-lg border border-amber-500/30">
                     <AlertTriangle className="h-5 w-5 text-amber-600 shrink-0" />
                     <p className="text-sm text-amber-800 dark:text-amber-300">
                       Para poder aceptar las condiciones, primero debes leer el documento completo. 
                       <strong> Desplázate hasta el final de la página.</strong>
                     </p>
-                  </div>
-                )}
+                  </div>}
 
-                {canCheckBoxes && (
-                  <div className="flex items-center gap-3 p-4 bg-green-500/10 rounded-lg border border-green-500/30">
+                {canCheckBoxes && <div className="flex items-center gap-3 p-4 bg-green-500/10 rounded-lg border border-green-500/30">
                     <CheckCircle2 className="h-5 w-5 text-green-600 shrink-0" />
                     <p className="text-sm text-green-800 dark:text-green-300">
                       Has llegado al final del documento. Ahora puedes marcar las casillas de aceptación.
                     </p>
-                  </div>
-                )}
+                  </div>}
 
                 {/* Checkboxes de aceptación */}
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">
-                    <Checkbox 
-                      id="contract-acceptance"
-                      checked={contractAccepted}
-                      onCheckedChange={(checked) => setContractAccepted(checked === true)}
-                      disabled={!canCheckBoxes}
-                      className="mt-1"
-                    />
-                    <label 
-                      htmlFor="contract-acceptance" 
-                      className={`text-sm leading-relaxed ${!canCheckBoxes ? 'text-muted-foreground/50' : 'cursor-pointer'}`}
-                    >
+                    <Checkbox id="contract-acceptance" checked={contractAccepted} onCheckedChange={checked => setContractAccepted(checked === true)} disabled={!canCheckBoxes} className="mt-1" />
+                    <label htmlFor="contract-acceptance" className={`text-sm leading-relaxed ${!canCheckBoxes ? 'text-muted-foreground/50' : 'cursor-pointer'}`}>
                       <strong>He leído y comprendido el CONTRATO DE ADHESIÓN AL ESPACIO DE DATOS FEDERADO</strong> 
                       {' '}(Sección 1: 12 cláusulas), incluyendo las condiciones de duración, precios, financiación con HOKODO, 
                       mandato de representación y protección de datos.
@@ -648,17 +615,8 @@ const ContratoKitEspacioDatos = () => {
                   </div>
 
                   <div className="flex items-start gap-3">
-                    <Checkbox 
-                      id="act-acceptance"
-                      checked={actAccepted}
-                      onCheckedChange={(checked) => setActAccepted(checked === true)}
-                      disabled={!canCheckBoxes}
-                      className="mt-1"
-                    />
-                    <label 
-                      htmlFor="act-acceptance" 
-                      className={`text-sm leading-relaxed ${!canCheckBoxes ? 'text-muted-foreground/50' : 'cursor-pointer'}`}
-                    >
+                    <Checkbox id="act-acceptance" checked={actAccepted} onCheckedChange={checked => setActAccepted(checked === true)} disabled={!canCheckBoxes} className="mt-1" />
+                    <label htmlFor="act-acceptance" className={`text-sm leading-relaxed ${!canCheckBoxes ? 'text-muted-foreground/50' : 'cursor-pointer'}`}>
                       <strong>He leído y comprendido el ACTA DE ENTREGA Y CONFORMIDAD</strong> 
                       {' '}(Sección 2: 5 puntos de certificación), incluyendo la activación irrevocable de la financiación 
                       y la validez jurídica de la firma digital.
@@ -667,20 +625,13 @@ const ContratoKitEspacioDatos = () => {
                 </div>
 
                 {/* Timestamp de aceptación */}
-                {acceptanceTimestamp && (
-                  <div className="text-xs text-muted-foreground text-center p-2 bg-muted/30 rounded">
+                {acceptanceTimestamp && <div className="text-xs text-muted-foreground text-center p-2 bg-muted/30 rounded">
                     Aceptación registrada: {new Date(acceptanceTimestamp).toLocaleString('es-ES')}
-                  </div>
-                )}
+                  </div>}
 
                 {/* Botón de continuar */}
                 <div className="flex flex-col items-center gap-4 pt-4">
-                  <Button 
-                    size="lg" 
-                    className="w-full sm:w-auto text-base px-8 py-6"
-                    disabled={!canContinue}
-                    onClick={handleContinue}
-                  >
+                  <Button size="lg" className="w-full sm:w-auto text-base px-8 py-6" disabled={!canContinue} onClick={handleContinue}>
                     <PawPrint className="mr-2 h-5 w-5" />
                     Continuar a Inscripción
                     <ArrowRight className="ml-2 h-5 w-5" />
@@ -700,8 +651,6 @@ const ContratoKitEspacioDatos = () => {
       </main>
 
       <GlobalFooter />
-    </div>
-  );
+    </div>;
 };
-
 export default ContratoKitEspacioDatos;
