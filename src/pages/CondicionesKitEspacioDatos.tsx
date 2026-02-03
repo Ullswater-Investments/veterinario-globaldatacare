@@ -230,11 +230,17 @@ const CondicionesKitEspacioDatos = () => {
                     
                     {/* Logo institucional */}
                     <div className="mt-4 pt-4 border-t border-border">
-                      <img 
-                        src={logoGobiernoRedEs} 
-                        alt="Gobierno de España - Ministerio para la Transformación Digital - Red.es" 
-                        className="mx-auto h-8 md:h-10 object-contain"
-                      />
+                      <a 
+                        href="https://www.red.es/es/iniciativas/proyectos/kit-espacios-de-datos" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                      >
+                        <img 
+                          src={logoGobiernoRedEs} 
+                          alt="Gobierno de España - Ministerio para la Transformación Digital - Red.es" 
+                          className="mx-auto h-8 md:h-10 object-contain hover:opacity-80 transition-opacity"
+                        />
+                      </a>
                     </div>
                   </div>
                 </CardContent>
