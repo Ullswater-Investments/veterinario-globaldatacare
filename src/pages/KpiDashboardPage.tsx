@@ -15,9 +15,61 @@ import {
   CheckCircle2,
   Smartphone,
   Heart,
+  PawPrint,
+  Building2,
+  FlaskConical,
+  ArrowRight,
 } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
 import { NavigationControls } from "@/components/ui/NavigationControls";
 import { GlobalFooter } from "@/components/ui/GlobalFooter";
+
+const profileCards = [
+  {
+    title: "Tutor de Mascotas",
+    subtitle: "Patient/Owner",
+    subtitleColor: "text-emerald-500",
+    description: "Panel centrado en la experiencia del tutor: salud de mascotas, economía familiar y control de datos personales.",
+    icon: PawPrint,
+    gradient: "from-blue-500 to-cyan-400",
+    iconBg: "bg-gradient-to-br from-blue-500 to-cyan-400",
+    tags: ["Salud de mascotas", "Economía familiar", "Privacidad de datos", "Tokens de monetización"],
+    path: "/demo/tutor",
+  },
+  {
+    title: "Médico Veterinario",
+    subtitle: "Doctor/Clinician",
+    subtitleColor: "text-emerald-500",
+    description: "Herramientas clínicas para el día a día: productividad, calidad asistencial y soporte de IA.",
+    icon: Stethoscope,
+    gradient: "from-emerald-500 to-teal-400",
+    iconBg: "bg-gradient-to-br from-emerald-500 to-teal-400",
+    tags: ["Productividad diaria", "Calidad clínica", "Hospitalización", "Copiloto AI"],
+    path: "/demo/vet",
+  },
+  {
+    title: "Director de Clínica",
+    subtitle: "Manager/CEO",
+    subtitleColor: "text-indigo-500",
+    description: "Visión ejecutiva: finanzas, operaciones, benchmarking y cadena de suministro.",
+    icon: Building2,
+    gradient: "from-indigo-500 to-purple-500",
+    iconBg: "bg-gradient-to-br from-indigo-500 to-purple-500",
+    tags: ["Finanzas", "Excelencia operativa", "Benchmarking", "Supply Chain"],
+    path: "/demo/clinic",
+  },
+  {
+    title: "Científico de Datos",
+    subtitle: "Researcher",
+    subtitleColor: "text-amber-500",
+    description: "Acceso a datos federados, marketplace de datasets y herramientas de investigación.",
+    icon: FlaskConical,
+    gradient: "from-amber-500 to-orange-400",
+    iconBg: "bg-gradient-to-br from-amber-500 to-orange-400",
+    tags: ["Marketplace datos", "Federated Learning", "Epidemiología", "Impacto científico"],
+    path: "/demo/research",
+  },
+];
 
 const KpiDashboardPage: React.FC = () => {
   const [activeView, setActiveView] = useState<"service" | "medical">(
@@ -153,6 +205,75 @@ const KpiDashboardPage: React.FC = () => {
                 re-intervenciones.
               </p>
             </div>
+          </div>
+
+          {/* Separador */}
+          <div className="my-16 border-t border-slate-200" />
+
+          {/* Tarjetas de Perfil */}
+          <div className="text-center mb-12">
+            <h3 className="text-xl font-bold text-slate-900">
+              Explora los Paneles por Perfil
+            </h3>
+            <p className="text-slate-500 mt-2">
+              Cada stakeholder tiene su propio dashboard optimizado
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {profileCards.map((card) => {
+              const IconComponent = card.icon;
+              return (
+                <Card
+                  key={card.title}
+                  className="overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                >
+                  {/* Barra de color superior */}
+                  <div className={`h-2 bg-gradient-to-r ${card.gradient}`} />
+                  
+                  <CardContent className="p-6">
+                    {/* Icono con gradiente */}
+                    <div className={`w-12 h-12 ${card.iconBg} rounded-xl flex items-center justify-center mb-4 shadow-lg`}>
+                      <IconComponent className="w-6 h-6 text-white" />
+                    </div>
+
+                    {/* Título y subtítulo */}
+                    <h4 className="font-bold text-lg text-slate-900 mb-1">
+                      {card.title}
+                    </h4>
+                    <p className={`text-sm font-medium ${card.subtitleColor} mb-3`}>
+                      {card.subtitle}
+                    </p>
+
+                    {/* Descripción */}
+                    <p className="text-slate-500 text-sm mb-4 leading-relaxed">
+                      {card.description}
+                    </p>
+
+                    {/* Tags */}
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {card.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded-full"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* Enlace */}
+                    <Link
+                      to={card.path}
+                      className="inline-flex items-center gap-1 text-emerald-600 font-medium text-sm hover:text-emerald-700 transition-colors"
+                    >
+                      Ver Demo
+                      <ArrowRight className="w-4 h-4" />
+                    </Link>
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
         </div>
       </section>
