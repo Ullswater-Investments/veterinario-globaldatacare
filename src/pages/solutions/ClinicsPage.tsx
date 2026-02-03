@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { NavigationControls } from "@/components/ui/NavigationControls";
 import { GlobalFooter } from "@/components/ui/GlobalFooter";
@@ -48,10 +49,12 @@ const ClinicsPage = () => {
               </span>
             </h1>
             <p className="mb-10 text-xl leading-relaxed text-slate-300">Tu clínica veterinaria deja de depender de software aislado. Se conecta a un hub de servicios donde el ERP y la Inteligencia Artificial se consumen bajo demanda, manteniendo tu independencia.</p>
-            <Button size="lg" className="mx-auto flex items-center gap-2 rounded-xl bg-primary px-8 py-4 text-primary-foreground shadow-lg shadow-emerald-900/50 hover:bg-primary/90">
-              Conectar mi Clínica Veterinaria
-              <ArrowRight className="h-5 w-5" />
-            </Button>
+            <Link to="/solutions/adhesion">
+              <Button size="lg" className="mx-auto flex items-center gap-2 rounded-xl bg-primary px-8 py-4 text-primary-foreground shadow-lg shadow-emerald-900/50 hover:bg-primary/90">
+                Conectar mi Clínica Veterinaria
+                <ArrowRight className="h-5 w-5" />
+              </Button>
+            </Link>
           </div>
         </div>
       </header>
