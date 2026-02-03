@@ -32,6 +32,7 @@ import {
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import logoGobiernoRedEs from '@/assets/logo-gobierno-red-es.png';
+import logoKitEspacioDatos from '@/assets/logo-kit-espacio-datos.jpg';
 
 const CondicionesKitEspacioDatos = () => {
   const fadeInUp = {
@@ -125,11 +126,18 @@ const CondicionesKitEspacioDatos = () => {
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-6">
               Todo lo que necesitas saber antes de inscribirte. Sin letra pequeña.
             </p>
-            <img 
-              src={logoGobiernoRedEs} 
-              alt="Gobierno de España - Ministerio para la Transformación Digital - Red.es" 
-              className="mx-auto h-10 md:h-12 object-contain"
-            />
+            <div className="flex flex-col md:flex-row items-center justify-center gap-6 mt-2">
+              <img 
+                src={logoKitEspacioDatos} 
+                alt="Kit Espacios de Datos" 
+                className="h-16 md:h-20 object-contain"
+              />
+              <img 
+                src={logoGobiernoRedEs} 
+                alt="Gobierno de España - Ministerio para la Transformación Digital - Red.es" 
+                className="h-10 md:h-12 object-contain"
+              />
+            </div>
           </motion.div>
         </div>
       </section>
