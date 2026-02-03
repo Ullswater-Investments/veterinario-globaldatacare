@@ -327,7 +327,7 @@ const ProcurementAdhesion = () => {
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
                 <Link to="/portal/supply">
-                  <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10">
+                  <Button size="lg" variant="outline" className="bg-transparent border-white/20 text-white hover:bg-white/10">
                     Ver Demo Predictiva
                     <ArrowUpRight className="ml-2 h-4 w-4" />
                   </Button>
