@@ -227,6 +227,15 @@ const CondicionesKitEspacioDatos = () => {
                       1.140€ <span className="text-base font-normal text-muted-foreground">+ IVA</span>
                     </p>
                     <p className="text-sm text-muted-foreground">(190€/mes × 6 meses)</p>
+                    
+                    {/* Logo institucional */}
+                    <div className="mt-4 pt-4 border-t border-border">
+                      <img 
+                        src={logoGobiernoRedEs} 
+                        alt="Gobierno de España - Ministerio para la Transformación Digital - Red.es" 
+                        className="mx-auto h-8 md:h-10 object-contain"
+                      />
+                    </div>
                   </div>
                 </CardContent>
               </Card>
