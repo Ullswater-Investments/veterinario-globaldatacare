@@ -68,6 +68,7 @@ import InvoiceFactoring from "./pages/business/cases/InvoiceFactoring";
 
 import ClinicsPage from "./pages/solutions/ClinicsPage";
 import ProductPassportPage from "./pages/solutions/ProductPassportPage";
+import AdhesionEspacioDatos from "./pages/solutions/AdhesionEspacioDatos";
 import BusinessProposalModal from "@/components/business/BusinessProposalModal";
 import ProjectAssistant from "@/components/ProjectAssistant";
 import MobilePresentation from "./pages/presentation/MobilePresentation";
@@ -152,6 +153,7 @@ const App = () => (
                 {/* Solutions Pages */}
                 <Route path="/solutions/clinics" element={<ClinicsPage />} />
                 <Route path="/solutions/product-passport" element={<ProductPassportPage />} />
+                <Route path="/solutions/adhesion" element={<AdhesionEspacioDatos />} />
 
                 {/* Presentations */}
                 <Route path="/presentation/mobile" element={<MobilePresentation />} />
