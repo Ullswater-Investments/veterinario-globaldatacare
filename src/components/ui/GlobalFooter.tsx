@@ -62,7 +62,7 @@ export const GlobalFooter: React.FC = () => {
             </Link>
             <span className="text-slate-700">·</span>
             <a 
-              href="/documents/Espacios_de_Datos_Elegibles_KTED.pdf"
+              href="/documents/Espacios_de_Datos_Elegibles_KTED.pdf#page=22"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 hover:text-white transition-colors"
