@@ -259,11 +259,18 @@ const KitEspacioDatosInscripcion = () => {
         <div className="max-w-3xl mx-auto">
           {/* Title */}
           <div className="text-center mb-8">
-            <img 
-              src={logoKitEspacioDatos} 
-              alt="Kit Espacios de Datos" 
-              className="mx-auto h-20 md:h-28 object-contain mb-4"
-            />
+            <a 
+              href="https://www.acelerapyme.gob.es/kit-espacios-de-datos" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-block"
+            >
+              <img 
+                src={logoKitEspacioDatos} 
+                alt="Kit Espacios de Datos" 
+                className="mx-auto h-20 md:h-28 object-contain mb-4 hover:opacity-80 transition-opacity"
+              />
+            </a>
             <h1 className="text-3xl font-bold text-foreground mb-2">
               Inscripción Kit Espacio de Datos
             </h1>
