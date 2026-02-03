@@ -1,68 +1,126 @@
 
 
-# Plan: Nueva Pagina de Adhesion al Espacio de Datos de Salud Animal
+# Plan: Nueva Pagina de Adhesion para Compras Federadas
 
 ## Resumen Ejecutivo
 
-Crear una nueva pagina dedicada (`/adhesion-espacio-datos`) que explique de forma completa las ventajas de adherirse al Espacio de Datos Federado de Salud Animal de GLOBAL DATA CARE, incluyendo un formulario completo de adhesion con el contrato vinculante.
+Crear una nueva pagina especializada `/portal/procurement/adhesion` que explique en profundidad la relacion entre el Espacio de Datos Federado de Salud Animal y el sistema de compras coordinadas, incluyendo el formulario completo de adhesion con contrato vinculante.
+
+---
+
+## Contexto del Boton "Ver Central Predictiva"
+
+El boton actual enlaza a `/portal/supply` (SupplyChainPage) que es una demo tecnica del sistema de compras predictivas. Sin embargo, el concepto de "Central Predictiva" es mucho mas amplio e implica:
+
+1. **Adhesion al Espacio de Datos** - Requisito previo para acceder a la central
+2. **Integracion ERP/CRM** - Conexion de la clinica al ecosistema
+3. **Compras Coordinadas** - Beneficio de la agregacion de demanda
+4. **IA Federada** - Algoritmos predictivos sin compartir datos sensibles
 
 ---
 
 ## Estructura de la Nueva Pagina
 
-### Seccion 1: HERO - Valor del Espacio de Datos Federado
-- Titulo principal: "Adhesion al Espacio de Datos de Salud Animal"
-- Subtitulo: "Conecta tu clinica veterinaria al primer ecosistema federado de datos en Espana"
-- Badge con enlace al PDF de Espacios de Datos Elegibles (pagina 22)
+### Archivo: `src/pages/portals/ProcurementAdhesion.tsx`
 
-### Seccion 2: QUE ES UN ESPACIO DE DATOS FEDERADO
-Explicacion clara y visual de los conceptos clave:
-- Definicion de "Espacio de Datos Federado"
-- Diferencia entre datos centralizados vs. federados
-- Beneficios de la soberania del dato (tus datos nunca salen de tu clinica)
-- Diagrama visual del modelo federado
+**Seccion 1: HERO - Central de Compras Federada**
+- Titulo: "Adhierete a la Central de Compras de VetSpace-X"
+- Subtitulo: "Compras predictivas, ahorro colectivo, soberania individual"
+- Badge con enlace al PDF de Espacios de Datos Elegibles
 
-### Seccion 3: PILARES DEL ESPACIO DE DATOS (Ventajas)
-Cuatro pilares conectados con la infraestructura federada:
+**Seccion 2: EL CONCEPTO - Compras sin Ceder Datos**
+Explicacion visual de como funciona la agregacion de demanda:
+- Tu clinica mantiene sus datos en su infraestructura
+- Solo comparte metricas de consumo agregadas (no historiales clinicos)
+- La red negocia precios de mayorista
+- Los proveedores entregan directamente a cada clinica
+
+**Seccion 3: PILARES DE LAS COMPRAS FEDERADAS**
 
 | Pilar | Descripcion | Beneficio |
 |-------|-------------|-----------|
-| **ERP + CRM Federado** | Gestion clinica que se sincroniza con las mejores practicas de la red | Estandarizacion sin perder autonomia |
-| **Compras Coordinadas** | Negociacion colectiva automatica con proveedores homologados | Ahorro de costes y reposicion predictiva |
-| **IA Federada** | Algoritmos de diagnostico que viajan a tus datos, no al reves | Acceso a IA de primer nivel sin mover datos |
-| **Interoperabilidad (FHIR)** | Historiales clinicos estandarizados y compartibles | Derivaciones sin fricciones |
+| **Conexion ERP/CRM** | Tu software de gestion se sincroniza con la red | Automatizacion de pedidos basada en agenda |
+| **IA Predictiva Federada** | Algoritmos que analizan tu consumo sin ver tus datos | Nunca te falta ni te sobra stock |
+| **Agregacion de Demanda** | Tu pedido se suma al de cientos de clinicas | Precios de mayorista para clinica pequena |
+| **Soberania del Dato** | Los datos clinicos nunca salen de tu infraestructura | Cumplimiento RGPD garantizado |
 
-### Seccion 4: COMO FUNCIONA LA RED
-Diagrama de arquitectura mostrando:
-- Tu clinica (nodo local)
-- Hub Central (orquestador)
-- Proveedores externos (IA, ERP, suministros)
-- Flujo de datos (los datos no se mueven, solo los algoritmos)
+**Seccion 4: BENEFICIOS ECONOMICOS**
+- Ahorro medio del 22% en vacunas y biologicos
+- Reduccion de stock inmovilizado
+- Eliminacion de roturas de stock
+- Acceso a financiacion Kit Espacio de Datos (hasta 30.000 EUR)
 
-### Seccion 5: BENEFICIOS ECONOMICOS
-- Financiacion de hasta 30.000 EUR via Kit Espacio de Datos
-- Modelo de pago fraccionado (190 EUR/mes x 6 meses)
-- Enlace al PDF de Espacios de Datos Homologados
+**Seccion 5: COMO FUNCIONA LA INTEGRACION**
+Diagrama de flujo:
 
-### Seccion 6: FORMULARIO COMPLETO DE ADHESION
-Reutilizando la estructura del `KitEspacioDatosInscripcion.tsx`:
+```text
+Tu Clinica (ERP/CRM)
+     |
+     | (API segura)
+     v
+Nodo Local VetSpace-X
+     |
+     | (solo metricas agregadas)
+     v
+Hub Central de Compras
+     |
+     | (lotes agrupados)
+     v
+Proveedores Homologados
+     |
+     | (entrega directa)
+     v
+Tu Clinica
+```
 
-**Paso 1 - Datos de la Clinica:**
-- Nombre, CIF, direccion completa
-- Telefono, email
-- Provincia, codigo postal
+**Seccion 6: FORMULARIO COMPLETO DE ADHESION**
+Reutilizando la estructura existente de `AdhesionEspacioDatos.tsx`:
 
-**Paso 2 - Datos del Responsable:**
-- Nombre y apellidos
-- Cargo (Director, Gerente, Veterinario, Otro)
-- Telefono y email personal
+- **Paso 1**: Datos de la Clinica (nombre, CIF, direccion, etc.)
+- **Paso 2**: Datos del Responsable (nombre, cargo, contacto)
+- **Paso 3**: Confirmacion con Contrato
+  - Seleccion de modulos (con "Abastecimiento Inteligente" preseleccionado)
+  - CONTRATO DE ADHESION (componente ContractContent con scroll-to-accept)
+  - ACTA DE CONFORMIDAD (componente AcceptanceActContent)
+  - Consentimientos legales
 
-**Paso 3 - Confirmacion y Contrato:**
-- Informacion adicional (veterinarios, empleados, software actual)
-- Modulos de interes
-- **CONTRATO DE ADHESION** (componente ContractContent con scroll-to-accept)
-- **ACTA DE CONFORMIDAD** (componente AcceptanceActContent)
-- Consentimientos legales (privacidad, terminos, comunicaciones)
+---
+
+## Cambios en ProcurementPortal.tsx
+
+### Linea 46-52: Nuevo Boton Principal
+
+**Antes:**
+```tsx
+<Button
+  size="lg"
+  onClick={() => navigate('/portal/supply')}
+  className="bg-emerald-600 hover:bg-emerald-700 text-lg px-8 py-6 h-auto"
+>
+  Ver Central Predictiva
+</Button>
+```
+
+**Despues:**
+```tsx
+<div className="flex flex-col sm:flex-row gap-4 justify-center">
+  <Button
+    size="lg"
+    onClick={() => navigate('/portal/procurement/adhesion')}
+    className="bg-emerald-600 hover:bg-emerald-700 text-lg px-8 py-6 h-auto"
+  >
+    Unirse a la Central de Compras
+  </Button>
+  <Button
+    size="lg"
+    variant="outline"
+    onClick={() => navigate('/portal/supply')}
+    className="text-lg px-8 py-6 h-auto border-emerald-600 text-emerald-600 hover:bg-emerald-50"
+  >
+    Ver Demo Predictiva
+  </Button>
+</div>
+```
 
 ---
 
@@ -70,101 +128,82 @@ Reutilizando la estructura del `KitEspacioDatosInscripcion.tsx`:
 
 | Archivo | Accion | Descripcion |
 |---------|--------|-------------|
-| `src/pages/solutions/AdhesionEspacioDatos.tsx` | CREAR | Nueva pagina completa con ventajas + formulario |
-| `src/pages/solutions/ClinicsPage.tsx` | MODIFICAR | Enlazar boton "Conectar mi Clinica" a la nueva pagina |
-| `src/App.tsx` | MODIFICAR | Anadir ruta `/solutions/adhesion` |
+| `src/pages/portals/ProcurementAdhesion.tsx` | CREAR | Nueva pagina especializada en adhesion a compras |
+| `src/pages/portals/ProcurementPortal.tsx` | MODIFICAR | Actualizar boton principal para enlazar a la nueva pagina |
+| `src/App.tsx` | MODIFICAR | Anadir ruta `/portal/procurement/adhesion` |
 
 ---
 
 ## Detalles Tecnicos
 
 ### Base de Datos
-Reutilizaremos la tabla `kit_inscriptions` existente que ya contiene todos los campos necesarios:
-- Datos de clinica y contacto
-- Aceptacion de contrato y acta de conformidad
-- Timestamp de aceptacion legal
-- Modulos de interes
-- UTM tracking
+Reutilizamos la tabla `kit_inscriptions` existente:
+- El campo `interested_modules` incluira "procurement" preseleccionado
+- Todos los campos de contrato y acta ya existen
+- Sin migraciones necesarias
 
 ### Componentes Reutilizados
-- `ContractContent.tsx` - Contrato de adhesion completo
-- `AcceptanceActContent.tsx` - Acta de entrega y conformidad
-- Componentes de formulario existentes (Form, Input, Select, Checkbox, etc.)
-- `GlobalFooter.tsx` y `NavigationControls.tsx`
+- `ContractContent.tsx` - Contrato de adhesion
+- `AcceptanceActContent.tsx` - Acta de entrega
+- Logica de formulario de `AdhesionEspacioDatos.tsx`
+- `NavigationControls.tsx` y `GlobalFooter.tsx`
 
 ### Validacion con Zod
-Misma estructura de validacion que KitEspacioDatosInscripcion:
+Misma estructura que la pagina de adhesion general.
+
+---
+
+## Flujo del Usuario desde ProcurementPortal
 
 ```text
-clinic_name: min 2 chars, max 200
-cif: regex B12345678 o 12345678B
-address: min 5, max 300
-postal_code: 5 digitos
-email: formato email
-contact_*: validaciones similares
-contract_accepted: boolean (required true)
-acceptance_act_accepted: boolean (required true)
-privacy_accepted: boolean (required true)
-```
-
-### Flujo del Usuario
-
-```text
-ClinicsPage
-    |
-    v (click "Conectar mi Clinica")
-    |
-AdhesionEspacioDatos
-    |
-    +-- Seccion explicativa (ventajas)
-    |
-    +-- Formulario 3 pasos
-    |       |
-    |       +-- Paso 1: Datos Clinica
-    |       +-- Paso 2: Datos Responsable  
-    |       +-- Paso 3: Contrato + Envio
-    |
-    v
-Pantalla de Exito
-    |
-    v (referencia generada)
-Contacto en 48h
+ProcurementPortal ("/portal/procurement")
+        |
+        +--[Unirse a Central]--> ProcurementAdhesion ("/portal/procurement/adhesion")
+        |                              |
+        |                              +-- Explicacion detallada
+        |                              +-- Formulario 3 pasos
+        |                              +-- Contrato vinculante
+        |                              |
+        |                              v
+        |                        Pantalla Exito
+        |
+        +--[Ver Demo Predictiva]--> SupplyChainPage ("/portal/supply")
 ```
 
 ---
 
-## Contenido Clave para Secciones Explicativas
+## Contenido Clave
 
-### Por que Adherirse a un Espacio de Datos Federado?
+### Por que Adherirse a las Compras Federadas?
 
-1. **Soberania del Dato**: Tus datos clinicos permanecen en tu infraestructura. Solo compartes lo que decides, cuando lo decides.
+1. **Ahorro Real**: Precios de mayorista al agrupar pedidos con cientos de clinicas. Ahorro medio del 22% en vacunas y biologicos.
 
-2. **Inteligencia Colectiva**: Accede a algoritmos de IA entrenados con datos de toda la red, sin exponer tus registros individuales.
+2. **Cero Roturas de Stock**: La IA predictiva analiza tu agenda y garantiza que el material llegue antes de que lo necesites.
 
-3. **Interoperabilidad Real**: Historiales clinicos en formato FHIR que cualquier clinica de la red puede interpretar para derivaciones o segundas opiniones.
+3. **Autonomia Completa**: Tu decides que productos compras. La red solo optimiza precio y logistica.
 
-4. **Economia de Escala**: Compras coordinadas que reducen costes sin perder independencia. Negociacion colectiva con proveedores de equipamiento, farmacia y consumibles.
+4. **Datos Protegidos**: Tus historiales clinicos nunca salen de tu clinica. Solo se comparten metricas agregadas de consumo.
 
-5. **Cumplimiento Normativo**: Arquitectura preparada para RGPD y Data Governance Act europeo. Auditorias y trazabilidad incluidas.
+5. **Integracion sin Fricciones**: Compatible con los principales ERPs veterinarios del mercado.
 
-6. **Financiacion Publica**: Acceso a ayudas del Kit Espacio de Datos (hasta 30.000 EUR) con tramitacion incluida.
+6. **Financiacion Incluida**: Acceso al Kit Espacio de Datos con ayudas de hasta 30.000 EUR.
 
 ---
 
 ## SEO y Metadatos
 
 ```text
-title: Adhesion al Espacio de Datos de Salud Animal | GLOBAL DATA CARE
-description: Conecta tu clinica veterinaria al primer espacio de datos federado de Espana. ERP, IA y compras coordinadas manteniendo la soberania de tus datos.
-canonical: /solutions/adhesion
+title: Adhesion a la Central de Compras Federada | GLOBAL DATA CARE
+description: Unete a la central de compras predictivas para clinicas veterinarias. Ahorra hasta un 22% manteniendo la soberania de tus datos clinicos.
+canonical: /portal/procurement/adhesion
 ```
 
 ---
 
 ## Estimacion de Complejidad
 
-- Pagina nueva con ~600-800 lineas de codigo
-- Reutilizacion alta de componentes existentes
-- Misma logica de base de datos
-- Sin migraciones necesarias (tabla kit_inscriptions ya existe)
+- Nueva pagina con ~800-1000 lineas (reutilizando logica de formulario)
+- Modificacion menor en ProcurementPortal (cambio de boton)
+- Una nueva ruta en App.tsx
+- Sin migraciones de base de datos
 
