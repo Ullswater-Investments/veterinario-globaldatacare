@@ -1,47 +1,112 @@
 
+# Plan: Nueva Página de Aviso Legal Completa
 
-## Plan: Actualizar Emails de Contacto a emilio.mulet@globaldatacare.es
+## Objetivo
+Crear una página de Aviso Legal profesional y legalmente completa para ACCURO TECHNOLOGY / GLOBAL DATA CARE, corrigiendo los errores actuales y añadiendo todas las secciones necesarias según LSSI-CE y RGPD.
 
-### Objetivo
-Cambiar todos los emails de contacto de `ivan.becerro@accuro.es` a `emilio.mulet@globaldatacare.es` en todas las páginas relacionadas con Global Data Care.
+## Cambios Propuestos
 
----
+### 1. Actualizar `src/pages/LegalNotice.tsx`
 
-### Archivos a Modificar
+Reescribir completamente la página con las siguientes secciones:
 
-| Archivo | Ocurrencias | Cambio |
-|---------|-------------|--------|
-| `src/pages/PropuestaKitEspacioDatos.tsx` | 3 | Actualizar emails y texto del botón |
-| `src/pages/presentation/MobilePresentation.tsx` | 1 | Actualizar email de contacto |
-| `src/pages/consulting/TechnicalProposal.tsx` | 1 | Actualizar email de contacto |
-| `docs/propuesta-kit-espacio-datos/PropuestaKitEspacioDatos.tsx` | 3 | Actualizar emails |
+**Cabecera**
+- Título: "Aviso Legal y Política de Privacidad"
+- Subtítulo: Referencia a ACCURO TECHNOLOGY, S.L.
+- Fecha de última actualización
 
----
+**Sección 1: Información del Titular**
+```
+ACCURO TECHNOLOGY, S.L.
+CIF: B87617981
+Domicilio: C/ Colquide, 6 – Portal 2, 1ª planta, Edificio Prisma de Las Rozas – Madrid
+Teléfono: (+34) 91 710 48 40
+Email: ivan.becerro@accuro.es
+```
 
-### Detalle de Cambios
+**Sección 2: Objeto y Ámbito de Aplicación**
+- Descripción de la plataforma Global Data Care
+- Naturaleza demostrativa/comercial del entorno
+- Aclaración sobre datos ficticios/sintéticos
 
-#### 1. `src/pages/PropuestaKitEspacioDatos.tsx`
-- Botón "Solicitar Pack Integral": `mailto:emilio.mulet@globaldatacare.es`
-- Botón "Solicitar Kit Espacio de Datos": `mailto:emilio.mulet@globaldatacare.es`
-- Botón de contacto: cambiar texto de "Contactar con ACCURO" a "Contactar con Global Data Care"
+**Sección 3: Condiciones de Uso**
+- Uso aceptable del sitio
+- Prohibiciones (uso fraudulento, ingeniería inversa, etc.)
+- Requisitos de edad (mayores de 18 años para contratar)
 
-#### 2. `src/pages/presentation/MobilePresentation.tsx`
-- Diapositiva final de contacto: mostrar `emilio.mulet@globaldatacare.es`
+**Sección 4: Propiedad Intelectual**
+- Titularidad de contenidos, logos, código
+- Prohibición de reproducción sin autorización
+- Marcas registradas
 
-#### 3. `src/pages/consulting/TechnicalProposal.tsx`
-- Link de contacto técnico: `emilio.mulet@globaldatacare.es`
+**Sección 5: Protección de Datos Personales**
+- Responsable del tratamiento: ACCURO TECHNOLOGY, S.L.
+- Finalidades: gestión de contactos, tramitación Kit Espacio Datos
+- Base legal: consentimiento, ejecución contractual, interés legítimo
+- Destinatarios: RED.ES, HOKODO (para financiación)
+- Derechos ARCO+POL: acceso, rectificación, supresión, oposición, portabilidad, limitación
+- Plazo de conservación
+- Cómo ejercer derechos (email DPO)
 
-#### 4. `docs/propuesta-kit-espacio-datos/PropuestaKitEspacioDatos.tsx`
-- Todos los botones de solicitud y contacto
+**Sección 6: Política de Cookies**
+- Tipos de cookies utilizadas (técnicas, analíticas)
+- Finalidad de cada tipo
+- Cómo gestionar/eliminar cookies
+- Enlace a configuración
 
----
+**Sección 7: Exclusión de Responsabilidad**
+- Disponibilidad del servicio
+- Enlaces a terceros
+- Decisiones basadas en contenido demo
 
-### Resumen
+**Sección 8: Ley Aplicable y Jurisdicción**
+- Legislación española
+- Juzgados y Tribunales de Madrid
 
-| Métrica | Valor |
-|---------|-------|
-| **Archivos** | 4 |
-| **Ocurrencias totales** | 9 |
-| **Email antiguo** | `ivan.becerro@accuro.es` |
-| **Email nuevo** | `emilio.mulet@globaldatacare.es` |
+**Sección 9: Modificaciones**
+- Derecho a actualizar el aviso legal
+- Fecha de última revisión
 
+**Footer de página**
+- Links a: Inicio, Condiciones Kit Espacio Datos, Inscripción
+- Datos de empresa completos
+
+## Diseño Visual
+
+Mantener el estilo actual (card centrada, fondo claro) pero:
+- Añadir navegación lateral para secciones (en desktop)
+- Usar acordeones colapsables para secciones largas (opcional)
+- Iconos sutiles para cada sección principal
+- Tabla de contenidos clickable al inicio
+
+## Estructura de Componentes
+
+```
+src/pages/LegalNotice.tsx (actualizar)
+└── Secciones inline con IDs para anclas
+```
+
+## Archivos a Modificar
+
+| Archivo | Acción |
+|---------|--------|
+| `src/pages/LegalNotice.tsx` | Reescribir contenido completo |
+
+## Consideraciones Técnicas
+
+- Mantener SEO: title, meta description, canonical URL
+- Añadir anclas (IDs) a cada sección para navegación directa
+- Responsive: funcionar bien en móvil
+- Accesibilidad: estructura de headings correcta (h1, h2, h3)
+
+## Datos a Incluir (Confirmados)
+
+```
+Empresa: ACCURO TECHNOLOGY, S.L.
+CIF: B87617981
+Dirección: C/ Colquide, 6 – Portal 2, 1ª planta, Edificio Prisma de Las Rozas – Madrid
+Teléfono: (+34) 91 710 48 40
+Email contacto: ivan.becerro@accuro.es
+Email general: emilio.mulet@globaldatacare.es
+Marca comercial: GLOBAL DATA CARE
+```
