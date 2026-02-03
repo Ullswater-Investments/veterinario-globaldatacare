@@ -88,6 +88,9 @@ import TutorDemoPanel from "./pages/demo/TutorDemoPanel";
 import VetDemoPanel from "./pages/demo/VetDemoPanel";
 import ClinicDemoPanel from "./pages/demo/ClinicDemoPanel";
 import ResearchDemoPanel from "./pages/demo/ResearchDemoPanel";
+import TutorVoicePage from "./pages/kpi/TutorVoicePage";
+import OperationalFlowPage from "./pages/kpi/OperationalFlowPage";
+import ClinicalOutcomesPage from "./pages/kpi/ClinicalOutcomesPage";
 
 const queryClient = new QueryClient();
 
@@ -185,6 +188,11 @@ const App = () => (
                 <Route path="/demo/vet" element={<VetDemoPanel />} />
                 <Route path="/demo/clinic" element={<ClinicDemoPanel />} />
                 <Route path="/demo/research" element={<ResearchDemoPanel />} />
+
+                {/* KPI Detail Pages */}
+                <Route path="/kpi/tutor-voice" element={<TutorVoicePage />} />
+                <Route path="/kpi/operational-flow" element={<OperationalFlowPage />} />
+                <Route path="/kpi/clinical-outcomes" element={<ClinicalOutcomesPage />} />
 
                  <Route element={<AppLayout />}>
                    <Route path="/dashboard" element={<Dashboard />} />
