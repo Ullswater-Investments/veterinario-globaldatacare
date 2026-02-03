@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ArrowUp, Home, ScrollText, FileText, Gavel, Mail, Phone, MapPin } from "lucide-react";
+import { ArrowUp, Home, ExternalLink, Gavel, Mail, Phone, MapPin } from "lucide-react";
 
 export const GlobalFooter: React.FC = () => {
   const scrollToTop = () => {
@@ -61,21 +61,15 @@ export const GlobalFooter: React.FC = () => {
               Aviso Legal
             </Link>
             <span className="text-slate-700">·</span>
-            <Link 
-              to="/condiciones-kit-espacio-datos" 
+            <a 
+              href="/documents/Espacios_de_Datos_Elegibles_KTED.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center gap-1.5 hover:text-white transition-colors"
             >
-              <ScrollText className="w-4 h-4" />
-              Condiciones Kit
-            </Link>
-            <span className="text-slate-700">·</span>
-            <Link 
-              to="/propuesta-kit-espacio-datos" 
-              className="flex items-center gap-1.5 hover:text-white transition-colors"
-            >
-              <FileText className="w-4 h-4" />
-              Propuesta Kit
-            </Link>
+              <ExternalLink className="w-4 h-4" />
+              Espacios de Datos Homologados
+            </a>
           </nav>
 
           {/* Scroll to Top Button */}
