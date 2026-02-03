@@ -93,6 +93,7 @@ import OperationalFlowPage from "./pages/kpi/OperationalFlowPage";
 import ClinicalOutcomesPage from "./pages/kpi/ClinicalOutcomesPage";
 import BusinessPartnersDossier from "./pages/dossier/BusinessPartnersDossier";
 import BusinessPartnersSlides from "./pages/dossier/BusinessPartnersSlides";
+import PlatformShowcase from "./pages/dossier/PlatformShowcase";
 
 const queryClient = new QueryClient();
 
@@ -198,6 +199,7 @@ const App = () => (
                 {/* Dossier Business Partners */}
                 <Route path="/dossier" element={<BusinessPartnersDossier />} />
                 <Route path="/dossier/slides" element={<BusinessPartnersSlides />} />
+                <Route path="/showcase" element={<PlatformShowcase />} />
                 <Route path="/kpi/clinical-outcomes" element={<ClinicalOutcomesPage />} />
 
                  <Route element={<AppLayout />}>
