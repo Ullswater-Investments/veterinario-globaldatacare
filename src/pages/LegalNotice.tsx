@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { GlobalFooter } from "@/components/ui/GlobalFooter";
 import { 
   Building2, 
   FileText, 
@@ -430,39 +431,7 @@ const LegalNotice = () => {
         </div>
       </div>
 
-      {/* Footer */}
-      <footer className="py-8 bg-muted/50 border-t mt-12">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="text-center md:text-left space-y-2">
-              <p className="text-sm text-muted-foreground">
-                © {new Date().getFullYear()} GLOBAL DATA CARE — Todos los derechos reservados
-              </p>
-              <p className="text-xs text-muted-foreground">
-                <strong>ACCURO TECHNOLOGY, S.L.</strong> · CIF: B87617981<br />
-                C/ Colquide, 6 – Portal 2, 1ª planta, Edificio Prisma de Las Rozas – Madrid<br />
-                Tel: (+34) 91 710 48 40 · <a href="mailto:ivan.becerro@accuro.es" className="hover:text-foreground transition-colors">ivan.becerro@accuro.es</a>
-              </p>
-            </div>
-            <nav className="flex items-center gap-4 text-sm">
-              <Link to="/" className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors">
-                <Home className="w-4 h-4" />
-                Inicio
-              </Link>
-              <span className="text-muted-foreground">·</span>
-              <Link to="/condiciones-kit-espacio-datos" className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors">
-                <ScrollText className="w-4 h-4" />
-                Condiciones Kit
-              </Link>
-              <span className="text-muted-foreground">·</span>
-              <Link to="/inscripcion-kit-espacio-datos" className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors">
-                <UserPlus className="w-4 h-4" />
-                Inscripción
-              </Link>
-            </nav>
-          </div>
-        </div>
-      </footer>
+      <GlobalFooter />
     </main>
   );
 };

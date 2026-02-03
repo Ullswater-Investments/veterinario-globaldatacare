@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { GlobalFooter } from '@/components/ui/GlobalFooter';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -611,17 +612,7 @@ const GuiaKitEspacioDatos = () => {
         </div>
       </section>
 
-      {/* Footer mínimo */}
-      <footer className="py-8 bg-muted/50 border-t">
-        <div className="container mx-auto px-4 text-center text-sm text-muted-foreground">
-          <p>© {new Date().getFullYear()} GLOBAL DATA CARE — Todos los derechos reservados</p>
-          <div className="flex items-center justify-center gap-4 mt-2">
-            <Link to="/legal" className="hover:text-foreground transition-colors">Aviso Legal</Link>
-            <span>·</span>
-            <Link to="/" className="hover:text-foreground transition-colors">Inicio</Link>
-          </div>
-        </div>
-      </footer>
+      <GlobalFooter />
     </div>
   );
 };

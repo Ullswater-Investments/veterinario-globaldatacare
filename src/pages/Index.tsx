@@ -215,26 +215,6 @@ const Landing = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-12 bg-foreground text-primary-foreground">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="text-sm text-primary-foreground/60">ACCURO TECHNOLOGY</div>
-            <div className="flex gap-6 text-sm">
-              <Link to="/consulting/technical-proposal" className="text-primary-foreground/60 hover:text-primary-foreground transition">
-                Whitepaper Técnico Espacio de Datos de Salud Animal
-              </Link>
-              <Link to="/business/models" className="text-primary-foreground/60 hover:text-primary-foreground transition">
-                Documento Casos de Negocio
-              </Link>
-              <Link to="/legal" className="text-primary-foreground/60 hover:text-primary-foreground transition">
-                Aviso Legal
-              </Link>
-            </div>
-          </div>
-        </div>
-      </footer>
-
       <GlobalFooter />
     </div>
   );
