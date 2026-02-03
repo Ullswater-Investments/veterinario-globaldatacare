@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import {
   BarChart3,
   Activity,
@@ -98,13 +99,13 @@ const KpiDashboardPage: React.FC = () => {
             cuellos de botella en tiempo real y eleva la excelencia médica
             automáticamente.
           </p>
-          <button
-            type="button"
+          <Link
+            to="/demo"
             className="px-8 py-4 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl font-bold shadow-lg shadow-indigo-900/50 flex items-center gap-2 mx-auto transition-all"
           >
             Ver Demo del Panel
             <ArrowRight className="w-5 h-5" />
-          </button>
+          </Link>
         </div>
       </section>
 
