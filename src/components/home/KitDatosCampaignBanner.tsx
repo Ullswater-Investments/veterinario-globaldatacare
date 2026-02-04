@@ -5,10 +5,8 @@ import { Euro, Zap, CheckCircle2, PawPrint, FileText, Clock, ArrowRight } from '
 import { motion } from 'framer-motion';
 import logoGobiernoRedEs from '@/assets/logo-gobierno-red-es.png';
 import logoKitEspacioDatos from '@/assets/logo-kit-espacio-datos.jpg';
-
 export const KitDatosCampaignBanner = () => {
-  return (
-    <section className="py-8 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border-y border-primary/20">
+  return <section className="py-8 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border-y border-primary/20">
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
           {/* Header with badges */}
@@ -23,20 +21,23 @@ export const KitDatosCampaignBanner = () => {
             </div>
             <div className="flex items-center gap-2 flex-wrap justify-center">
               {/* Deadline badge */}
-              <motion.div
-                animate={{ scale: [1, 1.03, 1] }}
-                transition={{ repeat: Infinity, duration: 1.5 }}
-              >
-                <Badge className="flex items-center gap-1.5 px-3 py-1.5 text-sm bg-amber-500 hover:bg-amber-600 text-white">
-                  <Clock className="h-4 w-4" />
+              <motion.div animate={{
+              scale: [1, 1.03, 1]
+            }} transition={{
+              repeat: Infinity,
+              duration: 1.5
+            }}>
+                <Badge className="flex items-center gap-1.5 px-3 py-1.5 text-sm bg-amber-500 hover:bg-amber-600 text-white">Inscripción hasta 20 de Marzo del 2026<Clock className="h-4 w-4" />
                   Inscripción hasta 24 Feb
                 </Badge>
               </motion.div>
               {/* Limited spots badge */}
-              <motion.div
-                animate={{ scale: [1, 1.05, 1] }}
-                transition={{ repeat: Infinity, duration: 2 }}
-              >
+              <motion.div animate={{
+              scale: [1, 1.05, 1]
+            }} transition={{
+              repeat: Infinity,
+              duration: 2
+            }}>
                 <Badge variant="destructive" className="flex items-center gap-1.5 px-3 py-1.5 text-sm">
                   <Zap className="h-4 w-4" />
                   PLAZAS LIMITADAS
@@ -69,20 +70,17 @@ export const KitDatosCampaignBanner = () => {
           {/* Hero CTA Button - Máximo impacto */}
           <div className="flex justify-center mb-6">
             <Link to="/condiciones-kit-espacio-datos" className="w-full sm:w-auto">
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="relative overflow-hidden rounded-full"
-              >
-                <Button 
-                  size="lg" 
-                  className="relative w-full sm:w-auto text-lg md:text-xl font-bold px-8 md:px-12 py-7 md:py-8 
+              <motion.div whileHover={{
+              scale: 1.02
+            }} whileTap={{
+              scale: 0.98
+            }} className="relative overflow-hidden rounded-full">
+                <Button size="lg" className="relative w-full sm:w-auto text-lg md:text-xl font-bold px-8 md:px-12 py-7 md:py-8 
                              bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 
                              hover:from-emerald-600 hover:via-teal-600 hover:to-cyan-600
                              text-white rounded-full shadow-2xl 
                              shadow-emerald-500/30 hover:shadow-emerald-500/50
-                             transition-all duration-300 group"
-                >
+                             transition-all duration-300 group">
                   {/* Shimmer effect overlay */}
                   <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent 
                                    -translate-x-full group-hover:translate-x-full transition-transform duration-1000 rounded-full" />
@@ -114,31 +112,14 @@ export const KitDatosCampaignBanner = () => {
 
           {/* Logo institucional */}
           <div className="mt-6 flex flex-col md:flex-row items-center justify-center gap-6">
-            <a 
-              href="https://www.acelerapyme.gob.es/kit-espacios-de-datos" 
-              target="_blank" 
-              rel="noopener noreferrer"
-            >
-              <img 
-                src={logoKitEspacioDatos} 
-                alt="Kit Espacios de Datos" 
-                className="h-14 md:h-16 object-contain hover:opacity-80 transition-opacity"
-              />
+            <a href="https://www.acelerapyme.gob.es/kit-espacios-de-datos" target="_blank" rel="noopener noreferrer">
+              <img src={logoKitEspacioDatos} alt="Kit Espacios de Datos" className="h-14 md:h-16 object-contain hover:opacity-80 transition-opacity" />
             </a>
-            <a 
-              href="https://www.red.es/es/iniciativas/proyectos/kit-espacios-de-datos" 
-              target="_blank" 
-              rel="noopener noreferrer"
-            >
-              <img 
-                src={logoGobiernoRedEs} 
-                alt="Gobierno de España - Ministerio para la Transformación Digital - Red.es" 
-                className="h-10 md:h-12 object-contain hover:opacity-80 transition-opacity"
-              />
+            <a href="https://www.red.es/es/iniciativas/proyectos/kit-espacios-de-datos" target="_blank" rel="noopener noreferrer">
+              <img src={logoGobiernoRedEs} alt="Gobierno de España - Ministerio para la Transformación Digital - Red.es" className="h-10 md:h-12 object-contain hover:opacity-80 transition-opacity" />
             </a>
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
