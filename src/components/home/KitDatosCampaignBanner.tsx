@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Euro, Zap, CheckCircle2, PawPrint, FileText, Clock } from 'lucide-react';
+import { Euro, Zap, CheckCircle2, PawPrint, FileText, Clock, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import logoGobiernoRedEs from '@/assets/logo-gobierno-red-es.png';
 import logoKitEspacioDatos from '@/assets/logo-kit-espacio-datos.jpg';
@@ -64,6 +64,36 @@ export const KitDatosCampaignBanner = () => {
               <CheckCircle2 className="h-5 w-5 text-green-600" />
               <span className="text-foreground">Sin letra pequeña</span>
             </div>
+          </div>
+
+          {/* Hero CTA Button - Máximo impacto */}
+          <div className="flex justify-center mb-6">
+            <Link to="/condiciones-kit-espacio-datos" className="w-full sm:w-auto">
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="relative overflow-hidden rounded-full"
+              >
+                <Button 
+                  size="lg" 
+                  className="relative w-full sm:w-auto text-lg md:text-xl font-bold px-8 md:px-12 py-7 md:py-8 
+                             bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 
+                             hover:from-emerald-600 hover:via-teal-600 hover:to-cyan-600
+                             text-white rounded-full shadow-2xl 
+                             shadow-emerald-500/30 hover:shadow-emerald-500/50
+                             transition-all duration-300 group"
+                >
+                  {/* Shimmer effect overlay */}
+                  <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent 
+                                   -translate-x-full group-hover:translate-x-full transition-transform duration-1000 rounded-full" />
+                  
+                  {/* Content */}
+                  <Euro className="mr-3 h-6 w-6" />
+                  <span>SOLICITA LAS AYUDAS KIT ESPACIO DE DATOS</span>
+                  <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </motion.div>
+            </Link>
           </div>
 
           {/* CTA buttons */}
