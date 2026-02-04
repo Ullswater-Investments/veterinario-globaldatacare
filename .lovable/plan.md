@@ -1,193 +1,194 @@
 
-# Plan: Carpeta Exportable de Presentaciones Completas
 
-## Objetivo
+# Plan de Rebranding: "Global Data Care - Veterinario"
 
-Crear una carpeta organizada `export/presentations/` que contenga todos los archivos necesarios para copiar y exportar las presentaciones a un proyecto nuevo, incluyendo:
-- Todos los componentes de slides (10 slides inversor + 9 slides business partners + 15 slides mobile)
-- Todas las imagenes y assets utilizados
-- Todos los datos mock necesarios para los graficos
-- Componentes UI reutilizables
-- Configuracion de estilos
+## Resumen
 
-## Inventario de Archivos a Exportar
+Se aplicara el nuevo nombre comercial **"Global Data Care - Veterinario"** en todos los archivos identificados, **excepto** los siguientes que el usuario ha indicado que NO deben modificarse:
 
-### 1. Paginas de Presentacion Principal
+- **11 archivos con document.title SEO** (MobilePresentation, StrategicPresentation, ProductPassportPage, etc.)
+- **GlobalFooter.tsx** (copyright y descripcion del proyecto)
 
-| Archivo Original | Descripcion |
-|------------------|-------------|
-| `src/pages/presentation/InvestorPitchDeck.tsx` | 10 slides para inversores (1038 lineas) |
-| `src/pages/presentation/MobilePresentation.tsx` | 15 slides formato vertical movil (495 lineas) |
-| `src/pages/dossier/BusinessPartnersSlides.tsx` | 9 slides business partners (575 lineas) |
-| `src/pages/dossier/PlatformShowcase.tsx` | Dossier completo 25 secciones (2644 lineas) |
-| `src/pages/dossier/BusinessPartnersDossier.tsx` | Portal de business partners |
+---
 
-### 2. Assets e Imagenes
+## Archivos a Modificar
 
-| Asset | Uso |
-|-------|-----|
-| `src/assets/servidores-aislados.png` | Slide "El Problema" - silos de datos |
-| `src/assets/red-federada-activa.png` | Slide "La Solucion" - arquitectura federada |
-| `src/assets/logo-gobierno-red-es.png` | Logos institucionales Red.es |
-| `src/assets/logo-kit-espacio-datos.jpg` | Logo Kit Espacio de Datos |
-| `src/assets/logos-kit-digital.jpg` | Logos Kit Digital |
-| `src/assets/codigo_de_barras.jpg` | Codigo de barras para DPP |
+### 1. index.html (Titulo del navegador y meta tags)
 
-### 3. Datos Mock para Graficos
+| Elemento | Antes | Despues |
+|----------|-------|---------|
+| `<title>` | "VETERINARIOS Espacio de Datos" | "Global Data Care - Veterinario" |
+| `og:title` | "VETERINARIOS Espacio de Datos" | "Global Data Care - Veterinario" |
+| `twitter:title` | "VETERINARIOS Espacio de Datos" | "Global Data Care - Veterinario" |
 
-| Archivo | Contenido |
-|---------|-----------|
-| `src/data/dossier/partnerProfiles.ts` | 8 perfiles de business partners con iconos y gradientes |
-| `src/data/dossier/valuePropositions.ts` | Propuestas de valor por tipo de partner |
-| `src/data/demoKpis/clinicMockData.ts` | Datos de clinica para graficos |
-| `src/data/demoKpis/tutorMockData.ts` | Datos de tutor/wallet para graficos |
-| `src/data/demoKpis/vetMockData.ts` | Datos de veterinario para graficos |
-| `src/data/demoKpis/researchMockData.ts` | Datos de investigacion para graficos |
+---
 
-### 4. Componentes UI Necesarios
+### 2. src/components/AppHeader.tsx (Header principal de la app)
 
-| Componente | Ruta |
-|------------|------|
-| Card, CardContent, CardHeader, CardTitle | `src/components/ui/card.tsx` |
-| Button | `src/components/ui/button.tsx` |
-| Badge | `src/components/ui/badge.tsx` |
-| Progress | `src/components/ui/progress.tsx` |
-| Carousel, CarouselContent, CarouselItem | `src/components/ui/carousel.tsx` |
+| Linea | Antes | Despues |
+|-------|-------|---------|
+| 46 | `VetSpace-X` | `Global Data Care` |
+| 47 | `Plataforma de Salud Animal Federada` | `Espacio de Datos Federado de Salud Animal` |
 
-### 5. Utilidades
+---
 
-| Archivo | Contenido |
-|---------|-----------|
-| `src/lib/utils.ts` | Funcion cn() para clases |
-| `src/lib/format.ts` | Funciones de formateo |
+### 3. src/pages/Dashboard.tsx (Dashboard principal)
 
-## Estructura de Carpetas a Crear
+| Linea | Antes | Despues |
+|-------|-------|---------|
+| 50 | `VetSpace-X - Plataforma de Salud Animal Federada` | `Global Data Care - Veterinario` |
+| 190 | `VetSpace-X Labs (Beta)` | `GDC Labs (Beta)` |
+| 205 | `¿Listo para implementar VetSpace-X en su red?` | `¿Listo para implementar Global Data Care en su red?` |
 
-```
-export/
-└── presentations/
-    ├── README.md                          # Instrucciones de uso
-    ├── package.json                       # Dependencias necesarias
-    │
-    ├── pages/
-    │   ├── InvestorPitchDeck.tsx          # 10 slides inversores
-    │   ├── MobilePresentation.tsx         # 15 slides movil
-    │   ├── BusinessPartnersSlides.tsx     # 9 slides partners
-    │   └── PlatformShowcase.tsx           # Dossier completo
-    │
-    ├── assets/
-    │   ├── servidores-aislados.png
-    │   ├── red-federada-activa.png
-    │   ├── logo-gobierno-red-es.png
-    │   ├── logo-kit-espacio-datos.jpg
-    │   ├── logos-kit-digital.jpg
-    │   └── codigo_de_barras.jpg
-    │
-    ├── data/
-    │   ├── partnerProfiles.ts
-    │   ├── valuePropositions.ts
-    │   ├── clinicMockData.ts
-    │   ├── tutorMockData.ts
-    │   ├── vetMockData.ts
-    │   └── researchMockData.ts
-    │
-    ├── components/
-    │   └── ui/
-    │       ├── card.tsx
-    │       ├── button.tsx
-    │       ├── badge.tsx
-    │       ├── progress.tsx
-    │       └── carousel.tsx
-    │
-    └── lib/
-        └── utils.ts
-```
+---
 
-## Archivos a Crear
+### 4. src/pages/tech/TechIndex.tsx (Indice de tecnologia)
 
-### 1. README.md
-Instrucciones detalladas para:
-- Copiar la carpeta a un nuevo proyecto
-- Instalar dependencias (framer-motion, recharts, lucide-react)
-- Configurar rutas en App.tsx
-- Ajustar paths de imports
+| Linea | Antes | Despues |
+|-------|-------|---------|
+| 66 | `Arquitectura de Confianza VetSpace-X` | `Arquitectura de Confianza Global Data Care` |
 
-### 2. package.json (solo dependencias)
-```json
-{
-  "dependencies": {
-    "framer-motion": "^12.x",
-    "recharts": "^2.x",
-    "lucide-react": "^0.462.x",
-    "embla-carousel-react": "^8.x",
-    "react-router-dom": "^6.x",
-    "class-variance-authority": "^0.7.x",
-    "clsx": "^2.x",
-    "tailwind-merge": "^2.x"
-  }
-}
-```
+---
 
-### 3. Paginas de Presentacion (con imports ajustados)
-Cada archivo tendra los imports modificados para usar rutas relativas dentro de la carpeta export
+### 5. src/pages/tech/Interoperability.tsx (Pagina de interoperabilidad)
 
-### 4. Datos Mock Completos
-Todos los datos necesarios para que los graficos funcionen sin dependencias externas
+| Linea | Antes | Despues |
+|-------|-------|---------|
+| 113 | `Cómo VetSpace-X traduce la medicina...` | `Cómo Global Data Care traduce la medicina...` |
 
-## Seccion Tecnica
+---
 
-### Dependencias Externas Requeridas
+### 6. src/pages/business/BusinessModels.tsx (Modelos de negocio)
 
-| Paquete | Version | Uso |
-|---------|---------|-----|
-| `framer-motion` | ^12.x | Animaciones de slides |
-| `recharts` | ^2.x | Graficos (PieChart, BarChart, LineChart, AreaChart) |
-| `lucide-react` | ^0.462.x | Iconos |
-| `embla-carousel-react` | ^8.x | Carrusel para MobilePresentation |
-| `react-router-dom` | ^6.x | Navegacion y Link |
-| `class-variance-authority` | ^0.7.x | Variantes de componentes |
-| `clsx` + `tailwind-merge` | ^2.x | Utilidad cn() |
+| Linea | Antes | Despues |
+|-------|-------|---------|
+| 100 | `Ecosistema de Valor VETSPACE-X` | `Ecosistema de Valor GLOBAL DATA CARE` |
 
-### Graficos Incluidos por Presentacion
+---
 
-**InvestorPitchDeck (10 slides):**
-- PieChart: Uso de fondos (4 segmentos)
-- BarChart: Revenue streams proyeccion (5 barras)
-- LineChart: Timeline captacion clinicas (dual Y-axis)
+### 7. src/pages/consulting/TechnicalProposal.tsx (Whitepaper tecnico)
 
-**PlatformShowcase (25 secciones):**
-- PieChart: Gastos tutor, distribucion datasets
-- AreaChart: Tendencia gastos, metricas clinica
-- BarChart: KPIs, benchmarks, supply chain
-- LineChart: Epidemiologia, rendimiento
+| Linea | Antes | Despues |
+|-------|-------|---------|
+| 99 | `ACCURO TECHNOLOGY · VetSpace-X Technical Whitepaper` | `ACCURO TECHNOLOGY · Global Data Care Technical Whitepaper` |
 
-**BusinessPartnersSlides (9 slides):**
-- Sin graficos Recharts (usa cards y badges estaticos)
+---
 
-**MobilePresentation (15 slides):**
-- Sin graficos Recharts (formato vertical simplificado)
+### 8. src/pages/portals/ProcurementPortal.tsx (Portal de compras)
 
-### Datos Mock por Grafico
+| Linea | Antes | Despues |
+|-------|-------|---------|
+| 33 | `Central de Compras VetSpace-X` | `Central de Compras Global Data Care` |
+| 37 | `espacio de datos VetSpace-X` | `espacio de datos Global Data Care` |
 
-| Grafico | Archivo de Datos | Variables |
-|---------|------------------|-----------|
-| Uso de Fondos | InvestorPitchDeck.tsx (inline) | `useOfFunds` |
-| Revenue Streams | InvestorPitchDeck.tsx (inline) | `revenueStreams` |
-| Timeline Captacion | InvestorPitchDeck.tsx (inline) | `timelineData` |
-| Gastos Tutor | tutorMockData.ts | `yearlyExpenses`, `monthlyExpenseTrend` |
-| KPIs Clinica | clinicMockData.ts | `financialKPIs`, `serviceKPIs`, `revenueData` |
-| Performance Vet | vetMockData.ts | `performanceData`, `aiAccuracyHistory` |
-| Research Datasets | researchMockData.ts | `datasets`, `datasetDistribution` |
+---
 
-## Resultado Final
+### 9. src/pages/portals/ProcurementAdhesion.tsx (Adhesion a compras)
 
-Una carpeta `export/presentations/` completamente autonoma que:
+| Linea | Antes | Despues |
+|-------|-------|---------|
+| 276 | `VetSpace-X` (logo header) | `Global Data Care` |
+| 304 | `Central de Compras VetSpace-X` | `Central de Compras Global Data Care` |
+| 372 | `Nodo Local VetSpace-X` | `Nodo Local Global Data Care` |
+| 444 | `sincroniza con VetSpace-X` | `sincroniza con Global Data Care` |
+| 1198 | `novedades y ofertas de VetSpace-X` | `novedades y ofertas de Global Data Care` |
 
-1. Contiene las 4 presentaciones principales (InvestorPitchDeck, MobilePresentation, BusinessPartnersSlides, PlatformShowcase)
-2. Incluye todas las 6 imagenes/assets necesarias
-3. Tiene todos los datos mock para que los graficos funcionen
-4. Incluye los componentes UI basicos (card, button, badge, etc.)
-5. Tiene un README con instrucciones claras de instalacion
-6. Tiene un package.json con las dependencias exactas
+---
 
-El usuario podra copiar esta carpeta a cualquier proyecto React/Vite nuevo y tener las presentaciones funcionando con minima configuracion.
+### 10. src/pages/solutions/AdhesionEspacioDatos.tsx (Adhesion espacio de datos)
+
+| Linea | Antes | Despues |
+|-------|-------|---------|
+| 274 | `VetSpace-X` (logo header) | `Global Data Care` |
+
+---
+
+### 11. src/pages/KitEspacioDatosInscripcion.tsx (Inscripcion Kit)
+
+| Linea | Antes | Despues |
+|-------|-------|---------|
+| 247 | `VetSpace-X` (logo header) | `Global Data Care` |
+
+---
+
+### 12. src/pages/PropuestaKitEspacioDatos.tsx (Propuesta Kit)
+
+| Linea | Antes | Despues |
+|-------|-------|---------|
+| 85 | `ACCURO | VetSpace-X` | `ACCURO | Global Data Care` |
+| 125 | `Global Data Care Veterinario para la red VetSpace-X` | `Global Data Care - Veterinario` |
+
+---
+
+### 13. src/pages/CondicionesKitEspacioDatos.tsx (Condiciones Kit)
+
+| Linea | Antes | Despues |
+|-------|-------|---------|
+| 59 | `VetSpace Technology S.L.` | `Global Data Care` |
+| 68 | Menciones adicionales | `Global Data Care` |
+
+---
+
+## Archivos en export/presentations/ (Carpeta exportable)
+
+Tambien se actualizaran las referencias en los archivos copiados:
+
+### export/presentations/README.md
+- Actualizar nombre del proyecto a "Global Data Care - Veterinario"
+
+### export/presentations/pages/InvestorPitchDeck.tsx
+- Revisar y actualizar menciones de VetSpace-X
+
+### export/presentations/pages/BusinessPartnersSlides.tsx
+- Revisar y actualizar menciones de VetSpace-X
+
+### export/presentations/pages/PlatformShowcase.tsx
+- Revisar y actualizar menciones de VetSpace-X
+
+---
+
+## Reglas de Reemplazo Aplicadas
+
+| Contexto | Texto Nuevo |
+|----------|-------------|
+| Titulo principal / Logo | **Global Data Care** |
+| Subtitulo / Eslogan | "Espacio de Datos Federado de Salud Animal" |
+| Referencias Labs | **GDC Labs** |
+| Navegador / Meta tags | "Global Data Care - Veterinario" |
+| Referencias cortas en texto | **Global Data Care** |
+
+---
+
+## Resumen de Cambios
+
+| Categoria | Archivos | Estimacion de cambios |
+|-----------|----------|----------------------|
+| index.html (meta tags) | 1 | 4 cambios |
+| AppHeader.tsx | 1 | 2 cambios |
+| Dashboard.tsx | 1 | 3 cambios |
+| Paginas /tech/ | 2 | 2 cambios |
+| Paginas /business/ | 1 | 1 cambio |
+| Paginas /consulting/ | 1 | 1 cambio |
+| Paginas /portals/ | 2 | 7 cambios |
+| Paginas /solutions/ | 1 | 1 cambio |
+| Paginas Kit Espacio Datos | 3 | 5 cambios |
+| Carpeta export/presentations/ | 4 | ~10 cambios |
+| **TOTAL** | **17 archivos** | **~36 cambios** |
+
+---
+
+## Archivos NO Modificados (por indicacion del usuario)
+
+- src/pages/presentation/MobilePresentation.tsx (document.title)
+- src/pages/StrategicPresentation.tsx (document.title)
+- src/pages/solutions/ProductPassportPage.tsx (document.title)
+- src/pages/SupplyChainPage.tsx (document.title)
+- src/pages/Wallet.tsx (document.title)
+- src/pages/ResearchDataMarketplace.tsx (document.title)
+- src/pages/LegalNotice.tsx (document.title)
+- src/pages/KpiDashboardPage.tsx (document.title)
+- src/pages/solutions/ClinicsPage.tsx (document.title)
+- src/pages/portals/ProcurementAdhesion.tsx (solo document.title, resto si se modifica)
+- src/pages/solutions/AdhesionEspacioDatos.tsx (solo document.title, resto si se modifica)
+- src/components/ui/GlobalFooter.tsx (copyright completo)
+
