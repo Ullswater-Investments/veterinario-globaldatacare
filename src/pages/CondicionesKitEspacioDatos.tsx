@@ -95,8 +95,7 @@ const CondicionesKitEspacioDatos = () => {
             repeat: Infinity,
             duration: 1.5
           }} className="mb-4">
-              <Badge className="px-4 py-2 text-sm bg-amber-500 hover:bg-amber-600 text-white">
-                <Clock className="mr-2 h-4 w-4" />
+              <Badge className="px-4 py-2 text-sm bg-amber-500 hover:bg-amber-600 text-white">⚠️ Plazo de Inscripción y solicitud de ayudas KIT ESPACIO de DATOS hasta el 20 de Marzo del 2026<Clock className="mr-2 h-4 w-4" />
                 ⚠️ Plazo de Inscripción hasta el 24 de Febrero
               </Badge>
             </motion.div>
