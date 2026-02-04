@@ -1,4 +1,4 @@
-# Presentaciones Exportables - Global Data Care
+# Presentaciones Exportables - Global Data Care - Veterinario
 
 Esta carpeta contiene todas las presentaciones completas del proyecto, listas para copiar a un nuevo proyecto React/Vite.
 
@@ -163,4 +163,4 @@ import { Button } from "../components/ui/button";
 
 ## Licencia
 
-© 2025 Accuro Technology S.L. - Documentos confidenciales
+© 2025 Global Data Care - Veterinario - Documentos confidenciales
