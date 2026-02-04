@@ -82,7 +82,7 @@ const PropuestaKitEspacioDatos: React.FC = () => {
           <div className="flex justify-between items-center h-16">
             <Link to="/" className="flex items-center gap-2">
               <span className="text-xl font-bold tracking-tight text-slate-900">
-                ACCURO <span className="text-blue-600">| VetSpace-X</span>
+                ACCURO <span className="text-blue-600">| Global Data Care</span>
               </span>
             </Link>
             <div className="hidden md:flex space-x-8 text-sm font-medium">
@@ -122,7 +122,7 @@ const PropuestaKitEspacioDatos: React.FC = () => {
           </h1>
           
           <p className="text-xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
-            Implementación del ecosistema <strong className="text-white">Global Data Care Veterinario</strong> para la red VetSpace-X.
+            Implementación del ecosistema <strong className="text-white">Global Data Care - Veterinario</strong>.
             Soberanía, Interoperabilidad y Financiación Europea.
           </p>
 

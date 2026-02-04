@@ -56,7 +56,7 @@ const CondicionesKitEspacioDatos = () => {
     answer: 'Es un documento digital que certifica la recepción efectiva del servicio (credenciales de acceso, inicio de consultoría). Su firma activa irrevocablemente las obligaciones de pago ante la entidad financiera Hokodo.'
   }, {
     question: '¿Quién tramita la subvención?',
-    answer: 'VetSpace Technology S.L. actúa como tu Representante Voluntario ante RED.ES y organismos públicos. Debes facilitar la documentación necesaria en un plazo máximo de 5 días hábiles cuando se te solicite.'
+    answer: 'Global Data Care actúa como tu Representante Voluntario ante RED.ES y organismos públicos. Debes facilitar la documentación necesaria en un plazo máximo de 5 días hábiles cuando se te solicite.'
   }, {
     question: '¿Y si hay incidencias técnicas?',
     answer: 'Las reclamaciones técnicas se gestionan por canales de soporte con SLA definido, pero no afectan el flujo de pagos comprometido con la entidad financiera. Pagos e incidencias técnicas son vías separadas.'
@@ -65,7 +65,7 @@ const CondicionesKitEspacioDatos = () => {
     answer: 'Si la subvención es denegada, el contrato finaliza al término de la Fase 1 (6 meses). No hay prórroga automática ni obligaciones adicionales. Solo habrás pagado los 1.140€ + IVA de la fase inicial.'
   }, {
     question: '¿Cómo funciona la financiación con Hokodo?',
-    answer: 'Hokodo es una entidad financiera externa que gestiona el fraccionamiento del pago. Ellos abonan el importe total a VetSpace y tú pagas las cuotas mensuales a Hokodo. El Acta de Conformidad activa esta financiación.'
+    answer: 'Hokodo es una entidad financiera externa que gestiona el fraccionamiento del pago. Ellos abonan el importe total a Global Data Care y tú pagas las cuotas mensuales a Hokodo. El Acta de Conformidad activa esta financiación.'
   }];
   return <div className="min-h-screen bg-background">
       {/* Header */}

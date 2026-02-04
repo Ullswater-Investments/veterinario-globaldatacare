@@ -47,7 +47,7 @@ export default function Dashboard() {
     <div className="space-y-6">
       <div>
         <h1 className="text-3xl font-bold text-foreground">Dashboard</h1>
-        <p className="text-muted-foreground mt-1">VetSpace-X - Plataforma de Salud Animal Federada</p>
+        <p className="text-muted-foreground mt-1">Global Data Care - Veterinario</p>
       </div>
 
       {greeting && Icon && (
@@ -187,7 +187,7 @@ export default function Dashboard() {
                 <div className="p-2 bg-purple-100 rounded-lg">
                   <Beaker className="h-5 w-5 text-purple-600" />
                 </div>
-                <CardTitle className="text-base">VetSpace-X Labs (Beta)</CardTitle>
+                <CardTitle className="text-base">GDC Labs (Beta)</CardTitle>
               </div>
             </CardHeader>
             <CardContent>
@@ -202,7 +202,7 @@ export default function Dashboard() {
       {/* Consulting CTA Section */}
       <div className="mt-12 bg-gradient-to-r from-foreground to-primary/90 rounded-xl p-8 text-primary-foreground">
         <div className="max-w-3xl">
-          <h2 className="text-2xl font-bold mb-3">¿Listo para implementar VetSpace-X en su red?</h2>
+          <h2 className="text-2xl font-bold mb-3">¿Listo para implementar Global Data Care en su red?</h2>
           <p className="text-primary-foreground/70 mb-6">
             Explore nuestra propuesta técnica completa con arquitectura, metodología de entrega y modelos de colaboración.
           </p>

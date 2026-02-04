@@ -43,8 +43,8 @@ export function AppHeader() {
           <PawPrint className="w-5 h-5 text-primary-foreground" />
         </div>
         <div>
-          <h1 className="text-xl font-bold text-foreground">VetSpace-X</h1>
-          <p className="text-xs text-muted-foreground">Plataforma de Salud Animal Federada</p>
+          <h1 className="text-xl font-bold text-foreground">Global Data Care</h1>
+          <p className="text-xs text-muted-foreground">Espacio de Datos Federado de Salud Animal</p>
         </div>
       </div>
 

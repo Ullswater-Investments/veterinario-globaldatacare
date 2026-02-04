@@ -96,7 +96,7 @@ export default function TechnicalProposal() {
       {/* Hero */}
       <div className="mb-12 pb-8 border-b border-slate-200">
         <h1 className="text-4xl font-bold text-slate-900 mb-4">
-          ACCURO TECHNOLOGY · VetSpace-X Technical Whitepaper
+          ACCURO TECHNOLOGY · Global Data Care Technical Whitepaper
         </h1>
         <p className="text-xl text-slate-600">
           Arquitectura técnica del Espacio de Datos Federado para salud animal en Europa

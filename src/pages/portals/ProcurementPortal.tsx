@@ -30,11 +30,11 @@ const ProcurementPortal = () => {
               <Package className="h-10 w-10 text-emerald-600" />
             </div>
             <h1 className="text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-emerald-600 to-cyan-500">
-              Central de Compras VetSpace-X
+              Central de Compras Global Data Care
             </h1>
             <p className="text-xl text-slate-600 mb-6">
               Planificación y seguimiento de compras de material veterinario
-              conectado al espacio de datos VetSpace-X y a los sistemas de
+              conectado al espacio de datos Global Data Care y a los sistemas de
               cada clínica.
             </p>
             <p className="text-slate-600 mb-8">
@@ -96,7 +96,7 @@ const ProcurementPortal = () => {
                     Datos Federados
                   </CardTitle>
                   <CardDescription className="text-slate-600">
-                    VetSpace-X agrega sólo los datos necesarios (consumo,
+                    Global Data Care agrega sólo los datos necesarios (consumo,
                     stock mínimo, caducidades) sin sacar la historia clínica.
                   </CardDescription>
                 </CardHeader>

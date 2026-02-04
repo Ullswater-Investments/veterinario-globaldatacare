@@ -273,7 +273,7 @@ const ProcurementAdhesion = () => {
           <div className="flex items-center justify-between">
             <Link to="/" className="flex items-center gap-2">
               <PawPrint className="h-8 w-8 text-emerald-600" />
-              <span className="font-bold text-xl">VetSpace-X</span>
+              <span className="font-bold text-xl">Global Data Care</span>
             </Link>
             <a 
               href="/documents/Espacios_de_Datos_Elegibles_KTED.pdf#page=22"
@@ -301,7 +301,7 @@ const ProcurementAdhesion = () => {
             <div className="mx-auto max-w-4xl text-center">
               <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-500/20 px-4 py-2 text-sm font-medium text-emerald-100">
                 <Package className="h-4 w-4" />
-                <span>Central de Compras VetSpace-X</span>
+                <span>Central de Compras Global Data Care</span>
               </div>
               
               <h1 className="mb-6 text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
@@ -369,7 +369,7 @@ const ProcurementAdhesion = () => {
                   <div className="mx-auto p-3 rounded-full bg-cyan-100 w-fit mb-3">
                     <Network className="h-6 w-6 text-cyan-600" />
                   </div>
-                  <h3 className="font-medium text-sm text-foreground">Nodo Local VetSpace-X</h3>
+                  <h3 className="font-medium text-sm text-foreground">Nodo Local Global Data Care</h3>
                   <p className="text-xs text-muted-foreground mt-1">Solo métricas agregadas</p>
                 </div>
 
@@ -441,7 +441,7 @@ const ProcurementAdhesion = () => {
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground mb-4">
-                    Tu sistema de gestión se sincroniza con VetSpace-X para automatizar pedidos 
+                    Tu sistema de gestión se sincroniza con Global Data Care para automatizar pedidos 
                     basados en tu agenda y consumo real. Sin cambiar tu forma de trabajar.
                   </p>
                   <div className="flex items-center gap-2 text-sm text-emerald-600 font-medium">
@@ -1195,7 +1195,7 @@ const ProcurementAdhesion = () => {
                                   />
                                 </FormControl>
                                 <FormLabel className="!mt-0">
-                                  Deseo recibir comunicaciones sobre novedades y ofertas de VetSpace-X (opcional)
+                                  Deseo recibir comunicaciones sobre novedades y ofertas de Global Data Care (opcional)
                                 </FormLabel>
                               </FormItem>
                             )}

@@ -271,7 +271,7 @@ const AdhesionEspacioDatos = () => {
           <div className="flex items-center justify-between">
             <Link to="/" className="flex items-center gap-2">
               <PawPrint className="h-8 w-8 text-primary" />
-              <span className="font-bold text-xl">VetSpace-X</span>
+              <span className="font-bold text-xl">Global Data Care</span>
             </Link>
             <a 
               href="/documents/Espacios_de_Datos_Elegibles_KTED.pdf#page=22"

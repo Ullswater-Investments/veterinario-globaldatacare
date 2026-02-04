@@ -110,7 +110,7 @@ VETERINARIO: Dra. García`;
             El Motor HL7 FHIR
           </h1>
           <p className="text-xl text-slate-300 mb-8">
-            Cómo VetSpace-X traduce la medicina veterinaria al lenguaje universal de la salud
+            Cómo Global Data Care traduce la medicina veterinaria al lenguaje universal de la salud
           </p>
           <Badge className="bg-emerald-600 text-white text-sm px-4 py-2">
             Estándar HL7 FHIR R4 Veterinario
