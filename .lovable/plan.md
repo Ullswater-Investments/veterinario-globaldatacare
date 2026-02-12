@@ -1,31 +1,25 @@
 
 
-# Plan: Boton de Login Super Admin en el Footer
+# Actualizar datos del prestador en contratos legales
 
-## Que se hara
+## Resumen
+Reemplazar todos los datos de "VetSpace Technology S.L." por los datos reales de **ACCURO TECHNOLOGY, S.L.** en los dos documentos legales del flujo de inscripcion.
 
-Anadir una seccion discreta en el footer global con un formulario de login rapido (email + contrasena) para que puedas autenticarte como super administrador sin salir de la pagina actual. Una vez autenticado, se mostrara tu email y un boton de cerrar sesion en su lugar.
+## Datos nuevos del prestador
+- **Razon social:** ACCURO TECHNOLOGY, S.L.
+- **CIF:** B87617981
+- **Domicilio Social:** C/ Colquide, 6 -- Portal 2, 1a planta, Edificio Prisma de Las Rozas -- Madrid
+- **Contacto:** emilio.emulet@accuro.es
+- **Telefono:** 601 398 868
 
-## Comportamiento
+## Archivos a modificar
 
-- Por defecto se muestra un pequeno boton/enlace "Acceso Admin" en la zona inferior del footer
-- Al hacer clic, se despliega un mini formulario inline con campos de email y contrasena
-- Al autenticarse correctamente, el formulario se reemplaza por el email del usuario y un boton "Cerrar sesion"
-- Si ya hay una sesion activa, se muestra directamente el estado autenticado
-- La autenticacion usa el sistema existente de Supabase Auth (signInWithPassword)
+### 1. `src/components/legal/ContractContent.tsx`
+- Linea 27: Cambiar "VetSpace Technology S.L., con NIF B-XXXXXXXX" por "ACCURO TECHNOLOGY, S.L., con CIF B87617981, con domicilio social en C/ Colquide, 6 -- Portal 2, 1a planta, Edificio Prisma de Las Rozas -- Madrid, contacto: emilio.emulet@accuro.es, tel. 601 398 868"
 
-## Cambios tecnicos
+### 2. `src/components/legal/AcceptanceActContent.tsx`
+- Linea 69: Cambiar "VetSpace Technology S.L." por "ACCURO TECHNOLOGY, S.L."
+- Linea 81: Cambiar "VetSpace Technology S.L." por "ACCURO TECHNOLOGY, S.L."
 
-### Archivo: `src/components/ui/GlobalFooter.tsx`
-
-1. Importar `useState` de React, `supabase` client, `useAuth` del AuthContext, componentes `Input`, `Button`, iconos `Lock`, `LogOut`
-2. Anadir estado local `showLogin` (toggle del formulario), `email`, `password`, `loading`
-3. Usar `useAuth()` para obtener `user` y `signOut`
-4. Anadir seccion antes del divider inferior:
-   - Si el usuario NO esta autenticado: boton "Acceso Admin" que muestra/oculta un formulario con email + contrasena + boton "Entrar"
-   - Si el usuario esta autenticado: mostrar email del usuario + boton "Cerrar sesion"
-5. El formulario llama a `supabase.auth.signInWithPassword` y muestra errores con un toast
-6. Estilo discreto acorde al footer oscuro (inputs con fondo slate-900, texto claro)
-
-No se crean tablas ni se modifican otros archivos. Se reutiliza la autenticacion existente.
+Ambos cambios son textuales y no afectan logica ni estructura del componente.
 
