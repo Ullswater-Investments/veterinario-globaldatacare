@@ -1,42 +1,31 @@
 
 
-# Plan: Restringir avance del formulario de inscripcion solo al super administrador
+# Plan: Boton de Login Super Admin en el Footer
 
-## Objetivo
+## Que se hara
 
-Modificar el formulario de inscripcion en `/inscripcion-kit-espacio-datos` para que solo el usuario con email `emilio.emulet@accuro.es` pueda avanzar entre los pasos del formulario (botones "Siguiente" y enviar).
+Anadir una seccion discreta en el footer global con un formulario de login rapido (email + contrasena) para que puedas autenticarte como super administrador sin salir de la pagina actual. Una vez autenticado, se mostrara tu email y un boton de cerrar sesion en su lugar.
 
-## Cambios
+## Comportamiento
 
-### 1. Modificar `src/pages/KitEspacioDatosInscripcion.tsx`
+- Por defecto se muestra un pequeno boton/enlace "Acceso Admin" en la zona inferior del footer
+- Al hacer clic, se despliega un mini formulario inline con campos de email y contrasena
+- Al autenticarse correctamente, el formulario se reemplaza por el email del usuario y un boton "Cerrar sesion"
+- Si ya hay una sesion activa, se muestra directamente el estado autenticado
+- La autenticacion usa el sistema existente de Supabase Auth (signInWithPassword)
 
-- Importar `useAuth` desde `@/contexts/AuthContext`
-- Definir una constante `SUPER_ADMIN_EMAIL = 'emilio.emulet@accuro.es'`
-- Crear una variable `isSuperAdmin` que compare el email del usuario autenticado con la constante
-- Modificar la funcion `nextStep` para que solo avance si `isSuperAdmin` es `true`, mostrando un toast de "Acceso denegado" en caso contrario
-- Modificar el boton de envio final (paso 3) para que tambien este restringido al super administrador
-- Deshabilitar visualmente los botones "Siguiente" y "Enviar" si no es super admin, mostrando un mensaje informativo
+## Cambios tecnicos
 
-## Detalles Tecnicos
+### Archivo: `src/components/ui/GlobalFooter.tsx`
 
-| Archivo | Cambio |
-|---------|--------|
-| `src/pages/KitEspacioDatosInscripcion.tsx` | Agregar import de `useAuth`, constante de email admin, logica de verificacion en `nextStep` y en el submit, deshabilitar botones visualmente |
+1. Importar `useState` de React, `supabase` client, `useAuth` del AuthContext, componentes `Input`, `Button`, iconos `Lock`, `LogOut`
+2. Anadir estado local `showLogin` (toggle del formulario), `email`, `password`, `loading`
+3. Usar `useAuth()` para obtener `user` y `signOut`
+4. Anadir seccion antes del divider inferior:
+   - Si el usuario NO esta autenticado: boton "Acceso Admin" que muestra/oculta un formulario con email + contrasena + boton "Entrar"
+   - Si el usuario esta autenticado: mostrar email del usuario + boton "Cerrar sesion"
+5. El formulario llama a `supabase.auth.signInWithPassword` y muestra errores con un toast
+6. Estilo discreto acorde al footer oscuro (inputs con fondo slate-900, texto claro)
 
-### Logica de verificacion
-
-```text
-const { user } = useAuth();
-const SUPER_ADMIN_EMAIL = 'emilio.emulet@accuro.es';
-const isSuperAdmin = user?.email === SUPER_ADMIN_EMAIL;
-```
-
-- En `nextStep`: si no es super admin, mostrar toast y no avanzar
-- En boton "Enviar Solicitud": deshabilitado si no es super admin
-- Mensaje visual debajo de los botones indicando que se requiere acceso de administrador
-
-## Resultado
-
-- Solo tu (con el email `emilio.emulet@accuro.es` y sesion iniciada) podras navegar por los 3 pasos y enviar el formulario
-- Cualquier otro usuario vera los botones deshabilitados con un mensaje explicativo
+No se crean tablas ni se modifican otros archivos. Se reutiliza la autenticacion existente.
 
