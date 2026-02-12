@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useSearchParams, Link } from 'react-router-dom';
+import { useAuth } from '@/contexts/AuthContext';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -89,9 +90,13 @@ const formSchema = z.object({
   terms_accepted: z.boolean().refine(val => val === true, 'Debes aceptar las condiciones de participación')
 });
 type FormData = z.infer<typeof formSchema>;
+const SUPER_ADMIN_EMAIL = 'emilio.emulet@accuro.es';
+
 const KitEspacioDatosInscripcion = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
+  const { user } = useAuth();
+  const isSuperAdmin = user?.email === SUPER_ADMIN_EMAIL;
   const [step, setStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -178,6 +183,14 @@ const KitEspacioDatosInscripcion = () => {
     }
   };
   const nextStep = async () => {
+    if (!isSuperAdmin) {
+      toast({
+        title: 'Acceso denegado',
+        description: 'Solo el administrador puede avanzar en el formulario.',
+        variant: 'destructive',
+      });
+      return;
+    }
     let fieldsToValidate: (keyof FormData)[] = [];
     if (step === 1) {
       fieldsToValidate = ['clinic_name', 'cif', 'address', 'postal_code', 'city', 'province', 'phone', 'email'];
@@ -394,11 +407,14 @@ const KitEspacioDatosInscripcion = () => {
                           </FormItem>} />
                     </div>
 
-                    <div className="flex justify-end pt-4">
-                      <Button type="button" onClick={nextStep} size="lg">
+                    <div className="flex flex-col items-end gap-2 pt-4">
+                      <Button type="button" onClick={nextStep} size="lg" disabled={!isSuperAdmin}>
                         Siguiente
                         <ArrowRight className="ml-2 h-4 w-4" />
                       </Button>
+                      {!isSuperAdmin && (
+                        <p className="text-xs text-destructive">Requiere acceso de administrador</p>
+                      )}
                     </div>
                   </CardContent>
                 </Card>}
@@ -460,15 +476,20 @@ const KitEspacioDatosInscripcion = () => {
                           </FormItem>} />
                     </div>
 
-                    <div className="flex justify-between pt-4">
-                      <Button type="button" onClick={prevStep} variant="outline" size="lg">
-                        <ArrowLeft className="mr-2 h-4 w-4" />
-                        Anterior
-                      </Button>
-                      <Button type="button" onClick={nextStep} size="lg">
-                        Siguiente
-                        <ArrowRight className="ml-2 h-4 w-4" />
-                      </Button>
+                    <div className="flex flex-col gap-2 pt-4">
+                      <div className="flex justify-between">
+                        <Button type="button" onClick={prevStep} variant="outline" size="lg">
+                          <ArrowLeft className="mr-2 h-4 w-4" />
+                          Anterior
+                        </Button>
+                        <Button type="button" onClick={nextStep} size="lg" disabled={!isSuperAdmin}>
+                          Siguiente
+                          <ArrowRight className="ml-2 h-4 w-4" />
+                        </Button>
+                      </div>
+                      {!isSuperAdmin && (
+                        <p className="text-xs text-destructive text-right">Requiere acceso de administrador</p>
+                      )}
                     </div>
                   </CardContent>
                 </Card>}
@@ -686,15 +707,20 @@ const KitEspacioDatosInscripcion = () => {
                           </FormItem>} />
                     </div>
 
-                    <div className="flex justify-between pt-4">
-                      <Button type="button" onClick={prevStep} variant="outline" size="lg">
-                        <ArrowLeft className="mr-2 h-4 w-4" />
-                        Anterior
-                      </Button>
-                      <Button type="submit" size="lg" disabled={isSubmitting}>
-                        {isSubmitting ? 'Enviando...' : 'Enviar Solicitud'}
-                        <Send className="ml-2 h-4 w-4" />
-                      </Button>
+                    <div className="flex flex-col gap-2 pt-4">
+                      <div className="flex justify-between">
+                        <Button type="button" onClick={prevStep} variant="outline" size="lg">
+                          <ArrowLeft className="mr-2 h-4 w-4" />
+                          Anterior
+                        </Button>
+                        <Button type="submit" size="lg" disabled={isSubmitting || !isSuperAdmin}>
+                          {isSubmitting ? 'Enviando...' : 'Enviar Solicitud'}
+                          <Send className="ml-2 h-4 w-4" />
+                        </Button>
+                      </div>
+                      {!isSuperAdmin && (
+                        <p className="text-xs text-destructive text-right">Requiere acceso de administrador para enviar</p>
+                      )}
                     </div>
                   </CardContent>
                 </Card>}
