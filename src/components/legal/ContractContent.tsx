@@ -76,7 +76,7 @@ const ContractContent = ({ clinicName = '[NOMBRE DE LA CLÍNICA]' }: ContractCon
             <p className="text-sm font-semibold text-green-800">FASE 2 (PRÓRROGA AUTOMÁTICA CONDICIONADA):</p>
             <p className="text-sm text-green-700">
               En el supuesto de que EL CLIENTE resulte BENEFICIARIO de la ayuda "Kit Espacio de Datos", 
-              el contrato se <strong>PRORROGARÁ AUTOMÁTICAMENTE</strong> por un periodo adicional de DOCE (12) MESES.
+              el contrato se <strong>PRORROGARÁ AUTOMÁTICAMENTE</strong> por un periodo adicional de VEINTICUATRO (24) MESES.
             </p>
             <p className="text-xs text-green-600 mt-2">
               EL CLIENTE acepta irrevocablemente esta prórroga en caso de concesión de la ayuda, 
