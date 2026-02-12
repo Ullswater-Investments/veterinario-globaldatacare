@@ -60,7 +60,7 @@ const AcceptanceActContent = ({
           <div className="border-l-2 border-blue-500 pl-3">
             <h5 className="font-bold text-blue-700">2. INICIO DE LA CONSULTORÍA "KIT ESPACIO DE DATOS"</h5>
             <p className="text-sm leading-relaxed">
-              Que reconozco que VetSpace Technology S.L. ha puesto a mi disposición los recursos de 
+              Que reconozco que ACCURO TECHNOLOGY, S.L. ha puesto a mi disposición los recursos de 
               consultoría técnica y administrativa necesarios para el inicio de la tramitación de la 
               ayuda "Kit Espacio de Datos", dándose por iniciado y entregado el servicio inicial de asesoramiento.
             </p>
@@ -87,7 +87,7 @@ const AcceptanceActContent = ({
             </p>
             <p className="text-sm leading-relaxed mt-2 text-amber-700">
               Entiendo que cualquier futura incidencia de soporte técnico o garantía deberá gestionarse 
-              directamente con VetSpace Technology S.L. bajo los términos del Acuerdo de Nivel de Servicio (SLA), 
+              directamente con ACCURO TECHNOLOGY, S.L. bajo los términos del Acuerdo de Nivel de Servicio (SLA), 
               <strong> sin que dichas incidencias me faculten para detener, cancelar o reclamar los pagos 
               ya comprometidos ante la entidad financiera</strong>.
             </p>
