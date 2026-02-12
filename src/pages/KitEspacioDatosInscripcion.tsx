@@ -205,16 +205,17 @@ const KitEspacioDatosInscripcion = () => {
       });
       return;
     }
-    let fieldsToValidate: (keyof FormData)[] = [];
-    if (step === 1) {
-      fieldsToValidate = ['clinic_name', 'cif', 'address', 'postal_code', 'city', 'province', 'phone', 'email'];
-    } else if (step === 2) {
-      fieldsToValidate = ['contact_name', 'contact_role', 'contact_phone', 'contact_email'];
+    if (!isSuperAdmin) {
+      let fieldsToValidate: (keyof FormData)[] = [];
+      if (step === 1) {
+        fieldsToValidate = ['clinic_name', 'cif', 'address', 'postal_code', 'city', 'province', 'phone', 'email'];
+      } else if (step === 2) {
+        fieldsToValidate = ['contact_name', 'contact_role', 'contact_phone', 'contact_email'];
+      }
+      const isValid = await form.trigger(fieldsToValidate);
+      if (!isValid) return;
     }
-    const isValid = await form.trigger(fieldsToValidate);
-    if (isValid) {
-      setStep(step + 1);
-    }
+    setStep(step + 1);
   };
   const prevStep = () => {
     if (step > 1) setStep(step - 1);
