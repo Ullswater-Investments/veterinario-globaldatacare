@@ -284,7 +284,7 @@ const ContratoKitEspacioDatos = () => {
                           </div>
                         </CardHeader>
                         <CardContent className="text-sm space-y-2">
-                          <p>Si EL CLIENTE resulte <strong>BENEFICIARIO</strong> de la ayuda, el contrato se <strong>PRORROGARÁ AUTOMÁTICAMENTE</strong> por DOCE (12) MESES adicionales.</p>
+                          <p>Si EL CLIENTE resulte <strong>BENEFICIARIO</strong> de la ayuda, el contrato se <strong>PRORROGARÁ AUTOMÁTICAMENTE</strong> por VEINTICUATRO (24) MESES adicionales.</p>
                         </CardContent>
                       </Card>
                     </CardContent>

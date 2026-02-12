@@ -50,7 +50,7 @@ const CondicionesKitEspacioDatos = () => {
     answer: 'No. La Fase 1 es irrevocable dado que los recursos técnicos y de consultoría se ponen a disposición desde el día 1 de la firma. Esta condición garantiza la viabilidad del servicio de tramitación.'
   }, {
     question: '¿Qué pasa si me conceden la subvención?',
-    answer: 'El contrato se prorroga automáticamente por 12 meses adicionales (Fase 2). El precio de esta fase será equivalente al importe de la subvención concedida (entre 15.000€ y 30.000€), que será abonado directamente por el organismo público.'
+    answer: 'El contrato se prorroga automáticamente por 24 meses adicionales (Fase 2). El precio de esta fase será equivalente al importe de la subvención concedida (entre 15.000€ y 30.000€), que será abonado directamente por el organismo público.'
   }, {
     question: '¿Qué es el Acta de Conformidad?',
     answer: 'Es un documento digital que certifica la recepción efectiva del servicio (credenciales de acceso, inicio de consultoría). Su firma activa irrevocablemente las obligaciones de pago ante la entidad financiera Hokodo.'
@@ -334,7 +334,7 @@ const CondicionesKitEspacioDatos = () => {
                       <Badge className="bg-green-500 hover:bg-green-600">FASE 2 (Condicional)</Badge>
                       <CheckCircle2 className="h-5 w-5 text-green-600" />
                     </div>
-                    <CardTitle className="text-xl">Renovación automática 1 año</CardTitle>
+                    <CardTitle className="text-xl">Renovación automática 2 años</CardTitle>
                     <p className="text-sm text-muted-foreground mt-1">Solo si se consigue la subvención</p>
                   </CardHeader>
                   <CardContent className="space-y-4">
