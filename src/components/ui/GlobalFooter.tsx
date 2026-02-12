@@ -1,11 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowUp, Home, ExternalLink, Gavel, Mail, Phone, MapPin } from "lucide-react";
+import { ArrowUp, Home, ExternalLink, Gavel, Mail, Phone, MapPin, Lock, LogOut } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
+import { useAuth } from "@/contexts/AuthContext";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { toast } from "@/hooks/use-toast";
 
 export const GlobalFooter: React.FC = () => {
+  const { user, signOut } = useAuth();
+  const [showLogin, setShowLogin] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+
   const scrollToTop = () => {
     if (typeof window !== "undefined") {
       window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    const { error } = await supabase.auth.signInWithPassword({ email, password });
+    setLoading(false);
+    if (error) {
+      toast({ title: "Error de acceso", description: error.message, variant: "destructive" });
+    } else {
+      setShowLogin(false);
+      setEmail("");
+      setPassword("");
+      toast({ title: "Sesión iniciada" });
     }
   };
 
@@ -81,6 +107,64 @@ export const GlobalFooter: React.FC = () => {
             Subir
             <ArrowUp className="w-4 h-4 group-hover:-translate-y-1 transition-transform" />
           </button>
+        </div>
+
+        {/* Admin Login Section */}
+        <div className="border-t border-slate-800 pt-6 mb-6">
+          {user ? (
+            <div className="flex items-center gap-3 text-xs">
+              <Lock className="w-3.5 h-3.5 text-slate-500" />
+              <span className="text-slate-400">{user.email}</span>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={signOut}
+                className="h-7 px-2 text-xs text-slate-400 hover:text-white hover:bg-slate-800"
+              >
+                <LogOut className="w-3 h-3 mr-1" />
+                Cerrar sesión
+              </Button>
+            </div>
+          ) : (
+            <div className="space-y-3">
+              <button
+                type="button"
+                onClick={() => setShowLogin(!showLogin)}
+                className="flex items-center gap-2 text-xs text-slate-600 hover:text-slate-400 transition-colors"
+              >
+                <Lock className="w-3 h-3" />
+                Acceso Admin
+              </button>
+              {showLogin && (
+                <form onSubmit={handleLogin} className="flex flex-wrap items-end gap-2 max-w-md">
+                  <Input
+                    type="email"
+                    placeholder="Email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                    className="h-8 text-xs bg-slate-900 border-slate-700 text-slate-200 placeholder:text-slate-600 w-48"
+                  />
+                  <Input
+                    type="password"
+                    placeholder="Contraseña"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                    className="h-8 text-xs bg-slate-900 border-slate-700 text-slate-200 placeholder:text-slate-600 w-40"
+                  />
+                  <Button
+                    type="submit"
+                    size="sm"
+                    disabled={loading}
+                    className="h-8 text-xs px-3"
+                  >
+                    {loading ? "..." : "Entrar"}
+                  </Button>
+                </form>
+              )}
+            </div>
+          )}
         </div>
 
         {/* Bottom Divider & Extra Info */}
