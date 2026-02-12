@@ -20,7 +20,7 @@ const ContractContent = ({ clinicName = '[NOMBRE DE LA CLÍNICA]' }: ContractCon
         <section className="space-y-3">
           <h4 className="font-bold text-primary">REUNIDOS</h4>
           <p className="text-sm leading-relaxed">
-            <strong>DE UNA PARTE:</strong> VetSpace Technology S.L., con NIF B-XXXXXXXX, 
+            <strong>DE UNA PARTE:</strong> ACCURO TECHNOLOGY, S.L., con CIF B87617981, con domicilio social en C/ Colquide, 6 – Portal 2, 1ª planta, Edificio Prisma de Las Rozas – Madrid, contacto: emilio.emulet@accuro.es, tel. 601 398 868, 
             en adelante <em>"EL PRESTADOR"</em>.
           </p>
           <p className="text-sm leading-relaxed">
