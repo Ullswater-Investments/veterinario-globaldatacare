@@ -165,12 +165,26 @@ const KitEspacioDatosInscripcion = () => {
         utm_campaign: searchParams.get('utm_campaign')
       }).select('id').single();
       if (error) throw error;
-      setReferenceId(result.id.slice(0, 8).toUpperCase());
+      const refId = result.id.slice(0, 8).toUpperCase();
+      setReferenceId(refId);
       setIsSuccess(true);
       toast({
         title: '¡Solicitud enviada!',
         description: 'Nos pondremos en contacto contigo en 48 horas.'
       });
+
+      // Send notification email (non-blocking)
+      supabase.functions.invoke('send-inscription-email', {
+        body: {
+          clinicName: data.clinic_name,
+          cif: data.cif.toUpperCase(),
+          email: data.email,
+          contactName: data.contact_name,
+          contactEmail: data.contact_email,
+          contactPhone: data.contact_phone,
+          referenceId: refId,
+        },
+      }).catch((err) => console.error('Email notification error:', err));
     } catch (error: any) {
       console.error('Error submitting inscription:', error);
       toast({
