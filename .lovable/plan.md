@@ -1,46 +1,41 @@
 
-# Conectar ProjectAssistant a la Edge Function platform-chat
+# Corregir datos del Kit Espacio de Datos en el SYSTEM_PROMPT
 
-## Resumen
-Reescribir `src/components/ProjectAssistant.tsx` para reemplazar la logica hardcoded de if/else por llamadas reales a la edge function `platform-chat` con streaming SSE, reutilizando el mismo patron de `PlatformChatbot.tsx`.
+## Cambio unico
 
-## Cambios en un unico archivo
+### `supabase/functions/platform-chat/index.ts` (lineas 55-60)
 
-### `src/components/ProjectAssistant.tsx`
+Reemplazar la seccion actual del Kit Espacio de Datos:
 
-**Se elimina:**
-- Funcion `getResponse()` completa (lineas 7-39) con todas las reglas if/else
-- Logica sincrona de `handleSend()` que generaba respuestas instantaneas
+```
+- Cuota: 190 EUR/mes — subvencionable hasta 100% via KTED
+- Opcion A: Adhesion directa al espacio de datos veterinario
+- Opcion B: Adhesion con migracion de datos desde sistema actual
+- Subvencion: Hasta 25.000 EUR para pymes de 10-49 empleados
+- Mas informacion: enlaces
+```
 
-**Se anade:**
-- Import de `ReactMarkdown`, `Loader2`, `toast` (de sonner)
-- Constante `CHAT_URL` apuntando a la edge function `platform-chat`
-- Estado `isLoading` para controlar el indicador de carga
-- Funcion asincrona `send()` con:
-  - POST a la edge function con historial de mensajes
-  - Lectura de stream SSE con `ReadableStream.getReader()` + `TextDecoder`
-  - Parseo linea a linea (`data: {json}`) extrayendo `choices[0].delta.content`
-  - Actualizacion progresiva del ultimo mensaje asistente (patron `upsertAssistant`)
-  - Flush final del buffer
-  - Manejo de errores 429 (rate limit), 402 (creditos) y genericos con `toast.error()`
-- Renderizado de mensajes asistente con `ReactMarkdown` (soporte negrita, enlaces, listas)
-- Indicador visual "Pensando..." con `Loader2` animado mientras llega la respuesta
+Por el texto corregido:
 
-**Se mantiene intacto:**
-- Boton flotante con icono `Sparkles` en esquina inferior izquierda
-- Panel desplegable con header `bg-accent`, boton cerrar con `X`
-- Estilos de burbujas: usuario (`bg-accent`) y asistente (`bg-secondary/50`)
-- Estado `isOpen` para abrir/cerrar
-- Posicion `fixed z-50 bottom-24 left-4`
-- Mensaje de bienvenida (actualizado para reflejar que ahora es IA real)
+```
+- Cuota de adhesion y suscripcion: 190 EUR/mes (IVA no incluido)
+- Subvencion: Hasta 30.000 EUR por entidad adherida (programa KTED de Red.es)
+- Plazo de inscripcion: Hasta el 20 de Marzo de 2026
+- Fase 1: 6 meses de implementacion
+- Fase 2: 24 meses de renovacion automatica
+- Garantia: 90% de exito en obtencion de la subvencion
+- Mas informacion: enlaces (se mantienen)
+```
 
-**Se actualiza:**
-- Mensaje de bienvenida: de "asistente offline" a "asistente IA de VetSpace"
-- Input deshabilitado durante carga (`disabled={isLoading}`)
-- Boton enviar deshabilitado durante carga
+## Datos corregidos
 
-## Sin nuevas dependencias
-`react-markdown`, `sonner` y `lucide-react` ya estan instalados.
+| Campo | Antes | Despues |
+|-------|-------|---------|
+| Cuota | 190 EUR/mes subvencionable 100% | 190 EUR/mes (IVA no incluido) |
+| Opciones A/B | Existian | Eliminadas |
+| Subvencion | 25.000 EUR para pymes 10-49 | 30.000 EUR por entidad adherida |
+| Fase 1 | No mencionada | 6 meses |
+| Fase 2 | No mencionada | 24 meses renovacion automatica |
+| Garantia | No mencionada | 90% exito |
 
-## Sin cambios en otros archivos
-La edge function `platform-chat` ya existe y funciona. No se necesitan cambios en `App.tsx` ni en ningun otro archivo.
+La edge function se redesplegara automaticamente tras el cambio.
