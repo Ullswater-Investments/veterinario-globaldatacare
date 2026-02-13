@@ -9,6 +9,7 @@ import { InteroperabilitySection } from '@/components/home/InteroperabilitySecti
 import { FinalCTA } from '@/components/home/FinalCTA';
 import { GlobalFooter } from "@/components/ui/GlobalFooter";
 import { KitDatosCampaignBanner } from '@/components/home/KitDatosCampaignBanner';
+import { PlatformChatbot } from '@/components/home/PlatformChatbot';
 import logosKitDigital from '@/assets/logos-kit-digital.jpg';
 
 const Landing = () => {
@@ -334,6 +335,12 @@ const Landing = () => {
               Explorar Arquitectura Técnica
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
+          </div>
+
+          <div className="mt-16">
+            <h3 className="text-2xl font-bold text-center mb-2">Pregunta a nuestro asistente IA</h3>
+            <p className="text-center text-muted-foreground mb-6">Resuelve tus dudas sobre VetSpace, módulos, precios y subvenciones</p>
+            <PlatformChatbot />
           </div>
         </div>
       </section>
