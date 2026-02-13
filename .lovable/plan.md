@@ -1,20 +1,19 @@
 
-# Añadir datos de contacto de Emilio Mulet al SYSTEM_PROMPT
+
+# Personalizar mensaje de WhatsApp para Emilio Mulet
 
 ## Cambio unico
 
-### `supabase/functions/platform-chat/index.ts` (linea 82)
+### `src/components/ui/WhatsAppButton.tsx`
 
-Se inserta una nueva instruccion de comportamiento (punto 10) justo antes del cierre del template literal, entre las lineas 82 y 83:
+Actualizar los mensajes pre-escritos en la funcion `getMessage()` para dirigirse a Emilio Mulet:
 
-```
-10. Si preguntan por contacto, email o teléfono, proporciona los datos del Director de Global Data Care: **Emilio Mulet** (email: emilio.emulet@accuro.es, teléfono directo: 601 398 868). Además, redirige a [Adhesión al Espacio de Datos](${BASE_URL}/solutions/adhesion) e [Inscripción](${BASE_URL}/inscripcion-kit-espacio-datos)
-```
+- **Con sesion activa**: "Hola Emilio, soy [email], contacto desde Global Data Care y necesito ayuda."
+- **Sin sesion**: "Hola Emilio! Contacto desde Global Data Care y necesito ayuda."
 
-La linea 82 actual termina con el punto 9 y el cierre del template literal. Se anadira el punto 10 antes de ese cierre.
+Tambien actualizar el tooltip para que diga "Contactar con Emilio" en lugar de "¿Necesitas ayuda?".
 
-## Impacto
+## Detalle tecnico
 
-Ambos asistentes IA (PlatformChatbot en la landing y ProjectAssistant flotante) usaran la misma edge function y proporcionaran los datos de contacto correctos cuando el usuario pregunte.
+El numero de WhatsApp (`34601398868`) ya es correcto y no se modifica. Solo se cambian los textos del mensaje y el tooltip en el componente `WhatsAppButton.tsx`.
 
-No se requieren cambios en ningun otro archivo.
