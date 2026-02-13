@@ -1,46 +1,46 @@
 
-# Implementacion del boton "Asistente IA" en todo el portal
+# Conectar ProjectAssistant a la Edge Function platform-chat
 
 ## Resumen
-Anadir un boton "Asistente IA" en la navegacion superior de todas las paginas, que al pulsarlo navegue a la landing page y haga scroll automatico hasta el chatbot PlatformChatbot. Se modificaran 5 archivos.
+Reescribir `src/components/ProjectAssistant.tsx` para reemplazar la logica hardcoded de if/else por llamadas reales a la edge function `platform-chat` con streaming SSE, reutilizando el mismo patron de `PlatformChatbot.tsx`.
 
-## Cambios a realizar
+## Cambios en un unico archivo
 
-### 1. `src/components/ui/NavigationControls.tsx`
-- Importar `MessageCircle` de lucide-react
-- Anadir un tercer boton con `asChild` + `<a href="/#asistente-ia">` para que el navegador gestione el hash y el scroll
-- Esto cubre automaticamente todas las paginas que usan este componente (Dashboard, Wallet, Research, etc.)
+### `src/components/ProjectAssistant.tsx`
 
-### 2. `src/pages/Index.tsx` (linea 340)
-- Anadir `id="asistente-ia"` al div contenedor del chatbot (el `<div className="mt-16">` que envuelve el titulo y PlatformChatbot)
+**Se elimina:**
+- Funcion `getResponse()` completa (lineas 7-39) con todas las reglas if/else
+- Logica sincrona de `handleSend()` que generaba respuestas instantaneas
 
-### 3. `src/components/ScrollToTop.tsx`
-- Extraer `hash` de `useLocation()`
-- Si hay hash, buscar el elemento con `document.getElementById` y hacer `scrollIntoView({ behavior: "smooth" })` con un `setTimeout` de 100ms
-- Si no hay hash, mantener el comportamiento actual (scroll al inicio)
+**Se anade:**
+- Import de `ReactMarkdown`, `Loader2`, `toast` (de sonner)
+- Constante `CHAT_URL` apuntando a la edge function `platform-chat`
+- Estado `isLoading` para controlar el indicador de carga
+- Funcion asincrona `send()` con:
+  - POST a la edge function con historial de mensajes
+  - Lectura de stream SSE con `ReadableStream.getReader()` + `TextDecoder`
+  - Parseo linea a linea (`data: {json}`) extrayendo `choices[0].delta.content`
+  - Actualizacion progresiva del ultimo mensaje asistente (patron `upsertAssistant`)
+  - Flush final del buffer
+  - Manejo de errores 429 (rate limit), 402 (creditos) y genericos con `toast.error()`
+- Renderizado de mensajes asistente con `ReactMarkdown` (soporte negrita, enlaces, listas)
+- Indicador visual "Pensando..." con `Loader2` animado mientras llega la respuesta
 
-### 4. `src/pages/tech/TechIndex.tsx` (linea ~48-57)
-- Importar `MessageCircle`
-- Anadir boton `<Button asChild variant="ghost"><a href="/#asistente-ia">...</a></Button>` junto al boton "Volver al Inicio"
+**Se mantiene intacto:**
+- Boton flotante con icono `Sparkles` en esquina inferior izquierda
+- Panel desplegable con header `bg-accent`, boton cerrar con `X`
+- Estilos de burbujas: usuario (`bg-accent`) y asistente (`bg-secondary/50`)
+- Estado `isOpen` para abrir/cerrar
+- Posicion `fixed z-50 bottom-24 left-4`
+- Mensaje de bienvenida (actualizado para reflejar que ahora es IA real)
 
-### 5. `src/pages/portals/InsurancePortal.tsx` (linea ~48-57)
-- Importar `MessageCircle`
-- Anadir boton con estilo tema oscuro (`text-white hover:bg-slate-700`) junto al boton "Volver al Inicio"
+**Se actualiza:**
+- Mensaje de bienvenida: de "asistente offline" a "asistente IA de VetSpace"
+- Input deshabilitado durante carga (`disabled={isLoading}`)
+- Boton enviar deshabilitado durante carga
 
-### 6. `src/pages/CondicionesKitEspacioDatos.tsx` (linea ~72-84)
-- Importar `MessageCircle`
-- Anadir enlace `<a href="/#asistente-ia">` en el header sticky, entre el enlace "Volver al inicio" y el boton "Solicitar Inscripcion"
+## Sin nuevas dependencias
+`react-markdown`, `sonner` y `lucide-react` ya estan instalados.
 
-### Pagina omitida
-- `StrategicPresentation.tsx`: presentacion a pantalla completa con boton circular de cierre, diseno incompatible con boton de texto.
-
-## Seccion tecnica
-
-### Por que `asChild` + `<a>` en vez de `navigate()`
-React Router `navigate('/#asistente-ia')` no gestiona el scroll al hash de forma nativa. Un enlace `<a href="/#asistente-ia">` si lo hace, y combinado con el fix de ScrollToTop garantiza scroll suave al elemento.
-
-### Orden de ejecucion
-1. ScrollToTop (fix del hash) - necesario para que el scroll funcione
-2. Index.tsx (ancla id) - necesario como destino
-3. NavigationControls (boton centralizado) - cubre la mayoria de paginas
-4. Paginas con nav personalizada - TechIndex, InsurancePortal, CondicionesKitEspacioDatos
+## Sin cambios en otros archivos
+La edge function `platform-chat` ya existe y funciona. No se necesitan cambios en `App.tsx` ni en ningun otro archivo.
