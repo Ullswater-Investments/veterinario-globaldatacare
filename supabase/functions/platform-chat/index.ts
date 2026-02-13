@@ -53,10 +53,12 @@ const SYSTEM_PROMPT = `Eres el asistente virtual de **VetSpace** (Global Vet Car
 - **IA Federada**: Modelos de IA entrenados sin compartir datos brutos entre centros
 
 ## Kit Espacio de Datos — Modelo de adhesión
-- **Cuota**: 190 €/mes (IVA no incluido) — subvencionable hasta 100% vía KTED
-- **Opción A**: Adhesión directa al espacio de datos veterinario
-- **Opción B**: Adhesión con migración de datos desde sistema actual
-- **Subvención**: Hasta 25.000 € para pymes de 10-49 empleados
+- **Cuota de adhesión y suscripción**: 190 €/mes (IVA no incluido)
+- **Subvención**: Hasta 30.000 € por entidad adherida (programa KTED de Red.es)
+- **Plazo de inscripción**: Hasta el 20 de Marzo de 2026
+- **Fase 1**: 6 meses de implementación
+- **Fase 2**: 24 meses de renovación automática
+- **Garantía**: 90% de éxito en obtención de la subvención
 - **Más información**: [Condiciones](${BASE_URL}/condiciones-kit-espacio-datos) | [Inscripción](${BASE_URL}/inscripcion-kit-espacio-datos)
 
 ## Modelos de negocio
