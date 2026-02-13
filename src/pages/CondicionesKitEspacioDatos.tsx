@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Separator } from '@/components/ui/separator';
-import { Euro, Clock, Target, ArrowRight, CheckCircle2, Lock, FileCheck, Users, Headphones, FileText, PawPrint, AlertTriangle, Shield, Building2, Banknote, Calendar, ArrowLeft, ScrollText, Info } from 'lucide-react';
+import { Euro, Clock, Target, ArrowRight, CheckCircle2, Lock, FileCheck, Users, Headphones, FileText, PawPrint, AlertTriangle, Shield, Building2, Banknote, Calendar, ArrowLeft, ScrollText, Info, MessageCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 import logoGobiernoRedEs from '@/assets/logo-gobierno-red-es.png';
 import logoKitEspacioDatos from '@/assets/logo-kit-espacio-datos.jpg';
@@ -71,10 +71,16 @@ const CondicionesKitEspacioDatos = () => {
       {/* Header */}
       <header className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
-            <ArrowLeft className="h-4 w-4" />
-            <span className="text-sm">Volver al inicio</span>
-          </Link>
+          <div className="flex items-center gap-3">
+            <Link to="/" className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
+              <ArrowLeft className="h-4 w-4" />
+              <span className="text-sm">Volver al inicio</span>
+            </Link>
+            <a href="/#asistente-ia" className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
+              <MessageCircle className="h-4 w-4" />
+              <span className="text-sm">Asistente IA</span>
+            </a>
+          </div>
           <Link to="/inscripcion-kit-espacio-datos">
             <Button size="sm" className="bg-primary hover:bg-primary/90">
               <PawPrint className="mr-2 h-4 w-4" />
