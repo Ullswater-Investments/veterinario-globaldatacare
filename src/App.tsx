@@ -73,6 +73,7 @@ import AdhesionEspacioDatos from "./pages/solutions/AdhesionEspacioDatos";
 import BusinessProposalModal from "@/components/business/BusinessProposalModal";
 
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
+import ProjectAssistant from "@/components/ProjectAssistant";
 import MobilePresentation from "./pages/presentation/MobilePresentation";
 import InvestorPitchDeck from "./pages/presentation/InvestorPitchDeck";
 import StrategicPresentation from "./pages/StrategicPresentation";
@@ -112,6 +113,7 @@ const App = () => (
               <BusinessProposalModal />
               
               <WhatsAppButton />
+              <ProjectAssistant />
               <Routes>
 
                 {/* Public Landing & Auth */}
