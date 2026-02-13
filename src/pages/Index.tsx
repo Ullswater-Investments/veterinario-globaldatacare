@@ -337,7 +337,7 @@ const Landing = () => {
             </Button>
           </div>
 
-          <div className="mt-16">
+          <div id="asistente-ia" className="mt-16">
             <h3 className="text-2xl font-bold text-center mb-2">Pregunta a nuestro asistente IA</h3>
             <p className="text-center text-muted-foreground mb-6">Resuelve tus dudas sobre VetSpace, módulos, precios y subvenciones</p>
             <PlatformChatbot />

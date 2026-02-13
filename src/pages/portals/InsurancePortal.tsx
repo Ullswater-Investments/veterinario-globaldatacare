@@ -12,7 +12,8 @@ import {
   ArrowLeft,
   Shield,
   Zap,
-  Stethoscope
+  Stethoscope,
+  MessageCircle
 } from 'lucide-react';
 
 const InsurancePortal = () => {
@@ -46,14 +47,22 @@ const InsurancePortal = () => {
     <div className="min-h-screen bg-gradient-to-b from-slate-900 to-blue-900">
       {/* Back Button */}
       <div className="container mx-auto px-4 pt-6">
-        <Button 
-          variant="ghost" 
-          onClick={() => navigate('/')}
-          className="mb-4 text-white hover:bg-slate-700"
-        >
-          <ArrowLeft className="mr-2 h-4 w-4" />
-          Volver al Inicio
-        </Button>
+        <div className="flex items-center gap-2">
+          <Button 
+            variant="ghost" 
+            onClick={() => navigate('/')}
+            className="mb-4 text-white hover:bg-slate-700"
+          >
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Volver al Inicio
+          </Button>
+          <Button variant="ghost" asChild className="mb-4 text-white hover:bg-slate-700">
+            <a href="/#asistente-ia">
+              <MessageCircle className="mr-2 h-4 w-4" />
+              Asistente IA
+            </a>
+          </Button>
+        </div>
       </div>
 
       {/* Hero Header */}

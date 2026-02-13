@@ -6,7 +6,8 @@ import {
   Lock, 
   Database,
   ArrowLeft,
-  ArrowRight
+  ArrowRight,
+  MessageCircle
 } from 'lucide-react';
 
 const TechIndex = () => {
@@ -49,14 +50,22 @@ const TechIndex = () => {
     <div className="min-h-screen bg-gradient-to-b from-white to-slate-50">
       {/* Back Button */}
       <div className="container mx-auto px-4 pt-6">
-        <Button 
-          variant="ghost" 
-          onClick={() => navigate('/')}
-          className="mb-4"
-        >
-          <ArrowLeft className="mr-2 h-4 w-4" />
-          Volver al Inicio
-        </Button>
+        <div className="flex items-center gap-2">
+          <Button 
+            variant="ghost" 
+            onClick={() => navigate('/')}
+            className="mb-4"
+          >
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Volver al Inicio
+          </Button>
+          <Button variant="ghost" asChild className="mb-4">
+            <a href="/#asistente-ia">
+              <MessageCircle className="mr-2 h-4 w-4" />
+              Asistente IA
+            </a>
+          </Button>
+        </div>
       </div>
 
       {/* Hero */}

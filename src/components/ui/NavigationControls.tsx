@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { useNavigate } from "react-router-dom";
-import { Home, ArrowLeft } from "lucide-react";
+import { Home, ArrowLeft, MessageCircle } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 
@@ -31,6 +31,12 @@ export const NavigationControls: FC = () => {
       >
         <Home className="w-4 h-4" />
         <span className="hidden sm:inline">Inicio</span>
+      </Button>
+      <Button variant="ghost" size="sm" asChild className="cursor-pointer">
+        <a href="/#asistente-ia">
+          <MessageCircle className="w-4 h-4" />
+          <span className="hidden sm:inline">Asistente IA</span>
+        </a>
       </Button>
     </nav>
   );
