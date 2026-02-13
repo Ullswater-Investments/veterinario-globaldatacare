@@ -1,60 +1,85 @@
 
-# Documento Markdown: Arquitectura del Banner de Campana y Paginas Enlazadas
+
+# Implementacion del Asistente IA para el Portal Veterinario (VetSpace)
 
 ## Resumen
-Crear un nuevo documento `docs/ARQUITECTURA-KIT-DATOS-BANNER.md` que explique en detalle como esta construido y disenado el componente `KitDatosCampaignBanner` y todas las paginas a las que enlaza, incluyendo su estructura tecnica, flujo de navegacion, logica de negocio, componentes legales, backend y edge functions.
+Implementar un asistente IA conversacional con streaming en la seccion "Arquitectura de Confianza" de la landing page, siguiendo la guia proporcionada. Se crearan 3 componentes nuevos, 1 edge function y se modificaran 2 archivos existentes.
 
-## Contenido del documento
+## Componentes a crear
 
-El documento cubrira las siguientes secciones:
+### 1. Edge Function: `supabase/functions/platform-chat/index.ts`
+- Servidor Deno con CORS headers
+- `BASE_URL` = `https://wonder-bloom-flow.lovable.app`
+- `SYSTEM_PROMPT` extenso adaptado al sector veterinario con:
+  - Identidad: VetSpace / Global Vet Care / ACCURO TECHNOLOGY, S.L.
+  - 6 modulos: Gestion Veterinaria, Pasaporte Digital (DPP), Tutor/Pet Parent Wallet, Investigacion One Health, Abastecimiento Inteligente, Excelencia Veterinaria (KPIs)
+  - URLs de portales: `/portal/doctor`, `/portal/lab`, `/portal/patient`, `/portal/research`, `/portal/insurance`, `/portal/procurement`
+  - URLs de demos: `/demo/tutor`, `/demo/vet`, `/demo/clinic`, `/demo/research`
+  - Arquitectura tecnica: FHIR Vet Extension, Gaia-X, blockchain, SSI, DPP, IoT
+  - Kit Espacio de Datos: modelo 190 euros/mes, opciones A y B
+  - Instrucciones de comportamiento: responder en espanol, incluir enlaces markdown, maximo 300 palabras
+- Llamada a Lovable AI Gateway con `google/gemini-3-flash-preview` y streaming
+- Manejo de errores 429, 402, 500
+- Reenvio del stream SSE al frontend
 
-### 1. KitDatosCampaignBanner (Componente Principal)
-- Ubicacion: `src/components/home/KitDatosCampaignBanner.tsx`
-- Estructura visual: header con badges animados (Framer Motion), mensaje principal, beneficios, boton hero CTA con efecto shimmer, botones secundarios, logos institucionales
-- Dependencias: `framer-motion`, `lucide-react`, `react-router-dom`, componentes UI internos (Button, Badge)
-- Assets: `logo-gobierno-red-es.png`, `logo-kit-espacio-datos.jpg`
-- Integracion en `src/pages/Index.tsx` (Landing page)
+### 2. Componente: `src/components/home/PlatformChatbot.tsx`
+- Tipo de mensajes: `{ role: 'user' | 'assistant'; content: string }`
+- URL del chat: `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/platform-chat`
+- Mensaje de bienvenida adaptado a veterinaria
+- Funcion `send()` con streaming SSE (parseo linea a linea, flush final)
+- Renderizado con `react-markdown` (enlaces con target="_blank")
+- 4 preguntas iniciales (`INITIAL_SUGGESTIONS`) sobre el portal veterinario
+- 3 sets de 4 preguntas de seguimiento (`FOLLOWUP_SUGGESTIONS`) con rotacion
+- UI: header con gradiente, ScrollArea 320px, burbujas diferenciadas, indicador "Pensando...", input con Enter
 
-### 2. Pagina de Condiciones (`/condiciones-kit-espacio-datos`)
-- Archivo: `src/pages/CondicionesKitEspacioDatos.tsx` (579 lineas)
-- Secciones: Hero, Pricing Card con criterios de subvencion, Resumen ejecutivo (3 cards), Timeline de Fases (Fase 1 y Fase 2), Calculadora ROI, Grid de cuotas mensuales, Servicios incluidos, FAQ Accordion, Aviso legal, CTA final
-- Datos hardcoded: serviciosIncluidos (7 items), faqItems (7 preguntas)
-- Animaciones: fadeInUp con Framer Motion
+### 3. Componente: `src/components/ProjectAssistant.tsx`
+- Boton flotante en esquina inferior derecha con icono Sparkles
+- Panel expandible de 480px
+- Respuestas basadas en reglas (sin API, sin IA) por keywords:
+  - precio/negocio/kit/subvencion -> info sobre modelo de negocio
+  - paciente/wallet/tutor -> info sobre portal del tutor
+  - pasaporte/dpp/vacuna -> info sobre trazabilidad
+  - clinica/veterinario/centro -> info sobre gestion clinica
+  - investigacion/research/one health -> info sobre investigacion federada
+  - compras/supply/stock -> info sobre abastecimiento
+  - kpi/dashboard/indicadores -> info sobre metricas
+  - Respuesta generica por defecto
 
-### 3. Pagina del Contrato Completo (`/contrato-kit-espacio-datos`)
-- Archivo: `src/pages/ContratoKitEspacioDatos.tsx` (656 lineas)
-- Seccion 1: Contrato Principal con 12 clausulas legales
-- Seccion 2: Acta de Entrega y Conformidad con 5 puntos de certificacion
-- Mecanismo de scroll-to-accept: scroll listener que detecta llegada al final (margen 300px)
-- Checkboxes bloqueados hasta scroll completo
-- Timestamp de aceptacion guardado en localStorage
-- Redireccion a inscripcion con query params (`contrato_leido`, `acta_leida`, `timestamp`)
+## Archivos a modificar
 
-### 4. Formulario de Inscripcion (`/inscripcion-kit-espacio-datos`)
-- Archivo: `src/pages/KitEspacioDatosInscripcion.tsx` (763 lineas)
-- Formulario multi-step (3 pasos): Datos Clinica, Responsable, Confirmacion
-- Validacion con Zod + React Hook Form
-- Super-admin bypass para `emilio.emulet@accuro.es`
-- Paso 3 incluye: info adicional, seleccion de modulos, ContractContent embebido (ScrollArea), AcceptanceActContent embebido, consentimientos
-- Submit: insert en tabla `kit_inscriptions` + invocacion edge function `send-inscription-email`
+### 4. `src/pages/Index.tsx`
+- Importar `PlatformChatbot`
+- Insertar el chatbot dentro de la seccion "Arquitectura de Confianza" (linea ~337), despues del boton "Explorar Arquitectura Tecnica" y antes del cierre de la seccion
+- Envolver en un div con titulo "Pregunta a nuestro asistente IA..."
 
-### 5. Componentes Legales
-- `ContractContent.tsx`: contrato en ScrollArea (350px), 7 clausulas, recibe `clinicName` como prop
-- `AcceptanceActContent.tsx`: acta en ScrollArea (300px), 5 puntos de certificacion, recibe `clinicName` y `contactName`
+### 5. `supabase/config.toml`
+- Anadir configuracion de la nueva edge function:
+```
+[functions.platform-chat]
+verify_jwt = false
+```
 
-### 6. Backend (Edge Function + Base de Datos)
-- Edge Function: `supabase/functions/send-inscription-email/index.ts` -- envia email via Resend API a `emilio.emulet@accuro.es`
-- Tabla: `kit_inscriptions` con todos los campos del formulario + timestamps + UTM params
+### 6. `src/App.tsx`
+- Importar `ProjectAssistant`
+- Renderizar como componente global junto a `WhatsAppButton`
 
-### 7. Paginas Adicionales Enlazadas
-- `/guia-kit-espacio-datos`: Guia completa del programa (620 lineas)
-- `/propuesta-kit-espacio-datos`: Propuesta detallada del Kit
-- `/legal`: Aviso legal
+## Dependencias
+- Instalar `react-markdown` (no existe actualmente en el proyecto)
 
-### 8. Diagrama de Flujo de Navegacion
-- Mapa completo de rutas y enlaces entre componentes
+## Secretos
+- `LOVABLE_API_KEY` ya esta configurado automaticamente -- no requiere accion
 
-## Archivo a crear
-- `docs/ARQUITECTURA-KIT-DATOS-BANNER.md`
+## Seccion tecnica detallada
 
-El documento sera exhaustivo y autosuficiente para que cualquier desarrollador (o IA) pueda entender y replicar toda la funcionalidad.
+### Streaming SSE (PlatformChatbot)
+La funcion `send()` implementa:
+1. POST al endpoint con historial de mensajes
+2. Lectura con `ReadableStream.getReader()` + `TextDecoder`
+3. Parseo linea a linea buscando `data: {json}`
+4. Extraccion de `choices[0].delta.content`
+5. Actualizacion progresiva del ultimo mensaje asistente (no crear uno nuevo por token)
+6. Flush del buffer final para tokens que lleguen sin newline
+
+### Posicion del FloatingChat existente
+El proyecto ya tiene un `FloatingChat` en `src/components/ui/FloatingChat.tsx`. El nuevo `ProjectAssistant` se posicionara en la esquina inferior izquierda para no solaparse con el FloatingChat ni el WhatsAppButton que estan a la derecha.
+
