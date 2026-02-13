@@ -1,52 +1,23 @@
 import { useState, useRef, useEffect } from 'react';
-import { Sparkles, X, Send } from 'lucide-react';
+import { Sparkles, X, Send, Loader2 } from 'lucide-react';
 import { ScrollArea } from '@/components/ui/scroll-area';
+import ReactMarkdown from 'react-markdown';
+import { toast } from 'sonner';
 
 type Msg = { role: 'user' | 'assistant'; content: string };
 
-const getResponse = (input: string): string => {
-  const lower = input.toLowerCase();
-
-  if (/precio|negocio|kit|subvenci[oó]n|coste|cuota|190/.test(lower)) {
-    return '💰 El modelo de adhesión al Espacio de Datos Veterinario tiene una cuota de **190 €/mes** (IVA no incluido), subvencionable hasta el 100% a través del programa Kit Espacio de Datos. Existen dos opciones: **Opción A** (adhesión directa) y **Opción B** (con migración de datos). Consulta los detalles en la [página de condiciones](/condiciones-kit-espacio-datos) o [inscríbete directamente](/inscripcion-kit-espacio-datos).';
-  }
-
-  if (/paciente|wallet|tutor|propietario|mascota|dueño/.test(lower)) {
-    return '🐾 El **Wallet del Tutor** es la cartera digital del propietario de la mascota. Incluye historial clínico completo, vacunas, desparasitaciones, citas, facturas y consentimientos firmados digitalmente. Usa credenciales verificables (SSI) para compartir datos de forma segura. Puedes ver una demo en [Portal Tutor](/portal/patient) o probar la [Demo Tutor](/demo/tutor).';
-  }
-
-  if (/pasaporte|dpp|vacuna|trazabilidad|blockchain|qr/.test(lower)) {
-    return '📦 El **Pasaporte Digital de Producto (DPP)** permite la trazabilidad completa de vacunas, medicamentos, piensos y productos veterinarios mediante blockchain. Cada producto tiene un código QR/DataMatrix verificable. Cumple con la normativa europea EUDCC-Vet. Más info en [Trazabilidad](/tech/dpp) o [Pasaportes Digitales](/solutions/product-passport).';
-  }
-
-  if (/cl[ií]nica|veterinari|centro|gesti[oó]n|fhir|historia/.test(lower)) {
-    return '🏥 El módulo de **Gestión Veterinaria** incluye historia clínica electrónica con extensiones FHIR Vet, triaje inteligente, prescripción electrónica, laboratorio integrado y hospitalización con monitorización IoT. Explora el [Portal Veterinario](/portal/doctor) o prueba la [Demo Veterinario](/demo/vet).';
-  }
-
-  if (/investigaci[oó]n|research|one health|zoonosis|epidemiolog/.test(lower)) {
-    return '🔬 El módulo de **Investigación One Health** ofrece un marketplace de datos clínicos anonimizados para investigación veterinaria, zoonosis y epidemiología. Utiliza computación federada para analizar datos sin moverlos entre centros. Accede al [Portal Investigación](/portal/research) o la [Demo Investigación](/demo/research).';
-  }
-
-  if (/compra|supply|stock|inventario|proveedor|abastecimiento/.test(lower)) {
-    return '📦 El módulo de **Abastecimiento Inteligente** incluye central de compras con predicción de demanda IoT, gestión de stock automatizada, pedidos inteligentes y comparativa de proveedores. Visita el [Portal Compras](/portal/procurement).';
-  }
-
-  if (/kpi|dashboard|indicador|m[eé]trica|benchmark/.test(lower)) {
-    return '📊 El módulo de **Excelencia Veterinaria (KPIs)** ofrece dashboards con indicadores clínicos, operativos y de satisfacción del tutor. Incluye benchmarking anónimo entre centros para comparar rendimiento. Explora el [Panel KPIs](/portal/kpi) o las páginas detalladas de [Resultados Clínicos](/kpi/clinical-outcomes), [Flujo Operativo](/kpi/operational-flow) y [Voz del Tutor](/kpi/tutor-voice).';
-  }
-
-  return '👋 Soy el asistente del proyecto VetSpace. Puedo ayudarte con información sobre los **módulos de la plataforma**, **precios y subvenciones**, el **Wallet del Tutor**, el **Pasaporte Digital**, **investigación One Health**, la **central de compras** o los **KPIs**. ¿Sobre qué tema quieres saber más?';
-};
+const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/platform-chat`;
 
 const ProjectAssistant = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Msg[]>([
     {
       role: 'assistant',
-      content: '👋 ¡Hola! Soy el asistente offline del proyecto VetSpace. Puedo resolver dudas rápidas sobre módulos, precios, tecnología y más. ¿Qué necesitas?',
+      content: '👋 ¡Hola! Soy el asistente IA de VetSpace. Puedo resolver dudas sobre módulos, precios, tecnología y más. ¿Qué necesitas?',
     },
   ]);
   const [input, setInput] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -55,16 +26,114 @@ const ProjectAssistant = () => {
     }
   }, [messages]);
 
-  const handleSend = () => {
+  const handleSend = async () => {
     const trimmed = input.trim();
-    if (!trimmed) return;
+    if (!trimmed || isLoading) return;
 
     const userMsg: Msg = { role: 'user', content: trimmed };
-    const answer = getResponse(trimmed);
-    const assistantMsg: Msg = { role: 'assistant', content: answer };
-
-    setMessages((prev) => [...prev, userMsg, assistantMsg]);
+    const updatedMessages = [...messages, userMsg];
+    setMessages(updatedMessages);
     setInput('');
+    setIsLoading(true);
+
+    let assistantSoFar = '';
+
+    const upsertAssistant = (chunk: string) => {
+      assistantSoFar += chunk;
+      setMessages((prev) => {
+        const last = prev[prev.length - 1];
+        if (last?.role === 'assistant' && prev.length > updatedMessages.length) {
+          return prev.map((m, i) => (i === prev.length - 1 ? { ...m, content: assistantSoFar } : m));
+        }
+        return [...prev.slice(0, -1), ...prev.slice(-1), { role: 'assistant', content: assistantSoFar }];
+      });
+    };
+
+    try {
+      const resp = await fetch(CHAT_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
+        },
+        body: JSON.stringify({
+          messages: updatedMessages.map((m) => ({ role: m.role, content: m.content })),
+        }),
+      });
+
+      if (!resp.ok) {
+        const errData = await resp.json().catch(() => ({}));
+        if (resp.status === 429) {
+          toast.error('Demasiadas solicitudes. Inténtalo en unos segundos.');
+        } else if (resp.status === 402) {
+          toast.error('Créditos de IA agotados. Contacta con el administrador.');
+        } else {
+          toast.error(errData.error || 'Error del servicio de IA.');
+        }
+        setIsLoading(false);
+        return;
+      }
+
+      if (!resp.body) throw new Error('No stream body');
+
+      const reader = resp.body.getReader();
+      const decoder = new TextDecoder();
+      let textBuffer = '';
+      let streamDone = false;
+
+      while (!streamDone) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        textBuffer += decoder.decode(value, { stream: true });
+
+        let newlineIndex: number;
+        while ((newlineIndex = textBuffer.indexOf('\n')) !== -1) {
+          let line = textBuffer.slice(0, newlineIndex);
+          textBuffer = textBuffer.slice(newlineIndex + 1);
+
+          if (line.endsWith('\r')) line = line.slice(0, -1);
+          if (line.startsWith(':') || line.trim() === '') continue;
+          if (!line.startsWith('data: ')) continue;
+
+          const jsonStr = line.slice(6).trim();
+          if (jsonStr === '[DONE]') {
+            streamDone = true;
+            break;
+          }
+
+          try {
+            const parsed = JSON.parse(jsonStr);
+            const content = parsed.choices?.[0]?.delta?.content as string | undefined;
+            if (content) upsertAssistant(content);
+          } catch {
+            textBuffer = line + '\n' + textBuffer;
+            break;
+          }
+        }
+      }
+
+      // Final flush
+      if (textBuffer.trim()) {
+        for (let raw of textBuffer.split('\n')) {
+          if (!raw) continue;
+          if (raw.endsWith('\r')) raw = raw.slice(0, -1);
+          if (raw.startsWith(':') || raw.trim() === '') continue;
+          if (!raw.startsWith('data: ')) continue;
+          const jsonStr = raw.slice(6).trim();
+          if (jsonStr === '[DONE]') continue;
+          try {
+            const parsed = JSON.parse(jsonStr);
+            const content = parsed.choices?.[0]?.delta?.content as string | undefined;
+            if (content) upsertAssistant(content);
+          } catch { /* ignore */ }
+        }
+      }
+    } catch (e) {
+      console.error('ProjectAssistant error:', e);
+      toast.error('Error de conexión con el asistente.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -104,9 +173,29 @@ const ProjectAssistant = () => {
                       : 'bg-secondary/50 text-foreground rounded-tl-sm'
                   }`}
                 >
-                  {m.content}
+                  {m.role === 'assistant' ? (
+                    <ReactMarkdown
+                      components={{
+                        a: ({ href, children }) => (
+                          <a href={href} className="text-primary underline hover:opacity-80" target="_blank" rel="noopener noreferrer">
+                            {children}
+                          </a>
+                        ),
+                      }}
+                    >
+                      {m.content}
+                    </ReactMarkdown>
+                  ) : (
+                    m.content
+                  )}
                 </div>
               ))}
+              {isLoading && messages[messages.length - 1]?.role === 'user' && (
+                <div className="flex items-center gap-2 text-muted-foreground text-xs">
+                  <Loader2 className="h-3 w-3 animate-spin" />
+                  Pensando...
+                </div>
+              )}
             </div>
           </ScrollArea>
 
@@ -117,11 +206,12 @@ const ProjectAssistant = () => {
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && handleSend()}
               placeholder="Pregunta sobre el proyecto…"
-              className="flex-1 bg-muted/50 rounded-full px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-accent/50"
+              disabled={isLoading}
+              className="flex-1 bg-muted/50 rounded-full px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-accent/50 disabled:opacity-50"
             />
             <button
               onClick={handleSend}
-              disabled={!input.trim()}
+              disabled={!input.trim() || isLoading}
               className="shrink-0 p-2 rounded-full hover:bg-muted transition-colors disabled:opacity-40"
             >
               <Send className="h-4 w-4" />
