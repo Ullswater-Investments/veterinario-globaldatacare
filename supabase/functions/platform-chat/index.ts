@@ -1,4 +1,4 @@
-import { serve } from "https://deno.land/std@0.177.0/http/server.ts";
+// No external imports needed - using Deno.serve
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -82,7 +82,7 @@ Ver detalles: [Modelos de Negocio](${BASE_URL}/business/models)
 9. Si preguntan por funcionalidades específicas, enlaza al portal o demo correspondiente
 10. Si preguntan por contacto, email o teléfono, proporciona los datos del Director de Global Data Care: **Emilio Mulet** (email: emilio.emulet@accuro.es, teléfono directo: 601 398 868). Además, redirige a [Adhesión al Espacio de Datos](${BASE_URL}/solutions/adhesion) e [Inscripción](${BASE_URL}/inscripcion-kit-espacio-datos)`;
 
-serve(async (req) => {
+Deno.serve(async (req) => {
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
   }
