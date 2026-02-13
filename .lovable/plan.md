@@ -1,85 +1,46 @@
 
-
-# Implementacion del Asistente IA para el Portal Veterinario (VetSpace)
+# Implementacion del boton "Asistente IA" en todo el portal
 
 ## Resumen
-Implementar un asistente IA conversacional con streaming en la seccion "Arquitectura de Confianza" de la landing page, siguiendo la guia proporcionada. Se crearan 3 componentes nuevos, 1 edge function y se modificaran 2 archivos existentes.
+Anadir un boton "Asistente IA" en la navegacion superior de todas las paginas, que al pulsarlo navegue a la landing page y haga scroll automatico hasta el chatbot PlatformChatbot. Se modificaran 5 archivos.
 
-## Componentes a crear
+## Cambios a realizar
 
-### 1. Edge Function: `supabase/functions/platform-chat/index.ts`
-- Servidor Deno con CORS headers
-- `BASE_URL` = `https://wonder-bloom-flow.lovable.app`
-- `SYSTEM_PROMPT` extenso adaptado al sector veterinario con:
-  - Identidad: VetSpace / Global Vet Care / ACCURO TECHNOLOGY, S.L.
-  - 6 modulos: Gestion Veterinaria, Pasaporte Digital (DPP), Tutor/Pet Parent Wallet, Investigacion One Health, Abastecimiento Inteligente, Excelencia Veterinaria (KPIs)
-  - URLs de portales: `/portal/doctor`, `/portal/lab`, `/portal/patient`, `/portal/research`, `/portal/insurance`, `/portal/procurement`
-  - URLs de demos: `/demo/tutor`, `/demo/vet`, `/demo/clinic`, `/demo/research`
-  - Arquitectura tecnica: FHIR Vet Extension, Gaia-X, blockchain, SSI, DPP, IoT
-  - Kit Espacio de Datos: modelo 190 euros/mes, opciones A y B
-  - Instrucciones de comportamiento: responder en espanol, incluir enlaces markdown, maximo 300 palabras
-- Llamada a Lovable AI Gateway con `google/gemini-3-flash-preview` y streaming
-- Manejo de errores 429, 402, 500
-- Reenvio del stream SSE al frontend
+### 1. `src/components/ui/NavigationControls.tsx`
+- Importar `MessageCircle` de lucide-react
+- Anadir un tercer boton con `asChild` + `<a href="/#asistente-ia">` para que el navegador gestione el hash y el scroll
+- Esto cubre automaticamente todas las paginas que usan este componente (Dashboard, Wallet, Research, etc.)
 
-### 2. Componente: `src/components/home/PlatformChatbot.tsx`
-- Tipo de mensajes: `{ role: 'user' | 'assistant'; content: string }`
-- URL del chat: `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/platform-chat`
-- Mensaje de bienvenida adaptado a veterinaria
-- Funcion `send()` con streaming SSE (parseo linea a linea, flush final)
-- Renderizado con `react-markdown` (enlaces con target="_blank")
-- 4 preguntas iniciales (`INITIAL_SUGGESTIONS`) sobre el portal veterinario
-- 3 sets de 4 preguntas de seguimiento (`FOLLOWUP_SUGGESTIONS`) con rotacion
-- UI: header con gradiente, ScrollArea 320px, burbujas diferenciadas, indicador "Pensando...", input con Enter
+### 2. `src/pages/Index.tsx` (linea 340)
+- Anadir `id="asistente-ia"` al div contenedor del chatbot (el `<div className="mt-16">` que envuelve el titulo y PlatformChatbot)
 
-### 3. Componente: `src/components/ProjectAssistant.tsx`
-- Boton flotante en esquina inferior derecha con icono Sparkles
-- Panel expandible de 480px
-- Respuestas basadas en reglas (sin API, sin IA) por keywords:
-  - precio/negocio/kit/subvencion -> info sobre modelo de negocio
-  - paciente/wallet/tutor -> info sobre portal del tutor
-  - pasaporte/dpp/vacuna -> info sobre trazabilidad
-  - clinica/veterinario/centro -> info sobre gestion clinica
-  - investigacion/research/one health -> info sobre investigacion federada
-  - compras/supply/stock -> info sobre abastecimiento
-  - kpi/dashboard/indicadores -> info sobre metricas
-  - Respuesta generica por defecto
+### 3. `src/components/ScrollToTop.tsx`
+- Extraer `hash` de `useLocation()`
+- Si hay hash, buscar el elemento con `document.getElementById` y hacer `scrollIntoView({ behavior: "smooth" })` con un `setTimeout` de 100ms
+- Si no hay hash, mantener el comportamiento actual (scroll al inicio)
 
-## Archivos a modificar
+### 4. `src/pages/tech/TechIndex.tsx` (linea ~48-57)
+- Importar `MessageCircle`
+- Anadir boton `<Button asChild variant="ghost"><a href="/#asistente-ia">...</a></Button>` junto al boton "Volver al Inicio"
 
-### 4. `src/pages/Index.tsx`
-- Importar `PlatformChatbot`
-- Insertar el chatbot dentro de la seccion "Arquitectura de Confianza" (linea ~337), despues del boton "Explorar Arquitectura Tecnica" y antes del cierre de la seccion
-- Envolver en un div con titulo "Pregunta a nuestro asistente IA..."
+### 5. `src/pages/portals/InsurancePortal.tsx` (linea ~48-57)
+- Importar `MessageCircle`
+- Anadir boton con estilo tema oscuro (`text-white hover:bg-slate-700`) junto al boton "Volver al Inicio"
 
-### 5. `supabase/config.toml`
-- Anadir configuracion de la nueva edge function:
-```
-[functions.platform-chat]
-verify_jwt = false
-```
+### 6. `src/pages/CondicionesKitEspacioDatos.tsx` (linea ~72-84)
+- Importar `MessageCircle`
+- Anadir enlace `<a href="/#asistente-ia">` en el header sticky, entre el enlace "Volver al inicio" y el boton "Solicitar Inscripcion"
 
-### 6. `src/App.tsx`
-- Importar `ProjectAssistant`
-- Renderizar como componente global junto a `WhatsAppButton`
+### Pagina omitida
+- `StrategicPresentation.tsx`: presentacion a pantalla completa con boton circular de cierre, diseno incompatible con boton de texto.
 
-## Dependencias
-- Instalar `react-markdown` (no existe actualmente en el proyecto)
+## Seccion tecnica
 
-## Secretos
-- `LOVABLE_API_KEY` ya esta configurado automaticamente -- no requiere accion
+### Por que `asChild` + `<a>` en vez de `navigate()`
+React Router `navigate('/#asistente-ia')` no gestiona el scroll al hash de forma nativa. Un enlace `<a href="/#asistente-ia">` si lo hace, y combinado con el fix de ScrollToTop garantiza scroll suave al elemento.
 
-## Seccion tecnica detallada
-
-### Streaming SSE (PlatformChatbot)
-La funcion `send()` implementa:
-1. POST al endpoint con historial de mensajes
-2. Lectura con `ReadableStream.getReader()` + `TextDecoder`
-3. Parseo linea a linea buscando `data: {json}`
-4. Extraccion de `choices[0].delta.content`
-5. Actualizacion progresiva del ultimo mensaje asistente (no crear uno nuevo por token)
-6. Flush del buffer final para tokens que lleguen sin newline
-
-### Posicion del FloatingChat existente
-El proyecto ya tiene un `FloatingChat` en `src/components/ui/FloatingChat.tsx`. El nuevo `ProjectAssistant` se posicionara en la esquina inferior izquierda para no solaparse con el FloatingChat ni el WhatsAppButton que estan a la derecha.
-
+### Orden de ejecucion
+1. ScrollToTop (fix del hash) - necesario para que el scroll funcione
+2. Index.tsx (ancla id) - necesario como destino
+3. NavigationControls (boton centralizado) - cubre la mayoria de paginas
+4. Paginas con nav personalizada - TechIndex, InsurancePortal, CondicionesKitEspacioDatos
