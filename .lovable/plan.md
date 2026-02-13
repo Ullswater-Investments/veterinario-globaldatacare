@@ -1,41 +1,20 @@
 
-# Corregir datos del Kit Espacio de Datos en el SYSTEM_PROMPT
+# Añadir datos de contacto de Emilio Mulet al SYSTEM_PROMPT
 
 ## Cambio unico
 
-### `supabase/functions/platform-chat/index.ts` (lineas 55-60)
+### `supabase/functions/platform-chat/index.ts` (linea 82)
 
-Reemplazar la seccion actual del Kit Espacio de Datos:
-
-```
-- Cuota: 190 EUR/mes — subvencionable hasta 100% via KTED
-- Opcion A: Adhesion directa al espacio de datos veterinario
-- Opcion B: Adhesion con migracion de datos desde sistema actual
-- Subvencion: Hasta 25.000 EUR para pymes de 10-49 empleados
-- Mas informacion: enlaces
-```
-
-Por el texto corregido:
+Se inserta una nueva instruccion de comportamiento (punto 10) justo antes del cierre del template literal, entre las lineas 82 y 83:
 
 ```
-- Cuota de adhesion y suscripcion: 190 EUR/mes (IVA no incluido)
-- Subvencion: Hasta 30.000 EUR por entidad adherida (programa KTED de Red.es)
-- Plazo de inscripcion: Hasta el 20 de Marzo de 2026
-- Fase 1: 6 meses de implementacion
-- Fase 2: 24 meses de renovacion automatica
-- Garantia: 90% de exito en obtencion de la subvencion
-- Mas informacion: enlaces (se mantienen)
+10. Si preguntan por contacto, email o teléfono, proporciona los datos del Director de Global Data Care: **Emilio Mulet** (email: emilio.emulet@accuro.es, teléfono directo: 601 398 868). Además, redirige a [Adhesión al Espacio de Datos](${BASE_URL}/solutions/adhesion) e [Inscripción](${BASE_URL}/inscripcion-kit-espacio-datos)
 ```
 
-## Datos corregidos
+La linea 82 actual termina con el punto 9 y el cierre del template literal. Se anadira el punto 10 antes de ese cierre.
 
-| Campo | Antes | Despues |
-|-------|-------|---------|
-| Cuota | 190 EUR/mes subvencionable 100% | 190 EUR/mes (IVA no incluido) |
-| Opciones A/B | Existian | Eliminadas |
-| Subvencion | 25.000 EUR para pymes 10-49 | 30.000 EUR por entidad adherida |
-| Fase 1 | No mencionada | 6 meses |
-| Fase 2 | No mencionada | 24 meses renovacion automatica |
-| Garantia | No mencionada | 90% exito |
+## Impacto
 
-La edge function se redesplegara automaticamente tras el cambio.
+Ambos asistentes IA (PlatformChatbot en la landing y ProjectAssistant flotante) usaran la misma edge function y proporcionaran los datos de contacto correctos cuando el usuario pregunte.
+
+No se requieren cambios en ningun otro archivo.
