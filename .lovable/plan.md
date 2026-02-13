@@ -1,21 +1,60 @@
 
-
-# Cambiar renovacion automatica de 1 ano a 2 anos
+# Documento Markdown: Arquitectura del Banner de Campana y Paginas Enlazadas
 
 ## Resumen
-Actualizar todas las referencias contractuales de "12 meses" / "1 ano" a "24 meses" / "2 anos" en la duracion de la Fase 2 (prorroga automatica por concesion de subvencion).
+Crear un nuevo documento `docs/ARQUITECTURA-KIT-DATOS-BANNER.md` que explique en detalle como esta construido y disenado el componente `KitDatosCampaignBanner` y todas las paginas a las que enlaza, incluyendo su estructura tecnica, flujo de navegacion, logica de negocio, componentes legales, backend y edge functions.
 
-## Archivos a modificar
+## Contenido del documento
 
-### 1. `src/pages/CondicionesKitEspacioDatos.tsx`
-- **Linea 337**: Cambiar "Renovacion automatica 1 ano" por "Renovacion automatica 2 anos"
-- **Linea 53**: En la FAQ, cambiar "12 meses adicionales" por "24 meses adicionales"
+El documento cubrira las siguientes secciones:
 
-### 2. `src/components/legal/ContractContent.tsx`
-- **Linea 79**: Cambiar "DOCE (12) MESES" por "VEINTICUATRO (24) MESES" en la clausula de prorroga automatica de Fase 2
+### 1. KitDatosCampaignBanner (Componente Principal)
+- Ubicacion: `src/components/home/KitDatosCampaignBanner.tsx`
+- Estructura visual: header con badges animados (Framer Motion), mensaje principal, beneficios, boton hero CTA con efecto shimmer, botones secundarios, logos institucionales
+- Dependencias: `framer-motion`, `lucide-react`, `react-router-dom`, componentes UI internos (Button, Badge)
+- Assets: `logo-gobierno-red-es.png`, `logo-kit-espacio-datos.jpg`
+- Integracion en `src/pages/Index.tsx` (Landing page)
 
-### 3. `src/pages/ContratoKitEspacioDatos.tsx`
-- **Linea 287**: Cambiar "DOCE (12) MESES" por "VEINTICUATRO (24) MESES" en la tarjeta resumen de Fase 2
+### 2. Pagina de Condiciones (`/condiciones-kit-espacio-datos`)
+- Archivo: `src/pages/CondicionesKitEspacioDatos.tsx` (579 lineas)
+- Secciones: Hero, Pricing Card con criterios de subvencion, Resumen ejecutivo (3 cards), Timeline de Fases (Fase 1 y Fase 2), Calculadora ROI, Grid de cuotas mensuales, Servicios incluidos, FAQ Accordion, Aviso legal, CTA final
+- Datos hardcoded: serviciosIncluidos (7 items), faqItems (7 preguntas)
+- Animaciones: fadeInUp con Framer Motion
 
-Todos los cambios son textuales y no afectan logica ni estructura de los componentes. Solo se modifican las referencias a la duracion de la Fase 2 del contrato.
+### 3. Pagina del Contrato Completo (`/contrato-kit-espacio-datos`)
+- Archivo: `src/pages/ContratoKitEspacioDatos.tsx` (656 lineas)
+- Seccion 1: Contrato Principal con 12 clausulas legales
+- Seccion 2: Acta de Entrega y Conformidad con 5 puntos de certificacion
+- Mecanismo de scroll-to-accept: scroll listener que detecta llegada al final (margen 300px)
+- Checkboxes bloqueados hasta scroll completo
+- Timestamp de aceptacion guardado en localStorage
+- Redireccion a inscripcion con query params (`contrato_leido`, `acta_leida`, `timestamp`)
 
+### 4. Formulario de Inscripcion (`/inscripcion-kit-espacio-datos`)
+- Archivo: `src/pages/KitEspacioDatosInscripcion.tsx` (763 lineas)
+- Formulario multi-step (3 pasos): Datos Clinica, Responsable, Confirmacion
+- Validacion con Zod + React Hook Form
+- Super-admin bypass para `emilio.emulet@accuro.es`
+- Paso 3 incluye: info adicional, seleccion de modulos, ContractContent embebido (ScrollArea), AcceptanceActContent embebido, consentimientos
+- Submit: insert en tabla `kit_inscriptions` + invocacion edge function `send-inscription-email`
+
+### 5. Componentes Legales
+- `ContractContent.tsx`: contrato en ScrollArea (350px), 7 clausulas, recibe `clinicName` como prop
+- `AcceptanceActContent.tsx`: acta en ScrollArea (300px), 5 puntos de certificacion, recibe `clinicName` y `contactName`
+
+### 6. Backend (Edge Function + Base de Datos)
+- Edge Function: `supabase/functions/send-inscription-email/index.ts` -- envia email via Resend API a `emilio.emulet@accuro.es`
+- Tabla: `kit_inscriptions` con todos los campos del formulario + timestamps + UTM params
+
+### 7. Paginas Adicionales Enlazadas
+- `/guia-kit-espacio-datos`: Guia completa del programa (620 lineas)
+- `/propuesta-kit-espacio-datos`: Propuesta detallada del Kit
+- `/legal`: Aviso legal
+
+### 8. Diagrama de Flujo de Navegacion
+- Mapa completo de rutas y enlaces entre componentes
+
+## Archivo a crear
+- `docs/ARQUITECTURA-KIT-DATOS-BANNER.md`
+
+El documento sera exhaustivo y autosuficiente para que cualquier desarrollador (o IA) pueda entender y replicar toda la funcionalidad.
