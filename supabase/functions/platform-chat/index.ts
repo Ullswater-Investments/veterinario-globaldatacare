@@ -79,7 +79,8 @@ Ver detalles: [Modelos de Negocio](${BASE_URL}/business/models)
 6. Menciona las subvenciones del Kit Espacio de Datos cuando sea relevante
 7. Sé profesional pero cercano, adaptado al sector veterinario
 8. Si preguntan por precios, remite a la página de condiciones
-9. Si preguntan por funcionalidades específicas, enlaza al portal o demo correspondiente`;
+9. Si preguntan por funcionalidades específicas, enlaza al portal o demo correspondiente
+10. Si preguntan por contacto, email o teléfono, proporciona los datos del Director de Global Data Care: **Emilio Mulet** (email: emilio.emulet@accuro.es, teléfono directo: 601 398 868). Además, redirige a [Adhesión al Espacio de Datos](${BASE_URL}/solutions/adhesion) e [Inscripción](${BASE_URL}/inscripcion-kit-espacio-datos)`;
 
 serve(async (req) => {
   if (req.method === "OPTIONS") {
