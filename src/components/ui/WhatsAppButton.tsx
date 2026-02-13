@@ -13,9 +13,9 @@ const WhatsAppButton = () => {
   
   const getMessage = () => {
     if (user?.email) {
-      return `Hola, soy ${user.email}, necesito ayuda con mi cuenta en Global Data Care.`;
+      return `Hola Emilio, soy ${user.email}, contacto desde Global Data Care y necesito ayuda.`;
     }
-    return 'Hola! Soy usuario de Global Data Care y necesito ayuda.';
+    return 'Hola Emilio! Contacto desde Global Data Care y necesito ayuda.';
   };
   
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(getMessage())}`;
@@ -38,7 +38,7 @@ const WhatsAppButton = () => {
         </a>
       </TooltipTrigger>
       <TooltipContent side="left" className="bg-slate-900 text-white">
-        <p>¿Necesitas ayuda?</p>
+        <p>Contactar con Emilio</p>
       </TooltipContent>
     </Tooltip>
   );
